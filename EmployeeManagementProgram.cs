@@ -15,7 +15,7 @@ namespace ConsoleApp1
 {
     internal class Program
     {
-        private static string serverConnection = "Server=SREEPC\\SQLEXPRESS;Database=employeedb;Integrated Security=True;TrustServerCertificate=True";
+        private static string serverConnection = "Server= Your_Server_Name ;Database=employeedb;Integrated Security=True;TrustServerCertificate=True";
 
         private DateTime shiftStart;
         private DateTime shiftEnd;
@@ -248,7 +248,7 @@ namespace ConsoleApp1
 
                 {
 
-                    mailMessage.From = new MailAddress("sreekuttankzm@gmail.com");
+                    mailMessage.From = new MailAddress(" Your_Email_Address ");
                     mailMessage.Subject = subject;
                     mailMessage.Body = body;
                     mailMessage.To.Add(emailAdd);
@@ -261,7 +261,7 @@ namespace ConsoleApp1
 
                     using (SmtpClient smtpClient = new SmtpClient("smtp.gmail.com", 587))
                     {
-                        smtpClient.Credentials = new NetworkCredential("sreekuttankzm@gmail.com", "tqyi rthe cjgt znox");
+                        smtpClient.Credentials = new NetworkCredential("Your_Email_Address", " App_Specific_Password ");
                         smtpClient.EnableSsl = true;
                         smtpClient.Send(mailMessage);
 
