@@ -582,18 +582,14 @@ namespace ConsoleApp1
             }
             
         }
-        // A custom made ChatBot
+        // A custom rule based ChatBot that requires more data to work efficiently
         static async Task ChatBot()
         {
-            //string apiKey = "sk-proj-tPHJYMu8YT5YZ72UX2H2T3BlbkFJ9xUymDRiqA001vUJX7IV";
-            //var openAIClient = new OpenAIAPI(apiKey);
-
-
             var customData = new List<(string Prompt, string Response)>
                 {
             ("hello", "Hi there! How can I help you today?"),
-            ("what is your name?", "I am a custom chatbot created by you."),
-            ("tell me a joke.", "Why don't scientists trust atoms? Because they make up everything!")
+            ("what is your name?", "I am a custom chatbot"),
+            ("tell me a joke.", "you")
         };
 
             while (true)
@@ -612,32 +608,8 @@ namespace ConsoleApp1
                 {
 
                     Console.WriteLine("Bot: I'm not sure how to respond to that.");
-
-                    /** try
-                     {
-                         // If no match in custom data, use OpenAI API
-                         var completionRequest = new CompletionRequest
-                         {
-                             Prompt = userIn,
-                             MaxTokens = 150
-                         };
-
-                         var result = await openAIClient.Completions.CreateCompletionAsync(completionRequest);
-                         Console.WriteLine("Bot: " + result.Completions[0].Text.Trim());
-                     }
-                     catch (HttpRequestException ex) when (ex.Message.Contains("429"))
-                     {
-                         Console.WriteLine("Bot: Sorry, I've reached my usage limits. Please try again later.");
-                     }
-                     catch (Exception ex)
-                     {
-                         Console.WriteLine("Bot: An error occurred: " + ex.Message);
-                     }**/
                 }
             }
-
-
-
 
         }
         // Method to calculate pay for each employee
