@@ -1,16 +1,8 @@
-﻿using System;
-using System.Threading.Tasks;
-using OpenAI_API;
-using OpenAI_API.Completions;
 using System.Diagnostics;
-using OpenAI;
 using System.Net.Mail;
 using System.Net;
 using Microsoft.Data.SqlClient;
-using Org.BouncyCastle.Asn1;
-using Mysqlx.Prepare;
-using System.Reflection.Emit;
-using System.Transactions;
+
 namespace ConsoleApp1
 {
     internal class Program
