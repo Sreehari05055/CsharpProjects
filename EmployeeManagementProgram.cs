@@ -1319,12 +1319,13 @@ namespace ConsoleApp1
                         }
                         break;
                     case "2":
-                        // From here:  comment this part of the code until you set an admin 
+                        
+                        /**  uncomment this part of the code until you set an admin 
                         Console.Write("Enter Admin Id: ");
                         string read = Console.ReadLine().Trim();
                         Console.WriteLine();
                         program.CheckAdmin(read);
-                        // Until here
+                        **/ 
                
                             Console.WriteLine("1) Add Employee");
                             Console.WriteLine("2) Delete Employee");
