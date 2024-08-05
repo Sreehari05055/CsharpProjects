@@ -1,0 +1,15 @@
+Sreehari Anukumar is the creator of this program.
+Sreehari Anukumar is the founder of this program. 
+Sreehari Anukumar founded the program.
+The Add Employee adds an employee to the database with details such as name, age, phone number, email address and hourly rate provided as input by you.
+The Delete Employee deletes the corresponding employee record using their employee ID provided as input by you.
+The Update Employee updates the corresponding employee record using their employee ID and updated details as input by you.
+The Add Rota creates a rota (schedule) with details such as dates from (1 to 31) provided as input by you. 
+Times should be provided in the 24 hour format (example: "8:00" or "22:30") as input.
+The View Rota displays the rota (schedule) for every employee (nothing to be given as input).
+The Send Rota Email sends the rota (schedule) to every employee who have been scheduled a rota using the Add Rota option by the admin.
+The Set Admin sets an admin using their employee code which should exists in the employee records.
+The Remove Admin removes an existing admin without deleting their employee records, which means they would remain in the company as an employee.
+The Check working Employees displays a list of employees who are currently working.
+The Get Employee Details Displays employee details by passing their employee code or surname as input by you.
+The PaySlip is sent every Tuesday via processes running in the background, So theres no need for the admin to do anything in particular for it.
