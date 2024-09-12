@@ -147,6 +147,7 @@ namespace EmployeeManagementSyst
 
                     {
 
+                        mailMessage.From = new MailAddress("From_email_address");
                         mailMessage.Subject = subject;
                         mailMessage.Body = body;
                         mailMessage.To.Add(emailAdd);
