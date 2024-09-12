@@ -82,11 +82,6 @@ namespace EmployeeManagementSyst
             getEmpDetails.Show();
             
         }
-        private void NeedHelp_Click(object sender, EventArgs e)
-        {
-            Chatbot chatbot = new Chatbot();
-            chatbot.Show();
-           
-        }
+        
     }
 }

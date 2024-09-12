@@ -38,14 +38,13 @@
             button8 = new Button();
             button9 = new Button();
             button10 = new Button();
-            button11 = new Button();
             SuspendLayout();
             // 
             // button1
             // 
             button1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             button1.BackColor = SystemColors.ControlDark;
-            button1.Location = new Point(195, 35);
+            button1.Location = new Point(173, 39);
             button1.Name = "button1";
             button1.Size = new Size(363, 42);
             button1.TabIndex = 0;
@@ -57,7 +56,7 @@
             // 
             button2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             button2.BackColor = SystemColors.ControlDark;
-            button2.Location = new Point(195, 69);
+            button2.Location = new Point(173, 73);
             button2.Name = "button2";
             button2.Size = new Size(363, 42);
             button2.TabIndex = 1;
@@ -69,7 +68,7 @@
             // 
             button3.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             button3.BackColor = SystemColors.ControlDark;
-            button3.Location = new Point(195, 105);
+            button3.Location = new Point(173, 109);
             button3.Name = "button3";
             button3.Size = new Size(363, 42);
             button3.TabIndex = 2;
@@ -81,7 +80,7 @@
             // 
             button4.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             button4.BackColor = SystemColors.ControlDark;
-            button4.Location = new Point(195, 141);
+            button4.Location = new Point(173, 145);
             button4.Name = "button4";
             button4.Size = new Size(363, 42);
             button4.TabIndex = 3;
@@ -93,7 +92,7 @@
             // 
             button5.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             button5.BackColor = SystemColors.ControlDark;
-            button5.Location = new Point(195, 177);
+            button5.Location = new Point(173, 181);
             button5.Name = "button5";
             button5.Size = new Size(363, 42);
             button5.TabIndex = 4;
@@ -105,7 +104,7 @@
             // 
             button6.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             button6.BackColor = SystemColors.ControlDark;
-            button6.Location = new Point(195, 213);
+            button6.Location = new Point(173, 217);
             button6.Name = "button6";
             button6.Size = new Size(363, 42);
             button6.TabIndex = 5;
@@ -117,7 +116,7 @@
             // 
             button7.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             button7.BackColor = SystemColors.ControlDark;
-            button7.Location = new Point(195, 249);
+            button7.Location = new Point(173, 253);
             button7.Name = "button7";
             button7.Size = new Size(363, 42);
             button7.TabIndex = 6;
@@ -129,7 +128,7 @@
             // 
             button8.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             button8.BackColor = SystemColors.ControlDark;
-            button8.Location = new Point(195, 285);
+            button8.Location = new Point(173, 289);
             button8.Name = "button8";
             button8.Size = new Size(363, 42);
             button8.TabIndex = 7;
@@ -141,7 +140,7 @@
             // 
             button9.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             button9.BackColor = SystemColors.ControlDark;
-            button9.Location = new Point(195, 321);
+            button9.Location = new Point(173, 325);
             button9.Name = "button9";
             button9.Size = new Size(363, 42);
             button9.TabIndex = 8;
@@ -153,7 +152,7 @@
             // 
             button10.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             button10.BackColor = SystemColors.ControlDark;
-            button10.Location = new Point(195, 357);
+            button10.Location = new Point(173, 361);
             button10.Name = "button10";
             button10.Size = new Size(363, 42);
             button10.TabIndex = 9;
@@ -161,24 +160,11 @@
             button10.UseVisualStyleBackColor = false;
             button10.Click += GetEmpDetails_Click;
             // 
-            // button11
-            // 
-            button11.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            button11.BackColor = SystemColors.ControlDark;
-            button11.Location = new Point(12, 410);
-            button11.Name = "button11";
-            button11.Size = new Size(146, 43);
-            button11.TabIndex = 10;
-            button11.Text = "Need Help?";
-            button11.UseVisualStyleBackColor = false;
-            button11.Click += NeedHelp_Click;
-            // 
             // AdminPage
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(734, 465);
-            Controls.Add(button11);
             Controls.Add(button10);
             Controls.Add(button9);
             Controls.Add(button8);
@@ -206,6 +192,5 @@
         private Button button8;
         private Button button9;
         private Button button10;
-        private Button button11;
     }
 }
