@@ -1,0 +1,132 @@
+﻿using Microsoft.Data.SqlClient;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Identity.Client.NativeInterop;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace EmployeeManagementSyst
+{
+    public partial class DeleteEmp : Form
+    {
+        private string serverConnection;
+        public DeleteEmp()
+        {
+            InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.BackColor = System.Drawing.Color.BlanchedAlmond;
+        }
+        public void InitiateServer()
+        {
+            try
+            {
+                var builder = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile("connectionString.json", optional: true, reloadOnChange: true);
+                IConfiguration configuration = builder.Build();
+
+                // Get connection string
+                string connectionString = configuration.GetConnectionString("EmployeeDatabase");
+
+                if (string.IsNullOrEmpty(connectionString))
+                {
+                    throw new Exception("Connection string 'EmployeeDatabase' not found in configuration file.");
+                }
+
+                serverConnection = connectionString;
+            }
+            catch (Exception ex) { MessageBox.Show("Error: " + ex.Message); }
+        }
+        private void button1_Click(object sender, EventArgs e)
+        {
+            InitiateServer();
+            string cdeInp = textBox1.Text;
+            RemoveAdmin(cdeInp);
+            DeletEmp(cdeInp);          
+            RemoveCard(cdeInp);
+            this.Close();
+
+        }
+        public void RemoveAdmin(string id)
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(serverConnection))
+                {
+                    conn.Open();
+                    string deleteAdmin = "DELETE FROM admintable WHERE id = @id; "; ;
+                    SqlCommand detailQuery = new SqlCommand(deleteAdmin, conn);
+
+                    detailQuery.Parameters.Clear();
+                    detailQuery.Parameters.AddWithValue("@id", id);
+
+                    int rowsAffected = detailQuery.ExecuteNonQuery();
+                    if (rowsAffected > 0)
+                    {
+                        MessageBox.Show("Admin Deleted");
+                    }
+
+
+                }
+
+            }
+            catch (Exception e) { MessageBox.Show("Error Removing Admin: " + e.Message); }
+        }
+        private void RemoveCard(string code)
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(serverConnection))
+                {
+                    conn.Open();
+                    string deleteCard = "DELETE FROM carddata WHERE id = @id; "; ;
+                    SqlCommand detailQuery = new SqlCommand(deleteCard, conn);
+
+                    detailQuery.Parameters.Clear();
+                    detailQuery.Parameters.AddWithValue("@id", code);
+
+                    int rowsAffected = detailQuery.ExecuteNonQuery();
+                    if (rowsAffected > 0)
+                    {
+                        MessageBox.Show("Card Deleted");
+                    }
+                    else { MessageBox.Show("Failed to delete Card or Card not found "); }
+
+                }
+
+            }
+            catch (Exception e) { MessageBox.Show("Error Deleting Card: " + e.Message); }
+        }
+        public void DeletEmp(string empCode)
+        {
+            try
+            {
+                using (SqlConnection serverConn = new SqlConnection(serverConnection))
+                {
+                    serverConn.Open();
+                    string querydlt = "DELETE FROM employeedetails WHERE id = @id; ";
+                    SqlCommand exec = new SqlCommand(querydlt, serverConn);
+                    exec.Parameters.AddWithValue("@id", empCode);
+                    int rowsAffected = exec.ExecuteNonQuery();
+                    if (rowsAffected > 0)
+                    {
+                        MessageBox.Show("Employee deleted successfully");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Failed to delete employee or employee not found");
+                    }
+                }
+            }
+            catch (Exception ex) { MessageBox.Show("Error Deleting Employee: " + ex.Message); }
+        }
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+        }
+}
