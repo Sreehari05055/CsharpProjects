@@ -185,15 +185,38 @@ namespace EmployeeManagementSyst
             }
             catch (Exception ex) { MessageBox.Show("Error: "+ex.Message); }
         }
+        private void AdminCheck()
+        {
+            try 
+            {
+                using (SqlConnection sqlConnection = new SqlConnection(serverConnection)) 
+                {
+                    sqlConnection.Open();
+                    string admQuery = "SELECT COUNT(*) FROM admintable";
+                    SqlCommand admExec = new SqlCommand(admQuery, sqlConnection);
+                    int recordCount = (int)admExec.ExecuteScalar();
+                    if (recordCount > 0)
+                    {
+                        VerifyAdmin form3 = new VerifyAdmin();
+
+                        form3.Show();
+                    }
+                    else 
+                    {
+                    AdminPage adminPage = new AdminPage();  
+                        adminPage.Show();
+                    }
+                }
+            
+            } catch (Exception e) { MessageBox.Show("Error Searching Admin: "+e.Message); } 
+        }
 
         private void ManagementInfoClick(object sender, EventArgs e)
         {
             try
             {
-                
-                VerifyAdmin form3 = new VerifyAdmin();
-
-                form3.Show();
+                InitiateServer();
+                AdminCheck();
                
                 
                 

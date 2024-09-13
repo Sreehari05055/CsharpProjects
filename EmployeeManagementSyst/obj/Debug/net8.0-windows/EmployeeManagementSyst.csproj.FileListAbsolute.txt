@@ -71,7 +71,6 @@ C:\Users\sreek\source\repos\EmployeeManagementSyst\bin\Debug\net8.0-windows\conn
 C:\Users\sreek\source\repos\EmployeeManagementSyst\obj\Debug\net8.0-windows\EmployeeManagementSyst.AddEmp.resources
 C:\Users\sreek\source\repos\EmployeeManagementSyst\obj\Debug\net8.0-windows\EmployeeManagementSyst.AddRota.resources
 C:\Users\sreek\source\repos\EmployeeManagementSyst\obj\Debug\net8.0-windows\EmployeeManagementSyst.AdminPage.resources
-C:\Users\sreek\source\repos\EmployeeManagementSyst\obj\Debug\net8.0-windows\EmployeeManagementSyst.Chatbot.resources
 C:\Users\sreek\source\repos\EmployeeManagementSyst\obj\Debug\net8.0-windows\EmployeeManagementSyst.CheckStatus.resources
 C:\Users\sreek\source\repos\EmployeeManagementSyst\obj\Debug\net8.0-windows\EmployeeManagementSyst.ClockingPage.resources
 C:\Users\sreek\source\repos\EmployeeManagementSyst\obj\Debug\net8.0-windows\EmployeeManagementSyst.DeleteEmp.resources
