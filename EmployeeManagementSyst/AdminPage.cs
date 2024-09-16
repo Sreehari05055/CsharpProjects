@@ -78,8 +78,8 @@ namespace EmployeeManagementSyst
         }
         private void GetEmpDetails_Click(object sender, EventArgs e)
         {
-            GetEmpDetails getEmpDetails = new GetEmpDetails();
-            getEmpDetails.Show();
+            EmployeeDetailGrid employeeDetailGrid = new EmployeeDetailGrid(); 
+            employeeDetailGrid.Show();
             
         }
         

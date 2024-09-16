@@ -16,12 +16,11 @@ namespace EmployeeManagementSyst
     {
         private string searchParameter;
         private string serverConnection;
-        public EmployeeDetailGrid(string searchParameter)
+        public EmployeeDetailGrid()
         {          
             InitializeComponent();
             InitiateServer();
            
-            this.searchParameter = searchParameter;
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.BackColor = System.Drawing.Color.BlanchedAlmond;
             
@@ -57,8 +56,16 @@ namespace EmployeeManagementSyst
             }
             catch (Exception ex) { MessageBox.Show("Error: " + ex.Message); }
         }
-        public void EmployeeDetails()
+        private void Changing_Text(object sender,EventArgs s)
         {
+            string userInput = textBox1.Text.Trim().ToLower();
+
+            if (string.IsNullOrWhiteSpace(userInput))
+            {
+
+                LoadAllData();
+                return;
+            }
             try
             {
                 DataTable dataTable = new DataTable();
@@ -75,8 +82,8 @@ namespace EmployeeManagementSyst
                     string qry = "SELECT id,fullname,age,phonenumber,email,hourlyrate FROM employeedetails WHERE surname = @surname OR id = @id;";
                     SqlCommand mySqlCommand = new SqlCommand(qry, serverConnect);
                     mySqlCommand.Parameters.Clear();
-                    mySqlCommand.Parameters.AddWithValue("@surname", searchParameter);
-                    mySqlCommand.Parameters.AddWithValue("@id", searchParameter);
+                    mySqlCommand.Parameters.AddWithValue("@surname", userInput);
+                    mySqlCommand.Parameters.AddWithValue("@id", userInput);
                     SqlDataReader reader = mySqlCommand.ExecuteReader();
                     if (reader.HasRows)
                     {
@@ -91,19 +98,62 @@ namespace EmployeeManagementSyst
                             row["hourlyrate"] = reader["hourlyrate"].ToString();
                             dataTable.Rows.Add(row);
                         }
+                        dataGridView1.DataSource = dataTable;
+                    }
+                    
+                }
+
+            }
+
+            catch (Exception ex) { MessageBox.Show("Employee Details Error: " + ex.Message); }
+        }
+        private void LoadAllData()
+        {
+            try
+            {
+                DataTable dataTable = new DataTable();
+                dataTable.Columns.Add("id", typeof(string));
+                dataTable.Columns.Add("fullname", typeof(string));
+                dataTable.Columns.Add("age", typeof(string));
+                dataTable.Columns.Add("phonenumber", typeof(string));
+                dataTable.Columns.Add("email", typeof(string));
+                dataTable.Columns.Add("hourlyrate", typeof(string));
+
+                using (SqlConnection connection = new SqlConnection(serverConnection))
+                {
+                    connection.Open();
+                    string query = "SELECT id,fullname,age,phonenumber,email,hourlyrate FROM employeedetails";
+                    SqlCommand cmd = new SqlCommand(query, connection);
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            DataRow row = dataTable.NewRow();
+                            row["id"] = reader["id"].ToString();
+                            row["fullname"] = reader["fullname"].ToString();
+                            row["age"] = reader["age"].ToString();
+                            row["phonenumber"] = reader["phonenumber"].ToString();
+                            row["email"] = reader["email"].ToString();
+                            row["hourlyrate"] = reader["hourlyrate"].ToString();
+                            dataTable.Rows.Add(row);
+                        }
+                        dataGridView1.DataSource = dataTable;
 
                     }
-                    else { MessageBox.Show("Employee not found"); }
+                    
+                   
                 }
-                dataGridView1.DataSource = dataTable;
             }
-            catch (Exception ex) { MessageBox.Show("Employee Details Error: " + ex.Message); }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading data: " + ex.Message);
+            }
         }
 
         private void EmployeeDetailGrid_Load(object sender, EventArgs e)
         {
-            // Call EmployeeDetails when the form loads
-            EmployeeDetails();
+            LoadAllData();
         }
     }
 }

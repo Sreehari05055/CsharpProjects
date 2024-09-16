@@ -74,7 +74,6 @@ C:\Users\sreek\source\repos\EmployeeManagementSyst\obj\Debug\net8.0-windows\Empl
 C:\Users\sreek\source\repos\EmployeeManagementSyst\obj\Debug\net8.0-windows\EmployeeManagementSyst.CheckStatus.resources
 C:\Users\sreek\source\repos\EmployeeManagementSyst\obj\Debug\net8.0-windows\EmployeeManagementSyst.ClockingPage.resources
 C:\Users\sreek\source\repos\EmployeeManagementSyst\obj\Debug\net8.0-windows\EmployeeManagementSyst.DeleteEmp.resources
-C:\Users\sreek\source\repos\EmployeeManagementSyst\obj\Debug\net8.0-windows\EmployeeManagementSyst.GetEmpDetails.resources
 C:\Users\sreek\source\repos\EmployeeManagementSyst\obj\Debug\net8.0-windows\EmployeeManagementSyst.RemoveAdmin.resources
 C:\Users\sreek\source\repos\EmployeeManagementSyst\obj\Debug\net8.0-windows\EmployeeManagementSyst.SetAdmin.resources
 C:\Users\sreek\source\repos\EmployeeManagementSyst\obj\Debug\net8.0-windows\EmployeeManagementSyst.UpdateEmp.resources
