@@ -194,7 +194,7 @@
             button13.TabIndex = 12;
             button13.Text = "Set Weekly Schedule(Rota) Save Date";
             button13.UseVisualStyleBackColor = false;
-            button13.Click += button13_Click;
+            button13.Click += WeeklySave;
             // 
             // AdminPage
             // 

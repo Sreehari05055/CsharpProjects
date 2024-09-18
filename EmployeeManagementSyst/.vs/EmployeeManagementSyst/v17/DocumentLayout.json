@@ -3,6 +3,18 @@
   "WorkspaceRootPath": "C:\\Users\\sreek\\source\\repos\\EmployeeManagementSyst\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|c:\\users\\sreek\\source\\repos\\employeemanagementsyst\\adminpage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|solutionrelative:adminpage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|c:\\users\\sreek\\source\\repos\\employeemanagementsyst\\adminpage.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|solutionrelative:adminpage.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|C:\\Users\\sreek\\source\\repos\\EmployeeManagementSyst\\adminpage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|solutionrelative:adminpage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|c:\\users\\sreek\\source\\repos\\employeemanagementsyst\\weeklysaveconfirm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|solutionrelative:weeklysaveconfirm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -31,24 +43,16 @@
       "RelativeMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|solutionrelative:viewrota.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|c:\\users\\sreek\\source\\repos\\employeemanagementsyst\\adminpage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|solutionrelative:adminpage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|C:\\Users\\sreek\\source\\repos\\EmployeeManagementSyst\\schedulepayslip.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|solutionrelative:schedulepayslip.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|c:\\users\\sreek\\source\\repos\\employeemanagementsyst\\weeklysaveconfirm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|C:\\Users\\sreek\\source\\repos\\EmployeeManagementSyst\\weeklysaveconfirm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|solutionrelative:weeklysaveconfirm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|c:\\users\\sreek\\source\\repos\\employeemanagementsyst\\vieweditpayslip.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|solutionrelative:vieweditpayslip.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|C:\\Users\\sreek\\source\\repos\\EmployeeManagementSyst\\adminpage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|solutionrelative:adminpage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|C:\\Users\\sreek\\source\\repos\\EmployeeManagementSyst\\allemployees.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
@@ -71,11 +75,7 @@
       "RelativeMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|solutionrelative:rotaverification.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|c:\\users\\sreek\\source\\repos\\employeemanagementsyst\\adminpage.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|solutionrelative:adminpage.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|c:\\users\\sreek\\source\\repos\\employeemanagementsyst\\sendrotaemail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|C:\\Users\\sreek\\source\\repos\\EmployeeManagementSyst\\sendrotaemail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|solutionrelative:sendrotaemail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
@@ -318,24 +318,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "WeeklySaveConfirm.Designer.cs",
-              "DocumentMoniker": "C:\\Users\\sreek\\source\\repos\\EmployeeManagementSyst\\WeeklySaveConfirm.Designer.cs",
-              "RelativeDocumentMoniker": "WeeklySaveConfirm.Designer.cs",
-              "ToolTip": "C:\\Users\\sreek\\source\\repos\\EmployeeManagementSyst\\WeeklySaveConfirm.Designer.cs",
-              "RelativeToolTip": "WeeklySaveConfirm.Designer.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAqwAIAAAASAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-18T11:10:47.344Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "WeeklySaveConfirm.cs",
               "DocumentMoniker": "C:\\Users\\sreek\\source\\repos\\EmployeeManagementSyst\\WeeklySaveConfirm.cs",
               "RelativeDocumentMoniker": "WeeklySaveConfirm.cs",
@@ -348,32 +335,31 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 11,
               "Title": "WeeklySaveConfirm.cs [Design]",
               "DocumentMoniker": "C:\\Users\\sreek\\source\\repos\\EmployeeManagementSyst\\WeeklySaveConfirm.cs",
               "RelativeDocumentMoniker": "WeeklySaveConfirm.cs",
               "ToolTip": "C:\\Users\\sreek\\source\\repos\\EmployeeManagementSyst\\WeeklySaveConfirm.cs [Design]",
               "RelativeToolTip": "WeeklySaveConfirm.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-18T11:07:17.121Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2024-09-18T11:07:17.121Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 0,
               "Title": "AdminPage.cs",
               "DocumentMoniker": "C:\\Users\\sreek\\source\\repos\\EmployeeManagementSyst\\AdminPage.cs",
               "RelativeDocumentMoniker": "AdminPage.cs",
               "ToolTip": "C:\\Users\\sreek\\source\\repos\\EmployeeManagementSyst\\AdminPage.cs",
               "RelativeToolTip": "AdminPage.cs",
-              "ViewState": "AQIAAEwAAAAAAAAAAAAYwGQAAAAlAAAA",
+              "ViewState": "AQIAAEMAAAAAAAAAAAAcwIwAAABLAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-11T20:54:39.729Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 9,
               "Title": "ViewRota.cs",
               "DocumentMoniker": "C:\\Users\\sreek\\source\\repos\\EmployeeManagementSyst\\ViewRota.cs",
               "RelativeDocumentMoniker": "ViewRota.cs",
@@ -386,7 +372,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
               "Title": "SchedulePaySlip.cs",
               "DocumentMoniker": "C:\\Users\\sreek\\source\\repos\\EmployeeManagementSyst\\SchedulePaySlip.cs",
               "RelativeDocumentMoniker": "SchedulePaySlip.cs",
@@ -399,7 +385,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 8,
               "Title": "ViewEditPaySlip.cs",
               "DocumentMoniker": "C:\\Users\\sreek\\source\\repos\\EmployeeManagementSyst\\ViewEditPaySlip.cs",
               "RelativeDocumentMoniker": "ViewEditPaySlip.cs",
@@ -412,7 +398,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 7,
               "Title": "SchedulePaySlip.Designer.cs",
               "DocumentMoniker": "C:\\Users\\sreek\\source\\repos\\EmployeeManagementSyst\\SchedulePaySlip.Designer.cs",
               "RelativeDocumentMoniker": "SchedulePaySlip.Designer.cs",
@@ -420,12 +406,11 @@
               "RelativeToolTip": "SchedulePaySlip.Designer.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAqwAIAAAASAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-17T10:25:33.659Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-17T10:25:33.659Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\sreek\\source\\repos\\EmployeeManagementSyst\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
@@ -433,12 +418,48 @@
               "RelativeToolTip": "Program.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABYAAAAmAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-19T08:55:21.715Z",
+              "WhenOpened": "2024-08-19T08:55:21.715Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AdminPage.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\sreek\\source\\repos\\EmployeeManagementSyst\\AdminPage.cs",
+              "RelativeDocumentMoniker": "AdminPage.cs",
+              "ToolTip": "C:\\Users\\sreek\\source\\repos\\EmployeeManagementSyst\\AdminPage.cs [Design]",
+              "RelativeToolTip": "AdminPage.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-19T09:04:17.948Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AdminPage.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\sreek\\source\\repos\\EmployeeManagementSyst\\AdminPage.Designer.cs",
+              "RelativeDocumentMoniker": "AdminPage.Designer.cs",
+              "ToolTip": "C:\\Users\\sreek\\source\\repos\\EmployeeManagementSyst\\AdminPage.Designer.cs",
+              "RelativeToolTip": "AdminPage.Designer.cs",
+              "ViewState": "AQIAALIAAAAAAAAAAAAowMQAAAAoAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-17T07:25:38.226Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 5,
+              "Title": "WeeklySaveConfirm.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\sreek\\source\\repos\\EmployeeManagementSyst\\WeeklySaveConfirm.Designer.cs",
+              "RelativeDocumentMoniker": "WeeklySaveConfirm.Designer.cs",
+              "ToolTip": "C:\\Users\\sreek\\source\\repos\\EmployeeManagementSyst\\WeeklySaveConfirm.Designer.cs",
+              "RelativeToolTip": "WeeklySaveConfirm.Designer.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAqwAIAAAASAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-18T11:10:47.344Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
               "Title": "ViewEditPaySlip.Designer.cs",
               "DocumentMoniker": "C:\\Users\\sreek\\source\\repos\\EmployeeManagementSyst\\ViewEditPaySlip.Designer.cs",
               "RelativeDocumentMoniker": "ViewEditPaySlip.Designer.cs",
@@ -446,12 +467,11 @@
               "RelativeToolTip": "ViewEditPaySlip.Designer.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAqwAIAAAASAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-17T07:48:45.575Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-17T07:48:45.575Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 14,
               "Title": "AllEmployees.cs",
               "DocumentMoniker": "C:\\Users\\sreek\\source\\repos\\EmployeeManagementSyst\\AllEmployees.cs",
               "RelativeDocumentMoniker": "AllEmployees.cs",
@@ -464,43 +484,40 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 13,
               "Title": "AllEmployees.cs [Design]",
               "DocumentMoniker": "C:\\Users\\sreek\\source\\repos\\EmployeeManagementSyst\\AllEmployees.cs",
               "RelativeDocumentMoniker": "AllEmployees.cs",
               "ToolTip": "C:\\Users\\sreek\\source\\repos\\EmployeeManagementSyst\\AllEmployees.cs [Design]",
               "RelativeToolTip": "AllEmployees.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-12T19:30:55.262Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2024-09-12T19:30:55.262Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 10,
               "Title": "SchedulePaySlip.cs [Design]",
               "DocumentMoniker": "C:\\Users\\sreek\\source\\repos\\EmployeeManagementSyst\\SchedulePaySlip.cs",
               "RelativeDocumentMoniker": "SchedulePaySlip.cs",
               "ToolTip": "C:\\Users\\sreek\\source\\repos\\EmployeeManagementSyst\\SchedulePaySlip.cs [Design]",
               "RelativeToolTip": "SchedulePaySlip.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-16T20:59:52.8Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2024-09-16T20:59:52.8Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 15,
               "Title": "AddRota.cs [Design]",
               "DocumentMoniker": "C:\\Users\\sreek\\source\\repos\\EmployeeManagementSyst\\AddRota.cs",
               "RelativeDocumentMoniker": "AddRota.cs",
               "ToolTip": "C:\\Users\\sreek\\source\\repos\\EmployeeManagementSyst\\AddRota.cs [Design]",
               "RelativeToolTip": "AddRota.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-19T08:51:30.483Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2024-08-19T08:51:30.483Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 17,
               "Title": "RotaVerification.cs",
               "DocumentMoniker": "C:\\Users\\sreek\\source\\repos\\EmployeeManagementSyst\\RotaVerification.cs",
               "RelativeDocumentMoniker": "RotaVerification.cs",
@@ -513,20 +530,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "AdminPage.Designer.cs",
-              "DocumentMoniker": "C:\\Users\\sreek\\source\\repos\\EmployeeManagementSyst\\AdminPage.Designer.cs",
-              "RelativeDocumentMoniker": "AdminPage.Designer.cs",
-              "ToolTip": "C:\\Users\\sreek\\source\\repos\\EmployeeManagementSyst\\AdminPage.Designer.cs",
-              "RelativeToolTip": "AdminPage.Designer.cs",
-              "ViewState": "AQIAAKwAAAAAAAAAAAAowLkAAAAtAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-17T07:25:38.226Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 16,
               "Title": "SendRotaEmail.cs",
               "DocumentMoniker": "C:\\Users\\sreek\\source\\repos\\EmployeeManagementSyst\\SendRotaEmail.cs",
               "RelativeDocumentMoniker": "SendRotaEmail.cs",
@@ -539,18 +543,6 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "AdminPage.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\sreek\\source\\repos\\EmployeeManagementSyst\\AdminPage.cs",
-              "RelativeDocumentMoniker": "AdminPage.cs",
-              "ToolTip": "C:\\Users\\sreek\\source\\repos\\EmployeeManagementSyst\\AdminPage.cs [Design]",
-              "RelativeToolTip": "AdminPage.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-19T09:04:17.948Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 19,
               "Title": "AddEmp.Designer.cs",
               "DocumentMoniker": "C:\\Users\\sreek\\source\\repos\\EmployeeManagementSyst\\AddEmp.Designer.cs",
@@ -559,8 +551,7 @@
               "RelativeToolTip": "AddEmp.Designer.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAASAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-19T17:30:58.983Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-19T17:30:58.983Z"
             },
             {
               "$type": "Document",
@@ -571,8 +562,7 @@
               "ToolTip": "C:\\Users\\sreek\\source\\repos\\EmployeeManagementSyst\\CheckStatus.cs [Design]",
               "RelativeToolTip": "CheckStatus.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-19T08:53:44.089Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2024-08-19T08:53:44.089Z"
             },
             {
               "$type": "Document",
@@ -583,8 +573,7 @@
               "ToolTip": "C:\\Users\\sreek\\source\\repos\\EmployeeManagementSyst\\MainPage.cs [Design]",
               "RelativeToolTip": "MainPage.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-19T08:33:24.514Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2024-08-19T08:33:24.514Z"
             },
             {
               "$type": "Document",
@@ -595,8 +584,7 @@
               "ToolTip": "C:\\Users\\sreek\\source\\repos\\EmployeeManagementSyst\\SendRotaEmail.cs [Design]",
               "RelativeToolTip": "SendRotaEmail.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-18T10:40:03.819Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2024-09-18T10:40:03.819Z"
             },
             {
               "$type": "Document",
@@ -608,8 +596,7 @@
               "RelativeToolTip": "ViewRota.Designer.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAASAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-07T21:16:56.62Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-07T21:16:56.62Z"
             },
             {
               "$type": "Document",
@@ -620,8 +607,7 @@
               "ToolTip": "C:\\Users\\sreek\\source\\repos\\EmployeeManagementSyst\\UpdateEmp.cs [Design]",
               "RelativeToolTip": "UpdateEmp.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-26T07:04:29.229Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2024-08-26T07:04:29.229Z"
             },
             {
               "$type": "Document",
@@ -632,8 +618,7 @@
               "ToolTip": "C:\\Users\\sreek\\source\\repos\\EmployeeManagementSyst\\ViewEditPaySlip.cs [Design]",
               "RelativeToolTip": "ViewEditPaySlip.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-16T20:59:29.142Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2024-09-16T20:59:29.142Z"
             },
             {
               "$type": "Document",
@@ -644,8 +629,7 @@
               "ToolTip": "C:\\Users\\sreek\\source\\repos\\EmployeeManagementSyst\\EmployeeDetailGrid.cs [Design]",
               "RelativeToolTip": "EmployeeDetailGrid.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-12T10:08:36.977Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2024-09-12T10:08:36.977Z"
             },
             {
               "$type": "Document",
@@ -656,8 +640,7 @@
               "ToolTip": "C:\\Users\\sreek\\source\\repos\\EmployeeManagementSyst\\PaySlip.cs [Design]",
               "RelativeToolTip": "PaySlip.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-11T14:56:16.58Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2024-09-11T14:56:16.58Z"
             },
             {
               "$type": "Document",
@@ -669,8 +652,7 @@
               "RelativeToolTip": "MainPage.Designer.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAASAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-19T08:33:23.811Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-19T08:33:23.811Z"
             },
             {
               "$type": "Document",
@@ -682,8 +664,7 @@
               "RelativeToolTip": "PaySlip.cs",
               "ViewState": "AQIAAHAAAAAAAAAAAAAmwBEAAAAZAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-11T14:56:32Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-11T14:56:32Z"
             },
             {
               "$type": "Document",
@@ -721,8 +702,7 @@
               "RelativeToolTip": "MainPage.cs",
               "ViewState": "AQIAAG8AAAAAAAAAAAAmwEIAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-19T08:56:37.09Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-19T08:56:37.09Z"
             },
             {
               "$type": "Document",
@@ -734,8 +714,7 @@
               "RelativeToolTip": "UpdateEmp.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAZAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-19T09:09:41.251Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-19T09:09:41.251Z"
             },
             {
               "$type": "Document",
@@ -772,8 +751,7 @@
               "RelativeToolTip": "SendRotaEmail.Designer.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAqwAIAAAASAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-19T17:36:47.699Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-19T17:36:47.699Z"
             },
             {
               "$type": "Document",
@@ -798,8 +776,7 @@
               "RelativeToolTip": "CheckStatus.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAZAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-19T09:05:22.306Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-19T09:05:22.306Z"
             },
             {
               "$type": "Document",
@@ -811,8 +788,7 @@
               "RelativeToolTip": "CheckStatus.Designer.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAASAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-07T12:27:24.867Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-07T12:27:24.867Z"
             },
             {
               "$type": "Document",
@@ -824,8 +800,7 @@
               "RelativeToolTip": "EmployeeDetailGrid.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAqwBAAAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-12T10:13:17.312Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-12T10:13:17.312Z"
             },
             {
               "$type": "Document",
@@ -837,8 +812,7 @@
               "RelativeToolTip": "EmployeeDetailGrid.Designer.cs",
               "ViewState": "AQIAAD8AAAAAAAAAAAAowEoAAAAsAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-12T10:55:26.474Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-12T10:55:26.474Z"
             },
             {
               "$type": "Document",
@@ -861,8 +835,7 @@
               "RelativeToolTip": "AllEmployees.Designer.cs",
               "ViewState": "AQIAABkAAAAAAAAAAAAgwBYAAAAgAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-12T19:33:43.934Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-12T19:33:43.934Z"
             },
             {
               "$type": "Document",
@@ -886,8 +859,7 @@
               "RelativeToolTip": "AddRota.Designer.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAqwAIAAAASAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-21T17:22:19.502Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-21T17:22:19.502Z"
             },
             {
               "$type": "Document",
@@ -1133,8 +1105,7 @@
               "RelativeToolTip": "UpdateEmp.Designer.cs",
               "ViewState": "AQIAAE4AAAAAAAAAAAAAADIAAAAsAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-26T06:33:15.296Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-26T06:33:15.296Z"
             },
             {
               "$type": "Document",
@@ -1180,8 +1151,7 @@
               "ToolTip": "C:\\Users\\sreek\\source\\repos\\EmployeeManagementSyst\\UpdateEmp.resx",
               "RelativeToolTip": "UpdateEmp.resx",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001005|",
-              "WhenOpened": "2024-08-26T06:33:15.28Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-26T06:33:15.28Z"
             },
             {
               "$type": "Document",
@@ -1249,8 +1219,7 @@
               "ToolTip": "C:\\Users\\sreek\\source\\repos\\EmployeeManagementSyst\\MainPage.resx",
               "RelativeToolTip": "MainPage.resx",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001005|",
-              "WhenOpened": "2024-08-19T08:33:40.112Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-19T08:33:40.112Z"
             },
             {
               "$type": "Document",
