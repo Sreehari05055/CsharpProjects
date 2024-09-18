@@ -38,6 +38,28 @@ namespace EmployeeManagementSyst
             }
             catch (Exception ex) { MessageBox.Show("Error: "+ex.Message); }
         }
+        public void LastExecTable() 
+        {
+            try
+            {
+
+                using (SqlConnection serverCon = new SqlConnection(serverConnection))
+                {
+                    serverCon.Open();
+                    string queryinfo = "SELECT table_name FROM information_schema.tables WHERE table_catalog = 'EmployeeManagement' AND table_schema = 'dbo' AND table_name = 'lastExecuted'; ";
+                    SqlCommand toExecute = new SqlCommand(queryinfo, serverCon);
+                    Object data = toExecute.ExecuteScalar();
+                    if (data == null)
+                    {
+                        string queryThree = "CREATE TABLE dbo.lastExecuted(row_id VARCHAR(7), dayof_week VARCHAR(100), last_exec_date VARCHAR(100));";
+                        SqlCommand toexecute = new SqlCommand(queryThree, serverCon);
+                        toexecute.ExecuteNonQuery();
+                        MessageBox.Show("Exe Database Created Successfuly");
+                    }
+                }
+            }
+            catch (Exception ex) { MessageBox.Show("Error Creating Table (Last Executed): " + ex.Message); }
+        }
         public void EmployeeDetails()
         {
             try

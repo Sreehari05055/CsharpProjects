@@ -14,14 +14,15 @@ namespace EmployeeManagementSyst
 
             Task.Run(() =>
             {
-                ViewRota viewRota = new ViewRota();
-                viewRota.LastRunTime();
+               SchedulePaySlip schedulePaySlip = new SchedulePaySlip(); 
+               schedulePaySlip.LastRunTime();
             });
             Task.Run(() =>
             {
-                PaySlip paySlip = new PaySlip();
-                paySlip.LastRunTime();
+               WeeklySaveConfirm confirm = new WeeklySaveConfirm();
+                confirm.SetSaveDate();
             });
+
             MainPage obj = new MainPage();
             obj.InitiateServer();
             obj.EmployeeDetails();
@@ -30,6 +31,7 @@ namespace EmployeeManagementSyst
             obj.EmployeeCardDetails();
             obj.HoursTable();
             obj.RotaTable();
+            obj.LastExecTable();
             Application.Run(new MainPage());
             
         }

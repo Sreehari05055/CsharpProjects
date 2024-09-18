@@ -14,7 +14,7 @@ namespace EmployeeManagementSyst
 {
     public partial class EmployeeDetailGrid : Form
     {
-        private string searchParameter;
+        
         private string serverConnection;
         public EmployeeDetailGrid()
         {          
@@ -25,7 +25,7 @@ namespace EmployeeManagementSyst
             this.BackColor = System.Drawing.Color.BlanchedAlmond;
             
         }
-       public void Table() 
+      /** public void Table() 
         {
             dataGridView1 = new DataGridView
             {
@@ -35,7 +35,7 @@ namespace EmployeeManagementSyst
             };
             Controls.Add(dataGridView1);
         
-        }
+        }**/
        
         public void InitiateServer()
         {

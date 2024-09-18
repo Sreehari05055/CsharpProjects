@@ -21,7 +21,7 @@ namespace EmployeeManagementSyst
     {
         
         private string serverConnection;
-        private string filePath = "lastExecuted.txt";
+     //   private string filePath = "lastExecuted.txt";
        
         public ViewRota()
         {
@@ -31,6 +31,7 @@ namespace EmployeeManagementSyst
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.BackColor = System.Drawing.Color.BlanchedAlmond;
         }
+       
         private void PopulateDataGridView()
         {
             try
@@ -49,7 +50,7 @@ namespace EmployeeManagementSyst
                         while (reader.Read())
                         {
                             obj.Add(reader.GetString(reader.GetOrdinal("id")));
-                        }
+                        } 
                     }
 
                     // Prepare queries
@@ -149,97 +150,9 @@ namespace EmployeeManagementSyst
                 MessageBox.Show("Error Viewing Rota: " + ex.Message);
             }
         }
-        private void SaveWeeklyData()
-        {
-            try 
-            {
-                DateTime dateTime = DateTime.Now;
-
-                string format = dateTime.ToString("yyyy-MM-dd");
-                string path = $@"C:\Users\sreek\OneDrive\المستندات\WeeklyRota_{format}.txt"; ;
-                StringBuilder sb = new StringBuilder();
-                using (SqlConnection con = new SqlConnection(serverConnection))
-                {
-                    con.Open();
-                    string saveQuery = """SELECT r.id, e.fullname, r.start_work, r.finish_work, r.day_ofweek FROM rotatable r INNER JOIN employeedetails e ON r.id = e.id;""";
-                    SqlCommand sqlCommand = new SqlCommand(saveQuery, con);
-                 
-                    using (SqlDataReader reader = sqlCommand.ExecuteReader()) 
-                    {
-                        bool hasData = false;
-                        while (reader.Read()) 
-                        {
-                            string fullName = reader.GetString(reader.GetOrdinal("fullname"));
-                            string id = reader.GetString(reader.GetOrdinal("id"));
-                            DateTime startWork = (DateTime)reader["start_work"];
-                            DateTime finishWork = (DateTime)reader["finish_work"];
-                            string dayOfWeek = reader["day_ofweek"].ToString();
-
-                            sb.AppendLine($"{id}\t{fullName}\t{startWork:g}\t{finishWork:g}\t{dayOfWeek}");
-                            hasData = true;
-                        }
-                        if (!hasData)
-                        {
-                           MessageBox.Show("No data found.");
-                        }
-                    }
-
-                    if (sb.Length > 0)
-                    {
-                        File.WriteAllText(path, sb.ToString());
-                        ResetWeeklyData();
-                    }
-                }
-
-
-            } catch (Exception e) { MessageBox.Show("Error Saving Rota Data: "+e.Message    ); }
         
-        }
-        private void ResetWeeklyData()
-        {
-            try
-            {
-                using (SqlConnection connection = new SqlConnection(serverConnection))
-                {
-                    connection.Open();
-                    DateTime now = DateTime.Now;
-                    DateTime sevenDaysBefore = now.AddDays(-7);
-
-                    string resetQuery = "DELETE FROM rotatable;";
-                    SqlCommand resetCmd = new SqlCommand(resetQuery, connection);
-                    int rowsAffected = resetCmd.ExecuteNonQuery();
-
-                   // MessageBox.Show($"Weekly data reset completed. Rows affected: {rowsAffected}");
-
-                }
-            }
-            catch (Exception ex)
-            { 
-                MessageBox.Show("Error Resetting Weekly Data: " + ex.Message);
-            }
-        }
-        public void LastRunTime()
-        {
-            DateTime lastRunDate;
-            if (File.Exists(filePath))
-            {
-                string dateText = File.ReadAllText(filePath);
-                DateTime.TryParse(dateText, out lastRunDate);
-            }
-            else
-            {
-                lastRunDate = DateTime.MinValue;
-            }
-
-            
-            if (DateTime.Today.DayOfWeek == DayOfWeek.Sunday  && lastRunDate.Date != DateTime.Today)
-            {
-                SaveWeeklyData();
-                File.WriteAllText(filePath, DateTime.Today.ToString("yyyy-MM-dd"));
-            }
-        }
         public void InitiateServer()
-        {
+        { 
             try
             {
                 var builder = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile("connectionString.json", optional: true, reloadOnChange: true);

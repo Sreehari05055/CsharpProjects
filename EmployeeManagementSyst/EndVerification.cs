@@ -20,7 +20,7 @@ namespace EmployeeManagementSyst
         private string dateofWork;
         private decimal totalPay;
         private string code;
-        private double hours;
+        
         public String Code
         {
             get { return code; }
@@ -114,12 +114,17 @@ namespace EmployeeManagementSyst
             }
             catch (Exception e) { MessageBox.Show("Error Getting Completed Hours: " + e.Message); }
         }
-        public void HoursCheck(double hours) 
+        public void HoursCheck(double hours)
         {
+           
             try
             {
                 if (hours > 16) 
-                { MessageBox.Show("Hours done are more than legal working hours."); }
+                {
+                    DeleteTime();
+                    MessageBox.Show("Hours Done More Than Legal Working Hours."); 
+                    this.Close();
+                }
                 else
                 {
                     DateWorked();
@@ -132,18 +137,25 @@ namespace EmployeeManagementSyst
         }
         public void StopWatch(string hourstring)
         {
-          
-            if (double.TryParse(hourstring, out hours))
+            if (DateTime.TryParse(hourstring, out DateTime dateTime))
             {
-                HoursCheck(hours);
-                HoursDone = hours;             
+                double minutes = dateTime.Minute;
+
+                double hours = dateTime.Hour;
+                double result = (hours) + (minutes / 60);
+
+
+
+                    HoursCheck(hours);
+                  HoursDone = hours;             
             }
             else
             {
-                MessageBox.Show("Invalid hours input");
-            }                     
 
-       }
+                MessageBox.Show("Invalid hours input");
+            }
+
+            }
         public void DeleteTime()
         {
             try

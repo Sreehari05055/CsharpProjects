@@ -1,6 +1,6 @@
 ﻿namespace EmployeeManagementSyst
 {
-    partial class AllEmployees
+    partial class ViewEditPaySlip
     {
         /// <summary>
         /// Required designer variable.
@@ -30,40 +30,48 @@
         {
             dataGridView1 = new DataGridView();
             label1 = new Label();
+            textBox1 = new TextBox();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // dataGridView1
             // 
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-            dataGridView1.BackgroundColor = SystemColors.Control;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.EditMode = DataGridViewEditMode.EditProgrammatically;
-            dataGridView1.Location = new Point(105, 89);
+            dataGridView1.EditMode = DataGridViewEditMode.EditOnKeystroke;
+            dataGridView1.Location = new Point(60, 75);
             dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(551, 271);
+            dataGridView1.Size = new Size(587, 321);
             dataGridView1.TabIndex = 0;
-            dataGridView1.CellClick += dataGridView1_CellClick;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(105, 50);
+            label1.Location = new Point(311, 36);
             label1.Name = "label1";
-            label1.Size = new Size(168, 15);
+            label1.Size = new Size(230, 15);
             label1.TabIndex = 1;
-            label1.Text = "Click On Name to Create Rota ";
+            label1.Text = "Enter Employee Code or Surname to Filter:";
             // 
-            // AllEmployees
+            // textBox1
+            // 
+            textBox1.Location = new Point(547, 33);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(100, 23);
+            textBox1.TabIndex = 2;
+            textBox1.TextChanged += Changing_Text;
+            // 
+            // ViewEditPaySlip
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(721, 423);
+            Controls.Add(textBox1);
             Controls.Add(label1);
             Controls.Add(dataGridView1);
-            Name = "AllEmployees";
-            Text = "AllEmployees";
+            Name = "ViewEditPaySlip";
+            Text = "ViewEditPaySlip";
+            Load += PaySlipGrid_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -73,5 +81,6 @@
 
         private DataGridView dataGridView1;
         private Label label1;
+        private TextBox textBox1;
     }
 }

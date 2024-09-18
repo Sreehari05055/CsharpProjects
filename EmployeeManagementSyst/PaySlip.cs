@@ -20,7 +20,7 @@ namespace EmployeeManagementSyst
         private string serverConnection;
         private string attachment;
         private string code;
-        private string filePath = "LastPaySlip.txt";
+       
 
         public string AttachMent
         {
@@ -119,26 +119,7 @@ namespace EmployeeManagementSyst
             }
             catch (Exception e) { MessageBox.Show("Error Creating PaySlip: " + e.Message); }
         }
-        public void LastRunTime()
-        {
-            DateTime lastRunDate;
-            if (File.Exists(filePath))
-            {
-                string dateText = File.ReadAllText(filePath);
-                DateTime.TryParse(dateText, out lastRunDate);
-            }
-            else
-            {
-                lastRunDate = DateTime.MinValue;
-            }
-
-            // Check if today is Tuesday and it hasn't run today
-            if (DateTime.Today.DayOfWeek == DayOfWeek.Tuesday && lastRunDate.Date != DateTime.Today)
-            {
-                SendPaySlip();
-                File.WriteAllText(filePath, DateTime.Today.ToString("yyyy-MM-dd"));
-            }
-        }
+       
         public void SendEmail(string emailAdd, string subject, string body)
             {
                 try
@@ -147,7 +128,7 @@ namespace EmployeeManagementSyst
 
                     {
 
-                        mailMessage.From = new MailAddress("From_email_add");
+                        mailMessage.From = new MailAddress("sreekuttankzm@gmail.com");
                         mailMessage.Subject = subject;
                         mailMessage.Body = body;
                         mailMessage.To.Add(emailAdd);
@@ -162,7 +143,7 @@ namespace EmployeeManagementSyst
 
                         using (SmtpClient smtpClient = new SmtpClient("smtp.gmail.com", 587))
                         {
-                            smtpClient.Credentials = new NetworkCredential("From_email_add", "app_specific_password");
+                            smtpClient.Credentials = new NetworkCredential("sreekuttankzm@gmail.com", "tqyi rthe cjgt znox");
                             smtpClient.EnableSsl = true;
                             smtpClient.Send(mailMessage);
 
