@@ -15,9 +15,11 @@ namespace EmployeeManagementSyst
 {
     public partial class DeleteEmp : Form
     {
+        private string code;
         private string serverConnection;
-        public DeleteEmp()
+        public DeleteEmp(string id)
         {
+            this.code = id;
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.BackColor = System.Drawing.Color.BlanchedAlmond;
@@ -44,10 +46,11 @@ namespace EmployeeManagementSyst
         private void button1_Click(object sender, EventArgs e)
         {
             InitiateServer();
-            string cdeInp = textBox1.Text;
-            RemoveAdmin(cdeInp);
-            DeletEmp(cdeInp);          
-            RemoveCard(cdeInp);
+            
+            RemoveAdmin(code);
+            RemovePay(code);
+            RemoveCard(code);
+            DeletEmp(code);          
             this.Close();
 
         }
@@ -68,6 +71,31 @@ namespace EmployeeManagementSyst
                     if (rowsAffected > 0)
                     {
                         MessageBox.Show("Admin Deleted");
+                    }
+
+
+                }
+
+            }
+            catch (Exception e) { MessageBox.Show("Error Removing Admin: " + e.Message); }
+        }
+        public void RemovePay(string id)
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(serverConnection))
+                {
+                    conn.Open();
+                    string deleteAdmin = "DELETE FROM employeepay WHERE id = @id; "; ;
+                    SqlCommand detailQuery = new SqlCommand(deleteAdmin, conn);
+
+                    detailQuery.Parameters.Clear();
+                    detailQuery.Parameters.AddWithValue("@id", id);
+
+                    int rowsAffected = detailQuery.ExecuteNonQuery();
+                    if (rowsAffected > 0)
+                    {
+                        MessageBox.Show("Pay Deleted");
                     }
 
 

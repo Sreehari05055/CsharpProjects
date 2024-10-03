@@ -34,8 +34,8 @@ namespace EmployeeManagementSyst
         {
             try
             {
-                DeleteEmp delEmp = new DeleteEmp();
-            delEmp.Show();
+                DeleteEmpGrid deleteEmpGrid = new DeleteEmpGrid();
+            deleteEmpGrid.Show();
             }
             catch (Exception ex) { MessageBox.Show("Error Loading(Delete Page): " + ex.Message); }
 

@@ -128,7 +128,7 @@ namespace EmployeeManagementSyst
 
                     {
 
-                        mailMessage.From = new MailAddress("From_email_add");
+                        mailMessage.From = new MailAddress("sreekuttankzm@gmail.com");
                         mailMessage.Subject = subject;
                         mailMessage.Body = body;
                         mailMessage.To.Add(emailAdd);
@@ -143,7 +143,7 @@ namespace EmployeeManagementSyst
 
                         using (SmtpClient smtpClient = new SmtpClient("smtp.gmail.com", 587))
                         {
-                            smtpClient.Credentials = new NetworkCredential("from_email_add", "app_specific_password");
+                            smtpClient.Credentials = new NetworkCredential("sreekuttankzm@gmail.com", "tqyi rthe cjgt znox");
                             smtpClient.EnableSsl = true;
                             smtpClient.Send(mailMessage);
 

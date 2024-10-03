@@ -92,3 +92,4 @@ C:\Users\sreek\source\repos\EmployeeManagementSyst\obj\Debug\net8.0-windows\Empl
 C:\Users\sreek\source\repos\EmployeeManagementSyst\obj\Debug\net8.0-windows\EmployeeManagementSyst.SchedulePaySlip.resources
 C:\Users\sreek\source\repos\EmployeeManagementSyst\obj\Debug\net8.0-windows\EmployeeManagementSyst.ViewEditPaySlip.resources
 C:\Users\sreek\source\repos\EmployeeManagementSyst\obj\Debug\net8.0-windows\EmployeeManagementSyst.WeeklySaveConfirm.resources
+C:\Users\sreek\source\repos\EmployeeManagementSyst\obj\Debug\net8.0-windows\EmployeeManagementSyst.DeleteEmpGrid.resources

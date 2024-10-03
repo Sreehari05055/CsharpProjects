@@ -63,7 +63,7 @@
             button2.Name = "button2";
             button2.Size = new Size(363, 28);
             button2.TabIndex = 1;
-            button2.Text = " Delete Employee";
+            button2.Text = "Delete Employee";
             button2.UseVisualStyleBackColor = false;
             button2.Click += DeleteEmp_Click;
             // 
@@ -192,7 +192,7 @@
             button13.Name = "button13";
             button13.Size = new Size(363, 28);
             button13.TabIndex = 12;
-            button13.Text = "Set Weekly Schedule(Rota) Save Date";
+            button13.Text = "Save Weekly Schedule(Rota) Date";
             button13.UseVisualStyleBackColor = false;
             button13.Click += WeeklySave;
             // 
