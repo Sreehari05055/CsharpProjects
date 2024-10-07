@@ -31,22 +31,21 @@
             button1 = new Button();
             button2 = new Button();
             label1 = new Label();
-            textBox1 = new TextBox();
             SuspendLayout();
             // 
             // button1
             // 
-            button1.Location = new Point(104, 96);
+            button1.Location = new Point(79, 90);
             button1.Name = "button1";
             button1.Size = new Size(75, 23);
             button1.TabIndex = 0;
-            button1.Text = "Ok";
+            button1.Text = "Yes";
             button1.UseVisualStyleBackColor = true;
             button1.Click += Ok_Click;
             // 
             // button2
             // 
-            button2.Location = new Point(185, 96);
+            button2.Location = new Point(175, 90);
             button2.Name = "button2";
             button2.Size = new Size(75, 23);
             button2.TabIndex = 1;
@@ -57,25 +56,17 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(33, 51);
+            label1.Location = new Point(56, 46);
             label1.Name = "label1";
-            label1.Size = new Size(187, 15);
+            label1.Size = new Size(231, 15);
             label1.TabIndex = 2;
-            label1.Text = "Enter Admin ID (Employee Code): ";
-            // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(226, 48);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(100, 23);
-            textBox1.TabIndex = 3;
+            label1.Text = "Are You Sure You Want To Remove Admin:";
             // 
             // RemoveAdmin
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(359, 145);
-            Controls.Add(textBox1);
+            ClientSize = new Size(350, 145);
             Controls.Add(label1);
             Controls.Add(button2);
             Controls.Add(button1);
@@ -90,6 +81,5 @@
         private Button button1;
         private Button button2;
         private Label label1;
-        private TextBox textBox1;
     }
 }

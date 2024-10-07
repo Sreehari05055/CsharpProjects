@@ -89,8 +89,8 @@ namespace EmployeeManagementSyst
         private void RemoveAdmin_Click(object sender, EventArgs e)
         {
             try { 
-            RemoveAdmin setAdmin = new RemoveAdmin();
-            setAdmin.Show();
+            RmoveAdminGrid remAdmin = new RmoveAdminGrid();
+            remAdmin.Show();
             }
             catch (Exception ex) { MessageBox.Show("Error Loading(Remove Admin Page): " + ex.Message); }
 

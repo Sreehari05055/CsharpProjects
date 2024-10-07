@@ -14,10 +14,12 @@ namespace EmployeeManagementSyst
 {
     public partial class RemoveAdmin : Form
     {
+        private string adminCode;
         private string serverConnection;
 
-        public RemoveAdmin()
+        public RemoveAdmin(string adminCode)
         {
+            this.adminCode = adminCode;
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.BackColor = System.Drawing.Color.BlanchedAlmond;
@@ -43,9 +45,9 @@ namespace EmployeeManagementSyst
         }
         private void Ok_Click(object sender, EventArgs e)        
         {
-            string remAdmin = textBox1.Text;
+            
             InitiateServer();
-            RemveAdmin(remAdmin);
+            RemveAdmin(adminCode);
             this.Close();
         }
         private void Cancel_Click(object sender, EventArgs e)

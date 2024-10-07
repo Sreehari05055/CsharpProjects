@@ -20,6 +20,7 @@ namespace EmployeeManagementSyst
         private string dateofWork;
         private decimal totalPay;
         private string code;
+        private string stringHours;
         
         public String Code
         {
@@ -35,6 +36,11 @@ namespace EmployeeManagementSyst
         {
             get { return dateofWork; }
             set { dateofWork = value; }
+        }
+        public String StringHours
+        {
+            get { return stringHours; }
+            set { stringHours = value; }
         }
         public decimal TotalPay
         {
@@ -115,17 +121,9 @@ namespace EmployeeManagementSyst
             catch (Exception e) { MessageBox.Show("Error Getting Completed Hours: " + e.Message); }
         }
         public void HoursCheck(double hours)
-        {
-           
+        {        
             try
-            {
-                if (hours > 16) 
-                {
-                    DeleteTime();
-                    MessageBox.Show("Hours Done More Than Legal Working Hours."); 
-                    this.Close();
-                }
-                else
+            {              
                 {
                     DateWorked();
                     CalculatePay();
@@ -140,22 +138,29 @@ namespace EmployeeManagementSyst
             if (DateTime.TryParse(hourstring, out DateTime dateTime))
             {
                 double minutes = dateTime.Minute;
-
                 double hours = dateTime.Hour;
                 double result = (hours) + (minutes / 60);
+                this.HoursDone = result;
 
+                // Perform hours check immediately after calculation
+                if (result > 16)
+                {
+                    DeleteTime();
+                    MessageBox.Show("Hours Done More Than Legal Working Hours.");
+                    this.Close();
+                    return;  // Stops further code execution if over the limit
+                }
 
-
-                    HoursCheck(hours);
-                  HoursDone = hours;             
+                HoursCheck(result);
+                String hourString = result.ToString();
+                this.StringHours = hourString;
             }
             else
             {
-
                 MessageBox.Show("Invalid hours input");
             }
 
-            }
+        }
         public void DeleteTime()
         {
             try
@@ -190,13 +195,22 @@ namespace EmployeeManagementSyst
 
                     execute.Parameters.AddWithValue("@date_of_work", WorkDate);
                     execute.Parameters.AddWithValue("@totalpay", TotalPay);
-                    execute.Parameters.AddWithValue("@hours_done", HoursDone);
+                    execute.Parameters.AddWithValue("@hours_done", StringHours);
                     execute.Parameters.AddWithValue("@id", Code);
 
                     int rowsAffected = execute.ExecuteNonQuery();
-                    this.Close();
-                    EndShift endShift = new EndShift(); 
-                    endShift.Show();
+
+                    if (rowsAffected > 0)
+                    {
+                        // Successfully inserted
+                        this.Close();
+                        EndShift endShift = new EndShift();
+                        endShift.Show();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Insert operation failed.");
+                    }
                 }
             }
             catch (Exception ex) { MessageBox.Show("Error Inserting Values (Employee Pay): " + ex.Message); }
@@ -215,10 +229,11 @@ namespace EmployeeManagementSyst
                     if (result != null)
                     {
                         double hourlyRate = Convert.ToDouble(result);
-
+                       
                         double cmpltePay = HoursDone * hourlyRate;
+                       
                         decimal completePay = (decimal)cmpltePay;
-                        TotalPay = completePay;
+                        this.TotalPay = Math.Round(completePay, 2);
 
                     }
                     else { MessageBox.Show("Hourly rate not found for employee id"); }

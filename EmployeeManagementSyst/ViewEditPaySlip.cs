@@ -20,6 +20,7 @@ namespace EmployeeManagementSyst
         {
             InitializeComponent();
             InitiateServer();
+            LoadAllData();
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.BackColor = System.Drawing.Color.BlanchedAlmond;
             dataGridView1.CellBeginEdit += dataGridView1_CellBeginEdit;
