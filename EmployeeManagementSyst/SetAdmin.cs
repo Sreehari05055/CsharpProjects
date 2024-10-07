@@ -14,18 +14,19 @@ namespace EmployeeManagementSyst
 {
     public partial class SetAdmin : Form
     {
+        private string AdmnCode;
         private string serverConnection;
-        public SetAdmin()
+        public SetAdmin(String Code)
         {
+            this.AdmnCode = Code;
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.BackColor = System.Drawing.Color.BlanchedAlmond;
         }
         private void Ok_Click(object sender, EventArgs e)
         {
-            string codeInp = textBox1.Text;
             InitiateServer();
-            GetAdmininfo(codeInp);
+            GetAdmininfo(AdmnCode);
             this.Close();
 
         }

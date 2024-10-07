@@ -81,7 +81,7 @@ namespace EmployeeManagementSyst
         private void SetAdmin_Click(object sender, EventArgs e)
         {
             try { 
-            SetAdmin setAdmin = new SetAdmin();
+            SetAdminGrid setAdmin = new SetAdminGrid();
             setAdmin.Show();
             }
             catch (Exception ex) { MessageBox.Show("Error Loading(Set Admin Page): " + ex.Message); }

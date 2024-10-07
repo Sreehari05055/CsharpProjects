@@ -1,6 +1,6 @@
 ﻿namespace EmployeeManagementSyst
 {
-    partial class RmoveAdminGrid
+    partial class SetAdminGrid
     {
         /// <summary>
         /// Required designer variable.
@@ -40,7 +40,8 @@
             dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.EditMode = DataGridViewEditMode.EditProgrammatically;
-            dataGridView1.Location = new Point(47, 61);
+            dataGridView1.Location = new Point(46, 62);
+            dataGridView1.MultiSelect = false;
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
             dataGridView1.Size = new Size(506, 221);
@@ -49,7 +50,7 @@
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(453, 32);
+            textBox1.Location = new Point(452, 33);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(100, 23);
             textBox1.TabIndex = 1;
@@ -58,13 +59,13 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(217, 35);
+            label1.Location = new Point(216, 36);
             label1.Name = "label1";
             label1.Size = new Size(230, 15);
             label1.TabIndex = 2;
             label1.Text = "Enter Employee Code or Surname to Filter:";
             // 
-            // RmoveAdminGrid
+            // SetAdminGrid
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -72,8 +73,8 @@
             Controls.Add(label1);
             Controls.Add(textBox1);
             Controls.Add(dataGridView1);
-            Name = "RmoveAdminGrid";
-            Text = "RmoveAdminGrid";
+            Name = "SetAdminGrid";
+            Text = "SetAdminGrid";
             Load += EmployeeDetailGrid_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
