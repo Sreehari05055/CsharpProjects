@@ -16,10 +16,10 @@ namespace EmployeeManagementSyst
 {
     public partial class AddEmp : Form
     {
-        private string serverConnection;
-        private string code;
-        private string surname;
-        private string fullname;
+        private string serverConnection; // Connection string for the database
+        private string code; //  Unique employee code
+        private string surname; //  Employee's surname
+        private string fullname; // Employee's full name
 
         public String SurName
         {
@@ -38,10 +38,10 @@ namespace EmployeeManagementSyst
         }
         public AddEmp()
         {
-            InitializeComponent();
-            this.FormBorderStyle = FormBorderStyle.FixedSingle;
-            this.BackColor = System.Drawing.Color.BlanchedAlmond;
-            
+            InitializeComponent(); // Initializes the components of the form
+            this.FormBorderStyle = FormBorderStyle.FixedSingle; // Sets the form border style
+            this.BackColor = System.Drawing.Color.BlanchedAlmond; // Sets the background color of the form
+
         }
 
         private void label4_Click(object sender, EventArgs e)
@@ -51,7 +51,7 @@ namespace EmployeeManagementSyst
 
         private void AddEmp_Load(object sender, EventArgs e)
         {
-
+            // Event handler for form load (can be implemented if needed)
         }
 
         private void label10_Click(object sender, EventArgs e)
@@ -61,22 +61,24 @@ namespace EmployeeManagementSyst
 
         private void button1_Click(object sender, EventArgs e)
         {
-            InitiateServer();
-            EmployeeCode();
-            FullName = textBox1.Text.Trim().ToLower();
-            string ageInp = textBox2.Text;
-            string phoneInp = textBox8.Text;
-            string emailInp = textBox3.Text;           
-            string rateInp = textBox9.Text;
-            string cardNumInp = textBox4.Text;
-            string cardExpInp = textBox5.Text;
-            string cvvInp = textBox6.Text;
-            string cardNameInp = textBox7.Text;
-            GetSurname();
-            
+            InitiateServer(); // Initializes the database connection
+            EmployeeCode(); // Generates a unique employee code
+            FullName = textBox1.Text.Trim().ToLower(); // Gets and formats the full name from input
+            string ageInp = textBox2.Text; // Gets the age input
+            string phoneInp = textBox8.Text; // Gets the phone number input
+            string emailInp = textBox3.Text; // Gets the email input          
+            string rateInp = textBox9.Text; // Gets the hourly rate input
+            string cardNumInp = textBox4.Text; // Gets the card number input
+            string cardExpInp = textBox5.Text; // Gets the card expiration date input
+            string cvvInp = textBox6.Text; // Gets the CVV input
+            string cardNameInp = textBox7.Text; // Gets the cardholder's name input
+            GetSurname(); // Extracts the surname from the full name
+
+            // Inserts employee details into the database
             InsertEmployeeDetails(FullName,ageInp,phoneInp,emailInp,rateInp,SurName);
+            // Inserts card details into the database
             InsertCardDetails(cardNumInp, cardExpInp, cvvInp, cardNameInp);
-            this.Close();
+            this.Close(); // Closes the form after insertion
         }
         private void InsertCardDetails(string cardNum, string expiryDate, string cvv, string holderName)
         {
