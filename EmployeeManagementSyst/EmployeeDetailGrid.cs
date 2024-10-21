@@ -25,18 +25,8 @@ namespace EmployeeManagementSyst
             this.BackColor = System.Drawing.Color.BlanchedAlmond;
             
         }
-      /** public void Table() 
-        {
-            dataGridView1 = new DataGridView
-            {
-                AutoGenerateColumns = true,
-                AllowUserToAddRows = false,
-                Dock = DockStyle.Fill
-            };
-            Controls.Add(dataGridView1);
-        
-        }**/
-       
+
+        // Method to initiate the database server connection
         public void InitiateServer()
         {
             try
@@ -56,6 +46,7 @@ namespace EmployeeManagementSyst
             }
             catch (Exception ex) { MessageBox.Show("Error: " + ex.Message); }
         }
+        // Event handler for text changes in the input textbox
         private void Changing_Text(object sender,EventArgs s)
         {
             string userInput = textBox1.Text.Trim().ToLower();
@@ -107,6 +98,7 @@ namespace EmployeeManagementSyst
 
             catch (Exception ex) { MessageBox.Show("Employee Details Error: " + ex.Message); }
         }
+        // Method to load all employee data into the DataGridView
         private void LoadAllData()
         {
             try
@@ -150,7 +142,7 @@ namespace EmployeeManagementSyst
                 MessageBox.Show("Error loading data: " + ex.Message);
             }
         }
-
+        // Event handler for when the form loads
         private void EmployeeDetailGrid_Load(object sender, EventArgs e)
         {
             LoadAllData();

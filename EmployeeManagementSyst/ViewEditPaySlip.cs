@@ -26,6 +26,8 @@ namespace EmployeeManagementSyst
             dataGridView1.CellBeginEdit += dataGridView1_CellBeginEdit;
             dataGridView1.CellEndEdit += dataGridView1_CellEndEdit;
         }
+        // Event handler for the beginning of cell editing in the DataGridView.
+        // Cancels editing for all columns except the "Total Pay" column.
         private void dataGridView1_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
         {
              if (dataGridView1.Columns[e.ColumnIndex].HeaderText != "Total Pay")
@@ -33,6 +35,8 @@ namespace EmployeeManagementSyst
                 e.Cancel = true;  
             }
         }
+        // Event handler for the end of cell editing in the DataGridView.
+        // Validates and updates the "Total Pay" value in the database if valid.
         private void dataGridView1_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
            
@@ -54,7 +58,7 @@ namespace EmployeeManagementSyst
                 }
             }
         }
-
+        // Updates the total pay value in the database for the specified employee ID.
         private void UpdateTotalPayInDatabase(int id, decimal newTotalPay)
         {
             string updateQuery = "UPDATE employeepay SET total_pay = @total_pay WHERE id = @id";
@@ -68,6 +72,7 @@ namespace EmployeeManagementSyst
                 cmd2.ExecuteNonQuery();
             }
         }
+        // Initializes the server connection
         public void InitiateServer()
         {
             try
@@ -87,6 +92,7 @@ namespace EmployeeManagementSyst
             }
             catch (Exception ex) { MessageBox.Show("Error: " + ex.Message); }
         }
+        // Handles text input in the search TextBox and loads filtered employee details based on the input.
         private void Changing_Text(object sender, EventArgs s)
         {
             string userInput = textBox1.Text.Trim().ToLower();
@@ -137,6 +143,7 @@ namespace EmployeeManagementSyst
 
             catch (Exception ex) { MessageBox.Show("Employee Details Error: " + ex.Message); }
         }
+        // Loads all employee pay slip data from the database and displays it in the DataGridView.
         private void LoadAllData()
         {
             try
@@ -180,7 +187,7 @@ namespace EmployeeManagementSyst
                 MessageBox.Show("Error loading data: " + ex.Message);
             }
         }
-
+        // Event handler for the form load event; loads all data into the DataGridView when the form is loaded.
         private void PaySlipGrid_Load(object sender, EventArgs e)
         {
             LoadAllData();

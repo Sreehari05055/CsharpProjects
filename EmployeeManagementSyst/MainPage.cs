@@ -38,6 +38,7 @@ namespace EmployeeManagementSyst
             }
             catch (Exception ex) { MessageBox.Show("Error: "+ex.Message); }
         }
+        // Method to check and create the lastExecuted table if it does not exist
         public void LastExecTable() 
         {
             try
@@ -60,6 +61,7 @@ namespace EmployeeManagementSyst
             }
             catch (Exception ex) { MessageBox.Show("Error Creating Table (Last Executed): " + ex.Message); }
         }
+        // Method to check and create the employeedetails table if it does not exist
         public void EmployeeDetails()
         {
             try
@@ -83,6 +85,7 @@ namespace EmployeeManagementSyst
             catch (Exception ex) { MessageBox.Show("Error Creating Table (Employee Data): " + ex.Message); }
 
         }
+        // Method to check and create the admintable if it does not exist
         public void AdminTable()
         {
             try
@@ -104,6 +107,7 @@ namespace EmployeeManagementSyst
             }
             catch (Exception e) { MessageBox.Show("Error Creating Table (Admin Table):" + e.Message); }
         }
+        // Method to check and create the rotatable table if it does not exist
         public void RotaTable()
         {
             try
@@ -126,6 +130,7 @@ namespace EmployeeManagementSyst
             }
             catch (Exception ex) { MessageBox.Show("Error Creating Table (Rota Table): " + ex.Message); }
         }
+        // Method to check and create the employeepay table if it does not exist
         public void EmployeePayment()
         {
             try
@@ -151,6 +156,7 @@ namespace EmployeeManagementSyst
             catch (Exception ex) { MessageBox.Show("Error Creating Table (Employee Payment): " + ex.Message); }
 
         }
+        // Method to check and create the carddata table if it does not exist
         public void EmployeeCardDetails()
         {
 
@@ -175,6 +181,7 @@ namespace EmployeeManagementSyst
             catch (Exception ex) { MessageBox.Show("Error Creating Table (Card Data): " + ex.Message); }
 
         }
+        // Method to check and create the hourstable if it does not exist
         public void HoursTable()
         {
             try
@@ -196,6 +203,7 @@ namespace EmployeeManagementSyst
             }
             catch (Exception ex) { MessageBox.Show("Error Creating Table (Hours Table): " + ex.Message); }
         }
+        // Event handler for the StartEnd button click event
         private void StartEnd_Click(object sender, EventArgs e)
         {
             try
@@ -207,6 +215,7 @@ namespace EmployeeManagementSyst
             }
             catch (Exception ex) { MessageBox.Show("Error: "+ex.Message); }
         }
+        // Method to check if any administrators exist in the database
         private void AdminCheck()
         {
             try 
@@ -232,7 +241,7 @@ namespace EmployeeManagementSyst
             
             } catch (Exception e) { MessageBox.Show("Error Searching Admin: "+e.Message); } 
         }
-
+        // Event handler for the ManagementInfo button click event
         private void ManagementInfoClick(object sender, EventArgs e)
         {
             try

@@ -23,6 +23,7 @@ namespace EmployeeManagementSyst
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.BackColor = System.Drawing.Color.BlanchedAlmond;
         }
+        // Method to verify if the provided employee code exists in the database
         public void Verify(String codeToCheck)
         {
             try
@@ -47,6 +48,7 @@ namespace EmployeeManagementSyst
             }
             catch (Exception ex) { MessageBox.Show("Verification Error: " + ex.Message); }
         }
+        // Method to check the employee's clock-in status
         public void CheckStatus(string id)
         {
             try
@@ -76,6 +78,7 @@ namespace EmployeeManagementSyst
             }
             catch (Exception e) { MessageBox.Show("Error Checking Employee Status: " + e.Message); }
         }
+        // Event handler for OK button click
         private void Ok_Click(object sender, EventArgs e)
         {
             InitiateServer();
@@ -93,6 +96,7 @@ namespace EmployeeManagementSyst
         {
             this.Close();
         }
+        // Method to initiate the server connection
         public void InitiateServer()
         {
             try
@@ -112,6 +116,7 @@ namespace EmployeeManagementSyst
             }
             catch (Exception ex) { MessageBox.Show("Error: " + ex.Message); }
         }
+        // Method to insert hours into the hours table
         public void InsertHoursTable(string time, string id)
         {
             try
@@ -146,8 +151,8 @@ namespace EmployeeManagementSyst
             }
             catch (Exception e) { MessageBox.Show("Error Inserting Values (Hours Table): " + e.Message); }
         }
-        
 
+        // Event handler for form load event
         private void Verification_Load(object sender, EventArgs e)
         {
 

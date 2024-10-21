@@ -23,13 +23,14 @@ namespace EmployeeManagementSyst
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.BackColor = System.Drawing.Color.BlanchedAlmond;
         }
+        // Handles the click event for the OK button
         private void Ok_Click(object sender, EventArgs e)
         {
             InitiateServer();
             GetAdmininfo(AdmnCode);
             this.Close();
 
-        }
+        }// Handles the click event for the CANCEL button
         private void Cancel_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -53,6 +54,7 @@ namespace EmployeeManagementSyst
             }
             catch (Exception ex) { MessageBox.Show("Error: " + ex.Message); }
         }
+        // Retrieves administrator information based on the provided ID and inserts it into the admin table.
         public void GetAdmininfo(string id)
         {
             try
@@ -88,6 +90,7 @@ namespace EmployeeManagementSyst
             }
             catch (Exception e) { MessageBox.Show("Error Getting Admin Information: " + e.Message); }
         }
+        // Inserts the administrator information into the admin table.
         public void InsertAdminInfo(string id, string name, string email)
         { 
             try

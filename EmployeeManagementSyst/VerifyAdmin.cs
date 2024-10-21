@@ -32,6 +32,7 @@ namespace EmployeeManagementSyst
         {
 
         }
+        // Event handler for OK button click
         private void Ok_Click(object sender, EventArgs e)
         {
             InitiateServer();
@@ -46,6 +47,7 @@ namespace EmployeeManagementSyst
         {
             this.Close();
         }
+        // Method to initiate the server connection
         public void InitiateServer()
         {
             try
@@ -64,7 +66,8 @@ namespace EmployeeManagementSyst
                 serverConnection = connectionString;
             }
             catch (Exception ex) { MessageBox.Show("Error: " + ex.Message); }
-        }
+
+        } // Method to check if the id exists in the admin table
         public void AdminVerify(string adminCode)
         {
             try

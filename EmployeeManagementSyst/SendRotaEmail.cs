@@ -21,7 +21,9 @@ namespace EmployeeManagementSyst
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.BackColor = System.Drawing.Color.BlanchedAlmond;
             InitiateServer();
-        }
+
+        } 
+        // Creates the work rota for employees and sends it via email.
         public void CreateRota()
         {
             try

@@ -12,6 +12,8 @@ namespace EmployeeManagementSyst
 {
     public partial class AdminPage : Form
     {
+
+        // Constructor for AdminPage, initializes the form and sets properties like background and layout
         public AdminPage()
         {
             InitializeComponent();
@@ -19,127 +21,100 @@ namespace EmployeeManagementSyst
             this.BackgroundImage = Image.FromFile("""C:\Users\sreek\Downloads\EmpMan.jpg""");
             this.BackgroundImageLayout = ImageLayout.Stretch;
         }
-        
+
+        // Method to open the Add Employee form when the AddEmp button is clicked
         private void AddEmp_Click(object sender, EventArgs e)
         {
-            try
-            {
-                AddEmp addEmp = new AddEmp();
-                addEmp.Show();
-            }
-            catch (Exception ex) { MessageBox.Show("Error Loading(Add Page): "+ex.Message); }
-            
-        }
-        private void DeleteEmp_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                DeleteEmpGrid deleteEmpGrid = new DeleteEmpGrid();
-            deleteEmpGrid.Show();
-            }
-            catch (Exception ex) { MessageBox.Show("Error Loading(Delete Page): " + ex.Message); }
+            OpenForm(new AddEmp(), "Add Employee Page");
 
         }
+        // Method to open the Delete Employee form when clicked
+        private void DeleteEmp_Click(object sender, EventArgs e)
+        {     
+            OpenForm(new DeleteEmpGrid(), "Delete Employee Page");     
+
+        }
+        // Method to open the Update Employee form when clicked
         private void UpdtEmp_Click(object sender, EventArgs e)
         {
-            try
-            {
-                UpdateEmp updateEmp = new UpdateEmp();
-            updateEmp.Show();
-            }
-            catch (Exception ex) { MessageBox.Show("Error Loading(Update Page): " + ex.Message); }
+            OpenForm(new UpdateEmp(), "Update Employee Page");         
 
         }
+        // Method to open the Add Rota form when clicked
         private void AddRota_Click(object sender, EventArgs e)
         {
-            try
-            {
-                AllEmployees allEmployees = new AllEmployees();
-            allEmployees.Show();
-            }
-            catch (Exception ex) { MessageBox.Show("Error Loading(Add Rota Page): " + ex.Message); }
+
+            OpenForm(new AllEmployees(), "Add Rota Page");
+           
         }
+
+        // Method to open the form for viewing rotas when the 'View Rota' button is clicked
         private void ViewRota_Click(object sender, EventArgs e)
         {
-            try
-            {
-                ViewRota viewRota = new ViewRota();
-            viewRota.Show();
-            }
-            catch (Exception ex) { MessageBox.Show("Error Loading(View Rota Page): " + ex.Message); }
+            OpenForm(new ViewRota(), "View Rota Page");
 
         }
+        // Method to open the form for rota email verification when the 'Send Work Schedule' button is clicked
         private void RotaEmail_Click(object sender, EventArgs e)
         {
-            try { 
-            RotaVerification rotaVerification = new RotaVerification();
-            rotaVerification.Show();
-            }
-            catch (Exception ex) { MessageBox.Show("Error Loading(Rota Email Page): " + ex.Message); }
-
+            OpenForm(new RotaVerification(), "Send Work Schedule");
+           
         }
+
+        // Method to open the form for setting admin permissions when the 'Set Admin' button is clicked
         private void SetAdmin_Click(object sender, EventArgs e)
         {
-            try { 
-            SetAdminGrid setAdmin = new SetAdminGrid();
-            setAdmin.Show();
-            }
-            catch (Exception ex) { MessageBox.Show("Error Loading(Set Admin Page): " + ex.Message); }
+            OpenForm(new SetAdminGrid(), "Set Admin Page");        
         }
+
+        // Method to open the form for removing admin permissions when the 'Remove Admin' button is clicked
         private void RemoveAdmin_Click(object sender, EventArgs e)
         {
-            try { 
-            RmoveAdminGrid remAdmin = new RmoveAdminGrid();
-            remAdmin.Show();
-            }
-            catch (Exception ex) { MessageBox.Show("Error Loading(Remove Admin Page): " + ex.Message); }
+            OpenForm(new RmoveAdminGrid(), "Remove Admin Page");
 
         }
+
+        // Method to open the form for checking employee status when the 'Check Status' button is clicked
         private void CheckStatus_Click(object sender, EventArgs e)
         {
-            try { 
-            CheckStatus checkStatus = new CheckStatus();
-            checkStatus.Show();
-            }
-            catch (Exception ex) { MessageBox.Show("Error Loading(Status Check Page): " + ex.Message); }
-
+            OpenForm(new CheckStatus(), "Status Check Page");
+          
         }
+        // Method to open the form for viewing employee details when the 'Get Employee Details' button is clicked
         private void GetEmpDetails_Click(object sender, EventArgs e)
-        {
-            try { 
-            EmployeeDetailGrid employeeDetailGrid = new EmployeeDetailGrid();
-            employeeDetailGrid.Show();
-            }
-            catch (Exception ex) { MessageBox.Show("Error Loading(Employee Detail Page): " + ex.Message); }
+        {   
+            OpenForm(new EmployeeDetailGrid(), "Employee Detail Page");
 
         }
+        // Method to open the form for viewing or editing payslips when the 'View/Edit PaySlip' button is clicked
         private void ViewEditPaySlip(object sender, EventArgs e)
-        {
-            try { 
-            ViewEditPaySlip viewEditPaySlip = new ViewEditPaySlip();
-            viewEditPaySlip.Show();
-            }
-            catch (Exception ex) { MessageBox.Show("Error Loading(View Edit Pay Page): " + ex.Message); }
+        {   
+            OpenForm(new ViewEditPaySlip(), "View/Edit PaySlip Page");         
 
         }
+        // Method to open the form for scheduling payslips when the 'Schedule PaySlip' button is clicked
         private void SchedulePaySlip(object sender, EventArgs e)
         {
-            try { 
-            SchedulePaySlip schedulePaySlip = new SchedulePaySlip();
-            schedulePaySlip.Show();
-            }
-            catch (Exception ex) { MessageBox.Show("Error Loading(Schedule PaySlip Page): " + ex.Message); }
+            OpenForm(new SchedulePaySlip(), "Schedule PaySlip Page");          
 
         }
-
+        // Method to open the form for weekly rota save confirmation when the 'Save Weekly Schedule(Rota) Date' button is clicked
         private void WeeklySave(object sender, EventArgs e)
         {
-            try { 
-            WeeklySaveConfirm weeklySaveConfirm = new WeeklySaveConfirm();
-            weeklySaveConfirm.Show();
-            }
-            catch (Exception ex) { MessageBox.Show("Error Loading(Rota Save Page): " + ex.Message); }
+            OpenForm(new WeeklySaveConfirm(), "Save Weekly Schedule Page");
         }
-   
+        // Helper method to open a new form and display an error message if it fails
+        private void OpenForm(Form form, string formName)
+        {
+            try
+            {
+                form.Show();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error Loading({formName}): " + ex.Message);
+            }
+        }
+
     }
 }

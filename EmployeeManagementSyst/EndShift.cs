@@ -12,6 +12,7 @@ namespace EmployeeManagementSyst
 {
     public partial class EndShift : Form
     {
+        // Constructor for the EndShift form
         public EndShift()
         {
             InitializeComponent();

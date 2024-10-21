@@ -24,6 +24,7 @@ namespace EmployeeManagementSyst
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.BackColor = System.Drawing.Color.BlanchedAlmond;
         }
+        // Loads the details of the admins from the database into a DataTable.
         public void AdminDetails()
         {
             try
@@ -57,6 +58,7 @@ namespace EmployeeManagementSyst
             }
             catch (Exception ex) { MessageBox.Show("Admin Details Error: " + ex.Message); }
         }
+        // Initializes the server connection
         public void InitiateServer()
         {
             try
@@ -76,6 +78,8 @@ namespace EmployeeManagementSyst
             }
             catch (Exception ex) { MessageBox.Show("Error: " + ex.Message); }
         }
+        // Handles the cell click event in the DataGridView.
+        // Retrieves admin information when a cell is clicked and opens the RemoveAdmin form.
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
@@ -106,6 +110,7 @@ namespace EmployeeManagementSyst
                 }
             }
         }
+        // Handles text changes in the input TextBox and filters the admin list based on user input.
         private void Changing_Text(object sender, EventArgs s)
         {
             string userInput = textBox1.Text.Trim().ToLower();
@@ -151,6 +156,7 @@ namespace EmployeeManagementSyst
 
             catch (Exception ex) { MessageBox.Show("Admin Details Error: " + ex.Message); }
         }
+        // Loads all admin details from the database into the DataGridView.
         private void LoadAllData()
         {
             try
@@ -189,6 +195,8 @@ namespace EmployeeManagementSyst
                 MessageBox.Show("Error loading data: " + ex.Message);
             }
         }
+        // Event handler for form load.
+        // Calls LoadAllData to populate the DataGridView with admin details when the form is loaded.
         private void EmployeeDetailGrid_Load(object sender, EventArgs e)
         {
             LoadAllData();

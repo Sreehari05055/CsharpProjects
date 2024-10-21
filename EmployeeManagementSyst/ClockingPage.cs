@@ -25,12 +25,14 @@ namespace EmployeeManagementSyst
         {
              
         }
+        // Event handler for the Start button click
         private void Start_Click(object sender, EventArgs e)
         {    
             Verification verification = new Verification();
             verification.Show();
             this.Close();
         }
+        // Event handler for the End button click
         private void End_Click(object sender, EventArgs e)
         {
             EndVerification vfication = new EndVerification();

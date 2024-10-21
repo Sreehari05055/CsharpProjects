@@ -36,6 +36,8 @@ namespace EmployeeManagementSyst
             get { return code; }
             set { code = value; }
         }
+
+        // Constructor to initialize the form and set its propertiesb 
         public AddEmp()
         {
             InitializeComponent(); // Initializes the components of the form
@@ -72,13 +74,13 @@ namespace EmployeeManagementSyst
             string cardExpInp = textBox5.Text; // Gets the card expiration date input
             string cvvInp = textBox6.Text; // Gets the CVV input
             string cardNameInp = textBox7.Text; // Gets the cardholder's name input
-            GetSurname(); // Extracts the surname from the full name
+            GetSurname(); 
 
-            // Inserts employee details into the database
+       
             InsertEmployeeDetails(FullName,ageInp,phoneInp,emailInp,rateInp,SurName);
-            // Inserts card details into the database
+           
             InsertCardDetails(cardNumInp, cardExpInp, cvvInp, cardNameInp);
-            this.Close(); // Closes the form after insertion
+            this.Close(); 
         }
         private void InsertCardDetails(string cardNum, string expiryDate, string cvv, string holderName)
         {
@@ -102,6 +104,7 @@ namespace EmployeeManagementSyst
             }
             catch (Exception ex) { MessageBox.Show("Error Inserting Values (Card Data): " + ex.Message); }
         }
+        // Method to generate a unique employee code by checking against existing records in the database
         public String EmployeeCode()
         {
             try
@@ -131,7 +134,7 @@ namespace EmployeeManagementSyst
                         object dataTocheck = mySqlCommand.ExecuteScalar();
                         if (dataTocheck == null)
                         {
-                            uniqueCode = true; // exits the loop if the same code is not found 
+                            uniqueCode = true; // Exits the loop if code is unique
                         }
                     }
                 }
@@ -143,6 +146,8 @@ namespace EmployeeManagementSyst
         {
             this.Close();
         }
+
+        // Method to extract the surname from the full name
         public void GetSurname()
         {
             try
@@ -153,6 +158,8 @@ namespace EmployeeManagementSyst
             }
             catch (Exception ex) { MessageBox.Show("Error (Surname Comprehension): " + ex.Message); }
         }
+
+        // Method to insert employee details into the database
         public void InsertEmployeeDetails(string Name,string Age,string PhoneNumber, string Email,string HourlyRate,string SurName)
         {
             try
@@ -181,6 +188,8 @@ namespace EmployeeManagementSyst
 
 
         }
+
+        // Method to initialize the database connection using configuration settings
         public void InitiateServer()
         {
             try

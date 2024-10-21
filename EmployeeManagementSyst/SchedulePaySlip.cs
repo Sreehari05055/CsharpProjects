@@ -45,7 +45,7 @@ namespace EmployeeManagementSyst
             }
             catch (Exception ex) { MessageBox.Show("Error: " + ex.Message); }
         }
-
+        // Handles the click event for the "OK" button, updating the last executed day based on user selection.
         private void Ok_Click(object sender, EventArgs e)
         {
             string selectedDay = comboBox1.SelectedItem.ToString();
@@ -54,6 +54,7 @@ namespace EmployeeManagementSyst
 
             this.Close();
         }
+        // Updates the last executed day in the database for the specified day.
         private void UpdtExec(string day) 
         {
             try
@@ -70,6 +71,7 @@ namespace EmployeeManagementSyst
             }
             catch (Exception e) { MessageBox.Show($"Error Getting Last Executed Date: {e.Message}"); }
         }
+        // Initializes the combo box with the days of the week for user selection.
         private void InitializeCombo()
         {
             comboBox1.Items.AddRange(new string[]
@@ -87,7 +89,7 @@ namespace EmployeeManagementSyst
         {
             this.Close();
         }
-
+        // Checks if a payslip should be sent based on the last executed day and updates the last execution date.
         public void LastRunTime()
         {
             try

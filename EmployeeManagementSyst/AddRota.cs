@@ -24,6 +24,8 @@ namespace EmployeeManagementSyst
             this.BackColor = System.Drawing.Color.BlanchedAlmond;
             this.id = id;   
         }
+
+        // Schedules a rota by inserting shift details into the database
         public void ScheduleRota(DateTime startShift, DateTime endShift, DateTime date)
         {
             try
@@ -47,19 +49,22 @@ namespace EmployeeManagementSyst
             }
             catch (Exception ex) {MessageBox.Show("Error Scheduling Rota: " + ex.Message); }
         }
+
+        // Event handler for clicking the "Ok" button to schedule the rota
         private void Ok_Click(object sender, EventArgs e)
         {
             InitiateServer();
             string userInput = dateTimePicker1.Text;
             string dayString = userInput.Substring(0, 2).Trim();
-
             string finishInp = dateTimePicker2.Text;
             string startInp = dateTimePicker3.Text;
 
-            int day = int.Parse(dayString);
-            int year = DateTime.Now.Year;
-            int month = DateTime.Now.Month;
+            int day = int.Parse(dayString);  // Parse the day from input
+            int year = DateTime.Now.Year;  // Use the current year
+            int month = DateTime.Now.Month;  // Use the current month
 
+
+            // Combine the date and time for the shift start and end
             DateTime shiftStart = DateTime.Parse($"{year}-{month}-{day} {startInp}");
             DateTime shiftEnd = DateTime.Parse($"{year}-{month}-{day} {finishInp}");
 
@@ -71,10 +76,13 @@ namespace EmployeeManagementSyst
            
 
         }
+        // Event handler for clicking the "Cancel" button to close the form
         private void Cancel_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+
+        // Method to initialize the database connection using configuration settings
         public void InitiateServer()
         {
             try

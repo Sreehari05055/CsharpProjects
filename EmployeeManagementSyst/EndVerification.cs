@@ -53,6 +53,7 @@ namespace EmployeeManagementSyst
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.BackColor = System.Drawing.Color.BlanchedAlmond;
         }
+        // Method to verify the employee code
         public void Verify(String codeToCheck)
         {
             try
@@ -75,6 +76,7 @@ namespace EmployeeManagementSyst
             }
             catch (Exception ex) { MessageBox.Show("Verification Error: " + ex.Message); }
         }
+        // Event handler for the OK button click
         private void Ok_Click(object sender, EventArgs e)
         {
             InitiateServer();
@@ -84,6 +86,7 @@ namespace EmployeeManagementSyst
             CompletedHours();
 
         }
+        // Method to check if the employee has completed hours
         public void CompletedHours()
         {
             try
@@ -120,6 +123,7 @@ namespace EmployeeManagementSyst
             }
             catch (Exception e) { MessageBox.Show("Error Getting Completed Hours: " + e.Message); }
         }
+        // Method to check hours worked and process them
         public void HoursCheck(double hours)
         {        
             try
@@ -133,6 +137,7 @@ namespace EmployeeManagementSyst
                 }
             }catch(Exception e) { MessageBox.Show("Error during hour check: "+e.Message); }
         }
+        // Method to process hours using a stopwatch
         public void StopWatch(string hourstring)
         {
             if (DateTime.TryParse(hourstring, out DateTime dateTime))
@@ -161,6 +166,7 @@ namespace EmployeeManagementSyst
             }
 
         }
+        // Method to delete time record from the database
         public void DeleteTime()
         {
             try
@@ -176,12 +182,14 @@ namespace EmployeeManagementSyst
             }
             catch (Exception e) { MessageBox.Show("Error Clocking Out Employee: " + e.Message); }
         }
+        // Method to record the date worked
         public void DateWorked()
         {
             DateTime today = DateTime.Today;
             String todayString = today.ToString("yyyy-MM-dd");
             WorkDate = todayString;
         }
+        // Method to insert employee pay record into the database
         public void InsertEmployeePay()
         {
             try
@@ -215,6 +223,7 @@ namespace EmployeeManagementSyst
             }
             catch (Exception ex) { MessageBox.Show("Error Inserting Values (Employee Pay): " + ex.Message); }
         }
+        // Method to calculate the employee's pay based on hours worked
         public void CalculatePay()
         {
             try

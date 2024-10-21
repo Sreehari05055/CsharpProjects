@@ -43,6 +43,7 @@ namespace EmployeeManagementSyst
             }
             catch (Exception ex) { MessageBox.Show("Error: " + ex.Message); }
         }
+        // Initialize server connection and remove admin when 'OK' is clicked
         private void Ok_Click(object sender, EventArgs e)        
         {
             
@@ -54,6 +55,7 @@ namespace EmployeeManagementSyst
         {
             this.Close();
         }
+        // Removes an admin from the database based on the provided admin ID.
         public void RemveAdmin(string id)
         {
             try

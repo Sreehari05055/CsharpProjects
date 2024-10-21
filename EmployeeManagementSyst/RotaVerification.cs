@@ -17,13 +17,13 @@ namespace EmployeeManagementSyst
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.BackColor = System.Drawing.Color.BlanchedAlmond;
-        } 
+        } // Event handler when 'Ok' is clicked
         private void Ok_Click(object sender, EventArgs e) 
         {
             SendRotaEmail sendRotaEmail = new SendRotaEmail();
             sendRotaEmail.CreateRota();
             this.Close();
-        }
+        } // Event handler when 'Cancel' is clicked
         private void Cancel_Click(object sender, EventArgs e) 
         {
             this.Close();

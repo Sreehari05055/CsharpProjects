@@ -27,6 +27,8 @@ namespace EmployeeManagementSyst
             EmployeeStatus();
 
         }
+
+        // Method to check the status of employees and display it in the DataGridView
         public void EmployeeStatus()
         {
             try
@@ -58,7 +60,7 @@ namespace EmployeeManagementSyst
                 MessageBox.Show("Error Checking Employee Status: " + ex.Message);
             }
         }
-
+        // Method to initialize the database connection using configuration settings
         public void InitiateServer()
         {
             try
@@ -78,7 +80,7 @@ namespace EmployeeManagementSyst
             }
             catch (Exception ex) { MessageBox.Show("Error: " + ex.Message); }
         }
-
+        // Event handler for when a cell in the DataGridView is clicked (currently not implemented)
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 

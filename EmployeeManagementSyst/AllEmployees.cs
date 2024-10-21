@@ -23,6 +23,8 @@ namespace EmployeeManagementSyst
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.BackColor = System.Drawing.Color.BlanchedAlmond;
         }
+
+        // Method to initialize the database connection using configuration settings
         public void InitiateServer()
         {
             try
@@ -42,6 +44,8 @@ namespace EmployeeManagementSyst
             }
             catch (Exception ex) { MessageBox.Show("Error: " + ex.Message); }
         }
+
+        // Method to fetch and display employee details in the DataGridView
         public void EmployeeDetails()
         {
             try
@@ -73,6 +77,7 @@ namespace EmployeeManagementSyst
             }
             catch (Exception ex) { MessageBox.Show("Employee Details Error: " + ex.Message); }
         }
+        // Event handler for when a cell in the DataGridView is clicked
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e) 
         {
             if (e.RowIndex >= 0)

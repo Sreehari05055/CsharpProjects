@@ -47,6 +47,7 @@ namespace EmployeeManagementSyst
             }
             catch (Exception ex) { MessageBox.Show("Error: " + ex.Message); }
         }
+        // Method to handle the 'OK' button click event
         private void Ok_Click(object sender, EventArgs e) 
         {
             string updtName = textBox1.Text;
@@ -63,10 +64,12 @@ namespace EmployeeManagementSyst
             UpdateEmpSet(updtCode,updtName,updtAge,updtNum,updtEmail,updtRate);
             this.Close();
         }
+        // Method to handle the 'Cancel' button click event
         private void Cancel_Click(object sender, EventArgs e) 
         {
             this.Close();           
         }
+        // Method to extract the surname from the full name
         public void GetSurname(string name)
         {
             try
@@ -77,6 +80,7 @@ namespace EmployeeManagementSyst
             }
             catch (Exception ex) { MessageBox.Show("Error (Surname Comprehension): " + ex.Message); }
         }
+        // Method to update employee details in the database
         public void UpdateEmpSet(string code,string name,string age,string phoneNum,string emailAdd, string rate)
         {
             try

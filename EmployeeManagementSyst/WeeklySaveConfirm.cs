@@ -24,6 +24,7 @@ namespace EmployeeManagementSyst
             this.BackColor = System.Drawing.Color.BlanchedAlmond;
             InitializeCombo();
         }
+        // Method to update the last executed day in the database
         private void UpdtExec(string day)
         {
             try
@@ -40,6 +41,7 @@ namespace EmployeeManagementSyst
             }
             catch (Exception e) { MessageBox.Show($"Error Getting Last Executed Date: {e.Message}"); }
         }
+        // Method to initiate server connection
         public void InitiateServer()
         {
             try
@@ -59,13 +61,14 @@ namespace EmployeeManagementSyst
             }
             catch (Exception ex) { MessageBox.Show("Error: " + ex.Message); }
         }
-
+        // Event handler for the OK button click
         private void Ok_Click(object sender, EventArgs e)
         {
             string selectedDay = comboBox1.SelectedItem.ToString();
             UpdtExec(selectedDay);
             this.Close();
         }
+        // Method to initialize the combo box with days of the week
         private void InitializeCombo()
         {
             comboBox1.Items.AddRange(new string[]
@@ -79,10 +82,12 @@ namespace EmployeeManagementSyst
             "Saturday"
                 });
         }
+        // Event handler for the Cancel button click
         private void Cancel_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+        // Method to save weekly data to a text file
         private void SaveWeeklyData()
         {
             try
@@ -120,8 +125,8 @@ namespace EmployeeManagementSyst
 
                     if (sb.Length > 0)
                     {
-                        File.WriteAllText(path, sb.ToString());
-                        ResetWeeklyData();
+                        File.WriteAllText(path, sb.ToString()); // Write data to the specified file
+                        ResetWeeklyData();   // Reset weekly data (method not shown in the code)
                     }
                 }
 
@@ -130,6 +135,7 @@ namespace EmployeeManagementSyst
             catch (Exception e) { MessageBox.Show("Error Saving Rota Data: " + e.Message); }
 
         }
+        // Method to set the last save date in the database
         public void SetSaveDate()
         {
             try
@@ -179,6 +185,7 @@ namespace EmployeeManagementSyst
 
             catch (Exception e) { MessageBox.Show("Error Setting Date to Save Data: " + e.Message); }
         }
+        // Deletes data on weekly basis from the 'rotatable' table to reset the weekly rota data.
         private void ResetWeeklyData()
         {
             try

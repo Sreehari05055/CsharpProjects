@@ -24,6 +24,7 @@ namespace EmployeeManagementSyst
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.BackColor = System.Drawing.Color.BlanchedAlmond;
         }
+        // Method to initiate the server connection
         public void InitiateServer()
         {
             try
@@ -43,6 +44,7 @@ namespace EmployeeManagementSyst
             }
             catch (Exception ex) { MessageBox.Show("Error: " + ex.Message); }
         }
+        // Event handler for the delete button click
         private void button1_Click(object sender, EventArgs e)
         {
             InitiateServer();
@@ -54,6 +56,7 @@ namespace EmployeeManagementSyst
             this.Close();
 
         }
+        // Method to remove the admin data associated with the employee
         public void RemoveAdmin(string id)
         {
             try
@@ -79,6 +82,7 @@ namespace EmployeeManagementSyst
             }
             catch (Exception e) { MessageBox.Show("Error Removing Admin: " + e.Message); }
         }
+        // Method to remove the pay data associated with the employee
         public void RemovePay(string id)
         {
             try
@@ -104,6 +108,7 @@ namespace EmployeeManagementSyst
             }
             catch (Exception e) { MessageBox.Show("Error Removing Admin: " + e.Message); }
         }
+        // Method to remove the card data associated with the employee
         private void RemoveCard(string code)
         {
             try
@@ -129,6 +134,7 @@ namespace EmployeeManagementSyst
             }
             catch (Exception e) { MessageBox.Show("Error Deleting Card: " + e.Message); }
         }
+        // Method to delete the employee from the employee details
         public void DeletEmp(string empCode)
         {
             try
@@ -152,6 +158,7 @@ namespace EmployeeManagementSyst
             }
             catch (Exception ex) { MessageBox.Show("Error Deleting Employee: " + ex.Message); }
         }
+        // Event handler for the cancel button click
         private void button2_Click(object sender, EventArgs e)
         {
             this.Close();

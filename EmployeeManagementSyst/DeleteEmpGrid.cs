@@ -23,6 +23,7 @@ namespace EmployeeManagementSyst
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.BackColor = System.Drawing.Color.BlanchedAlmond;
         }
+        // Method to load employee details from the database
         public void EmployeeDetails()
         {
             try
@@ -56,6 +57,7 @@ namespace EmployeeManagementSyst
             }
             catch (Exception ex) { MessageBox.Show("Employee Details Error: " + ex.Message); }
         }
+        // Method to initiate server connection using configuration file
         public void InitiateServer()
         {
             try
@@ -75,6 +77,7 @@ namespace EmployeeManagementSyst
             }
             catch (Exception ex) { MessageBox.Show("Error: " + ex.Message); }
         }
+        // Method to handle cell clicks in the DataGridView
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
@@ -105,6 +108,7 @@ namespace EmployeeManagementSyst
                 }
             }
         }
+        // Method to filter employee details based on user input
         private void Changing_Text(object sender, EventArgs s)
         {
             string userInput = textBox1.Text.Trim().ToLower();
@@ -150,6 +154,7 @@ namespace EmployeeManagementSyst
 
             catch (Exception ex) { MessageBox.Show("Employee Details Error: " + ex.Message); }
         }
+        // Method to load all employee data into the grid
         private void LoadAllData()
         {
             try
@@ -188,6 +193,8 @@ namespace EmployeeManagementSyst
                 MessageBox.Show("Error loading data: " + ex.Message);
             }
         }
+
+        // Method to load employee details when the form loads
         private void EmployeeDetailGrid_Load(object sender, EventArgs e)
         {
             LoadAllData();

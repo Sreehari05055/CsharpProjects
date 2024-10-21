@@ -56,6 +56,7 @@ namespace EmployeeManagementSyst
             }
             catch (Exception ex) { MessageBox.Show("Error: " + ex.Message); }
         }
+        // Method to draft payslip emails for employees
         public void SendPaySlip()
         {
             try
@@ -119,7 +120,7 @@ namespace EmployeeManagementSyst
             }
             catch (Exception e) { MessageBox.Show("Error Creating PaySlip: " + e.Message); }
         }
-       
+        // Method to send an email with the payslip attached
         public void SendEmail(string emailAdd, string subject, string body)
             {
                 try
@@ -128,7 +129,7 @@ namespace EmployeeManagementSyst
 
                     {
 
-                        mailMessage.From = new MailAddress("From_email_address");
+                        mailMessage.From = new MailAddress("sreekuttankzm@gmail.com");
                         mailMessage.Subject = subject;
                         mailMessage.Body = body;
                         mailMessage.To.Add(emailAdd);
@@ -143,7 +144,7 @@ namespace EmployeeManagementSyst
 
                         using (SmtpClient smtpClient = new SmtpClient("smtp.gmail.com", 587))
                         {
-                            smtpClient.Credentials = new NetworkCredential("From_email_address", "app_specific_password");
+                            smtpClient.Credentials = new NetworkCredential("sreekuttankzm@gmail.com", "tqyi rthe cjgt znox");
                             smtpClient.EnableSsl = true;
                             smtpClient.Send(mailMessage);
 

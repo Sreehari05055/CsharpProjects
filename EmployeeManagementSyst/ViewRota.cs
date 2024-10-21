@@ -21,7 +21,6 @@ namespace EmployeeManagementSyst
     {
         
         private string serverConnection;
-     //   private string filePath = "lastExecuted.txt";
        
         public ViewRota()
         {
@@ -31,7 +30,8 @@ namespace EmployeeManagementSyst
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.BackColor = System.Drawing.Color.BlanchedAlmond;
         }
-       
+        // Populates the DataGridView with employee rota data from the database.
+        // Retrieves employee names and their respective shift details, then binds this information to the DataGridView.
         private void PopulateDataGridView()
         {
             try
@@ -150,7 +150,7 @@ namespace EmployeeManagementSyst
                 MessageBox.Show("Error Viewing Rota: " + ex.Message);
             }
         }
-        
+        // Method to initiate server connection
         public void InitiateServer()
         { 
             try
