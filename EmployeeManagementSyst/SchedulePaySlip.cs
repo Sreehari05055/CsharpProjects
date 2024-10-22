@@ -21,36 +21,20 @@ namespace EmployeeManagementSyst
         public SchedulePaySlip()
         {
             InitializeComponent();
-            InitiateServer();
+            serverConnection = MainPage.InitiateServer();
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.BackColor = System.Drawing.Color.BlanchedAlmond;
-            InitializeCombo();
-        }
-        public void InitiateServer()
-        {
-            try
-            {
-                var builder = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile("connectionString.json", optional: true, reloadOnChange: true);
-                IConfiguration configuration = builder.Build();
-
-                // Get connection string
-                string connectionString = configuration.GetConnectionString("EmployeeDatabase");
-
-                if (string.IsNullOrEmpty(connectionString))
-                {
-                    throw new Exception("Connection string 'EmployeeDatabase' not found in configuration file.");
-                }
-
-                serverConnection = connectionString;
-            }
-            catch (Exception ex) { MessageBox.Show("Error: " + ex.Message); }
+            InitializeCombo(comboBox1);
         }
         // Handles the click event for the "OK" button, updating the last executed day based on user selection.
         private void Ok_Click(object sender, EventArgs e)
         {
-            string selectedDay = comboBox1.SelectedItem.ToString();
+            if (comboBox1.SelectedItem != null)
+            {
+                string selectedDay = comboBox1.SelectedItem.ToString();
 
-            UpdtExec(selectedDay);
+                UpdtExec(selectedDay);
+            }
 
             this.Close();
         }
@@ -72,9 +56,10 @@ namespace EmployeeManagementSyst
             catch (Exception e) { MessageBox.Show($"Error Getting Last Executed Date: {e.Message}"); }
         }
         // Initializes the combo box with the days of the week for user selection.
-        private void InitializeCombo()
+        public static void InitializeCombo(ComboBox comboBox)
         {
-            comboBox1.Items.AddRange(new string[]
+            comboBox.Items.Clear();
+            comboBox.Items.AddRange(new string[]
                 {
             "Sunday",
             "Monday",

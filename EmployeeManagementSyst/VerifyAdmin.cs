@@ -35,7 +35,7 @@ namespace EmployeeManagementSyst
         // Event handler for OK button click
         private void Ok_Click(object sender, EventArgs e)
         {
-            InitiateServer();
+            serverConnection = MainPage.InitiateServer();
             string userInput = textBox1.Text;
             
             AdminVerify(userInput);
@@ -47,27 +47,7 @@ namespace EmployeeManagementSyst
         {
             this.Close();
         }
-        // Method to initiate the server connection
-        public void InitiateServer()
-        {
-            try
-            {
-                var builder = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile("connectionString.json", optional: true, reloadOnChange: true);
-                IConfiguration configuration = builder.Build();
-
-                // Get connection string
-                string connectionString = configuration.GetConnectionString("EmployeeDatabase");
-
-                if (string.IsNullOrEmpty(connectionString))
-                {
-                    throw new Exception("Connection string 'EmployeeDatabase' not found in configuration file.");
-                }
-
-                serverConnection = connectionString;
-            }
-            catch (Exception ex) { MessageBox.Show("Error: " + ex.Message); }
-
-        } // Method to check if the id exists in the admin table
+        // Method to check if the ID exists in the admin table
         public void AdminVerify(string adminCode)
         {
             try

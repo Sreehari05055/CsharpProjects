@@ -24,7 +24,7 @@ namespace EmployeeManagementSyst
             });
 
             MainPage obj = new MainPage();
-            obj.InitiateServer();
+            MainPage.InitiateServer();
             obj.EmployeeDetails();
             obj.EmployeePayment();
             obj.AdminTable();

@@ -25,7 +25,7 @@ namespace EmployeeManagementSyst
         public ViewRota()
         {
             InitializeComponent();
-            InitiateServer();
+            serverConnection = MainPage.InitiateServer();
             PopulateDataGridView();
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.BackColor = System.Drawing.Color.BlanchedAlmond;
@@ -149,26 +149,6 @@ namespace EmployeeManagementSyst
             {
                 MessageBox.Show("Error Viewing Rota: " + ex.Message);
             }
-        }
-        // Method to initiate server connection
-        public void InitiateServer()
-        { 
-            try
-            {
-                var builder = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile("connectionString.json", optional: true, reloadOnChange: true);
-                IConfiguration configuration = builder.Build();
-
-                // Get connection string
-                string connectionString = configuration.GetConnectionString("EmployeeDatabase");
-
-                if (string.IsNullOrEmpty(connectionString))
-                {
-                    throw new Exception("Connection string 'EmployeeDatabase' not found in configuration file.");
-                }
-
-                serverConnection = connectionString;
-            }
-            catch (Exception ex) { MessageBox.Show("Error: " + ex.Message); }
         }
     }
 }

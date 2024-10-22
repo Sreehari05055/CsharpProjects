@@ -19,10 +19,10 @@ namespace EmployeeManagementSyst
         public WeeklySaveConfirm()
         {
             InitializeComponent();
-            InitiateServer();
+            serverConnection = MainPage.InitiateServer();
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.BackColor = System.Drawing.Color.BlanchedAlmond;
-            InitializeCombo();
+            SchedulePaySlip.InitializeCombo(comboBox1);
         }
         // Method to update the last executed day in the database
         private void UpdtExec(string day)
@@ -41,46 +41,15 @@ namespace EmployeeManagementSyst
             }
             catch (Exception e) { MessageBox.Show($"Error Getting Last Executed Date: {e.Message}"); }
         }
-        // Method to initiate server connection
-        public void InitiateServer()
-        {
-            try
-            {
-                var builder = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile("connectionString.json", optional: true, reloadOnChange: true);
-                IConfiguration configuration = builder.Build();
-
-                // Get connection string
-                string connectionString = configuration.GetConnectionString("EmployeeDatabase");
-
-                if (string.IsNullOrEmpty(connectionString))
-                {
-                    throw new Exception("Connection string 'EmployeeDatabase' not found in configuration file.");
-                }
-
-                serverConnection = connectionString;
-            }
-            catch (Exception ex) { MessageBox.Show("Error: " + ex.Message); }
-        }
         // Event handler for the OK button click
         private void Ok_Click(object sender, EventArgs e)
         {
-            string selectedDay = comboBox1.SelectedItem.ToString();
-            UpdtExec(selectedDay);
+            if (comboBox1.SelectedItem != null)
+            {
+                string selectedDay = comboBox1.SelectedItem.ToString();
+                UpdtExec(selectedDay);
+            }
             this.Close();
-        }
-        // Method to initialize the combo box with days of the week
-        private void InitializeCombo()
-        {
-            comboBox1.Items.AddRange(new string[]
-                {
-            "Sunday",
-            "Monday",
-            "Tuesday",
-            "Wednesday",
-            "Thursday",
-            "Friday",
-            "Saturday"
-                });
         }
         // Event handler for the Cancel button click
         private void Cancel_Click(object sender, EventArgs e)

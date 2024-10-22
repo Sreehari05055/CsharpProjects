@@ -18,7 +18,7 @@ namespace EmployeeManagementSyst
         public SetAdminGrid()
         {
             InitializeComponent();
-            InitiateServer();
+            serverConnection = MainPage.InitiateServer();
             AdminEmpDetails();
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.BackColor = System.Drawing.Color.BlanchedAlmond;
@@ -56,26 +56,6 @@ namespace EmployeeManagementSyst
                 dataGridView1.DataSource = dataTable;
             }
             catch (Exception ex) { MessageBox.Show("Employee Details Error: " + ex.Message); }
-        }
-        // Method to initialize the server connection
-        public void InitiateServer()
-        {
-            try
-            {
-                var builder = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile("connectionString.json", optional: true, reloadOnChange: true);
-                IConfiguration configuration = builder.Build();
-
-                // Get connection string
-                string connectionString = configuration.GetConnectionString("EmployeeDatabase");
-
-                if (string.IsNullOrEmpty(connectionString))
-                {
-                    throw new Exception("Connection string 'EmployeeDatabase' not found in configuration file.");
-                }
-
-                serverConnection = connectionString;
-            }
-            catch (Exception ex) { MessageBox.Show("Error: " + ex.Message); }
         }
         // Event handler for cell click in DataGridView
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)

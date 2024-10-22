@@ -12,6 +12,7 @@ using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace EmployeeManagementSyst
 {
@@ -35,26 +36,7 @@ namespace EmployeeManagementSyst
         public PaySlip()
         {
             InitializeComponent();
-            InitiateServer();
-        }
-        public void InitiateServer()
-        {
-            try
-            {
-                var builder = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile("connectionString.json", optional: true, reloadOnChange: true);
-                IConfiguration configuration = builder.Build();
-
-                // Get connection string
-                string connectionString = configuration.GetConnectionString("EmployeeDatabase");
-
-                if (string.IsNullOrEmpty(connectionString))
-                {
-                    throw new Exception("Connection string 'EmployeeDatabase' not found in configuration file.");
-                }
-
-                serverConnection = connectionString;
-            }
-            catch (Exception ex) { MessageBox.Show("Error: " + ex.Message); }
+            serverConnection = MainPage.InitiateServer();
         }
         // Method to draft payslip emails for employees
         public void SendPaySlip()
@@ -67,7 +49,7 @@ namespace EmployeeManagementSyst
                     string qry = "SELECT id, SUM(total_pay) AS total_pay FROM employeepay WHERE date_of_work BETWEEN @finished_date AND @current_date GROUP BY id;";
                     SqlCommand sqlCommand = new SqlCommand(qry, server);
                     DateTime payDate = DateTime.Now;
-                    DateTime sevenDaysBefore = payDate.AddDays(-7);
+                    DateTime sevenDaysBefore = payDate.AddDays(-7); //Fetches all data from the SQL database corresponding to the last seven days.
 
 
 
@@ -129,7 +111,7 @@ namespace EmployeeManagementSyst
 
                     {
 
-                        mailMessage.From = new MailAddress("From_email_address");
+                        mailMessage.From = new MailAddress("sreekuttankzm@gmail.com");
                         mailMessage.Subject = subject;
                         mailMessage.Body = body;
                         mailMessage.To.Add(emailAdd);
@@ -144,7 +126,7 @@ namespace EmployeeManagementSyst
 
                         using (SmtpClient smtpClient = new SmtpClient("smtp.gmail.com", 587))
                         {
-                            smtpClient.Credentials = new NetworkCredential("From_email_address", "app_specific_password");
+                            smtpClient.Credentials = new NetworkCredential("sreekuttankzm@gmail.com", "tqyi rthe cjgt znox");
                             smtpClient.EnableSsl = true;
                             smtpClient.Send(mailMessage);
 

@@ -20,7 +20,7 @@ namespace EmployeeManagementSyst
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.BackColor = System.Drawing.Color.BlanchedAlmond;
-            InitiateServer();
+            serverConnection = MainPage.InitiateServer();
 
         } 
         // Creates the work rota for employees and sends it via email.
@@ -97,25 +97,6 @@ namespace EmployeeManagementSyst
 
             }
             catch (Exception e) { MessageBox.Show("Error Creating Rota: " + e.Message); }
-        }
-        public void InitiateServer()
-        {
-            try
-            {
-                var builder = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile("connectionString.json", optional: true, reloadOnChange: true);
-                IConfiguration configuration = builder.Build();
-
-                // Get connection string
-                string connectionString = configuration.GetConnectionString("EmployeeDatabase");
-
-                if (string.IsNullOrEmpty(connectionString))
-                {
-                    throw new Exception("Connection string 'EmployeeDatabase' not found in configuration file.");
-                }
-
-                serverConnection = connectionString;
-            }
-            catch (Exception ex) { MessageBox.Show("Error: " + ex.Message); }
         }
     }
 }

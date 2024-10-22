@@ -19,7 +19,7 @@ namespace EmployeeManagementSyst
         public RmoveAdminGrid()
         {
             InitializeComponent();
-            InitiateServer();
+            serverConnection = MainPage.InitiateServer();
             AdminDetails();
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.BackColor = System.Drawing.Color.BlanchedAlmond;
@@ -57,26 +57,6 @@ namespace EmployeeManagementSyst
                 dataGridView1.DataSource = dataTable;
             }
             catch (Exception ex) { MessageBox.Show("Admin Details Error: " + ex.Message); }
-        }
-        // Initializes the server connection
-        public void InitiateServer()
-        {
-            try
-            {
-                var builder = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile("connectionString.json", optional: true, reloadOnChange: true);
-                IConfiguration configuration = builder.Build();
-
-                // Get connection string
-                string connectionString = configuration.GetConnectionString("EmployeeDatabase");
-
-                if (string.IsNullOrEmpty(connectionString))
-                {
-                    throw new Exception("Connection string 'EmployeeDatabase' not found in configuration file.");
-                }
-
-                serverConnection = connectionString;
-            }
-            catch (Exception ex) { MessageBox.Show("Error: " + ex.Message); }
         }
         // Handles the cell click event in the DataGridView.
         // Retrieves admin information when a cell is clicked and opens the RemoveAdmin form.

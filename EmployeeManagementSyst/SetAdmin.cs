@@ -26,7 +26,7 @@ namespace EmployeeManagementSyst
         // Handles the click event for the OK button
         private void Ok_Click(object sender, EventArgs e)
         {
-            InitiateServer();
+            serverConnection = MainPage.InitiateServer();
             GetAdmininfo(AdmnCode);
             this.Close();
 
@@ -34,25 +34,6 @@ namespace EmployeeManagementSyst
         private void Cancel_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-        public void InitiateServer()
-        {
-            try
-            {
-                var builder = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile("connectionString.json", optional: true, reloadOnChange: true);
-                IConfiguration configuration = builder.Build();
-
-                // Get connection string
-                string connectionString = configuration.GetConnectionString("EmployeeDatabase");
-
-                if (string.IsNullOrEmpty(connectionString))
-                {
-                    throw new Exception("Connection string 'EmployeeDatabase' not found in configuration file.");
-                }
-
-                serverConnection = connectionString;
-            }
-            catch (Exception ex) { MessageBox.Show("Error: " + ex.Message); }
         }
         // Retrieves administrator information based on the provided ID and inserts it into the admin table.
         public void GetAdmininfo(string id)

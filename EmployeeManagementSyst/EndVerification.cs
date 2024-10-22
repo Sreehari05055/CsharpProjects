@@ -79,7 +79,7 @@ namespace EmployeeManagementSyst
         // Event handler for the OK button click
         private void Ok_Click(object sender, EventArgs e)
         {
-            InitiateServer();
+            serverConnection = MainPage.InitiateServer();
             string userInput = textBox1.Text;
             Code = userInput;
             Verify(userInput);
@@ -142,23 +142,30 @@ namespace EmployeeManagementSyst
         {
             if (DateTime.TryParse(hourstring, out DateTime dateTime))
             {
-                double minutes = dateTime.Minute;
-                double hours = dateTime.Hour;
-                double result = (hours) + (minutes / 60);
+                // Get the current time
+                DateTime currentTime = DateTime.Now;
+
+                // Calculate the time difference
+                TimeSpan timeDifference = currentTime - dateTime;
+
+                // Convert the difference to hours and minutes
+                double result = timeDifference.TotalHours; // This will give the difference in hours
+
                 this.HoursDone = result;
 
                 // Perform hours check immediately after calculation
                 if (result > 16)
-                {
-                    DeleteTime();
-                    MessageBox.Show("Hours Done More Than Legal Working Hours.");
-                    this.Close();
-                    return;  // Stops further code execution if over the limit
-                }
+                    {
+                        DeleteTime();
+                        MessageBox.Show("Hours Done More Than Legal Working Hours.");
+                        this.Close();
+                        return;  // Stops further code execution if over the limit
+                    }
 
-                HoursCheck(result);
-                String hourString = result.ToString();
+                String hourString = result.ToString("F2");
                 this.StringHours = hourString;
+                HoursCheck(result);
+               
             }
             else
             {
@@ -253,25 +260,6 @@ namespace EmployeeManagementSyst
         private void Cancel_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-        public void InitiateServer()
-        {
-            try
-            {
-                var builder = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile("connectionString.json", optional: true, reloadOnChange: true);
-                IConfiguration configuration = builder.Build();
-
-                // Get connection string
-                string connectionString = configuration.GetConnectionString("EmployeeDatabase");
-
-                if (string.IsNullOrEmpty(connectionString))
-                {
-                    throw new Exception("Connection string 'EmployeeDatabase' not found in configuration file.");
-                }
-
-                serverConnection = connectionString;
-            }
-            catch (Exception ex) { MessageBox.Show("Error: " + ex.Message); }
         }
     }
 }

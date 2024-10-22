@@ -23,7 +23,7 @@ namespace EmployeeManagementSyst
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.BackColor = System.Drawing.Color.BlanchedAlmond;
-            InitiateServer();
+            serverConnection = MainPage.InitiateServer();
             EmployeeStatus();
 
         }
@@ -59,26 +59,6 @@ namespace EmployeeManagementSyst
             {
                 MessageBox.Show("Error Checking Employee Status: " + ex.Message);
             }
-        }
-        // Method to initialize the database connection using configuration settings
-        public void InitiateServer()
-        {
-            try
-            {
-                var builder = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile("connectionString.json", optional: true, reloadOnChange: true);
-                IConfiguration configuration = builder.Build();
-
-                // Get connection string
-                string connectionString = configuration.GetConnectionString("EmployeeDatabase");
-
-                if (string.IsNullOrEmpty(connectionString))
-                {
-                    throw new Exception("Connection string 'EmployeeDatabase' not found in configuration file.");
-                }
-
-                serverConnection = connectionString;
-            }
-            catch (Exception ex) { MessageBox.Show("Error: " + ex.Message); }
         }
         // Event handler for when a cell in the DataGridView is clicked (currently not implemented)
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)

@@ -9,7 +9,7 @@ namespace EmployeeManagementSyst
 {
     public partial class MainPage : Form
     {
-        private string serverConnection;
+        private static string serverConnection;
         public MainPage()
         {
             InitializeComponent();
@@ -20,23 +20,25 @@ namespace EmployeeManagementSyst
         private void Form1_Load(object sender, EventArgs e)
         {
         }
-        public void InitiateServer() {
-            try
+        public static string InitiateServer() {
+            if (string.IsNullOrEmpty(serverConnection))
             {
-                var builder = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile("connectionString.json", optional: true, reloadOnChange: true);
-                IConfiguration configuration = builder.Build();
-
-                // Get connection string
-                string connectionString = configuration.GetConnectionString("EmployeeDatabase");
-
-                if (string.IsNullOrEmpty(connectionString))
+                try
                 {
-                    throw new Exception("Connection string 'EmployeeDatabase' not found in configuration file.");
-                }
+                    var builder = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile("connectionString.json", optional: true, reloadOnChange: true);
+                    IConfiguration configuration = builder.Build();
 
-                serverConnection = connectionString;
+                    // Get connection string
+                    serverConnection = configuration.GetConnectionString("EmployeeDatabase");
+
+                    if (string.IsNullOrEmpty(serverConnection))
+                    {
+                        throw new Exception("Connection string 'EmployeeDatabase' not found in configuration file.");
+                    }
+                }
+                catch (Exception ex) { MessageBox.Show("Error: " + ex.Message); } 
             }
-            catch (Exception ex) { MessageBox.Show("Error: "+ex.Message); }
+            return serverConnection;
         }
         // Method to check and create the lastExecuted table if it does not exist
         public void LastExecTable() 

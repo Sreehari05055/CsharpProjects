@@ -19,7 +19,7 @@ namespace EmployeeManagementSyst
         public ViewEditPaySlip()
         {
             InitializeComponent();
-            InitiateServer();
+            serverConnection = MainPage.InitiateServer();
             LoadAllData();
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.BackColor = System.Drawing.Color.BlanchedAlmond;
@@ -71,26 +71,6 @@ namespace EmployeeManagementSyst
                 cmd2.Parameters.AddWithValue("@id", id);                
                 cmd2.ExecuteNonQuery();
             }
-        }
-        // Initializes the server connection
-        public void InitiateServer()
-        {
-            try
-            {
-                var builder = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile("connectionString.json", optional: true, reloadOnChange: true);
-                IConfiguration configuration = builder.Build();
-
-                // Get connection string
-                string connectionString = configuration.GetConnectionString("EmployeeDatabase");
-
-                if (string.IsNullOrEmpty(connectionString))
-                {
-                    throw new Exception("Connection string 'EmployeeDatabase' not found in configuration file.");
-                }
-
-                serverConnection = connectionString;
-            }
-            catch (Exception ex) { MessageBox.Show("Error: " + ex.Message); }
         }
         // Handles text input in the search TextBox and loads filtered employee details based on the input.
         private void Changing_Text(object sender, EventArgs s)

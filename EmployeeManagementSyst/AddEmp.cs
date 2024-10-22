@@ -63,7 +63,7 @@ namespace EmployeeManagementSyst
 
         private void button1_Click(object sender, EventArgs e)
         {
-            InitiateServer(); // Initializes the database connection
+            serverConnection = MainPage.InitiateServer(); // Initializes the database connection
             EmployeeCode(); // Generates a unique employee code
             FullName = textBox1.Text.Trim().ToLower(); // Gets and formats the full name from input
             string ageInp = textBox2.Text; // Gets the age input
@@ -187,27 +187,6 @@ namespace EmployeeManagementSyst
             catch (Exception ex) { MessageBox.Show("Error Inserting Values (Employee Details): " + ex.Message); }
 
 
-        }
-
-        // Method to initialize the database connection using configuration settings
-        public void InitiateServer()
-        {
-            try
-            {
-                var builder = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile("connectionString.json", optional: true, reloadOnChange: true);
-                IConfiguration configuration = builder.Build();
-
-                // Get connection string
-                string connectionString = configuration.GetConnectionString("EmployeeDatabase");
-
-                if (string.IsNullOrEmpty(connectionString))
-                {
-                    throw new Exception("Connection string 'EmployeeDatabase' not found in configuration file.");
-                }
-
-                serverConnection = connectionString;
-            }
-            catch (Exception ex) { MessageBox.Show("Error: " + ex.Message); }
         }
     }
 }
