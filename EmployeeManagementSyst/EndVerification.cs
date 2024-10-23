@@ -257,9 +257,5 @@ namespace EmployeeManagementSyst
             }
             catch (Exception ex) {MessageBox.Show("Error Calculating Pay: " + ex.Message); }
         }
-        private void Cancel_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
     }
 }

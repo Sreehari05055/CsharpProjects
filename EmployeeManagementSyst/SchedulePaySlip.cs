@@ -70,10 +70,6 @@ namespace EmployeeManagementSyst
             "Saturday"
                 });
         }
-        private void Cancel_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
         // Checks if a payslip should be sent based on the last executed day and updates the last execution date.
         public void LastRunTime()
         {

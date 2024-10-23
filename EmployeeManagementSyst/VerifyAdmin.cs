@@ -43,10 +43,6 @@ namespace EmployeeManagementSyst
             
 
         }
-        private void Cancel_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
         // Method to check if the ID exists in the admin table
         public void AdminVerify(string adminCode)
         {

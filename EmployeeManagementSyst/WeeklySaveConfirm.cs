@@ -51,11 +51,6 @@ namespace EmployeeManagementSyst
             }
             this.Close();
         }
-        // Event handler for the Cancel button click
-        private void Cancel_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
         // Method to save weekly data to a text file
         private void SaveWeeklyData()
         {

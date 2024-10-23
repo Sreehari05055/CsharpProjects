@@ -76,11 +76,6 @@ namespace EmployeeManagementSyst
            
 
         }
-        // Event handler for clicking the "Cancel" button to close the form
-        private void Cancel_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
       
     }
 }

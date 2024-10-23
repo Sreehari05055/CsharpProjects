@@ -30,11 +30,8 @@ namespace EmployeeManagementSyst
             GetAdmininfo(AdmnCode);
             this.Close();
 
-        }// Handles the click event for the CANCEL button
-        private void Cancel_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
+     
         // Retrieves administrator information based on the provided ID and inserts it into the admin table.
         public void GetAdmininfo(string id)
         {

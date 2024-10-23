@@ -45,11 +45,7 @@ namespace EmployeeManagementSyst
             UpdateEmpSet(updtCode,updtName,updtAge,updtNum,updtEmail,updtRate);
             this.Close();
         }
-        // Method to handle the 'Cancel' button click event
-        private void Cancel_Click(object sender, EventArgs e) 
-        {
-            this.Close();           
-        }
+
         // Method to extract the surname from the full name
         public void GetSurname(string name)
         {

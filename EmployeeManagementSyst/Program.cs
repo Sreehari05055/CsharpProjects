@@ -35,5 +35,9 @@ namespace EmployeeManagementSyst
             Application.Run(new MainPage());
             
         }
+        public static void Cancel_Click(Form form)
+        {
+            form.Close();
+        }
     }
 }

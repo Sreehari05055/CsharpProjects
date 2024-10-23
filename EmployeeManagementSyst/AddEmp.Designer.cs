@@ -223,7 +223,7 @@
             button2.TabIndex = 20;
             button2.Text = "Cancel";
             button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
+            button2.Click += (sender, e) => Program.Cancel_Click(this);
             // 
             // AddEmp
             // 

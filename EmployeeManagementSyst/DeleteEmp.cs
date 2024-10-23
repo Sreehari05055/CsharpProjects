@@ -138,10 +138,5 @@ namespace EmployeeManagementSyst
             }
             catch (Exception ex) { MessageBox.Show("Error Deleting Employee: " + ex.Message); }
         }
-        // Event handler for the cancel button click
-        private void button2_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
         }
 }

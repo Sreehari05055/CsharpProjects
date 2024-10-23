@@ -43,6 +43,7 @@ namespace EmployeeManagementSyst
             InitializeComponent(); // Initializes the components of the form
             this.FormBorderStyle = FormBorderStyle.FixedSingle; // Sets the form border style
             this.BackColor = System.Drawing.Color.BlanchedAlmond; // Sets the background color of the form
+            
 
         }
 
@@ -141,10 +142,6 @@ namespace EmployeeManagementSyst
             }
             catch (Exception e) { MessageBox.Show("Error Generating Unique Code: " + e.Message); }
             return Code;
-        }
-        private void button2_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
 
         // Method to extract the surname from the full name

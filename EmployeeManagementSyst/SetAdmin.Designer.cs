@@ -51,7 +51,7 @@
             button2.TabIndex = 1;
             button2.Text = "Cancel";
             button2.UseVisualStyleBackColor = true;
-            button2.Click += Cancel_Click;
+            button2.Click += (sender, e) => Program.Cancel_Click(this);
             // 
             // label1
             // 

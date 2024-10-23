@@ -92,10 +92,7 @@ namespace EmployeeManagementSyst
 
 
         }
-        private void Cancel_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
+
         // Method to insert hours into the hours table
         public void InsertHoursTable(string time, string id)
         {

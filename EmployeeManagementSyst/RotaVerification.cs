@@ -23,10 +23,6 @@ namespace EmployeeManagementSyst
             SendRotaEmail sendRotaEmail = new SendRotaEmail();
             sendRotaEmail.CreateRota();
             this.Close();
-        } // Event handler when 'Cancel' is clicked
-        private void Cancel_Click(object sender, EventArgs e) 
-        {
-            this.Close();
-        } 
+        }     
     }
 }

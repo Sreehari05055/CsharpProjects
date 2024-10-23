@@ -31,10 +31,6 @@ namespace EmployeeManagementSyst
             RemveAdmin(adminCode);
             this.Close();
         }
-        private void Cancel_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
         // Removes an admin from the database based on the provided admin ID.
         public void RemveAdmin(string id)
         {
