@@ -40,6 +40,23 @@ namespace EmployeeManagementSyst
             }
             return serverConnection;
         }
+        public static SqlConnection ConnectionString()
+        {
+            try
+            {
+                InitiateServer();
+                SqlConnection serverCon = new SqlConnection(serverConnection);
+               
+                    serverCon.Open();
+                    return serverCon;
+                
+                
+            }catch(Exception e) { 
+                Console.WriteLine("Error Initiating Connection: "+ e.Message);
+                return null;
+            }
+
+        }
         // Method to check and create the lastExecuted table if it does not exist
         public void LastExecTable() 
         {

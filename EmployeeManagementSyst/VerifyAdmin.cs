@@ -15,7 +15,6 @@ namespace EmployeeManagementSyst
 {
     public partial class VerifyAdmin : Form
     {
-        private string serverConnection;
 
         public VerifyAdmin()
         {
@@ -35,7 +34,6 @@ namespace EmployeeManagementSyst
         // Event handler for OK button click
         private void Ok_Click(object sender, EventArgs e)
         {
-            serverConnection = MainPage.InitiateServer();
             string userInput = textBox1.Text;
             
             AdminVerify(userInput);
@@ -48,9 +46,9 @@ namespace EmployeeManagementSyst
         {
             try
             {
-                using (SqlConnection serverConnect = new SqlConnection(serverConnection))
+                using (SqlConnection serverConnect = MainPage.ConnectionString())
                 {
-                    serverConnect.Open();
+                   
                     String querytoCheck = "SELECT id FROM admintable WHERE id = @id;";
                     SqlCommand mySqlCommand = new SqlCommand(querytoCheck, serverConnect);
                     mySqlCommand.Parameters.Clear();
@@ -67,7 +65,7 @@ namespace EmployeeManagementSyst
                         page.Show();
                         this.Close();
                     }
-
+                    serverConnect.Close();
                 }
 
             }

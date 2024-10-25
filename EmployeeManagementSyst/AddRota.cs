@@ -15,7 +15,6 @@ namespace EmployeeManagementSyst
 {
     public partial class AddRota : Form
     {
-        private string serverConnection;
         private string id;
         public AddRota(string id)
         {   
@@ -31,9 +30,9 @@ namespace EmployeeManagementSyst
             try
             {
                 string datetoUse = date.DayOfWeek.ToString();
-                using (SqlConnection connection = new SqlConnection(serverConnection))
+                using (SqlConnection connection = MainPage.ConnectionString())
                 {
-                    connection.Open();
+                   
                     string insertquery = """INSERT INTO rotatable(day_ofweek ,start_work,finish_work,id)   VALUES (@dayofweek,@start,@finish,@id)""";
 
                     SqlCommand execute = new SqlCommand(insertquery, connection);
@@ -45,6 +44,7 @@ namespace EmployeeManagementSyst
 
                     int rowsAffected = execute.ExecuteNonQuery();
                     MessageBox.Show("Rota Added");
+                    connection.Close();
                 }
             }
             catch (Exception ex) {MessageBox.Show("Error Scheduling Rota: " + ex.Message); }
@@ -53,7 +53,6 @@ namespace EmployeeManagementSyst
         // Event handler for clicking the "Ok" button to schedule the rota
         private void Ok_Click(object sender, EventArgs e)
         {
-            serverConnection = MainPage.InitiateServer();
             string userInput = dateTimePicker1.Text;
             string dayString = userInput.Substring(0, 2).Trim();
             string finishInp = dateTimePicker2.Text;

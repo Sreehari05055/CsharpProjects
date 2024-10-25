@@ -14,11 +14,11 @@ namespace EmployeeManagementSyst
 {
     public partial class SetAdminGrid : Form
     {
-        private string serverConnection;
+       
         public SetAdminGrid()
         {
             InitializeComponent();
-            serverConnection = MainPage.InitiateServer();
+           
             AdminEmpDetails();
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.BackColor = System.Drawing.Color.BlanchedAlmond;
@@ -34,9 +34,9 @@ namespace EmployeeManagementSyst
                 dataTable.Columns.Add("Id", typeof(string));
 
 
-                using (SqlConnection serverConnect = new SqlConnection(serverConnection))
+                using (SqlConnection serverConnect = MainPage.ConnectionString())
                 {
-                    serverConnect.Open();
+                   
                     string qry = "SELECT id,fullname FROM employeedetails;";
                     SqlCommand mySqlCommand = new SqlCommand(qry, serverConnect);
                     SqlDataReader reader = mySqlCommand.ExecuteReader();
@@ -52,6 +52,7 @@ namespace EmployeeManagementSyst
                         }
                     }
                     else { MessageBox.Show("Admin not found"); }
+                serverConnect.Close();
                 }
                 dataGridView1.DataSource = dataTable;
             }
@@ -67,9 +68,9 @@ namespace EmployeeManagementSyst
                 string employeeName = row.Cells["Employee Name"].Value.ToString();
                 string code = row.Cells["Id"].Value.ToString();
 
-                using (SqlConnection serverConnect = new SqlConnection(serverConnection))
+                using (SqlConnection serverConnect = MainPage.ConnectionString())
                 {
-                    serverConnect.Open();
+                    
                     string qry = "SELECT id FROM employeedetails WHERE fullname = @fname OR id = @id;";
                     SqlCommand mySqlCommand = new SqlCommand(qry, serverConnect);
                     mySqlCommand.Parameters.AddWithValue("@fname", employeeName);
@@ -85,6 +86,7 @@ namespace EmployeeManagementSyst
                         this.Close();
                     }
                     else { MessageBox.Show("Error Finding Employee ID"); }
+                    serverConnect.Close();
                 }
             }
         }
@@ -106,9 +108,9 @@ namespace EmployeeManagementSyst
                 dataTable.Columns.Add("Id", typeof(string));
 
 
-                using (SqlConnection serverConnect = new SqlConnection(serverConnection))
+                using (SqlConnection serverConnect = MainPage.ConnectionString())
                 {
-                    serverConnect.Open();
+            
                     string qry = "SELECT id,fullname FROM employeedetails WHERE surname = @surname OR id = @id;";
                     SqlCommand mySqlCommand = new SqlCommand(qry, serverConnect);
                     mySqlCommand.Parameters.Clear();
@@ -127,7 +129,7 @@ namespace EmployeeManagementSyst
                         }
                         dataGridView1.DataSource = dataTable;
                     }
-
+                    serverConnect.Close();
                 }
 
             }
@@ -145,9 +147,9 @@ namespace EmployeeManagementSyst
 
 
 
-                using (SqlConnection connection = new SqlConnection(serverConnection))
+                using (SqlConnection connection = MainPage.ConnectionString())
                 {
-                    connection.Open();
+                   
                     string query = "SELECT id,fullname FROM employeedetails";
                     SqlCommand cmd = new SqlCommand(query, connection);
                     SqlDataReader reader = cmd.ExecuteReader();
@@ -165,7 +167,7 @@ namespace EmployeeManagementSyst
 
                     }
 
-
+                    connection.Close();
                 }
             }
             catch (Exception ex)

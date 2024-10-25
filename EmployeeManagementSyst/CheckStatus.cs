@@ -16,14 +16,12 @@ namespace EmployeeManagementSyst
 {
     public partial class CheckStatus : Form
     {
-        private string serverConnection;
         public CheckStatus()
         {
 
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.BackColor = System.Drawing.Color.BlanchedAlmond;
-            serverConnection = MainPage.InitiateServer();
             EmployeeStatus();
 
         }
@@ -33,9 +31,9 @@ namespace EmployeeManagementSyst
         {
             try
             {
-                using (SqlConnection server = new SqlConnection(serverConnection))
+                using (SqlConnection server = MainPage.ConnectionString())
                 {
-                    server.Open();
+                
                     string queryCheck = "SELECT empname, id FROM hourstable;";
                     SqlCommand payExec = new SqlCommand(queryCheck, server);
 
@@ -52,7 +50,7 @@ namespace EmployeeManagementSyst
                     }
 
                     dataGridView1.DataSource = employeeTable;
-                   
+                   server.Close();
                 }
             }
             catch (Exception ex)

@@ -14,11 +14,10 @@ namespace EmployeeManagementSyst
 {
     public partial class AllEmployees : Form
     {
-        private string serverConnection;
         public AllEmployees()
         {
             InitializeComponent();
-            serverConnection = MainPage.InitiateServer();
+           
             EmployeeDetails();
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.BackColor = System.Drawing.Color.BlanchedAlmond;
@@ -34,9 +33,9 @@ namespace EmployeeManagementSyst
                 dataTable.Columns.Add("fullname", typeof(string));
 
 
-                using (SqlConnection serverConnect = new SqlConnection(serverConnection))
+                using (SqlConnection serverConnect = MainPage.ConnectionString())
                 {
-                    serverConnect.Open();
+       
                     string qry = "SELECT id,fullname FROM employeedetails;";
                     SqlCommand mySqlCommand = new SqlCommand(qry, serverConnect);
                     SqlDataReader reader = mySqlCommand.ExecuteReader();
@@ -51,6 +50,7 @@ namespace EmployeeManagementSyst
                         }
                     }
                     else { MessageBox.Show("Employee not found"); }
+                   serverConnect.Close();
                 }
                 dataGridView1.DataSource = dataTable;
             }
@@ -65,9 +65,9 @@ namespace EmployeeManagementSyst
                 DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
                 string employeeName = row.Cells["fullname"].Value.ToString();
               
-                using (SqlConnection serverConnect = new SqlConnection(serverConnection))
+                using (SqlConnection serverConnect = MainPage.ConnectionString())
                 {
-                    serverConnect.Open();
+         
                     string qry = "SELECT id FROM employeedetails WHERE fullname = @fname;";
                     SqlCommand mySqlCommand = new SqlCommand(qry, serverConnect);
                     mySqlCommand.Parameters.AddWithValue("@fname",employeeName);
@@ -82,7 +82,9 @@ namespace EmployeeManagementSyst
                         this.Close();
                     }
                     else { MessageBox.Show("Error Finding employee ID"); }
+                    serverConnect.Close();
                     }
+               
                 }
             }
     }

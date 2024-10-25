@@ -15,11 +15,11 @@ namespace EmployeeManagementSyst
 {
     public partial class ViewEditPaySlip : Form
     {
-        private string serverConnection;
+      
         public ViewEditPaySlip()
         {
             InitializeComponent();
-            serverConnection = MainPage.InitiateServer();
+           
             LoadAllData();
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.BackColor = System.Drawing.Color.BlanchedAlmond;
@@ -63,13 +63,14 @@ namespace EmployeeManagementSyst
         {
             string updateQuery = "UPDATE employeepay SET total_pay = @total_pay WHERE id = @id";
 
-            using (SqlConnection cmd = new SqlConnection(serverConnection))
+            using (SqlConnection cmd = MainPage.ConnectionString())
             {
-                cmd.Open();
+               
                 SqlCommand cmd2 = new SqlCommand(updateQuery, cmd);
                 cmd2.Parameters.AddWithValue("@total_pay", newTotalPay);
                 cmd2.Parameters.AddWithValue("@id", id);                
                 cmd2.ExecuteNonQuery();
+                cmd.Close();
             }
         }
         // Handles text input in the search TextBox and loads filtered employee details based on the input.
@@ -92,9 +93,9 @@ namespace EmployeeManagementSyst
                 dataTable.Columns.Add("Hours Done", typeof(string));
                 dataTable.Columns.Add("Total Pay", typeof(string));
 
-                using (SqlConnection serverConnect = new SqlConnection(serverConnection))
+                using (SqlConnection serverConnect = MainPage.ConnectionString())
                 {
-                    serverConnect.Open();
+                   
                     string qry = "SELECT r.id, r.date_of_work, e.fullname, r.total_pay, r.hours_done FROM employeepay r INNER JOIN employeedetails e ON r.id = e.id WHERE e.surname = @surname OR r.id = @id;";
                     SqlCommand mySqlCommand = new SqlCommand(qry, serverConnect);
                     mySqlCommand.Parameters.Clear();
@@ -116,7 +117,7 @@ namespace EmployeeManagementSyst
                         }
                         dataGridView1.DataSource = dataTable;
                     }
-
+                    serverConnect.Close();
                 }
 
             }
@@ -136,9 +137,9 @@ namespace EmployeeManagementSyst
                 dataTable.Columns.Add("Total Pay", typeof(string));
 
 
-                using (SqlConnection connection = new SqlConnection(serverConnection))
+                using (SqlConnection connection = MainPage.ConnectionString())
                 {
-                    connection.Open();
+                   
                     string query = "SELECT r.id, r.date_of_work, e.fullname, r.total_pay, r.hours_done FROM employeepay r INNER JOIN employeedetails e ON r.id = e.id;";
                     SqlCommand cmd = new SqlCommand(query, connection);
                     SqlDataReader reader = cmd.ExecuteReader();
@@ -159,7 +160,7 @@ namespace EmployeeManagementSyst
 
                     }
 
-
+                    connection.Close();
                 }
             }
             catch (Exception ex)

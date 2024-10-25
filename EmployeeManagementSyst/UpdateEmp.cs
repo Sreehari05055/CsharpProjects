@@ -15,7 +15,7 @@ namespace EmployeeManagementSyst
 {
     public partial class UpdateEmp : Form
     {
-        private string serverConnection;
+       
         private string surname;
         public String SurName
         {
@@ -41,7 +41,7 @@ namespace EmployeeManagementSyst
             { 
                 GetSurname(updtName);
             }
-            serverConnection = MainPage.InitiateServer();
+           
             UpdateEmpSet(updtCode,updtName,updtAge,updtNum,updtEmail,updtRate);
             this.Close();
         }
@@ -62,9 +62,9 @@ namespace EmployeeManagementSyst
         {
             try
             {
-                using (SqlConnection servrCon = new SqlConnection(serverConnection))
+                using (SqlConnection servrCon = MainPage.ConnectionString())
                 {
-                    servrCon.Open();
+                   
 
                     using (SqlTransaction transaction = servrCon.BeginTransaction())
                     {
@@ -178,6 +178,7 @@ namespace EmployeeManagementSyst
                             MessageBox.Show("No updates were made as no changes were provided.");
                             transaction.Rollback();
                         }
+                       
                     }
 
                 }

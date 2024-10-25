@@ -14,12 +14,12 @@ namespace EmployeeManagementSyst
 
             Task.Run(() =>
             {
-               SchedulePaySlip schedulePaySlip = new SchedulePaySlip(); 
-               schedulePaySlip.LastRunTime();
+                SchedulePaySlip schedulePaySlip = new SchedulePaySlip();
+                schedulePaySlip.LastRunTime();
             });
             Task.Run(() =>
             {
-               WeeklySaveConfirm confirm = new WeeklySaveConfirm();
+                WeeklySaveConfirm confirm = new WeeklySaveConfirm();
                 confirm.SetSaveDate();
             });
 
@@ -33,11 +33,12 @@ namespace EmployeeManagementSyst
             obj.RotaTable();
             obj.LastExecTable();
             Application.Run(new MainPage());
-            
+
         }
         public static void Cancel_Click(Form form)
         {
             form.Close();
         }
+         
     }
 }

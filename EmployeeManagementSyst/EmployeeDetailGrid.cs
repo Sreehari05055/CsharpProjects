@@ -15,11 +15,9 @@ namespace EmployeeManagementSyst
     public partial class EmployeeDetailGrid : Form
     {
         
-        private string serverConnection;
         public EmployeeDetailGrid()
         {          
             InitializeComponent();
-            serverConnection = MainPage.InitiateServer();
            
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.BackColor = System.Drawing.Color.BlanchedAlmond;
@@ -46,9 +44,9 @@ namespace EmployeeManagementSyst
                 dataTable.Columns.Add("email", typeof(string));
                 dataTable.Columns.Add("hourlyrate", typeof(string));
 
-                using (SqlConnection serverConnect = new SqlConnection(serverConnection))
+                using (SqlConnection serverConnect = MainPage.ConnectionString())
                 {
-                    serverConnect.Open();
+                   
                     string qry = "SELECT id,fullname,age,phonenumber,email,hourlyrate FROM employeedetails WHERE surname = @surname OR id = @id;";
                     SqlCommand mySqlCommand = new SqlCommand(qry, serverConnect);
                     mySqlCommand.Parameters.Clear();
@@ -70,7 +68,7 @@ namespace EmployeeManagementSyst
                         }
                         dataGridView1.DataSource = dataTable;
                     }
-                    
+                    serverConnect.Close();
                 }
 
             }
@@ -90,9 +88,9 @@ namespace EmployeeManagementSyst
                 dataTable.Columns.Add("email", typeof(string));
                 dataTable.Columns.Add("hourlyrate", typeof(string));
 
-                using (SqlConnection connection = new SqlConnection(serverConnection))
+                using (SqlConnection connection = MainPage.ConnectionString())
                 {
-                    connection.Open();
+                   
                     string query = "SELECT id,fullname,age,phonenumber,email,hourlyrate FROM employeedetails";
                     SqlCommand cmd = new SqlCommand(query, connection);
                     SqlDataReader reader = cmd.ExecuteReader();
@@ -113,7 +111,7 @@ namespace EmployeeManagementSyst
 
                     }
                     
-                   
+                   connection.Close();
                 }
             }
             catch (Exception ex)

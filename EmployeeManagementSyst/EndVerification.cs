@@ -15,7 +15,6 @@ namespace EmployeeManagementSyst
 {
     public partial class EndVerification : Form
     {
-        private string serverConnection;
         private double hoursDone;
         private string dateofWork;
         private decimal totalPay;
@@ -58,9 +57,9 @@ namespace EmployeeManagementSyst
         {
             try
             {
-                using (SqlConnection serverConnect = new SqlConnection(serverConnection))
+                using (SqlConnection serverConnect = MainPage.ConnectionString())
                 {
-                    serverConnect.Open();
+                   
                     String querytoCheck = "SELECT id FROM employeedetails WHERE id = @id;";
                     SqlCommand mySqlCommand = new SqlCommand(querytoCheck, serverConnect);
                     mySqlCommand.Parameters.AddWithValue("@id", codeToCheck);
@@ -71,6 +70,7 @@ namespace EmployeeManagementSyst
                         MessageBox.Show("Code incorrect");
 
                     }
+                    serverConnect.Close();
                 }
 
             }
@@ -79,7 +79,6 @@ namespace EmployeeManagementSyst
         // Event handler for the OK button click
         private void Ok_Click(object sender, EventArgs e)
         {
-            serverConnection = MainPage.InitiateServer();
             string userInput = textBox1.Text;
             Code = userInput;
             Verify(userInput);
@@ -91,9 +90,9 @@ namespace EmployeeManagementSyst
         {
             try
             {
-                using (SqlConnection connection = new SqlConnection(serverConnection))
+                using (SqlConnection connection = MainPage.ConnectionString())
                 {
-                    connection.Open();
+                   
                     string qry = "SELECT id from hourstable WHERE id = @cde";
                     SqlCommand execute = new SqlCommand(qry, connection);
                     execute.Parameters.Clear();
@@ -119,6 +118,7 @@ namespace EmployeeManagementSyst
                             StopWatch(hours);
                         }
                     }
+                    connection.Close();
                 }
             }
             catch (Exception e) { MessageBox.Show("Error Getting Completed Hours: " + e.Message); }
@@ -178,13 +178,14 @@ namespace EmployeeManagementSyst
         {
             try
             {
-                using (SqlConnection connection = new SqlConnection(serverConnection))
+                using (SqlConnection connection = MainPage.ConnectionString())
                 { 
-                    connection.Open();
+                   
                     string chckQry = "DELETE FROM hourstable WHERE id = @Code ";
                     SqlCommand exec = new SqlCommand(chckQry, connection);
                     exec.Parameters.AddWithValue("@Code", Code);
                     int rowsAffected = exec.ExecuteNonQuery();
+                    connection.Close();
                 }
             }
             catch (Exception e) { MessageBox.Show("Error Clocking Out Employee: " + e.Message); }
@@ -201,9 +202,9 @@ namespace EmployeeManagementSyst
         {
             try
             {
-                using (SqlConnection connection = new SqlConnection(serverConnection))
+                using (SqlConnection connection = MainPage.ConnectionString())
                 {
-                    connection.Open();
+                   
                     string insertquery = """INSERT INTO employeepay(date_of_work,total_pay,hours_done,id)   VALUES (@date_of_work,@totalpay,@hours_done,@id)""";
 
                     SqlCommand execute = new SqlCommand(insertquery, connection);
@@ -226,6 +227,7 @@ namespace EmployeeManagementSyst
                     {
                         MessageBox.Show("Insert operation failed.");
                     }
+                    connection.Close();
                 }
             }
             catch (Exception ex) { MessageBox.Show("Error Inserting Values (Employee Pay): " + ex.Message); }
@@ -235,9 +237,9 @@ namespace EmployeeManagementSyst
         {
             try
             {
-                using (SqlConnection server = new SqlConnection(serverConnection))
+                using (SqlConnection server = MainPage.ConnectionString())
                 {
-                    server.Open();
+                 
                     string payQuery = "SELECT hourlyrate FROM employeedetails WHERE id = @id;";
                     SqlCommand payExec = new SqlCommand(payQuery, server);
                     payExec.Parameters.AddWithValue("@id", Code);
@@ -253,6 +255,7 @@ namespace EmployeeManagementSyst
 
                     }
                     else { MessageBox.Show("Hourly rate not found for employee id"); }
+                    server.Close();
                 }
             }
             catch (Exception ex) {MessageBox.Show("Error Calculating Pay: " + ex.Message); }

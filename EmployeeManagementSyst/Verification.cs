@@ -16,7 +16,7 @@ namespace EmployeeManagementSyst
 {
     public partial class Verification : Form
     {
-        private string serverConnection;
+     
         public Verification()
         {
             InitializeComponent();
@@ -28,7 +28,7 @@ namespace EmployeeManagementSyst
         {
             try
             {
-                using (SqlConnection serverConnect = new SqlConnection(serverConnection))
+                using (SqlConnection serverConnect = MainPage.ConnectionString())
                 {
                     serverConnect.Open();
                     String querytoCheck = "SELECT id FROM employeedetails WHERE id = @id;";
@@ -53,9 +53,9 @@ namespace EmployeeManagementSyst
         {
             try
             {
-                using (SqlConnection connection = new SqlConnection(serverConnection))
+                using (SqlConnection connection = MainPage.ConnectionString())
                 {
-                    connection.Open();
+                   
                     string chckQry = "SELECT * FROM hourstable WHERE id = @Code;";
                     SqlCommand exec = new SqlCommand(chckQry, connection);
                     exec.Parameters.AddWithValue("@Code", id);
@@ -73,7 +73,9 @@ namespace EmployeeManagementSyst
                             string start = startTime.ToString("O");
                             InsertHoursTable(start, id);
                         }
+                        reader.Close();
                     }
+                    connection.Close();
                 }
             }
             catch (Exception e) { MessageBox.Show("Error Checking Employee Status: " + e.Message); }
@@ -81,7 +83,7 @@ namespace EmployeeManagementSyst
         // Event handler for OK button click
         private void Ok_Click(object sender, EventArgs e)
         {
-            serverConnection = MainPage.InitiateServer();
+           
             string userInput = textBox1.Text;
 
             Verify(userInput);
@@ -98,9 +100,9 @@ namespace EmployeeManagementSyst
         {
             try
             {
-                using (SqlConnection conn = new SqlConnection(serverConnection))
+                using (SqlConnection conn = MainPage.ConnectionString())
                 {
-                    conn.Open();
+                   
                     string nameQry = "SELECT fullname FROM employeedetails WHERE id = @Code;";
                     SqlCommand fullnameExec = new SqlCommand(nameQry, conn);
                     fullnameExec.Parameters.AddWithValue("@Code", id);
@@ -111,6 +113,7 @@ namespace EmployeeManagementSyst
                             string name = reader2.GetString(reader2.GetOrdinal("fullname"));
                             Name = name;
                         }
+                        reader2.Close();
                     }
                     string insertAdmin = """INSERT INTO hourstable(id,empname,hours)  VALUES(@id,@fullname,@hours)""";
                     SqlCommand nameExec = new SqlCommand(insertAdmin, conn);
@@ -123,7 +126,7 @@ namespace EmployeeManagementSyst
                     this.Close();
                     StartShift startShift = new StartShift();
                     startShift.Show();
-                    
+                    conn.Close();
                 }
             }
             catch (Exception e) { MessageBox.Show("Error Inserting Values (Hours Table): " + e.Message); }

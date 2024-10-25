@@ -18,7 +18,7 @@ namespace EmployeeManagementSyst
 {
     public partial class PaySlip : Form
     {
-        private string serverConnection;
+       
         private string attachment;
         private string code;
        
@@ -36,16 +36,16 @@ namespace EmployeeManagementSyst
         public PaySlip()
         {
             InitializeComponent();
-            serverConnection = MainPage.InitiateServer();
+            
         }
         // Method to draft payslip emails for employees
         public void SendPaySlip()
         {
             try
             {
-                using (SqlConnection server = new SqlConnection(serverConnection))
+                using (SqlConnection server = MainPage.ConnectionString())
                 {
-                    server.Open();
+                  
                     string qry = "SELECT id, SUM(total_pay) AS total_pay FROM employeepay WHERE date_of_work BETWEEN @finished_date AND @current_date GROUP BY id;";
                     SqlCommand sqlCommand = new SqlCommand(qry, server);
                     DateTime payDate = DateTime.Now;
@@ -95,7 +95,7 @@ namespace EmployeeManagementSyst
                         }
                     }
 
-
+                    server.Close();
                 }
 
 
@@ -111,7 +111,7 @@ namespace EmployeeManagementSyst
 
                     {
 
-                        mailMessage.From = new MailAddress("From_email_addr");
+                        mailMessage.From = new MailAddress("sreekuttankzm@gmail.com");
                         mailMessage.Subject = subject;
                         mailMessage.Body = body;
                         mailMessage.To.Add(emailAdd);
@@ -126,7 +126,7 @@ namespace EmployeeManagementSyst
 
                         using (SmtpClient smtpClient = new SmtpClient("smtp.gmail.com", 587))
                         {
-                            smtpClient.Credentials = new NetworkCredential("From_email_addr", "app_specific_password");
+                            smtpClient.Credentials = new NetworkCredential("sreekuttankzm@gmail.com", "tqyi rthe cjgt znox");
                             smtpClient.EnableSsl = true;
                             smtpClient.Send(mailMessage);
 

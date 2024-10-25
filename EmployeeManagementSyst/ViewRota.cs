@@ -20,12 +20,11 @@ namespace EmployeeManagementSyst
     public partial class ViewRota : Form
     {
         
-        private string serverConnection;
-       
+      
         public ViewRota()
         {
             InitializeComponent();
-            serverConnection = MainPage.InitiateServer();
+           
             PopulateDataGridView();
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.BackColor = System.Drawing.Color.BlanchedAlmond;
@@ -36,9 +35,9 @@ namespace EmployeeManagementSyst
         {
             try
             {
-                using (SqlConnection connection = new SqlConnection(serverConnection))
+                using (SqlConnection connection = MainPage.ConnectionString())
                 {
-                    connection.Open();
+                  
 
                     // Query to get all IDs from rotatable table
                     string rotatableQuery = "SELECT id FROM rotatable;";
@@ -51,6 +50,7 @@ namespace EmployeeManagementSyst
                         {
                             obj.Add(reader.GetString(reader.GetOrdinal("id")));
                         } 
+                        reader.Close();
                     }
 
                     // Prepare queries
@@ -75,6 +75,7 @@ namespace EmployeeManagementSyst
                             {
                                 employeeName = nameReader.GetString(nameReader.GetOrdinal("fullname"));
                             }
+                            nameReader.Close();
                         }
 
                         if (string.IsNullOrEmpty(employeeName))
@@ -105,6 +106,7 @@ namespace EmployeeManagementSyst
                                 employeeRota[employeeName][key] = shift;
 
                             }
+                            rotaReader.Close();
                         }
                     }
                     DataTable rotaTable = new DataTable();
@@ -143,6 +145,7 @@ namespace EmployeeManagementSyst
                     }
                     // Bind the DataTable to the DataGridView
                     dataGridView1.DataSource = rotaTable;
+                    connection.Close();
                 }
             }
             catch (Exception ex)

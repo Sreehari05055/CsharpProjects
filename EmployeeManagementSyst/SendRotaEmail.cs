@@ -14,13 +14,12 @@ namespace EmployeeManagementSyst
 {
     public partial class SendRotaEmail : Form
     {
-        private string serverConnection;
+      
         public SendRotaEmail()
         {
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.BackColor = System.Drawing.Color.BlanchedAlmond;
-            serverConnection = MainPage.InitiateServer();
 
         } 
         // Creates the work rota for employees and sends it via email.
@@ -28,9 +27,9 @@ namespace EmployeeManagementSyst
         {
             try
             {
-                using (SqlConnection conn = new SqlConnection(serverConnection))
+                using (SqlConnection conn = MainPage.ConnectionString())
                 {
-                    conn.Open();
+                   
                     string rotatableQuery = "SELECT id FROM rotatable;";
                     SqlCommand rotaCmd = new SqlCommand(rotatableQuery, conn);
 
@@ -93,6 +92,7 @@ namespace EmployeeManagementSyst
                         PaySlip paySlip = new PaySlip();
                         paySlip.SendEmail(emailAdd, "Your Work Rota", rota);
                     }
+                    conn.Close();
                 }
 
             }

@@ -14,12 +14,11 @@ namespace EmployeeManagementSyst
 {
     public partial class WeeklySaveConfirm : Form
     {
-        private string serverConnection;
 
         public WeeklySaveConfirm()
         {
             InitializeComponent();
-            serverConnection = MainPage.InitiateServer();
+           
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.BackColor = System.Drawing.Color.BlanchedAlmond;
             SchedulePaySlip.InitializeCombo(comboBox1);
@@ -29,13 +28,14 @@ namespace EmployeeManagementSyst
         {
             try
             {
-                using (SqlConnection conn = new SqlConnection(serverConnection))
+                using (SqlConnection conn = MainPage.ConnectionString())
                 {
-                    conn.Open();
+                   
                     string query = "UPDATE lastExecuted SET dayof_week = @day WHERE row_id = '1';";
                     SqlCommand cmd = new SqlCommand(query, conn);
                     cmd.Parameters.AddWithValue("@day", day);
                     cmd.ExecuteNonQuery();
+                conn.Close();
                 }
                 SetSaveDate();
             }
@@ -61,9 +61,9 @@ namespace EmployeeManagementSyst
                 string format = dateTime.ToString("yyyy-MM-dd");
                 string path = $@"C:\Users\sreek\OneDrive\المستندات\WeeklyRota_{format}.txt"; ;
                 StringBuilder sb = new StringBuilder();
-                using (SqlConnection con = new SqlConnection(serverConnection))
+                using (SqlConnection con = MainPage.ConnectionString())
                 {
-                    con.Open();
+                   
                     string saveQuery = """SELECT r.id, e.fullname, r.start_work, r.finish_work, r.day_ofweek FROM rotatable r INNER JOIN employeedetails e ON r.id = e.id;""";
                     SqlCommand sqlCommand = new SqlCommand(saveQuery, con);
 
@@ -85,6 +85,7 @@ namespace EmployeeManagementSyst
                         {
                             MessageBox.Show("No data found.");
                         }
+                        reader.Close();
                     }
 
                     if (sb.Length > 0)
@@ -92,6 +93,7 @@ namespace EmployeeManagementSyst
                         File.WriteAllText(path, sb.ToString()); // Write data to the specified file
                         ResetWeeklyData();   // Reset weekly data (method not shown in the code)
                     }
+                    con.Close();
                 }
 
 
@@ -104,10 +106,10 @@ namespace EmployeeManagementSyst
         {
             try
             {
-                using (SqlConnection conn = new SqlConnection(serverConnection))
+                using (SqlConnection conn = MainPage.ConnectionString())
 
                 {
-                    conn.Open();
+                    
                     string query = "SELECT dayof_week, last_exec_date FROM lastExecuted WHERE row_id = '1';";
                     SqlCommand cmd = new SqlCommand(query, conn);
 
@@ -142,7 +144,9 @@ namespace EmployeeManagementSyst
                                 updateCmd.ExecuteNonQuery();
                             }
                         }
+                        reader.Close();
                     }
+                conn.Close();
                 }
             }
 
@@ -154,9 +158,9 @@ namespace EmployeeManagementSyst
         {
             try
             {
-                using (SqlConnection connection = new SqlConnection(serverConnection))
+                using (SqlConnection connection = MainPage.ConnectionString())
                 {
-                    connection.Open();
+                  
                     DateTime now = DateTime.Now;
                     DateTime sevenDaysBefore = now.AddDays(-7);
 
@@ -165,7 +169,7 @@ namespace EmployeeManagementSyst
                     int rowsAffected = resetCmd.ExecuteNonQuery();
 
 
-
+                       connection.Close();
                 }
             }
             catch (Exception ex)

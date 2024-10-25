@@ -16,7 +16,7 @@ namespace EmployeeManagementSyst
     public partial class DeleteEmp : Form
     {
         private string code;
-        private string serverConnection;
+       
         public DeleteEmp(string id)
         {
             this.code = id;
@@ -27,7 +27,6 @@ namespace EmployeeManagementSyst
         // Event handler for the delete button click
         private void button1_Click(object sender, EventArgs e)
         {
-            serverConnection = MainPage.InitiateServer();
             
             RemoveAdmin(code);
             RemovePay(code);
@@ -41,9 +40,9 @@ namespace EmployeeManagementSyst
         {
             try
             {
-                using (SqlConnection conn = new SqlConnection(serverConnection))
+                using (SqlConnection conn = MainPage.ConnectionString())
                 {
-                    conn.Open();
+                 
                     string deleteAdmin = "DELETE FROM admintable WHERE id = @id; "; ;
                     SqlCommand detailQuery = new SqlCommand(deleteAdmin, conn);
 
@@ -56,7 +55,7 @@ namespace EmployeeManagementSyst
                         MessageBox.Show("Admin Deleted");
                     }
 
-
+                    conn.Close();
                 }
 
             }
@@ -67,9 +66,9 @@ namespace EmployeeManagementSyst
         {
             try
             {
-                using (SqlConnection conn = new SqlConnection(serverConnection))
+                using (SqlConnection conn = MainPage.ConnectionString())
                 {
-                    conn.Open();
+                   
                     string deleteAdmin = "DELETE FROM employeepay WHERE id = @id; "; ;
                     SqlCommand detailQuery = new SqlCommand(deleteAdmin, conn);
 
@@ -82,7 +81,7 @@ namespace EmployeeManagementSyst
                         MessageBox.Show("Pay Deleted");
                     }
 
-
+                    conn.Close();
                 }
 
             }
@@ -93,9 +92,9 @@ namespace EmployeeManagementSyst
         {
             try
             {
-                using (SqlConnection conn = new SqlConnection(serverConnection))
+                using (SqlConnection conn = MainPage.ConnectionString())
                 {
-                    conn.Open();
+                    
                     string deleteCard = "DELETE FROM carddata WHERE id = @id; "; ;
                     SqlCommand detailQuery = new SqlCommand(deleteCard, conn);
 
@@ -108,7 +107,7 @@ namespace EmployeeManagementSyst
                         MessageBox.Show("Card Deleted");
                     }
                     else { MessageBox.Show("Failed to delete Card or Card not found "); }
-
+                    conn.Close();
                 }
 
             }
@@ -119,7 +118,7 @@ namespace EmployeeManagementSyst
         {
             try
             {
-                using (SqlConnection serverConn = new SqlConnection(serverConnection))
+                using (SqlConnection serverConn = MainPage.ConnectionString())
                 {
                     serverConn.Open();
                     string querydlt = "DELETE FROM employeedetails WHERE id = @id; ";
@@ -134,6 +133,7 @@ namespace EmployeeManagementSyst
                     {
                         MessageBox.Show("Failed to delete employee or employee not found");
                     }
+                    serverConn.Close();
                 }
             }
             catch (Exception ex) { MessageBox.Show("Error Deleting Employee: " + ex.Message); }

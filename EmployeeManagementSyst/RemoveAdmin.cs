@@ -15,7 +15,6 @@ namespace EmployeeManagementSyst
     public partial class RemoveAdmin : Form
     {
         private string adminCode;
-        private string serverConnection;
 
         public RemoveAdmin(string adminCode)
         {
@@ -27,7 +26,7 @@ namespace EmployeeManagementSyst
         // Initialize server connection and remove admin when 'OK' is clicked
         private void Ok_Click(object sender, EventArgs e)        
         {
-            serverConnection = MainPage.InitiateServer();
+           
             RemveAdmin(adminCode);
             this.Close();
         }
@@ -36,9 +35,9 @@ namespace EmployeeManagementSyst
         {
             try
             {
-                using (SqlConnection conn = new SqlConnection(serverConnection))
+                using (SqlConnection conn = MainPage.ConnectionString())
                 {
-                    conn.Open();
+                   
                     string deleteAdmin = "DELETE FROM admintable WHERE id = @id; "; ;
                     SqlCommand detailQuery = new SqlCommand(deleteAdmin, conn);
 
@@ -51,7 +50,7 @@ namespace EmployeeManagementSyst
                         MessageBox.Show("Admin Deleted");
                     }
                     else { MessageBox.Show("Failed to delete admin  or admin not found "); }
-
+                    conn.Close();
                 }
 
             }

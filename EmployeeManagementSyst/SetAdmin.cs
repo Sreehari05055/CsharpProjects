@@ -15,7 +15,7 @@ namespace EmployeeManagementSyst
     public partial class SetAdmin : Form
     {
         private string AdmnCode;
-        private string serverConnection;
+       
         public SetAdmin(String Code)
         {
             this.AdmnCode = Code;
@@ -26,7 +26,7 @@ namespace EmployeeManagementSyst
         // Handles the click event for the OK button
         private void Ok_Click(object sender, EventArgs e)
         {
-            serverConnection = MainPage.InitiateServer();
+         
             GetAdmininfo(AdmnCode);
             this.Close();
 
@@ -37,9 +37,9 @@ namespace EmployeeManagementSyst
         {
             try
             {
-                using (SqlConnection conn = new SqlConnection(serverConnection))
+                using (SqlConnection conn = MainPage.ConnectionString())
                 {
-                    conn.Open();
+                   
                     string admindetailQuery = "SELECT fullname,email FROM employeedetails WHERE id = @id";
                     SqlCommand detailQuery = new SqlCommand(admindetailQuery, conn);
 
@@ -63,6 +63,7 @@ namespace EmployeeManagementSyst
                         MessageBox.Show("No data found");
                                 
                     }
+                    conn.Close();
                 }
 
             }
@@ -73,9 +74,9 @@ namespace EmployeeManagementSyst
         { 
             try
             {
-                using (SqlConnection connection = new SqlConnection(serverConnection))
+                using (SqlConnection connection = MainPage.ConnectionString())
                 {
-                    connection.Open();
+    
                     string insertAdmin = """INSERT INTO admintable(id,Admin_name,Admin_contact)  VALUES(@id,@adminName,@adminEmail)""";
                     SqlCommand adminExec = new SqlCommand(insertAdmin, connection);
 
@@ -84,6 +85,7 @@ namespace EmployeeManagementSyst
                     adminExec.Parameters.AddWithValue("@adminEmail", email);
 
                     int affectedRow = adminExec.ExecuteNonQuery();
+                    connection.Close();
                 }
             }
             catch (Exception e) { MessageBox.Show("Error Inserting Values (Admin Table): " + e.Message); }

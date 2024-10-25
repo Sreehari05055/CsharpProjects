@@ -16,12 +16,10 @@ namespace EmployeeManagementSyst
    
     public partial class SchedulePaySlip : Form
     {
-        private string serverConnection;
        
         public SchedulePaySlip()
         {
             InitializeComponent();
-            serverConnection = MainPage.InitiateServer();
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.BackColor = System.Drawing.Color.BlanchedAlmond;
             InitializeCombo(comboBox1);
@@ -43,13 +41,13 @@ namespace EmployeeManagementSyst
         {
             try
             {             
-                using (SqlConnection conn = new SqlConnection(serverConnection))
+                using (SqlConnection conn = MainPage.ConnectionString())
                 {
-                    conn.Open();
                     string query = "UPDATE lastExecuted SET dayof_week = @day WHERE row_id = '2';";
                     SqlCommand cmd = new SqlCommand(query, conn);
                     cmd.Parameters.AddWithValue("@day", day);
-                    cmd.ExecuteNonQuery();                    
+                    cmd.ExecuteNonQuery();     
+                    conn.Close();
                 }
                 LastRunTime();
             }
@@ -75,10 +73,10 @@ namespace EmployeeManagementSyst
         {
             try
             {
-                using (SqlConnection conn = new SqlConnection(serverConnection))
+                using (SqlConnection conn = MainPage.ConnectionString())
 
                 {
-                    conn.Open();
+                   
                     string query = "SELECT dayof_week, last_exec_date FROM lastExecuted WHERE row_id = '2';";
                     SqlCommand cmd = new SqlCommand(query, conn);
 
@@ -115,6 +113,7 @@ namespace EmployeeManagementSyst
                             }
                         }
                     }
+                    conn.Close();
                 }
             }
             catch (Exception ex)

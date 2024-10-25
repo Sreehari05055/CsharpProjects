@@ -16,7 +16,6 @@ namespace EmployeeManagementSyst
 {
     public partial class AddEmp : Form
     {
-        private string serverConnection; // Connection string for the database
         private string code; //  Unique employee code
         private string surname; //  Employee's surname
         private string fullname; // Employee's full name
@@ -64,7 +63,6 @@ namespace EmployeeManagementSyst
 
         private void button1_Click(object sender, EventArgs e)
         {
-            serverConnection = MainPage.InitiateServer(); // Initializes the database connection
             EmployeeCode(); // Generates a unique employee code
             FullName = textBox1.Text.Trim().ToLower(); // Gets and formats the full name from input
             string ageInp = textBox2.Text; // Gets the age input
@@ -87,12 +85,11 @@ namespace EmployeeManagementSyst
         {
             try
             {
-                using (SqlConnection serverCon = new SqlConnection(serverConnection))
+                using (SqlConnection connection = MainPage.ConnectionString())
                 {
-                    serverCon.Open();
                     string insertQuery = """INSERT INTO carddata(id,cardNum,expiryDate,cvv,holderName)   VALUES (@id,@cardNum,@expiryDate,@cvv,@holderName)""";
 
-                    SqlCommand execute = new SqlCommand(insertQuery, serverCon);
+                    SqlCommand execute = new SqlCommand(insertQuery, connection);
 
                     execute.Parameters.AddWithValue("@id", Code);
                     execute.Parameters.AddWithValue("@cardNum", cardNum);
@@ -101,8 +98,10 @@ namespace EmployeeManagementSyst
                     execute.Parameters.AddWithValue("@holderName", holderName);
                     int rowsAffected = execute.ExecuteNonQuery();
                     MessageBox.Show("Employee Card Detail Added");
+                    connection.Close();
                 }
             }
+
             catch (Exception ex) { MessageBox.Show("Error Inserting Values (Card Data): " + ex.Message); }
         }
         // Method to generate a unique employee code by checking against existing records in the database
@@ -111,9 +110,9 @@ namespace EmployeeManagementSyst
             try
             {
                 
-                using (SqlConnection conn = new SqlConnection(serverConnection))
+                using (SqlConnection serverCon = MainPage.ConnectionString())
                 {
-                    conn.Open();
+                    
                     string queryCode = "SELECT id FROM employeedetails WHERE id = @id;";
                     bool uniqueCode = false;
 
@@ -129,7 +128,7 @@ namespace EmployeeManagementSyst
                             Code += randomNum;
 
                         }
-                        SqlCommand mySqlCommand = new SqlCommand(queryCode, conn);
+                        SqlCommand mySqlCommand = new SqlCommand(queryCode, serverCon);
                         mySqlCommand.Parameters.Clear();
                         mySqlCommand.Parameters.AddWithValue("@id", Code);
                         object dataTocheck = mySqlCommand.ExecuteScalar();
@@ -138,6 +137,7 @@ namespace EmployeeManagementSyst
                             uniqueCode = true; // Exits the loop if code is unique
                         }
                     }
+                    serverCon.Close();
                 }
             }
             catch (Exception e) { MessageBox.Show("Error Generating Unique Code: " + e.Message); }
@@ -162,9 +162,8 @@ namespace EmployeeManagementSyst
             try
             {
                 
-                using (SqlConnection serverCon = new SqlConnection(serverConnection))
+                using (SqlConnection serverCon = MainPage.ConnectionString())
                 {
-                    serverCon.Open();
                     string insertQuery = """INSERT INTO employeedetails(id,fullname,age,phonenumber,email,hourlyrate,surname)   VALUES (@id,@fullname,@age,@phonenumber,@email,@hourlyrate,@surname)""";
 
                     SqlCommand execute = new SqlCommand(insertQuery, serverCon);
@@ -179,6 +178,7 @@ namespace EmployeeManagementSyst
 
                     int rowsAffected = execute.ExecuteNonQuery();
                     MessageBox.Show("Employee added");
+                    serverCon.Close();
                 }
             }
             catch (Exception ex) { MessageBox.Show("Error Inserting Values (Employee Details): " + ex.Message); }

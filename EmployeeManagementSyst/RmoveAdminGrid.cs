@@ -15,11 +15,11 @@ namespace EmployeeManagementSyst
 {
     public partial class RmoveAdminGrid : Form
     {
-        private string serverConnection;
+        
         public RmoveAdminGrid()
         {
             InitializeComponent();
-            serverConnection = MainPage.InitiateServer();
+           
             AdminDetails();
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.BackColor = System.Drawing.Color.BlanchedAlmond;
@@ -35,9 +35,9 @@ namespace EmployeeManagementSyst
                 dataTable.Columns.Add("Id", typeof(string));
 
 
-                using (SqlConnection serverConnect = new SqlConnection(serverConnection))
+                using (SqlConnection serverConnect = MainPage.ConnectionString())
                 {
-                    serverConnect.Open();
+                   
                     string qry = "SELECT id,Admin_name FROM admintable;";
                     SqlCommand mySqlCommand = new SqlCommand(qry, serverConnect);
                     SqlDataReader reader = mySqlCommand.ExecuteReader();
@@ -53,6 +53,7 @@ namespace EmployeeManagementSyst
                         }
                     }
                     else { MessageBox.Show("Admin not found"); }
+                    serverConnect.Close();
                 }
                 dataGridView1.DataSource = dataTable;
             }
@@ -69,9 +70,9 @@ namespace EmployeeManagementSyst
                 string employeeName = row.Cells["Admin Name"].Value.ToString();
                 string code = row.Cells["Id"].Value.ToString();
 
-                using (SqlConnection serverConnect = new SqlConnection(serverConnection))
+                using (SqlConnection serverConnect = MainPage.ConnectionString())
                 {
-                    serverConnect.Open();
+                    
                     string qry = "SELECT id FROM admintable WHERE Admin_name = @fname OR id = @id;";
                     SqlCommand mySqlCommand = new SqlCommand(qry, serverConnect);
                     mySqlCommand.Parameters.AddWithValue("@fname", employeeName);
@@ -87,6 +88,7 @@ namespace EmployeeManagementSyst
                         this.Close();
                     }
                     else { MessageBox.Show("Error Finding Admin ID"); }
+                    serverConnect.Close();
                 }
             }
         }
@@ -108,9 +110,9 @@ namespace EmployeeManagementSyst
                 dataTable.Columns.Add("Id", typeof(string));
 
 
-                using (SqlConnection serverConnect = new SqlConnection(serverConnection))
+                using (SqlConnection serverConnect = MainPage.ConnectionString())
                 {
-                    serverConnect.Open();
+                   
                     string qry = "SELECT a.id,a.Admin_name FROM admintable a JOIN employeedetails e on a.id = e.id WHERE e.surname = @surname OR a.id = @id;";
                     SqlCommand mySqlCommand = new SqlCommand(qry, serverConnect);
                     mySqlCommand.Parameters.Clear();
@@ -129,7 +131,7 @@ namespace EmployeeManagementSyst
                         }
                         dataGridView1.DataSource = dataTable;
                     }
-
+                    serverConnect.Close();
                 }
 
             }
@@ -147,9 +149,9 @@ namespace EmployeeManagementSyst
 
 
 
-                using (SqlConnection connection = new SqlConnection(serverConnection))
+                using (SqlConnection connection = MainPage.ConnectionString())
                 {
-                    connection.Open();
+                   
                     string query = "SELECT id,Admin_name FROM admintable";
                     SqlCommand cmd = new SqlCommand(query, connection);
                     SqlDataReader reader = cmd.ExecuteReader();
@@ -167,7 +169,7 @@ namespace EmployeeManagementSyst
 
                     }
 
-
+                    connection.Close();
                 }
             }
             catch (Exception ex)
