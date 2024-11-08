@@ -23,7 +23,11 @@ namespace EmployeeManagementSyst
             this.BackColor = System.Drawing.Color.BlanchedAlmond;
             SchedulePaySlip.InitializeCombo(comboBox1);
         }
-        // Method to update the last executed day in the database
+
+        /// <summary>
+        /// Updates the last executed day in the database.
+        /// </summary>
+        /// <param name="day">The day to update in the database.</param>
         private void UpdtExec(string day)
         {
             try
@@ -41,7 +45,9 @@ namespace EmployeeManagementSyst
             }
             catch (Exception e) { MessageBox.Show($"Error Getting Last Executed Date: {e.Message}"); }
         }
-        // Event handler for the OK button click
+        /// <summary>
+        /// Event handler for the OK button click. Updates the execution day in the database if a valid day is selected.
+        /// </summary>
         private void Ok_Click(object sender, EventArgs e)
         {
             if (comboBox1.SelectedItem != null)
@@ -51,7 +57,9 @@ namespace EmployeeManagementSyst
             }
             this.Close();
         }
-        // Method to save weekly data to a text file
+        /// <summary>
+        /// Saves the weekly rota data to a text file.
+        /// </summary>
         private void SaveWeeklyData()
         {
             try
@@ -101,7 +109,9 @@ namespace EmployeeManagementSyst
             catch (Exception e) { MessageBox.Show("Error Saving Rota Data: " + e.Message); }
 
         }
-        // Method to set the last save date in the database
+        /// <summary>
+        /// Sets the date of the last save operation in the database.
+        /// </summary>
         public void SetSaveDate()
         {
             try
@@ -153,7 +163,9 @@ namespace EmployeeManagementSyst
 
             catch (Exception e) { MessageBox.Show("Error Setting Date to Save Data: " + e.Message); }
         }
-        // Deletes data on weekly basis from the 'rotatable' table to reset the weekly rota data.
+        /// <summary>
+        /// Resets the weekly rota data by deleting all records from the 'rotatable' table.
+        /// </summary>
         private void ResetWeeklyData()
         {
             try

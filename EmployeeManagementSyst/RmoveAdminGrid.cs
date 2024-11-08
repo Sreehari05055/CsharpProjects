@@ -24,7 +24,10 @@ namespace EmployeeManagementSyst
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.BackColor = System.Drawing.Color.BlanchedAlmond;
         }
-        // Loads the details of the admins from the database into a DataTable.
+
+        /// <summary>
+        /// Loads the details of the admins from the database and displays them in a DataGridView.
+        /// </summary>
         public void AdminDetails()
         {
             try
@@ -59,8 +62,11 @@ namespace EmployeeManagementSyst
             }
             catch (Exception ex) { MessageBox.Show("Admin Details Error: " + ex.Message); }
         }
-        // Handles the cell click event in the DataGridView.
-        // Retrieves admin information when a cell is clicked and opens the RemoveAdmin form.
+
+        /// <summary>
+        /// Handles the DataGridView cell click event.
+        /// Retrieves admin information and opens the RemoveAdmin form.
+        /// </summary>
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
@@ -92,7 +98,10 @@ namespace EmployeeManagementSyst
                 }
             }
         }
-        // Handles text changes in the input TextBox and filters the admin list based on user input.
+        /// <summary>
+        /// Handles text changes in the input TextBox.
+        /// Filters the admin list based on user input.
+        /// </summary>
         private void Changing_Text(object sender, EventArgs s)
         {
             string userInput = textBox1.Text.Trim().ToLower();
@@ -138,7 +147,9 @@ namespace EmployeeManagementSyst
 
             catch (Exception ex) { MessageBox.Show("Admin Details Error: " + ex.Message); }
         }
-        // Loads all admin details from the database into the DataGridView.
+        /// <summary>
+        /// Loads all admin details from the database into the DataGridView.
+        /// </summary>
         private void LoadAllData()
         {
             try
@@ -177,8 +188,10 @@ namespace EmployeeManagementSyst
                 MessageBox.Show("Error loading data: " + ex.Message);
             }
         }
-        // Event handler for form load.
-        // Calls LoadAllData to populate the DataGridView with admin details when the form is loaded.
+        /// <summary>
+        /// Event handler for the form's Load event.
+        /// Loads all admin details when the form is loaded.
+        /// </summary>
         private void EmployeeDetailGrid_Load(object sender, EventArgs e)
         {
             LoadAllData();

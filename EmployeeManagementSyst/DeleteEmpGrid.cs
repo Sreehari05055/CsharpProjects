@@ -14,7 +14,11 @@ namespace EmployeeManagementSyst
 {
     public partial class DeleteEmpGrid : Form
     {
-    
+
+        /// <summary>
+        /// The DeleteEmpGrid class is responsible for displaying, searching, and managing employee details.
+        /// It provides functionality to delete employee data by interacting with the database.
+        /// </summary>
         public DeleteEmpGrid()
         {
             InitializeComponent();
@@ -23,7 +27,9 @@ namespace EmployeeManagementSyst
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.BackColor = System.Drawing.Color.BlanchedAlmond;
         }
-        // Method to load employee details from the database
+        /// <summary>
+        /// Loads the employee details from the database into a DataGridView.
+        /// </summary>
         public void EmployeeDetails()
         {
             try
@@ -58,7 +64,12 @@ namespace EmployeeManagementSyst
             }
             catch (Exception ex) { MessageBox.Show("Employee Details Error: " + ex.Message); }
         }
-        // Method to handle cell clicks in the DataGridView
+        /// <summary>
+        /// Handles the cell click event of the DataGridView. When a row is clicked, the employee's ID and fullname
+        /// are retrieved and passed to the DeleteEmp form for deletion.
+        /// </summary>
+        /// <param name="sender">The object that triggered the event.</param>
+        /// <param name="e">Event data containing information about the clicked cell.</param>
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
@@ -90,7 +101,11 @@ namespace EmployeeManagementSyst
                 }
             }
         }
-        // Method to filter employee details based on user input
+        /// <summary>
+        /// Filters the employee details displayed in the DataGridView based on user input in the search textbox.
+        /// </summary>
+        /// <param name="sender">The object that triggered the event.</param>
+        /// <param name="s">Event data containing the user input from the text box.</param>
         private void Changing_Text(object sender, EventArgs s)
         {
             string userInput = textBox1.Text.Trim().ToLower();
@@ -136,7 +151,9 @@ namespace EmployeeManagementSyst
 
             catch (Exception ex) { MessageBox.Show("Employee Details Error: " + ex.Message); }
         }
-        // Method to load all employee data into the grid
+        /// <summary>
+        /// Loads all employee data into the DataGridView without any filters.
+        /// </summary>
         private void LoadAllData()
         {
             try
@@ -176,7 +193,11 @@ namespace EmployeeManagementSyst
             }
         }
 
-        // Method to load employee details when the form loads
+        /// <summary>
+        /// Loads all employee details when the form is loaded.
+        /// </summary>
+        /// <param name="sender">The object that triggered the event.</param>
+        /// <param name="e">Event data for the form's load event.</param>
         private void EmployeeDetailGrid_Load(object sender, EventArgs e)
         {
             LoadAllData();

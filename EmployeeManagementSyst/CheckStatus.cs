@@ -26,7 +26,9 @@ namespace EmployeeManagementSyst
 
         }
 
-        // Method to check the status of employees and display it in the DataGridView
+        /// <summary>
+        /// Fetches the current status of employees from the database and displays it in the DataGridView.
+        /// </summary>
         public void EmployeeStatus()
         {
             try
@@ -58,7 +60,12 @@ namespace EmployeeManagementSyst
                 MessageBox.Show("Error Checking Employee Status: " + ex.Message);
             }
         }
-        // Event handler for when a cell in the DataGridView is clicked (currently not implemented)
+        /// <summary>
+        /// Event handler for when a cell in the DataGridView is clicked.
+        /// (Currently not implemented)
+        /// </summary>
+        /// <param name="sender">The sender object.</param>
+        /// <param name="e">Event arguments containing cell click details.</param>
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 

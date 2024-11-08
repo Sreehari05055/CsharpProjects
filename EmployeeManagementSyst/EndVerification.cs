@@ -52,7 +52,10 @@ namespace EmployeeManagementSyst
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.BackColor = System.Drawing.Color.BlanchedAlmond;
         }
-        // Method to verify the employee code
+        /// <summary>
+        /// Verifies the employee code against the database to ensure it exists.
+        /// </summary>
+        /// <param name="codeToCheck">The employee code to verify.</param>
         public void Verify(String codeToCheck)
         {
             try
@@ -76,7 +79,9 @@ namespace EmployeeManagementSyst
             }
             catch (Exception ex) { MessageBox.Show("Verification Error: " + ex.Message); }
         }
-        // Event handler for the OK button click
+        /// <summary>
+        /// Event handler for the OK button click event. Verifies the employee code and calculates hours worked.
+        /// </summary>
         private void Ok_Click(object sender, EventArgs e)
         {
             string userInput = textBox1.Text;
@@ -85,45 +90,37 @@ namespace EmployeeManagementSyst
             CompletedHours();
 
         }
-        // Method to check if the employee has completed hours
+        /// <summary>
+        /// Checks if the employee has completed their shift and calculates the hours worked.
+        /// </summary>
         public void CompletedHours()
         {
             try
             {
                 using (SqlConnection connection = MainPage.ConnectionString())
                 {
-                   
-                    string qry = "SELECT id from hourstable WHERE id = @cde";
-                    SqlCommand execute = new SqlCommand(qry, connection);
-                    execute.Parameters.Clear();
-                    execute.Parameters.AddWithValue("@cde", Code);
-                    using (SqlDataReader reader = execute.ExecuteReader())
-                    {
-                        if (!reader.HasRows)
-                        {
-                            this.Close();
-                            MessageBox.Show("You Haven't Started Shift to End");
-
-                        }
-                    }
+                                      
                     string chckQry = "SELECT hours FROM hourstable WHERE id = @Code ";
                     SqlCommand exec = new SqlCommand(chckQry, connection);
                     exec.Parameters.AddWithValue("@Code", Code);
-                    using (SqlDataReader reader2 = exec.ExecuteReader())
+                    var result = exec.ExecuteScalar();
+                    if (result == null)
                     {
-
-                        if (reader2.Read())
-                        {
-                            string hours = reader2.GetString(reader2.GetOrdinal("hours"));
-                            StopWatch(hours);
-                        }
+                        MessageBox.Show("You Haven't Started Shift to End");
+                        this.Close();
+                        return;
                     }
+                       
+                    StopWatch(result.ToString());                    
                     connection.Close();
                 }
             }
             catch (Exception e) { MessageBox.Show("Error Getting Completed Hours: " + e.Message); }
         }
-        // Method to check hours worked and process them
+        /// <summary>
+        /// Processes the hours worked and records the pay for the employee.
+        /// </summary>
+        /// <param name="hours">The total hours worked by the employee.</param>
         public void HoursCheck(double hours)
         {        
             try
@@ -137,34 +134,30 @@ namespace EmployeeManagementSyst
                 }
             }catch(Exception e) { MessageBox.Show("Error during hour check: "+e.Message); }
         }
-        // Method to process hours using a stopwatch
+
+        /// <summary>
+        /// Processes the time worked using a stopwatch method to calculate the time difference from the start time.
+        /// </summary>
+        /// <param name="hourstring">The string representing the start time of the shift.</param>
         public void StopWatch(string hourstring)
         {
             if (DateTime.TryParse(hourstring, out DateTime dateTime))
             {
-                // Get the current time
-                DateTime currentTime = DateTime.Now;
-
-                // Calculate the time difference
-                TimeSpan timeDifference = currentTime - dateTime;
-
-                // Convert the difference to hours and minutes
-                double result = timeDifference.TotalHours; // This will give the difference in hours
-
-                this.HoursDone = result;
+                TimeSpan timeDifference = DateTime.Now - dateTime;
+                double workedHours = timeDifference.TotalHours;
 
                 // Perform hours check immediately after calculation
-                if (result > 16)
+                if (workedHours > 16)
                     {
                         DeleteTime();
                         MessageBox.Show("Hours Done More Than Legal Working Hours.");
                         this.Close();
                         return;  // Stops further code execution if over the limit
                     }
-
-                String hourString = result.ToString("F2");
-                this.StringHours = hourString;
-                HoursCheck(result);
+                this.HoursDone = workedHours;
+                this.StringHours = workedHours.ToString("F2");
+ 
+                HoursCheck(workedHours);
                
             }
             else
@@ -173,7 +166,10 @@ namespace EmployeeManagementSyst
             }
 
         }
-        // Method to delete time record from the database
+
+        /// <summary>
+        /// Deletes the time record for the employee from the database after shift completion.
+        /// </summary>
         public void DeleteTime()
         {
             try
@@ -190,14 +186,20 @@ namespace EmployeeManagementSyst
             }
             catch (Exception e) { MessageBox.Show("Error Clocking Out Employee: " + e.Message); }
         }
-        // Method to record the date worked
+
+        /// <summary>
+        /// Records the current date when the shift is completed.
+        /// </summary>
         public void DateWorked()
         {
             DateTime today = DateTime.Today;
             String todayString = today.ToString("yyyy-MM-dd");
             WorkDate = todayString;
         }
-        // Method to insert employee pay record into the database
+
+        /// <summary>
+        /// Inserts the employee's pay record into the database after calculating the total pay.
+        /// </summary>
         public void InsertEmployeePay()
         {
             try
@@ -232,7 +234,10 @@ namespace EmployeeManagementSyst
             }
             catch (Exception ex) { MessageBox.Show("Error Inserting Values (Employee Pay): " + ex.Message); }
         }
-        // Method to calculate the employee's pay based on hours worked
+
+        /// <summary>
+        /// Calculates the total pay for the employee based on the hourly rate and hours worked.
+        /// </summary>
         public void CalculatePay()
         {
             try

@@ -23,7 +23,10 @@ namespace EmployeeManagementSyst
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.BackColor = System.Drawing.Color.BlanchedAlmond;
         }
-        // Method to retrieve employee details and bind them to the DataGridView
+
+        /// <summary>
+        /// Retrieves employee details from the database and binds them to the DataGridView.
+        /// </summary>
         public void AdminEmpDetails()
         {
             try
@@ -58,7 +61,11 @@ namespace EmployeeManagementSyst
             }
             catch (Exception ex) { MessageBox.Show("Employee Details Error: " + ex.Message); }
         }
-        // Event handler for cell click in DataGridView
+
+        /// <summary>
+        /// Event handler for cell click in DataGridView. Retrieves the selected employee's ID
+        /// and opens the SetAdmin form to set the employee as an administrator.
+        /// </summary>
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
@@ -90,7 +97,10 @@ namespace EmployeeManagementSyst
                 }
             }
         }
-        // Event handler for text change in the search TextBox
+
+        /// <summary>
+        /// Event handler for text change in the search TextBox. Filters employee data based on the entered text.
+        /// </summary>
         private void Changing_Text(object sender, EventArgs s)
         {
             string userInput = textBox1.Text.Trim().ToLower();
@@ -136,7 +146,10 @@ namespace EmployeeManagementSyst
 
             catch (Exception ex) { MessageBox.Show("Employee Details Error: " + ex.Message); }
         }
-        // Method to load all employee data into the DataGridView
+
+        /// <summary>
+        /// Method to load all employee data into the DataGridView.
+        /// </summary>
         private void LoadAllData()
         {
             try
@@ -175,7 +188,9 @@ namespace EmployeeManagementSyst
                 MessageBox.Show("Error loading data: " + ex.Message);
             }
         }
-        // Event handler for form load to populate employee data
+        /// <summary>
+        /// Event handler for form load to populate employee data when the form is first opened.
+        /// </summary>
         private void EmployeeDetailGrid_Load(object sender, EventArgs e)
         {
             LoadAllData();

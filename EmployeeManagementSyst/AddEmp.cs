@@ -36,7 +36,9 @@ namespace EmployeeManagementSyst
             set { code = value; }
         }
 
-        // Constructor to initialize the form and set its propertiesb 
+        /// <summary>
+        /// Initializes a new instance of the AddEmp form and sets its properties.
+        /// </summary>
         public AddEmp()
         {
             InitializeComponent(); // Initializes the components of the form
@@ -60,8 +62,11 @@ namespace EmployeeManagementSyst
         {
 
         }
-
-        private void button1_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Event handler for AddEmployee click event to collect employee data,
+        /// generate a unique employee code, and insert details into the database.
+        /// </summary>
+        private void AddEmployee_Click(object sender, EventArgs e)
         {
             EmployeeCode(); // Generates a unique employee code
             FullName = textBox1.Text.Trim().ToLower(); // Gets and formats the full name from input
@@ -81,6 +86,14 @@ namespace EmployeeManagementSyst
             InsertCardDetails(cardNumInp, cardExpInp, cvvInp, cardNameInp);
             this.Close(); 
         }
+
+        /// <summary>
+        /// Inserts card details into the carddata database table.
+        /// </summary>
+        /// <param name="cardNum">Card number.</param>
+        /// <param name="expiryDate">Card expiration date.</param>
+        /// <param name="cvv">Card CVV.</param>
+        /// <param name="holderName">Cardholder's name.</param>
         private void InsertCardDetails(string cardNum, string expiryDate, string cvv, string holderName)
         {
             try
@@ -104,7 +117,11 @@ namespace EmployeeManagementSyst
 
             catch (Exception ex) { MessageBox.Show("Error Inserting Values (Card Data): " + ex.Message); }
         }
-        // Method to generate a unique employee code by checking against existing records in the database
+
+        /// <summary>
+        /// Generates a unique employee code by checking against existing records in the database.
+        /// </summary>
+        /// <returns>A unique employee code as a string.</returns>
         public String EmployeeCode()
         {
             try
@@ -144,7 +161,9 @@ namespace EmployeeManagementSyst
             return Code;
         }
 
-        // Method to extract the surname from the full name
+        /// <summary>
+        /// Extracts the surname from the full name.
+        /// </summary>
         public void GetSurname()
         {
             try
@@ -156,8 +175,16 @@ namespace EmployeeManagementSyst
             catch (Exception ex) { MessageBox.Show("Error (Surname Comprehension): " + ex.Message); }
         }
 
-        // Method to insert employee details into the database
-        public void InsertEmployeeDetails(string Name,string Age,string PhoneNumber, string Email,string HourlyRate,string SurName)
+        /// <summary>
+        /// Inserts employee details into the employeedetails database table.
+        /// </summary>
+        /// <param name="name">Full name of the employee.</param>
+        /// <param name="age">Age of the employee.</param>
+        /// <param name="phoneNumber">Phone number of the employee.</param>
+        /// <param name="email">Email address of the employee.</param>
+        /// <param name="hourlyRate">Hourly rate of the employee.</param>
+        /// <param name="surName">Surname of the employee.</param>e
+        public void InsertEmployeeDetails(string name,string age,string phoneNumber, string email,string hourlyRate,string surName)
         {
             try
             {
@@ -169,12 +196,12 @@ namespace EmployeeManagementSyst
                     SqlCommand execute = new SqlCommand(insertQuery, serverCon);
 
                     execute.Parameters.AddWithValue("@id", Code);
-                    execute.Parameters.AddWithValue("@fullname", Name);
-                    execute.Parameters.AddWithValue("@age", Age);
-                    execute.Parameters.AddWithValue("@phonenumber", PhoneNumber);
-                    execute.Parameters.AddWithValue("@email", Email);
-                    execute.Parameters.AddWithValue("@hourlyrate", HourlyRate);
-                    execute.Parameters.AddWithValue("@surname", SurName);
+                    execute.Parameters.AddWithValue("@fullname", name);
+                    execute.Parameters.AddWithValue("@age", age);
+                    execute.Parameters.AddWithValue("@phonenumber", phoneNumber);
+                    execute.Parameters.AddWithValue("@email", email);
+                    execute.Parameters.AddWithValue("@hourlyrate", hourlyRate);
+                    execute.Parameters.AddWithValue("@surname", surName);
 
                     int rowsAffected = execute.ExecuteNonQuery();
                     MessageBox.Show("Employee added");

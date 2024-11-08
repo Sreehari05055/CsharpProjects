@@ -29,8 +29,15 @@ namespace EmployeeManagementSyst
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.BackColor = System.Drawing.Color.BlanchedAlmond;
         }
-        // Populates the DataGridView with employee rota data from the database.
-        // Retrieves employee names and their respective shift details, then binds this information to the DataGridView.
+
+
+
+        /// <summary>
+        /// Populates the DataGridView with employee rota data by querying the database.
+        /// Retrieves employee names and their respective shift details, such as start time, finish time, and work day.
+        /// The data is organized by employee name and displayed in a grid format, where each unique day/date combination 
+        /// is a separate column, and the shifts are displayed under the respective day/date columns.
+        /// </summary>
         private void PopulateDataGridView()
         {
             try

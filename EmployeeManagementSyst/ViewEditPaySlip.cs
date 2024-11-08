@@ -26,8 +26,12 @@ namespace EmployeeManagementSyst
             dataGridView1.CellBeginEdit += dataGridView1_CellBeginEdit;
             dataGridView1.CellEndEdit += dataGridView1_CellEndEdit;
         }
-        // Event handler for the beginning of cell editing in the DataGridView.
-        // Cancels editing for all columns except the "Total Pay" column.
+        /// <summary>
+        /// Event handler for the beginning of cell editing in the DataGridView.
+        /// Cancels editing for all columns except the "Total Pay" column.
+        /// </summary>
+        /// <param name="sender">The sender of the event.</param>
+        /// <param name="e">Event arguments containing information about the editing cell.</param>
         private void dataGridView1_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
         {
              if (dataGridView1.Columns[e.ColumnIndex].HeaderText != "Total Pay")
@@ -35,8 +39,12 @@ namespace EmployeeManagementSyst
                 e.Cancel = true;  
             }
         }
-        // Event handler for the end of cell editing in the DataGridView.
-        // Validates and updates the "Total Pay" value in the database if valid.
+        /// <summary>
+        /// Event handler for the end of cell editing in the DataGridView.
+        /// Validates and updates the "Total Pay" value in the database if valid.
+        /// </summary>
+        /// <param name="sender">The sender of the event.</param>
+        /// <param name="e">Event arguments containing information about the edited cell.</param>
         private void dataGridView1_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
            
@@ -58,7 +66,12 @@ namespace EmployeeManagementSyst
                 }
             }
         }
-        // Updates the total pay value in the database for the specified employee ID.
+
+        /// <summary>
+        /// Updates the "Total Pay" value in the database for the specified employee ID.
+        /// </summary>
+        /// <param name="id">The ID of the employee whose total pay needs to be updated.</param>
+        /// <param name="newTotalPay">The new total pay value to update in the database.</param>
         private void UpdateTotalPayInDatabase(int id, decimal newTotalPay)
         {
             string updateQuery = "UPDATE employeepay SET total_pay = @total_pay WHERE id = @id";
@@ -73,7 +86,11 @@ namespace EmployeeManagementSyst
                 cmd.Close();
             }
         }
-        // Handles text input in the search TextBox and loads filtered employee details based on the input.
+        /// <summary>
+        /// Handles text input in the search TextBox and loads filtered employee details based on the input.
+        /// </summary>
+        /// <param name="sender">The sender of the event.</param>
+        /// <param name="s">The event arguments.</param>
         private void Changing_Text(object sender, EventArgs s)
         {
             string userInput = textBox1.Text.Trim().ToLower();
@@ -124,7 +141,9 @@ namespace EmployeeManagementSyst
 
             catch (Exception ex) { MessageBox.Show("Employee Details Error: " + ex.Message); }
         }
-        // Loads all employee pay slip data from the database and displays it in the DataGridView.
+        /// <summary>
+        /// Loads all employee pay slip data from the database and displays it in the DataGridView.
+        /// </summary>
         private void LoadAllData()
         {
             try
@@ -168,7 +187,12 @@ namespace EmployeeManagementSyst
                 MessageBox.Show("Error loading data: " + ex.Message);
             }
         }
-        // Event handler for the form load event; loads all data into the DataGridView when the form is loaded.
+
+        /// <summary>
+        /// Event handler for the form load event; loads all data into the DataGridView when the form is loaded.
+        /// </summary>
+        /// <param name="sender">The sender of the event.</param>
+        /// <param name="e">Event arguments.</param>
         private void PaySlipGrid_Load(object sender, EventArgs e)
         {
             LoadAllData();

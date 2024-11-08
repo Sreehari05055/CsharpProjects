@@ -23,7 +23,12 @@ namespace EmployeeManagementSyst
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.BackColor = System.Drawing.Color.BlanchedAlmond;
         }
-        // Method to verify if the provided employee code exists in the database
+
+
+        /// <summary>
+        /// Verifies if the provided employee code exists in the database.
+        /// </summary>
+        /// <param name="codeToCheck">The employee code to be verified.</param>
         public void Verify(String codeToCheck)
         {
             try
@@ -48,7 +53,12 @@ namespace EmployeeManagementSyst
             }
             catch (Exception ex) { MessageBox.Show("Verification Error: " + ex.Message); }
         }
-        // Method to check the employee's clock-in status
+
+
+        /// <summary>
+        /// Checks the employee's clock-in status from the hourstable.
+        /// </summary>
+        /// <param name="id">The employee ID to check the clock-in status for.</param>
         public void CheckStatus(string id)
         {
             try
@@ -80,7 +90,12 @@ namespace EmployeeManagementSyst
             }
             catch (Exception e) { MessageBox.Show("Error Checking Employee Status: " + e.Message); }
         }
-        // Event handler for OK button click
+
+        /// <summary>
+        /// Event handler for OK button click. Verifies the input and checks clock-in status.
+        /// </summary>
+        /// <param name="sender">The sender of the event.</param>
+        /// <param name="e">The event arguments.</param>
         private void Ok_Click(object sender, EventArgs e)
         {
            
@@ -95,7 +110,11 @@ namespace EmployeeManagementSyst
 
         }
 
-        // Method to insert hours into the hours table
+        /// <summary>
+        /// Inserts the hours of the employee into the hourstable.
+        /// </summary>
+        /// <param name="time">The time the employee started the shift.</param>
+        /// <param name="id">The employee ID to insert the hours for.</param>
         public void InsertHoursTable(string time, string id)
         {
             try
@@ -132,7 +151,11 @@ namespace EmployeeManagementSyst
             catch (Exception e) { MessageBox.Show("Error Inserting Values (Hours Table): " + e.Message); }
         }
 
-        // Event handler for form load event
+        /// <summary>
+        /// Event handler for form load event.
+        /// </summary>
+        /// <param name="sender">The sender of the event.</param>
+        /// <param name="e">The event arguments.</param>
         private void Verification_Load(object sender, EventArgs e)
         {
 

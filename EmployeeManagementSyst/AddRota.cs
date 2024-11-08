@@ -24,7 +24,12 @@ namespace EmployeeManagementSyst
             this.id = id;   
         }
 
-        // Schedules a rota by inserting shift details into the database
+        /// <summary>
+        /// Schedules a rota by inserting shift details into the database.
+        /// </summary>
+        /// <param name="startShift">The start time of the shift.</param>
+        /// <param name="endShift">The end time of the shift.</param>
+        /// <param name="date">The date for the scheduled shift.</param>
         public void ScheduleRota(DateTime startShift, DateTime endShift, DateTime date)
         {
             try
@@ -50,7 +55,8 @@ namespace EmployeeManagementSyst
             catch (Exception ex) {MessageBox.Show("Error Scheduling Rota: " + ex.Message); }
         }
 
-        // Event handler for clicking the "Ok" button to schedule the rota
+     
+        /// Event handler for the "Ok" button click to schedule the rota.    
         private void Ok_Click(object sender, EventArgs e)
         {
             string userInput = dateTimePicker1.Text;

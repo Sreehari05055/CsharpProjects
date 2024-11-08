@@ -24,7 +24,14 @@ namespace EmployeeManagementSyst
             this.BackColor = System.Drawing.Color.BlanchedAlmond;
             InitializeCombo(comboBox1);
         }
-        // Handles the click event for the "OK" button, updating the last executed day based on user selection.
+
+
+        /// <summary>
+        /// Handles the click event for the "OK" button, updating the last executed day
+        /// based on the user's selection from the combo box.
+        /// </summary>
+        /// <param name="sender">The object that triggered the event.</param>
+        /// <param name="e">The event data.</param>
         private void Ok_Click(object sender, EventArgs e)
         {
             if (comboBox1.SelectedItem != null)
@@ -36,7 +43,12 @@ namespace EmployeeManagementSyst
 
             this.Close();
         }
-        // Updates the last executed day in the database for the specified day.
+
+
+        /// <summary>
+        /// Updates the last executed day in the database for the specified day.
+        /// </summary>
+        /// <param name="day">The day of the week selected by the user.</param>
         private void UpdtExec(string day) 
         {
             try
@@ -53,7 +65,13 @@ namespace EmployeeManagementSyst
             }
             catch (Exception e) { MessageBox.Show($"Error Getting Last Executed Date: {e.Message}"); }
         }
-        // Initializes the combo box with the days of the week for user selection.
+
+
+
+        /// <summary>
+        /// Initializes the combo box with the days of the week for user selection.
+        /// </summary>
+        /// <param name="comboBox">The combo box to populate with days of the week.</param>
         public static void InitializeCombo(ComboBox comboBox)
         {
             comboBox.Items.Clear();
@@ -68,7 +86,12 @@ namespace EmployeeManagementSyst
             "Saturday"
                 });
         }
-        // Checks if a payslip should be sent based on the last executed day and updates the last execution date.
+
+
+        /// <summary>
+        /// Checks if a payslip should be sent based on the last executed day and updates the last execution date.
+        /// If the payslip needs to be sent today, it will trigger the sending process and update the execution date.
+        /// </summary>
         public void LastRunTime()
         {
             try

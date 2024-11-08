@@ -16,7 +16,11 @@ namespace EmployeeManagementSyst
     public partial class DeleteEmp : Form
     {
         private string code;
-       
+
+        /// <summary>
+        /// Initializes a new instance of the DeleteEmp form with the specified employee ID.
+        /// </summary>
+        /// <param name="id">The ID of the employee to be deleted.</param>
         public DeleteEmp(string id)
         {
             this.code = id;
@@ -24,19 +28,54 @@ namespace EmployeeManagementSyst
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.BackColor = System.Drawing.Color.BlanchedAlmond;
         }
-        // Event handler for the delete button click
-        private void button1_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Event handler for the delete button click. 
+        /// It checks if the employee exists and removes their data from multiple tables.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The event data.</param>
+        private void Yes_Click(object sender, EventArgs e)
         {
-            
-            RemoveAdmin(code);
-            RemovePay(code);
-            RemoveCard(code);
-            DeletEmp(code);          
+            // Check if the employee is currently working (exists in hourstable)
+            if (!WorkStatus(code))
+            {
+
+                if (!RemoveAdmin(code))
+                {
+                    MessageBox.Show("Failed to delete admin data. Operation halted.");
+                    return;
+                }
+
+                if (!RemovePay(code))
+                {
+                    MessageBox.Show("Failed to delete pay details. Operation halted.");
+                    return;
+                }
+
+                if (!RemoveCard(code))
+                {
+                    MessageBox.Show("Failed to delete card details. Operation halted.");
+                    return;
+                }
+                if (!DeletEmp(code))
+                {
+                    MessageBox.Show("Failed to delete employee details. Operation halted.");
+                    return;
+                }
+            }
+            else 
+            {
+                Console.WriteLine("Process Halted: Employee Currently Working");
+            }
             this.Close();
 
         }
-        // Method to remove the admin data associated with the employee
-        public void RemoveAdmin(string id)
+        /// <summary>
+        /// Removes the admin data associated with the specified employee ID.
+        /// </summary>
+        /// <param name="id">The employee's ID.</param>
+        /// <returns>True if the admin data was successfully deleted, otherwise false.</returns>
+        public bool RemoveAdmin(string id)
         {
             try
             {
@@ -51,25 +90,34 @@ namespace EmployeeManagementSyst
 
                     int rowsAffected = detailQuery.ExecuteNonQuery();
                     if (rowsAffected > 0)
-                    {
+                    {                     
                         MessageBox.Show("Admin Deleted");
                     }
 
                     conn.Close();
+                    return rowsAffected > 0;
                 }
 
             }
-            catch (Exception e) { MessageBox.Show("Error Removing Admin: " + e.Message); }
+            catch (Exception e)
+            { 
+                MessageBox.Show("Error Removing Admin: " + e.Message);
+                return false;
+            }
         }
-        // Method to remove the pay data associated with the employee
-        public void RemovePay(string id)
+        /// <summary>
+        /// Removes the pay details associated with the specified employee ID.
+        /// </summary>
+        /// <param name="id">The employee's ID.</param>
+        /// <returns>True if the pay details were successfully deleted, otherwise false.</returns>
+        public bool RemovePay(string id)
         {
             try
             {
                 using (SqlConnection conn = MainPage.ConnectionString())
                 {
                    
-                    string deleteAdmin = "DELETE FROM employeepay WHERE id = @id; "; ;
+                    string deleteAdmin = "DELETE FROM employeepay WHERE id = @id; "; 
                     SqlCommand detailQuery = new SqlCommand(deleteAdmin, conn);
 
                     detailQuery.Parameters.Clear();
@@ -82,13 +130,46 @@ namespace EmployeeManagementSyst
                     }
 
                     conn.Close();
+                    return rowsAffected > 0;
                 }
 
             }
-            catch (Exception e) { MessageBox.Show("Error Removing Admin: " + e.Message); }
+            catch (Exception e) { MessageBox.Show("Error Removing Admin: " + e.Message);
+                return false;
+            }
         }
-        // Method to remove the card data associated with the employee
-        private void RemoveCard(string code)
+        /// <summary>
+        /// Checks whether the employee is currently working by querying the hourstable.
+        /// </summary>
+        /// <param name="id">The employee's ID.</param>
+        /// <returns>True if the employee is found in the hourstable (i.e., working), otherwise false.</returns>
+        public bool WorkStatus(string id) 
+        {
+            try
+            {
+                using (SqlConnection conn = MainPage.ConnectionString())
+                {
+                    string empStatus = "SELECT COUNT(*) FROM hourstable WHERE id = @id; ";
+                    SqlCommand detailQuery = new SqlCommand(empStatus, conn);
+
+                    detailQuery.Parameters.Clear();
+                    detailQuery.Parameters.AddWithValue("@id", id);
+
+                    int count = (int)detailQuery.ExecuteScalar();
+
+                    conn.Close();
+                    return count > 0;
+                }
+            }
+            catch (Exception e) { Console.WriteLine("Error checking Status (Hours table): "+e.Message); }
+                    return false;
+        }
+        /// <summary>
+        /// Removes the card data associated with the specified employee ID.
+        /// </summary>
+        /// <param name="code">The employee's ID.</param>
+        /// <returns>True if the card data was successfully deleted, otherwise false.</returns>
+        private bool RemoveCard(string code)
         {
             try
             {
@@ -108,13 +189,21 @@ namespace EmployeeManagementSyst
                     }
                     else { MessageBox.Show("Failed to delete Card or Card not found "); }
                     conn.Close();
+
+                    return rowsAffected > 0;
                 }
 
             }
-            catch (Exception e) { MessageBox.Show("Error Deleting Card: " + e.Message); }
+            catch (Exception e) { MessageBox.Show("Error Deleting Card: " + e.Message);
+            return false;
+            }
         }
-        // Method to delete the employee from the employee details
-        public void DeletEmp(string empCode)
+        /// <summary>
+        /// Deletes the employee details from the database.
+        /// </summary>
+        /// <param name="empCode">The employee's ID.</param>
+        /// <returns>True if the employee was successfully deleted, otherwise false.</returns>
+        public bool DeletEmp(string empCode)
         {
             try
             {
@@ -134,9 +223,12 @@ namespace EmployeeManagementSyst
                         MessageBox.Show("Failed to delete employee or employee not found");
                     }
                     serverConn.Close();
+                    return rowsAffected > 0;
                 }
             }
-            catch (Exception ex) { MessageBox.Show("Error Deleting Employee: " + ex.Message); }
+            catch (Exception ex) { MessageBox.Show("Error Deleting Employee: " + ex.Message);
+                return false;
+            }
         }
         }
 }

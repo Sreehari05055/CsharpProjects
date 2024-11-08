@@ -16,6 +16,10 @@ namespace EmployeeManagementSyst
     {
         private string adminCode;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="RemoveAdmin"/> class.
+        /// </summary>
+        /// <param name="adminCode">The admin code (ID) of the admin to be removed.</param>
         public RemoveAdmin(string adminCode)
         {
             this.adminCode = adminCode;
@@ -23,14 +27,21 @@ namespace EmployeeManagementSyst
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.BackColor = System.Drawing.Color.BlanchedAlmond;
         }
-        // Initialize server connection and remove admin when 'OK' is clicked
+        /// <summary>
+        /// Event handler for the 'OK' button click. Removes the admin and closes the form.
+        /// </summary>
         private void Ok_Click(object sender, EventArgs e)        
         {
            
             RemveAdmin(adminCode);
             this.Close();
         }
-        // Removes an admin from the database based on the provided admin ID.
+
+
+        /// <summary>
+        /// Removes an admin from the database based on the provided admin ID.
+        /// </summary>
+        /// <param name="id">The admin ID to be deleted from the database.</param>
         public void RemveAdmin(string id)
         {
             try

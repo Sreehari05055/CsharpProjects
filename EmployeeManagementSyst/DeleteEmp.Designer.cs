@@ -41,7 +41,7 @@
             button1.TabIndex = 0;
             button1.Text = "Yes";
             button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            button1.Click += Yes_Click;
             // 
             // button2
             // 

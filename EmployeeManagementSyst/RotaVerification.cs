@@ -17,7 +17,9 @@ namespace EmployeeManagementSyst
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.BackColor = System.Drawing.Color.BlanchedAlmond;
-        } // Event handler when 'Ok' is clicked
+        } 
+        
+        // Event handler when 'Ok' is clicked
         private void Ok_Click(object sender, EventArgs e) 
         {
             SendRotaEmail sendRotaEmail = new SendRotaEmail();

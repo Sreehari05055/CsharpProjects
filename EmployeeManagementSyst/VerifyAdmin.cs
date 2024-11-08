@@ -31,17 +31,24 @@ namespace EmployeeManagementSyst
         {
 
         }
-        // Event handler for OK button click
+
+        /// <summary>
+        /// Event handler for the OK button click. Verifies the admin code input by the user.
+        /// </summary>
+        /// <param name="sender">The sender of the event.</param>
+        /// <param name="e">The event arguments.</param>
         private void Ok_Click(object sender, EventArgs e)
         {
             string userInput = textBox1.Text;
             
-            AdminVerify(userInput);
-
-            
+            AdminVerify(userInput); 
 
         }
-        // Method to check if the ID exists in the admin table
+
+        /// <summary>
+        /// Verifies if the provided admin code exists in the database.
+        /// </summary>
+        /// <param name="adminCode">The admin code to be verified.</param>
         public void AdminVerify(string adminCode)
         {
             try

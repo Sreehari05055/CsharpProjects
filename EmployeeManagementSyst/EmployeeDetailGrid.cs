@@ -23,7 +23,12 @@ namespace EmployeeManagementSyst
             this.BackColor = System.Drawing.Color.BlanchedAlmond;
             
         }
-        // Event handler for text changes in the input textbox
+        /// <summary>
+        /// Event handler for text changes in the input textbox. Filters employee data based on the user's input.
+        /// If the input is empty, it loads all employee data.
+        /// </summary>
+        /// <param name="sender">The object that triggered the event.</param>
+        /// <param name="e">Event data for the text change event.</param>
         private void Changing_Text(object sender,EventArgs s)
         {
             string userInput = textBox1.Text.Trim().ToLower();
@@ -75,7 +80,9 @@ namespace EmployeeManagementSyst
 
             catch (Exception ex) { MessageBox.Show("Employee Details Error: " + ex.Message); }
         }
-        // Method to load all employee data into the DataGridView
+        /// <summary>
+        /// Loads all employee data into the DataGridView when there are no filters applied.
+        /// </summary>
         private void LoadAllData()
         {
             try
@@ -119,7 +126,11 @@ namespace EmployeeManagementSyst
                 MessageBox.Show("Error loading data: " + ex.Message);
             }
         }
-        // Event handler for when the form loads
+        /// <summary>
+        /// Event handler for when the form loads. This is where all employee data is loaded initially.
+        /// </summary>
+        /// <param name="sender">The object that triggered the event.</param>
+        /// <param name="e">Event data for the form's load event.</param>
         private void EmployeeDetailGrid_Load(object sender, EventArgs e)
         {
             LoadAllData();

@@ -23,7 +23,9 @@ namespace EmployeeManagementSyst
             this.BackColor = System.Drawing.Color.BlanchedAlmond;
         }
 
-        // Method to fetch and display employee details in the DataGridView
+        /// <summary>
+        /// Fetches employee details from the database and displays them in the DataGridView.
+        /// </summary>
         public void EmployeeDetails()
         {
             try
@@ -56,7 +58,12 @@ namespace EmployeeManagementSyst
             }
             catch (Exception ex) { MessageBox.Show("Employee Details Error: " + ex.Message); }
         }
-        // Event handler for when a cell in the DataGridView is clicked
+        /// <summary>
+        /// Event handler for cell clicks in the DataGridView.
+        /// Opens the AddRota form for the selected employee.
+        /// </summary>
+        /// <param name="sender">The sender object.</param>
+        /// <param name="e">Event arguments containing cell click details.</param>
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e) 
         {
             if (e.RowIndex >= 0)

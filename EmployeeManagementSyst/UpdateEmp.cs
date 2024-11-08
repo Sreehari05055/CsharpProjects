@@ -28,7 +28,12 @@ namespace EmployeeManagementSyst
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.BackColor = System.Drawing.Color.BlanchedAlmond;
         }
-        // Method to handle the 'OK' button click event
+
+        /// <summary>
+        /// Handles the 'OK' button click event to update employee details.
+        /// </summary>
+        /// <param name="sender">The sender object.</param>
+        /// <param name="e">The event arguments.</param>
         private void Ok_Click(object sender, EventArgs e) 
         {
             string updtName = textBox1.Text;
@@ -46,7 +51,10 @@ namespace EmployeeManagementSyst
             this.Close();
         }
 
-        // Method to extract the surname from the full name
+        /// <summary>
+        /// Extracts the surname from the full name.
+        /// </summary>
+        /// <param name="name">The full name of the employee.</param>
         public void GetSurname(string name)
         {
             try
@@ -57,7 +65,16 @@ namespace EmployeeManagementSyst
             }
             catch (Exception ex) { MessageBox.Show("Error (Surname Comprehension): " + ex.Message); }
         }
-        // Method to update employee details in the database
+
+        /// <summary>
+        /// Updates employee details in the database.
+        /// </summary>
+        /// <param name="code">The unique employee code (ID).</param>
+        /// <param name="name">The employee's full name.</param>
+        /// <param name="age">The employee's age.</param>
+        /// <param name="phoneNum">The employee's phone number.</param>
+        /// <param name="emailAdd">The employee's email address.</param>
+        /// <param name="rate">The employee's hourly rate.</param>
         public void UpdateEmpSet(string code,string name,string age,string phoneNum,string emailAdd, string rate)
         {
             try

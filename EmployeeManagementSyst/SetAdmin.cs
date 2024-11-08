@@ -15,7 +15,12 @@ namespace EmployeeManagementSyst
     public partial class SetAdmin : Form
     {
         private string AdmnCode;
-       
+
+
+        /// <summary>
+        /// Initializes the form with the provided administrator code and sets visual properties like form border style and background color.
+        /// </summary>
+        /// <param name="Code">The administrator code used to identify the employee.</param>
         public SetAdmin(String Code)
         {
             this.AdmnCode = Code;
@@ -23,7 +28,11 @@ namespace EmployeeManagementSyst
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.BackColor = System.Drawing.Color.BlanchedAlmond;
         }
-        // Handles the click event for the OK button
+
+        /// <summary>
+        /// Handles the click event for the OK button. It retrieves the administrator information
+        /// based on the provided ID and closes the form.
+        /// </summary>
         private void Ok_Click(object sender, EventArgs e)
         {
          
@@ -31,8 +40,12 @@ namespace EmployeeManagementSyst
             this.Close();
 
         }
-     
-        // Retrieves administrator information based on the provided ID and inserts it into the admin table.
+
+        /// <summary>
+        /// Retrieves the administrator's information based on the provided employee ID.
+        /// If the information exists, it inserts it into the admin table and notifies the user.
+        /// </summary>
+        /// <param name="id">The ID of the employee to be made an administrator.</param>
         public void GetAdmininfo(string id)
         {
             try
@@ -69,7 +82,13 @@ namespace EmployeeManagementSyst
             }
             catch (Exception e) { MessageBox.Show("Error Getting Admin Information: " + e.Message); }
         }
-        // Inserts the administrator information into the admin table.
+
+        /// <summary>
+        /// Inserts the administrator's information into the admin table in the database.
+        /// </summary>
+        /// <param name="id">The employee's ID who is being made an administrator.</param>
+        /// <param name="name">The full name of the employee.</param>
+        /// <param name="email">The email address of the employee.</param>
         public void InsertAdminInfo(string id, string name, string email)
         { 
             try
