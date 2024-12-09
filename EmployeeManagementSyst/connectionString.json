@@ -1,5 +1,5 @@
 ﻿{
 	"ConnectionStrings": {
-		"EmployeeDatabase": "Server=SREEPC\\SQLEXPRESS;Database=EmployeeManagement;Integrated Security=True;TrustServerCertificate=True;"
+		"EmployeeDatabase": ""
 	}
 }
