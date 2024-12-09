@@ -1,5 +1,5 @@
 ﻿{
 	"ConnectionStrings": {
-		"EmployeeDatabase": ""
+		"EmployeeDatabase": "sql_server_connection_string"
 	}
 }
