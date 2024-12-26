@@ -6,7 +6,8 @@ The **EmployeeManagementProgram** focused on managing employee information. The 
  3) Email Integration: Includes functionality for sending emails.
  4) The project showcases object-oriented programming principles.
 
-EmployeeManagementSyst is a Windows Forms application that enhances the core functionality of the EmployeeManagementProgram by adding a graphical user interface and advanced features. This project focuses on providing a comprehensive solution for employee management, including work schedules and payroll details.
+# EmployeeManagementSyst 
+The **EmployeeManagementSyst** is a Windows Forms application that enhances the core functionality of the EmployeeManagementProgram by adding a graphical user interface and advanced features. This project focuses on providing a comprehensive solution for employee management, including work schedules and payroll details.
 
 ## Key Features
 1) C# Windows Forms Application:
