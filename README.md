@@ -1,13 +1,5 @@
-# EmployeeManagementProgram
-
-The **EmployeeManagementProgram** focused on managing employee information. The application demonstrates key skills such as:
- 1) C# Programming: Utilizes C# for building a console-based application.
- 2) Database Interaction: Interacts with an SQL Server database to manage employee records.
- 3) Email Integration: Includes functionality for sending emails.
- 4) The project showcases object-oriented programming principles.
-
 # EmployeeManagementSyst 
-The **EmployeeManagementSyst** is a Windows Forms application that enhances the core functionality of the EmployeeManagementProgram by adding a graphical user interface and advanced features. This project focuses on providing a comprehensive solution for employee management, including work schedules and payroll details.
+The **EmployeeManagementSyst** is a Windows Forms application that enhances the core functionality of managing employee information by adding a graphical user interface and advanced features. This project focuses on providing a comprehensive solution for employee management, including work schedules and payroll details.
 
 ## Key Features
 
