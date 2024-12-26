@@ -1,4 +1,4 @@
-#EmployeeManagementProgram
+# EmployeeManagementProgram
 
 The **EmployeeManagementProgram** focused on managing employee information. The application demonstrates key skills such as:
  1) C# Programming: Utilizes C# for building a console-based application.
@@ -8,7 +8,7 @@ The **EmployeeManagementProgram** focused on managing employee information. The 
 
 EmployeeManagementSyst is a Windows Forms application that enhances the core functionality of the EmployeeManagementProgram by adding a graphical user interface and advanced features. This project focuses on providing a comprehensive solution for employee management, including work schedules and payroll details.
 
-Key Features
+## Key Features
 1) C# Windows Forms Application:
 Developed using C# and Windows Forms for a graphical user interface.
 Combines front-end and back-end functionalities, offering a more intuitive and interactive user experience.
