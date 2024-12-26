@@ -35,5 +35,6 @@ Features validation, error handling, and a more polished interface for ease of u
 7) Real-World Application:
 Simulates a real-world employee management system used by HR departments, incorporating tools for scheduling, payroll management, and attendance tracking.
 
-REQUIREMENTS: To efficiently run the Forms application, replace the placeholder credentials in the connectionString.Json and PaySlip.cs files with the actual credentials.
+### REQUIREMENTS
+To efficiently run the Forms application, replace the placeholder credentials in the connectionString.Json and PaySlip.cs files with the actual credentials.
 
