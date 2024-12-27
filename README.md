@@ -4,8 +4,8 @@ The **EmployeeManagementSyst** is a Windows Forms application that enhances the 
 ## Key Features
 
 1) **Employee Management**:
-Add, update, and delete employee records with ease.
-View all employee details with filtering options by surname or ID for quick access.
+- Add, update, and delete employee records with ease.
+- View all employee details with filtering options by surname or ID for quick access.
 
 2) **Work Schedule Management**:
 - Add and view work schedules for employees.
@@ -13,13 +13,13 @@ View all employee details with filtering options by surname or ID for quick acce
 - Save weekly schedules (rota) as a text file and clean up the database to maintain efficiency.
 
 3) **Admin Control**:
-- Assign and remove admin privileges as needed to manage access and responsibilities.
+Assign and remove admin privileges as needed to manage access and responsibilities.
 
 4) **Clock-In and Clock-Out System**:
-- Start and end shifts with a clock-in and clock-out system, tracking employee attendance in real-time.
+Start and end shifts with a clock-in and clock-out system, tracking employee attendance in real-time.
 
 5) **Attendance Tracking**:
-- View a list of currently working employees during active shifts.
+View a list of currently working employees during active shifts.
 
 6) **Payroll Management**
 - Generate and edit payslips dynamically, with updates reflected in the database in real-time.
