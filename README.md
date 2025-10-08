@@ -1,6 +1,12 @@
 # EmployeeManagementSyst 
 The **EmployeeManagementSyst** is a Windows Forms application that enhances the core functionality of managing employee information by adding a graphical user interface and advanced features. This project focuses on providing a comprehensive solution for employee management, including work schedules and payroll details.
 
+### REQUIREMENTS
+To run the Forms application:  
+1) Download [SQL Server Management Studio (SSMS)](https://aka.ms/ssms/21/release/vs_SSMS.exe)
+2) replace the placeholder credentials in the ***connectionString.Json*** and ***PaySlip.cs*** files with the actual credentials.
+
+
 ## Key Features
 
 ### 1) Employee Management
@@ -24,7 +30,3 @@ The **EmployeeManagementSyst** is a Windows Forms application that enhances the 
 ### 6) Payroll Management
 - Generate and edit payslips dynamically, with updates reflected in the database in real-time.
 - Schedule payslip generation for specific days of the week to automate payroll processes.
-
-### REQUIREMENTS
-To efficiently run the Forms application, replace the placeholder credentials in the ***connectionString.Json*** and ***PaySlip.cs*** files with the actual credentials.
-
