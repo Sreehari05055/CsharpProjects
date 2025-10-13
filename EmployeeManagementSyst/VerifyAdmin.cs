@@ -19,8 +19,7 @@ namespace EmployeeManagementSyst
         public VerifyAdmin()
         {
             InitializeComponent();
-            this.FormBorderStyle = FormBorderStyle.FixedSingle;
-            this.BackColor = System.Drawing.Color.BlanchedAlmond;
+
         }
         private void Label1_Click(object sender, EventArgs e) 
         {

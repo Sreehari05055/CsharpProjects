@@ -24,8 +24,7 @@ namespace EmployeeManagementSyst
             InitializeComponent();
           
             EmployeeDetails();
-            this.FormBorderStyle = FormBorderStyle.FixedSingle;
-            this.BackColor = System.Drawing.Color.BlanchedAlmond;
+
         }
         /// <summary>
         /// Loads the employee details from the database into a DataGridView.

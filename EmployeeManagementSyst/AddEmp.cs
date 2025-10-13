@@ -42,9 +42,6 @@ namespace EmployeeManagementSyst
         public AddEmp()
         {
             InitializeComponent(); // Initializes the components of the form
-            this.FormBorderStyle = FormBorderStyle.FixedSingle; // Sets the form border style
-            this.BackColor = System.Drawing.Color.BlanchedAlmond; // Sets the background color of the form
-            
 
         }
 

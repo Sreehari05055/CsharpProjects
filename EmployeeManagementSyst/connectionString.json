@@ -1,5 +1,5 @@
 ﻿{
 	"ConnectionStrings": {
-		"EmployeeDatabase": "sql_server_connection_string"
+		"EmployeeDatabase": "Server=(localdb)\\MSSQLLocalDB;Database=EmployeeManagement;Integrated Security=True;TrustServerCertificate=True;"
 	}
 }

@@ -15,8 +15,7 @@ namespace EmployeeManagementSyst
         public RotaVerification()
         {
             InitializeComponent();
-            this.FormBorderStyle = FormBorderStyle.FixedSingle;
-            this.BackColor = System.Drawing.Color.BlanchedAlmond;
+
         } 
         
         // Event handler when 'Ok' is clicked

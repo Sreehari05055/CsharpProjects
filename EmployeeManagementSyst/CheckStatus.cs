@@ -20,8 +20,6 @@ namespace EmployeeManagementSyst
         {
 
             InitializeComponent();
-            this.FormBorderStyle = FormBorderStyle.FixedSingle;
-            this.BackColor = System.Drawing.Color.BlanchedAlmond;
             EmployeeStatus();
 
         }

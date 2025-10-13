@@ -17,9 +17,6 @@ namespace EmployeeManagementSyst
         public AdminPage()
         {
             InitializeComponent();
-            this.FormBorderStyle = FormBorderStyle.FixedSingle;
-            this.BackgroundImage = Image.FromFile("""C:\Users\sreek\Downloads\EmpMan.jpg""");
-            this.BackgroundImageLayout = ImageLayout.Stretch;
         }
 
         // Event handler to open the Add Employee form when the AddEmp button is clicked

@@ -26,8 +26,7 @@ namespace EmployeeManagementSyst
             InitializeComponent();
            
             PopulateDataGridView();
-            this.FormBorderStyle = FormBorderStyle.FixedSingle;
-            this.BackColor = System.Drawing.Color.BlanchedAlmond;
+
         }
 
 

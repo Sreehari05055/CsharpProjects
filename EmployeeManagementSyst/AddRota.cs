@@ -19,8 +19,6 @@ namespace EmployeeManagementSyst
         public AddRota(string id)
         {   
             InitializeComponent();
-            this.FormBorderStyle = FormBorderStyle.FixedSingle;
-            this.BackColor = System.Drawing.Color.BlanchedAlmond;
             this.id = id;   
         }
 

@@ -49,8 +49,7 @@ namespace EmployeeManagementSyst
         public EndVerification()
         {
             InitializeComponent();
-            this.FormBorderStyle = FormBorderStyle.FixedSingle;
-            this.BackColor = System.Drawing.Color.BlanchedAlmond;
+
         }
         /// <summary>
         /// Verifies the employee code against the database to ensure it exists.

@@ -134,7 +134,7 @@ namespace EmployeeManagementSyst
 
                         using (SmtpClient smtpClient = new SmtpClient("smtp.gmail.com", 587))
                         {
-                            smtpClient.Credentials = new NetworkCredential("from_email_address", "app_specific_password");
+                            smtpClient.Credentials = new NetworkCredential("sreekuttankzm@gmail.com", "qipg tqay vger ejzq");
                             smtpClient.EnableSsl = true;
                             smtpClient.Send(mailMessage);
 

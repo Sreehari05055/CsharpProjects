@@ -24,8 +24,7 @@ namespace EmployeeManagementSyst
         {
             this.adminCode = adminCode;
             InitializeComponent();
-            this.FormBorderStyle = FormBorderStyle.FixedSingle;
-            this.BackColor = System.Drawing.Color.BlanchedAlmond;
+
         }
         /// <summary>
         /// Event handler for the 'OK' button click. Removes the admin and closes the form.

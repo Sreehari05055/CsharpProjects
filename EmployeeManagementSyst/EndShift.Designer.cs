@@ -34,18 +34,20 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(53, 87);
+            label1.Location = new Point(76, 145);
+            label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(135, 15);
+            label1.Size = new Size(203, 25);
             label1.TabIndex = 0;
             label1.Text = "You have Clocked out at";
             // 
             // EndShift
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(288, 189);
+            ClientSize = new Size(411, 315);
             Controls.Add(label1);
+            Margin = new Padding(4, 5, 4, 5);
             Name = "EndShift";
             Text = "EndShift";
             ResumeLayout(false);

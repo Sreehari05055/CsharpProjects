@@ -25,8 +25,7 @@ namespace EmployeeManagementSyst
         {
             this.code = id;
             InitializeComponent();
-            this.FormBorderStyle = FormBorderStyle.FixedSingle;
-            this.BackColor = System.Drawing.Color.BlanchedAlmond;
+
         }
         /// <summary>
         /// Event handler for the delete button click. 

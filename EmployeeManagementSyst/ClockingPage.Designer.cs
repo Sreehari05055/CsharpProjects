@@ -35,10 +35,11 @@
             // 
             // button1
             // 
-            button1.BackColor = SystemColors.ControlDark;
-            button1.Location = new Point(219, 187);
+            button1.BackColor = SystemColors.ControlLightLight;
+            button1.Location = new Point(192, 247);
+            button1.Margin = new Padding(4, 5, 4, 5);
             button1.Name = "button1";
-            button1.Size = new Size(119, 70);
+            button1.Size = new Size(784, 117);
             button1.TabIndex = 0;
             button1.Text = "Start";
             button1.UseVisualStyleBackColor = false;
@@ -46,23 +47,27 @@
             // 
             // button2
             // 
-            button2.BackColor = SystemColors.ControlDark;
-            button2.Location = new Point(448, 187);
+            button2.BackColor = SystemColors.Control;
+            button2.Cursor = Cursors.SizeWE;
+            button2.Location = new Point(192, 395);
+            button2.Margin = new Padding(4, 5, 4, 5);
             button2.Name = "button2";
-            button2.Size = new Size(119, 70);
+            button2.Size = new Size(784, 122);
             button2.TabIndex = 1;
             button2.Text = "End";
             button2.UseVisualStyleBackColor = false;
             button2.Click += End_Click;
             // 
-            // Form2
+            // ClockingPage
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            BackColor = SystemColors.ActiveCaptionText;
+            ClientSize = new Size(1143, 750);
             Controls.Add(button2);
             Controls.Add(button1);
-            Name = "Form2";
+            Margin = new Padding(4, 5, 4, 5);
+            Name = "ClockingPage";
             Text = "Clock";
             Load += Form2_Load;
             ResumeLayout(false);

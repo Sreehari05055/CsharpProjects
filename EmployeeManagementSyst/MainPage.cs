@@ -13,8 +13,7 @@ namespace EmployeeManagementSyst
         public MainPage()
         {
             InitializeComponent();
-            this.FormBorderStyle = FormBorderStyle.FixedSingle;
-            this.BackColor = System.Drawing.Color.BlanchedAlmond;
+
         }
 
         private void Form1_Load(object sender, EventArgs e)

@@ -18,8 +18,7 @@ namespace EmployeeManagementSyst
         public SendRotaEmail()
         {
             InitializeComponent();
-            this.FormBorderStyle = FormBorderStyle.FixedSingle;
-            this.BackColor = System.Drawing.Color.BlanchedAlmond;
+
 
         }
         /// <summary>
