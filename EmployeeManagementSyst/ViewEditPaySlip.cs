@@ -75,7 +75,7 @@ namespace EmployeeManagementSyst
         {
             string updateQuery = "UPDATE employeepay SET total_pay = @total_pay WHERE id = @id";
 
-            using (SqlConnection cmd = MainPage.ConnectionString())
+            using (SqlConnection cmd = ServerConnection.GetOpenConnection())
             {
                
                 SqlCommand cmd2 = new SqlCommand(updateQuery, cmd);
@@ -109,7 +109,7 @@ namespace EmployeeManagementSyst
                 dataTable.Columns.Add("Hours Done", typeof(string));
                 dataTable.Columns.Add("Total Pay", typeof(string));
 
-                using (SqlConnection serverConnect = MainPage.ConnectionString())
+                using (SqlConnection serverConnect = ServerConnection.GetOpenConnection())
                 {
                    
                     string qry = "SELECT r.id, r.date_of_work, e.fullname, r.total_pay, r.hours_done FROM employeepay r INNER JOIN employeedetails e ON r.id = e.id WHERE e.surname = @surname OR r.id = @id;";
@@ -155,7 +155,7 @@ namespace EmployeeManagementSyst
                 dataTable.Columns.Add("Total Pay", typeof(string));
 
 
-                using (SqlConnection connection = MainPage.ConnectionString())
+                using (SqlConnection connection = ServerConnection.GetOpenConnection())
                 {
                    
                     string query = "SELECT r.id, r.date_of_work, e.fullname, r.total_pay, r.hours_done FROM employeepay r INNER JOIN employeedetails e ON r.id = e.id;";

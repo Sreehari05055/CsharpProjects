@@ -29,7 +29,7 @@ namespace EmployeeManagementSyst
         {
             try
             {
-                using (SqlConnection conn = MainPage.ConnectionString())
+                using (SqlConnection conn = ServerConnection.GetOpenConnection())
                 {
                    
                     string rotatableQuery = "SELECT id FROM rotatable;";

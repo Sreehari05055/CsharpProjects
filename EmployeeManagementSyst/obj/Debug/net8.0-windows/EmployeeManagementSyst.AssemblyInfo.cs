@@ -11,10 +11,11 @@
 using System;
 using System.Reflection;
 
+[assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("6a2db00d-7f74-4a4d-9f9a-2e6d6c9c2b9e")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("EmployeeManagementSyst")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e97320ec72e6a80423bce3d08665bdecb4c26336")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d0d1f15a4d304b7e384b3c2168cbb15ed9e9708a")]
 [assembly: System.Reflection.AssemblyProductAttribute("EmployeeManagementSyst")]
 [assembly: System.Reflection.AssemblyTitleAttribute("EmployeeManagementSyst")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

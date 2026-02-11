@@ -45,60 +45,58 @@ namespace EmployeeManagementSyst
         {
             try
             {
-                using (SqlConnection server = MainPage.ConnectionString())
+                using SqlConnection server = ServerConnection.GetOpenConnection();
+
+                string qry = "SELECT id, SUM(total_pay) AS total_pay FROM employeepay WHERE date_of_work BETWEEN @finished_date AND @current_date GROUP BY id;";
+                SqlCommand sqlCommand = new SqlCommand(qry, server);
+                DateTime payDate = DateTime.Now;
+                DateTime sevenDaysBefore = payDate.AddDays(-7); //Fetches all data from the SQL database corresponding to the last seven days.
+
+
+
+                sqlCommand.Parameters.AddWithValue("@finished_date", sevenDaysBefore);
+                sqlCommand.Parameters.AddWithValue("@current_date", payDate);
+
+                var payDetails = new List<(string id, decimal pay)>();
+                using (SqlDataReader reader = sqlCommand.ExecuteReader())
                 {
-                  
-                    string qry = "SELECT id, SUM(total_pay) AS total_pay FROM employeepay WHERE date_of_work BETWEEN @finished_date AND @current_date GROUP BY id;";
-                    SqlCommand sqlCommand = new SqlCommand(qry, server);
-                    DateTime payDate = DateTime.Now;
-                    DateTime sevenDaysBefore = payDate.AddDays(-7); //Fetches all data from the SQL database corresponding to the last seven days.
 
-
-
-                    sqlCommand.Parameters.AddWithValue("@finished_date", sevenDaysBefore);
-                    sqlCommand.Parameters.AddWithValue("@current_date", payDate);
-
-                    var payDetails = new List<(string id, decimal pay)>();
-                    using (SqlDataReader reader = sqlCommand.ExecuteReader())
+                    while (reader.Read())
                     {
 
-                        while (reader.Read())
-                        {
+                        string id = reader.GetString(reader.GetOrdinal("id"));
+                        decimal totalPay = reader.GetDecimal(reader.GetOrdinal("total_pay"));
 
-                            string id = reader.GetString(reader.GetOrdinal("id"));
-                            decimal totalPay = reader.GetDecimal(reader.GetOrdinal("total_pay"));
-
-                            payDetails.Add((id, totalPay));
-                        }
+                        payDetails.Add((id, totalPay));
                     }
-                    foreach (var (id, pay) in payDetails)
-                    {
-                        string emailQuery = "SELECT email, fullname FROM employeedetails WHERE id = @id;";
-                        SqlCommand command = new SqlCommand(emailQuery, server);
-                        command.Parameters.AddWithValue("@id", id);
-                        using (SqlDataReader reader2 = command.ExecuteReader())
-                        {
-
-                            if (reader2.Read())
-                            {
-                                string name = reader2.GetString(reader2.GetOrdinal("fullname"));
-                                string email = reader2.GetString(reader2.GetOrdinal("email"));
-
-                                string payment = $"Name: {name}\nID: {id}\n" +
-                                                 $"Total Weekly Payment: £{pay}";
-                                string path = $"{id}.txt";
-                                File.WriteAllText(path, payment);
-
-                                Code = id;
-                                AttachMent = path;
-
-                                SendEmail(email, "Your Weekly Payment Details", "View Your Payslip in the attached file");
-                            }
-                        }
-                    }
-
-                    server.Close();
                 }
+                foreach (var (id, pay) in payDetails)
+                {
+                    string emailQuery = "SELECT email, fullname FROM employeedetails WHERE id = @id;";
+                    SqlCommand command = new SqlCommand(emailQuery, server);
+                    command.Parameters.AddWithValue("@id", id);
+                    using (SqlDataReader reader2 = command.ExecuteReader())
+                    {
+
+                        if (reader2.Read())
+                        {
+                            string name = reader2.GetString(reader2.GetOrdinal("fullname"));
+                            string email = reader2.GetString(reader2.GetOrdinal("email"));
+
+                            string payment = $"Name: {name}\nID: {id}\n" +
+                                             $"Total Weekly Payment: £{pay}";
+                            string path = $"{id}.txt";
+                            File.WriteAllText(path, payment);
+
+                            Code = id;
+                            AttachMent = path;
+
+                            SendEmail(email, "Your Weekly Payment Details", "View Your Payslip in the attached file");
+                        }
+                    }
+                }
+
+                server.Close();
 
 
             }
@@ -119,7 +117,7 @@ namespace EmployeeManagementSyst
 
                     {
 
-                        mailMessage.From = new MailAddress("from_email_address");
+                        mailMessage.From = new MailAddress("");
                         mailMessage.Subject = subject;
                         mailMessage.Body = body;
                         mailMessage.To.Add(emailAdd);
@@ -134,10 +132,13 @@ namespace EmployeeManagementSyst
 
                         using (SmtpClient smtpClient = new SmtpClient("smtp.gmail.com", 587))
                         {
-                            smtpClient.Credentials = new NetworkCredential("sreekuttankzm@gmail.com", "qipg tqay vger ejzq");
-                            smtpClient.EnableSsl = true;
+                            // Use explicit credentials and STARTTLS on port 587
+                            smtpClient.UseDefaultCredentials = false;
+                            smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
+                            smtpClient.Timeout = 20000; // 20s timeout
+                            smtpClient.Credentials = new NetworkCredential("", "");
+                            smtpClient.EnableSsl = true; 
                             smtpClient.Send(mailMessage);
-
                         }
 
                     }

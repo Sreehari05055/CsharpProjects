@@ -52,7 +52,7 @@ namespace EmployeeManagementSyst
         {
             try
             {             
-                using (SqlConnection conn = MainPage.ConnectionString())
+                using (SqlConnection conn = ServerConnection.GetOpenConnection())
                 {
                     string query = "UPDATE lastExecuted SET dayof_week = @day WHERE row_id = '2';";
                     SqlCommand cmd = new SqlCommand(query, conn);
@@ -95,7 +95,7 @@ namespace EmployeeManagementSyst
         {
             try
             {
-                using (SqlConnection conn = MainPage.ConnectionString())
+                using (SqlConnection conn = ServerConnection.GetOpenConnection())
 
                 {
                    

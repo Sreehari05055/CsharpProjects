@@ -1,3 +1,5 @@
+using Microsoft.Data.SqlClient;
+
 namespace EmployeeManagementSyst
 {
     internal static class Program
@@ -12,27 +14,21 @@ namespace EmployeeManagementSyst
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
 
+
+            TableInitialization obj = new TableInitialization();
+
             Task.Run(() =>
             {
-                SchedulePaySlip schedulePaySlip = new SchedulePaySlip();
+                SchedulePaySlip schedulePaySlip = new();
                 schedulePaySlip.LastRunTime();
             });
             Task.Run(() =>
             {
-                WeeklySaveConfirm confirm = new WeeklySaveConfirm();
+                AutoWeeklyScheduleSave confirm = new();
                 confirm.SetSaveDate();
             });
 
-            MainPage obj = new MainPage();
-            MainPage.InitiateServer();
-            obj.EmployeeDetails();
-            obj.EmployeePayment();
-            obj.AdminTable();
-            obj.EmployeeCardDetails();
-            obj.HoursTable();
-            obj.RotaTable();
-            obj.LastExecTable();
-            Application.Run(new MainPage());
+            Application.Run(new LandingPage());
 
         }
         public static void Cancel_Click(Form form)
