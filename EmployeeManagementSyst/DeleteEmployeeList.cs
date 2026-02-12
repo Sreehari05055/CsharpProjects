@@ -24,7 +24,6 @@ namespace EmployeeManagementSyst
             InitializeComponent();
           
             EmployeeDetails();
-
         }
         /// <summary>
         /// Loads the employee details from the database into a DataGridView.

@@ -193,3 +193,4 @@ C:\Users\SreehariA\source\repos\Sreehari05055\CsharpProjects\EmployeeManagementS
 C:\Users\SreehariA\source\repos\Sreehari05055\CsharpProjects\EmployeeManagementSyst\obj\Debug\net8.0-windows\EmployeeManagementSyst.AutoWeeklyScheduleSave.resources
 C:\Users\SreehariA\source\repos\Sreehari05055\CsharpProjects\EmployeeManagementSyst\obj\Debug\net8.0-windows\EmployeeManagementSyst.ShiftStartVerification.resources
 C:\Users\SreehariA\source\repos\Sreehari05055\CsharpProjects\EmployeeManagementSyst\obj\Debug\net8.0-windows\EmployeeManagementSyst.ViewScheduleForm.resources
+C:\Users\SreehariA\source\repos\Sreehari05055\CsharpProjects\EmployeeManagementSyst\obj\Debug\net8.0-windows\EmployeeManagementSyst.LoadingForm.resources

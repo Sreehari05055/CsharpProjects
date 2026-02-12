@@ -15,7 +15,7 @@ namespace EmployeeManagementSyst
             ApplicationConfiguration.Initialize();
 
 
-            TableInitialization obj = new TableInitialization();
+            Application.Run(new LoadingForm());
 
             Task.Run(() =>
             {
@@ -30,10 +30,6 @@ namespace EmployeeManagementSyst
 
             Application.Run(new LandingPage());
 
-        }
-        public static void Cancel_Click(Form form)
-        {
-            form.Close();
         }
          
     }

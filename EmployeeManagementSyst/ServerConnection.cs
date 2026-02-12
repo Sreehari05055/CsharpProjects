@@ -10,34 +10,23 @@ namespace EmployeeManagementSyst
 {
     class ServerConnection
     {
-        private static readonly Lazy<string> _connectionString = new Lazy<string>(LoadConnectionString);
+        private static string? _connectionString;
 
-
-        public static string LoadConnectionString()
+        /// <summary>
+        /// Initialize the server connection from an external configuration provider (Config).
+        /// This avoids reading user-secrets from inside this class.
+        /// </summary>
+        public static void Initialize(Config config)
         {
-
-                try
-                {
-                // Use explicit assembly overload to avoid generic resolution issues
-                var builder = new ConfigurationBuilder();
-                UserSecretsConfigurationExtensions.AddUserSecrets(builder, typeof(Program).Assembly, optional: false);
-                var config = builder.Build();
-                string? cs = config["EmployeeDatabase"];
-
-                if (string.IsNullOrEmpty(cs))
-                        {
-                            throw new Exception("Connection string 'EmployeeDatabase' not found or empty in ENV file.");
-                        }
-                return cs;
-                }
-                catch (Exception ex) {
-                MessageBox.Show("Failed to load database connection string: " + ex.Message);
-                Debug.WriteLine(ex.Message);
-                throw;
-            }
+            if (config == null) throw new ArgumentNullException(nameof(config));
+            _connectionString = config.AppConn ?? throw new Exception("AppConn missing in configuration.");
         }
 
-        public static string GetConnectionString() => _connectionString.Value;
+        public static string GetConnectionString()
+        {
+            if (string.IsNullOrEmpty(_connectionString)) throw new InvalidOperationException("ServerConnection not initialized. Call ServerConnection.Initialize(config) before using.");
+            return _connectionString!;
+        }
 
         public static SqlConnection GetOpenConnection()
         {
@@ -47,8 +36,6 @@ namespace EmployeeManagementSyst
 
                 serverCon.Open();
                 return serverCon;
-
-
             }
             catch (Exception e)
             {
@@ -56,26 +43,30 @@ namespace EmployeeManagementSyst
                 Debug.WriteLine(e.Message);
                 throw;
             }
-
         }
-        public static SqlConnection CloseConnection()
+
+        /// <summary>
+        /// Close a connection or perform a safe no-op if none is provided.
+        /// </summary>
+        public static void CloseConnection(SqlConnection? conn = null)
         {
             try
             {
-                var serverCon = new SqlConnection(GetConnectionString());
-
-                serverCon.Close();
-                return serverCon;
-
-
+                if (conn != null)
+                {
+                    conn.Close();
+                }
+                else
+                {
+                    // no-op when no active connection is tracked
+                }
             }
             catch (Exception e)
             {
-                MessageBox.Show("Error Initiating Connection: " + e.Message);
+                MessageBox.Show("Error closing connection: " + e.Message);
                 Debug.WriteLine(e.Message);
                 throw;
             }
-
         }
     }
 }

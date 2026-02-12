@@ -13,10 +13,10 @@ using System.Windows.Forms;
 
 namespace EmployeeManagementSyst
 {
-   
+
     public partial class SchedulePaySlip : Form
     {
-       
+
         public SchedulePaySlip()
         {
             InitializeComponent();
@@ -48,16 +48,16 @@ namespace EmployeeManagementSyst
         /// Updates the last executed day in the database for the specified day.
         /// </summary>
         /// <param name="day">The day of the week selected by the user.</param>
-        private void UpdtExec(string day) 
+        private void UpdtExec(string day)
         {
             try
-            {             
+            {
                 using (SqlConnection conn = ServerConnection.GetOpenConnection())
                 {
                     string query = "UPDATE lastExecuted SET dayof_week = @day WHERE row_id = '2';";
                     SqlCommand cmd = new SqlCommand(query, conn);
                     cmd.Parameters.AddWithValue("@day", day);
-                    cmd.ExecuteNonQuery();     
+                    cmd.ExecuteNonQuery();
                     conn.Close();
                 }
                 LastRunTime();
@@ -98,7 +98,7 @@ namespace EmployeeManagementSyst
                 using (SqlConnection conn = ServerConnection.GetOpenConnection())
 
                 {
-                   
+
                     string query = "SELECT dayof_week, last_exec_date FROM lastExecuted WHERE row_id = '2';";
                     SqlCommand cmd = new SqlCommand(query, conn);
 
@@ -106,27 +106,27 @@ namespace EmployeeManagementSyst
                     {
                         if (reader.Read())
                         {
-                           
+
                             string storedDay = reader["dayof_week"].ToString();
                             string lastExecDateString = reader["last_exec_date"].ToString();
                             DateTime lastExecDate;
 
-                           
+
                             Enum.TryParse(storedDay, true, out DayOfWeek targetDayOfWeek);
 
-                           
+
                             DateTime.TryParse(lastExecDateString, out lastExecDate);
 
-                         
+
                             bool shouldRunToday = DateTime.Today.DayOfWeek == targetDayOfWeek && lastExecDate.Date != DateTime.Today;
 
                             if (shouldRunToday)
                             {
                                 reader.Close();
-                            
+
                                 PaySlip paySlip = new PaySlip();
                                 paySlip.SendPaySlip();
-                                
+
 
                                 string updateQuery = "UPDATE lastExecuted SET last_exec_date = @date WHERE row_id = '2';";
                                 SqlCommand updateCmd = new SqlCommand(updateQuery, conn);
@@ -142,6 +142,11 @@ namespace EmployeeManagementSyst
             {
                 MessageBox.Show("Error: " + ex.Message);
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
