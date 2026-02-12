@@ -73,7 +73,7 @@ namespace EmployeeManagementSyst
         /// <param name="newTotalPay">The new total pay value to update in the database.</param>
         private void UpdateTotalPayInDatabase(int id, decimal newTotalPay)
         {
-            string updateQuery = "UPDATE employeepay SET total_pay = @total_pay WHERE id = @id";
+            string updateQuery = "UPDATE EmployeePayInfo SET TotalPay = @total_pay WHERE EmployeeId = @id";
 
             using (SqlConnection cmd = ServerConnection.GetOpenConnection())
             {
@@ -112,7 +112,7 @@ namespace EmployeeManagementSyst
                 using (SqlConnection serverConnect = ServerConnection.GetOpenConnection())
                 {
                    
-                    string qry = "SELECT r.id, r.date_of_work, e.fullname, r.total_pay, r.hours_done FROM employeepay r INNER JOIN employeedetails e ON r.id = e.id WHERE e.surname = @surname OR r.id = @id;";
+                    string qry = "SELECT r.EmployeeId AS id, r.DateOfWork AS date_of_work, e.FullName AS fullname, r.TotalPay AS total_pay, r.HoursDone AS hours_done FROM EmployeePayInfo r INNER JOIN EmployeeDetails e ON r.EmployeeId = e.Id WHERE e.Surname = @surname OR r.EmployeeId = @id;";
                     SqlCommand mySqlCommand = new SqlCommand(qry, serverConnect);
                     mySqlCommand.Parameters.Clear();
                     mySqlCommand.Parameters.AddWithValue("@surname", userInput);
@@ -158,7 +158,7 @@ namespace EmployeeManagementSyst
                 using (SqlConnection connection = ServerConnection.GetOpenConnection())
                 {
                    
-                    string query = "SELECT r.id, r.date_of_work, e.fullname, r.total_pay, r.hours_done FROM employeepay r INNER JOIN employeedetails e ON r.id = e.id;";
+                    string query = "SELECT r.EmployeeId AS id, r.DateOfWork AS date_of_work, e.FullName AS fullname, r.TotalPay AS total_pay, r.HoursDone AS hours_done FROM EmployeePayInfo r INNER JOIN EmployeeDetails e ON r.EmployeeId = e.Id;";
                     SqlCommand cmd = new SqlCommand(query, connection);
                     SqlDataReader reader = cmd.ExecuteReader();
                     if (reader.HasRows)

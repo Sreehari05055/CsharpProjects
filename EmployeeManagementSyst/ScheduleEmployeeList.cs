@@ -36,7 +36,7 @@ namespace EmployeeManagementSyst
                 using (SqlConnection serverConnect = ServerConnection.GetOpenConnection())
                 {
        
-                    string qry = "SELECT id,fullname FROM employeedetails;";
+                    string qry = "SELECT Id,FullName FROM EmployeeDetails;";
                     SqlCommand mySqlCommand = new SqlCommand(qry, serverConnect);
                     SqlDataReader reader = mySqlCommand.ExecuteReader();
                     if (reader.HasRows)
@@ -73,7 +73,7 @@ namespace EmployeeManagementSyst
                 using (SqlConnection serverConnect = ServerConnection.GetOpenConnection())
                 {
          
-                    string qry = "SELECT id FROM employeedetails WHERE fullname = @fname;";
+                    string qry = "SELECT Id FROM EmployeeDetails WHERE FullName = @fname;";
                     SqlCommand mySqlCommand = new SqlCommand(qry, serverConnect);
                     mySqlCommand.Parameters.AddWithValue("@fname",employeeName);
 

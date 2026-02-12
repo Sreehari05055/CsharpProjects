@@ -34,8 +34,7 @@ namespace EmployeeManagementSyst
             {
                 using (SqlConnection serverConnect = ServerConnection.GetOpenConnection())
                 {
-                    serverConnect.Open();
-                    String querytoCheck = "SELECT id FROM employeedetails WHERE id = @id;";
+                    String querytoCheck = "SELECT Id FROM EmployeeDetails WHERE Id = @id;";
                     SqlCommand mySqlCommand = new SqlCommand(querytoCheck, serverConnect);
                     mySqlCommand.Parameters.AddWithValue("@id", codeToCheck);
                     object dataTocheck = mySqlCommand.ExecuteScalar();
@@ -65,24 +64,19 @@ namespace EmployeeManagementSyst
                 using (SqlConnection connection = ServerConnection.GetOpenConnection())
                 {
 
-                    string chckQry = "SELECT * FROM hourstable WHERE id = @Code;";
+                    string chckQry = "SELECT COUNT(*) FROM TimeLogs WHERE EmployeeId = @Code AND EndTime IS NULL;";
                     SqlCommand exec = new SqlCommand(chckQry, connection);
                     exec.Parameters.AddWithValue("@Code", id);
-                    using (SqlDataReader reader = exec.ExecuteReader())
+                    var openCount = (int)exec.ExecuteScalar();
+                    if (openCount > 0)
                     {
-                        if (reader.HasRows)
-                        {
-                            this.Close();
-                            MessageBox.Show("You haven't clocked out from previous work");
-
-                        }
-                        else
-                        {
-                            DateTime startTime = DateTime.Now;
-                            string start = startTime.ToString("O");
-                            InsertHoursTable(start, id);
-                        }
-                        reader.Close();
+                        this.Close();
+                        MessageBox.Show("You haven't clocked out from previous work");
+                    }
+                    else
+                    {
+                        DateTime startTime = DateTime.Now;
+                        InsertHoursTable(startTime, id);
                     }
                     connection.Close();
                 }
@@ -114,31 +108,24 @@ namespace EmployeeManagementSyst
         /// </summary>
         /// <param name="time">The time the employee started the shift.</param>
         /// <param name="id">The employee ID to insert the hours for.</param>
-        public void InsertHoursTable(string time, string id)
+        public void InsertHoursTable(DateTime startTime, string id)
         {
             try
             {
                 using (SqlConnection conn = ServerConnection.GetOpenConnection())
                 {
-
-                    string nameQry = "SELECT fullname FROM employeedetails WHERE id = @Code;";
+                    string nameQry = "SELECT FullName FROM EmployeeDetails WHERE Id = @Code;";
                     SqlCommand fullnameExec = new SqlCommand(nameQry, conn);
                     fullnameExec.Parameters.AddWithValue("@Code", id);
-                    using (SqlDataReader reader2 = fullnameExec.ExecuteReader())
-                    {
-                        if (reader2.Read())
-                        {
-                            string name = reader2.GetString(reader2.GetOrdinal("fullname"));
-                            Name = name;
-                        }
-                        reader2.Close();
-                    }
-                    string insertAdmin = """INSERT INTO hourstable(id,empname,hours)  VALUES(@id,@fullname,@hours)""";
-                    SqlCommand nameExec = new SqlCommand(insertAdmin, conn);
+                    object scalarName = fullnameExec.ExecuteScalar();
+                    string employeeName = scalarName == null || scalarName == DBNull.Value ? null : scalarName.ToString();
+
+                    string insertQuery = """INSERT INTO TimeLogs(EmployeeId,EmployeeName,StartTime) VALUES(@id,@employeeName,@start)""";
+                    SqlCommand nameExec = new SqlCommand(insertQuery, conn);
 
                     nameExec.Parameters.AddWithValue("@id", id);
-                    nameExec.Parameters.AddWithValue("@fullname", Name);
-                    nameExec.Parameters.AddWithValue("@hours", time);
+                    nameExec.Parameters.AddWithValue("@employeeName", (object)employeeName ?? DBNull.Value);
+                    nameExec.Parameters.AddWithValue("@start", startTime);
 
                     int affectedRow = nameExec.ExecuteNonQuery();
                     this.Close();

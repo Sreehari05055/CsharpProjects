@@ -81,7 +81,7 @@ namespace EmployeeManagementSyst
                 using (SqlConnection conn = ServerConnection.GetOpenConnection())
                 {
                  
-                    string deleteAdmin = "DELETE FROM admintable WHERE id = @id; "; ;
+                    string deleteAdmin = "DELETE FROM AdminInformation WHERE EmployeeId = @id; "; ;
                     SqlCommand detailQuery = new SqlCommand(deleteAdmin, conn);
 
                     detailQuery.Parameters.Clear();
@@ -116,7 +116,7 @@ namespace EmployeeManagementSyst
                 using (SqlConnection conn = ServerConnection.GetOpenConnection())
                 {
                    
-                    string deleteAdmin = "DELETE FROM employeepay WHERE id = @id; "; 
+                    string deleteAdmin = "DELETE FROM EmployeePayInfo WHERE EmployeeId = @id; "; 
                     SqlCommand detailQuery = new SqlCommand(deleteAdmin, conn);
 
                     detailQuery.Parameters.Clear();
@@ -148,7 +148,7 @@ namespace EmployeeManagementSyst
             {
                 using (SqlConnection conn = ServerConnection.GetOpenConnection())
                 {
-                    string empStatus = "SELECT COUNT(*) FROM hourstable WHERE id = @id; ";
+                    string empStatus = "SELECT COUNT(*) FROM TimeLogs WHERE EmployeeId = @id AND EndTime IS NULL; ";
                     SqlCommand detailQuery = new SqlCommand(empStatus, conn);
 
                     detailQuery.Parameters.Clear();
@@ -175,7 +175,7 @@ namespace EmployeeManagementSyst
                 using (SqlConnection conn = ServerConnection.GetOpenConnection())
                 {
                     
-                    string deleteCard = "DELETE FROM carddata WHERE id = @id; "; ;
+                    string deleteCard = "DELETE FROM CardInformation WHERE EmployeeId = @id; "; ;
                     SqlCommand detailQuery = new SqlCommand(deleteCard, conn);
 
                     detailQuery.Parameters.Clear();
@@ -209,7 +209,7 @@ namespace EmployeeManagementSyst
                 using (SqlConnection serverConn = ServerConnection.GetOpenConnection())
                 {
                     serverConn.Open();
-                    string querydlt = "DELETE FROM employeedetails WHERE id = @id; ";
+                    string querydlt = "DELETE FROM EmployeeDetails WHERE Id = @id; ";
                     SqlCommand exec = new SqlCommand(querydlt, serverConn);
                     exec.Parameters.AddWithValue("@id", empCode);
                     int rowsAffected = exec.ExecuteNonQuery();

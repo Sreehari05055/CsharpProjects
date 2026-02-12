@@ -24,26 +24,25 @@ namespace EmployeeManagementSyst
             {
                 using (SqlConnection server = ServerConnection.GetOpenConnection())
                 {
-                
-                    string queryCheck = "SELECT empname, id FROM hourstable;";
-                    SqlCommand payExec = new SqlCommand(queryCheck, server);
-                    SqlDataReader reader = payExec.ExecuteReader();
-
-                    if (/*employeeTable.Rows.Count != 0*/ reader.Read())
+                    string queryCheck = "SELECT EmployeeName AS empname, EmployeeId AS id FROM TimeLogs WHERE EndTime IS NULL;";
+                    using (SqlCommand payExec = new SqlCommand(queryCheck, server))
                     {
                         DataTable employeeTable = new DataTable();
-                        SqlDataAdapter adapter = new SqlDataAdapter(payExec);
+                        using (SqlDataAdapter adapter = new SqlDataAdapter(payExec))
+                        {
+                            adapter.Fill(employeeTable);
+                        }
 
-                        adapter.Fill(employeeTable);
-                        dataGridView1.DataSource = employeeTable;
+                        if (employeeTable.Rows.Count > 0)
+                        {
+                            dataGridView1.DataSource = employeeTable;
+                        }
+                        else
+                        {
+                            MessageBox.Show("No one is working at the moment.");
+                            return;
+                        }
                     }
-                    else
-                    {
-                        MessageBox.Show("No one is working at the moment.");
-                        return;
-                    }
-
-                    server.Close();
                 }
             }
             catch (Exception ex)

@@ -36,7 +36,7 @@ namespace EmployeeManagementSyst
                 using (SqlConnection connection = ServerConnection.GetOpenConnection())
                 {
                    
-                    string insertquery = """INSERT INTO rotatable(day_ofweek ,start_work,finish_work,id)   VALUES (@dayofweek,@start,@finish,@id)""";
+                    string insertquery = """INSERT INTO ScheduleInformation(DayOfWeek,StartWork,FinishWork,EmployeeId)   VALUES (@dayofweek,@start,@finish,@id)""";
 
                     SqlCommand execute = new SqlCommand(insertquery, connection);
 

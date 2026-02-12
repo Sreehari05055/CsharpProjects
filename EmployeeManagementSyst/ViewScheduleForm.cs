@@ -43,8 +43,8 @@ namespace EmployeeManagementSyst
             {
                 using (SqlConnection connection = ServerConnection.GetOpenConnection())
                 {
-                    // Query to get all IDs from rotatable table
-                    string rotatableQuery = "SELECT id FROM rotatable;";
+                    // Query to get all IDs from ScheduleInformation table
+                    string rotatableQuery = "SELECT EmployeeId FROM ScheduleInformation;";
                     SqlCommand rotaCmd = new SqlCommand(rotatableQuery, connection);
 
                     HashSet<string> obj = new HashSet<string>();
@@ -58,10 +58,10 @@ namespace EmployeeManagementSyst
                     }
 
                     // Prepare queries
-                    string nameQuery = "SELECT fullname FROM employeedetails WHERE id = @id;";
+                    string nameQuery = "SELECT FullName FROM EmployeeDetails WHERE Id = @id;";
                     SqlCommand nameCmd = new SqlCommand(nameQuery, connection);
 
-                    string rotaQuery = "SELECT start_work, finish_work, day_ofweek FROM rotatable WHERE id = @id2 ORDER BY start_work;";
+                    string rotaQuery = "SELECT StartWork, FinishWork, DayOfWeek FROM ScheduleInformation WHERE EmployeeId = @id2 ORDER BY StartWork;";
                     SqlCommand rotaCmdDetails = new SqlCommand(rotaQuery, connection);
 
                     Dictionary<string, Dictionary<string, string>> employeeRota = new Dictionary<string, Dictionary<string, string>>();
@@ -77,7 +77,7 @@ namespace EmployeeManagementSyst
                         {
                             if (nameReader.Read())
                             {
-                                employeeName = nameReader.GetString(nameReader.GetOrdinal("fullname"));
+                                employeeName = nameReader.GetString(nameReader.GetOrdinal("FullName"));
                             }
                             nameReader.Close();
                         }
@@ -98,9 +98,9 @@ namespace EmployeeManagementSyst
                         {
                             while (rotaReader.Read())
                             {
-                                DateTime shiftStart = rotaReader.GetDateTime(rotaReader.GetOrdinal("start_work"));
-                                DateTime shiftEnd = rotaReader.GetDateTime(rotaReader.GetOrdinal("finish_work"));
-                                string dayOfWeek = rotaReader.GetString(rotaReader.GetOrdinal("day_ofweek"));
+                                DateTime shiftStart = rotaReader.GetDateTime(rotaReader.GetOrdinal("StartWork"));
+                                DateTime shiftEnd = rotaReader.GetDateTime(rotaReader.GetOrdinal("FinishWork"));
+                                string dayOfWeek = rotaReader.GetString(rotaReader.GetOrdinal("DayOfWeek"));
                               
                                  string date = $"{shiftStart:d}";
                                 

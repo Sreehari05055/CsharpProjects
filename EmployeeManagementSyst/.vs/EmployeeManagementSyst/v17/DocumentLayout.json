@@ -3,16 +3,96 @@
   "WorkspaceRootPath": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|c:\\users\\sreeharia\\source\\repos\\sreehari05055\\csharpprojects\\employeemanagementsyst\\loadingform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|solutionrelative:loadingform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|c:\\users\\sreeharia\\source\\repos\\sreehari05055\\csharpprojects\\employeemanagementsyst\\checkworkingemployees.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|solutionrelative:checkworkingemployees.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|c:\\users\\sreeharia\\source\\repos\\sreehari05055\\csharpprojects\\employeemanagementsyst\\removeadminlist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|solutionrelative:removeadminlist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|c:\\users\\sreeharia\\source\\repos\\sreehari05055\\csharpprojects\\employeemanagementsyst\\sendrotaemail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|solutionrelative:sendrotaemail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|c:\\users\\sreeharia\\source\\repos\\sreehari05055\\csharpprojects\\employeemanagementsyst\\employeeinformationform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|solutionrelative:employeeinformationform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|c:\\users\\sreeharia\\source\\repos\\sreehari05055\\csharpprojects\\employeemanagementsyst\\shiftstartverification.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|solutionrelative:shiftstartverification.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\checkworkingemployees.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|solutionrelative:checkworkingemployees.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|c:\\users\\sreeharia\\source\\repos\\sreehari05055\\csharpprojects\\employeemanagementsyst\\tableinitialization.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|solutionrelative:tableinitialization.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|c:\\users\\sreeharia\\source\\repos\\sreehari05055\\csharpprojects\\employeemanagementsyst\\deleteemployeeform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|solutionrelative:deleteemployeeform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|c:\\users\\sreeharia\\source\\repos\\sreehari05055\\csharpprojects\\employeemanagementsyst\\addemployeeform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|solutionrelative:addemployeeform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|c:\\users\\sreeharia\\source\\repos\\sreehari05055\\csharpprojects\\employeemanagementsyst\\vieweditpayslip.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|solutionrelative:vieweditpayslip.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|c:\\users\\sreeharia\\source\\repos\\sreehari05055\\csharpprojects\\employeemanagementsyst\\autoweeklyschedulesave.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|solutionrelative:autoweeklyschedulesave.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|c:\\users\\sreeharia\\source\\repos\\sreehari05055\\csharpprojects\\employeemanagementsyst\\employeescheduleform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|solutionrelative:employeescheduleform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|c:\\users\\sreeharia\\source\\repos\\sreehari05055\\csharpprojects\\employeemanagementsyst\\scheduleemployeelist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|solutionrelative:scheduleemployeelist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|c:\\users\\sreeharia\\source\\repos\\sreehari05055\\csharpprojects\\employeemanagementsyst\\terminateadminform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|solutionrelative:terminateadminform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|c:\\users\\sreeharia\\source\\repos\\sreehari05055\\csharpprojects\\employeemanagementsyst\\setadminform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|solutionrelative:setadminform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|c:\\users\\sreeharia\\source\\repos\\sreehari05055\\csharpprojects\\employeemanagementsyst\\landingpage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|solutionrelative:landingpage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\payslip.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|solutionrelative:payslip.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|c:\\users\\sreeharia\\source\\repos\\sreehari05055\\csharpprojects\\employeemanagementsyst\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|c:\\users\\sreeharia\\source\\repos\\sreehari05055\\csharpprojects\\employeemanagementsyst\\deleteemployeelist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|solutionrelative:deleteemployeelist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|c:\\users\\sreeharia\\source\\repos\\sreehari05055\\csharpprojects\\employeemanagementsyst\\shiftendverification.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|solutionrelative:shiftendverification.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|c:\\users\\sreeharia\\source\\repos\\sreehari05055\\csharpprojects\\employeemanagementsyst\\payslip.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|solutionrelative:payslip.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|c:\\users\\sreeharia\\source\\repos\\sreehari05055\\csharpprojects\\employeemanagementsyst\\schedulepayslip.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|solutionrelative:schedulepayslip.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|c:\\users\\sreeharia\\source\\repos\\sreehari05055\\csharpprojects\\employeemanagementsyst\\loadingform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|solutionrelative:loadingform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|c:\\users\\sreeharia\\source\\repos\\sreehari05055\\csharpprojects\\employeemanagementsyst\\serverconnection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -30,36 +110,16 @@
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\SreehariA\\AppData\\Roaming\\Microsoft\\UserSecrets\\6a2db00d-7f74-4a4d-9f9a-2e6d6c9c2b9e\\secrets.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|c:\\users\\sreeharia\\source\\repos\\sreehari05055\\csharpprojects\\employeemanagementsyst\\loadingform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\loadingform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|solutionrelative:loadingform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|c:\\users\\sreeharia\\source\\repos\\sreehari05055\\csharpprojects\\employeemanagementsyst\\deleteemployeelist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|solutionrelative:deleteemployeelist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|c:\\users\\sreeharia\\source\\repos\\sreehari05055\\csharpprojects\\employeemanagementsyst\\landingpage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|solutionrelative:landingpage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|c:\\users\\sreeharia\\source\\repos\\sreehari05055\\csharpprojects\\employeemanagementsyst\\schedulepayslip.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|solutionrelative:schedulepayslip.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\schedulepayslip.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|solutionrelative:schedulepayslip.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|c:\\users\\sreeharia\\source\\repos\\sreehari05055\\csharpprojects\\employeemanagementsyst\\payslip.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|solutionrelative:payslip.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\landingpage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|solutionrelative:landingpage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|c:\\users\\sreeharia\\source\\repos\\sreehari05055\\csharpprojects\\employeemanagementsyst\\shiftendverification.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|solutionrelative:shiftendverification.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\shiftendverification.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
@@ -90,10 +150,6 @@
       "RelativeMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|solutionrelative:shiftstartnotificationform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\checkworkingemployees.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|solutionrelative:checkworkingemployees.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\sendrotaemail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|solutionrelative:sendrotaemail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
@@ -110,28 +166,12 @@
       "RelativeMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|solutionrelative:shiftendnotificationform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|c:\\users\\sreeharia\\source\\repos\\sreehari05055\\csharpprojects\\employeemanagementsyst\\payslip.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|solutionrelative:payslip.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|c:\\users\\sreeharia\\source\\repos\\sreehari05055\\csharpprojects\\employeemanagementsyst\\sendrotaemail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|solutionrelative:sendrotaemail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|c:\\users\\sreeharia\\source\\repos\\sreehari05055\\csharpprojects\\employeemanagementsyst\\adminform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|solutionrelative:adminform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|c:\\users\\sreeharia\\source\\repos\\sreehari05055\\csharpprojects\\employeemanagementsyst\\shiftendnotificationform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|solutionrelative:shiftendnotificationform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|c:\\users\\sreeharia\\source\\repos\\sreehari05055\\csharpprojects\\employeemanagementsyst\\scheduleemployeelist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|solutionrelative:scheduleemployeelist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|c:\\users\\sreeharia\\source\\repos\\sreehari05055\\csharpprojects\\employeemanagementsyst\\employeescheduleform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|solutionrelative:employeescheduleform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\weeklysaveconfirm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
@@ -164,6 +204,18 @@
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\rotaverification.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:rotaverification.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|c:\\users\\sreeharia\\source\\repos\\sreehari05055\\csharpprojects\\employeemanagementsyst\\adminverification.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|solutionrelative:adminverification.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|c:\\users\\sreeharia\\source\\repos\\sreehari05055\\csharpprojects\\employeemanagementsyst\\viewscheduleform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|solutionrelative:viewscheduleform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|c:\\users\\sreeharia\\source\\repos\\sreehari05055\\csharpprojects\\employeemanagementsyst\\employeeinfoupdateform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|solutionrelative:employeeinfoupdateform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -172,25 +224,326 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 321,
-          "SelectedChildIndex": 1,
+          "DockedWidth": 386,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "EmployeeInformationForm.cs",
+              "DocumentMoniker": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\EmployeeInformationForm.cs",
+              "RelativeDocumentMoniker": "EmployeeInformationForm.cs",
+              "ToolTip": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\EmployeeInformationForm.cs",
+              "RelativeToolTip": "EmployeeInformationForm.cs",
+              "ViewState": "AgIAAC4AAAAAAAAAAAAhwFgAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-12T21:02:43.091Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "RemoveAdminList.cs",
+              "DocumentMoniker": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\RemoveAdminList.cs",
+              "RelativeDocumentMoniker": "RemoveAdminList.cs",
+              "ToolTip": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\RemoveAdminList.cs",
+              "RelativeToolTip": "RemoveAdminList.cs",
+              "ViewState": "AgIAAEEAAAAAAAAAAAAhwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-12T21:02:48.892Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "SendRotaEmail.cs",
+              "DocumentMoniker": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\SendRotaEmail.cs",
+              "RelativeDocumentMoniker": "SendRotaEmail.cs",
+              "ToolTip": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\SendRotaEmail.cs",
+              "RelativeToolTip": "SendRotaEmail.cs",
+              "ViewState": "AgIAAFQAAAAAAAAAAAAawGIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-11T13:36:02.954Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "CheckWorkingEmployees.cs",
+              "DocumentMoniker": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\CheckWorkingEmployees.cs",
+              "RelativeDocumentMoniker": "CheckWorkingEmployees.cs",
+              "ToolTip": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\CheckWorkingEmployees.cs",
+              "RelativeToolTip": "CheckWorkingEmployees.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-12T21:44:47.48Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ShiftStartVerification.cs",
+              "DocumentMoniker": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\ShiftStartVerification.cs",
+              "RelativeDocumentMoniker": "ShiftStartVerification.cs",
+              "ToolTip": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\ShiftStartVerification.cs",
+              "RelativeToolTip": "ShiftStartVerification.cs",
+              "ViewState": "AgIAAGoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-12T21:02:30.558Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "TableInitialization.cs",
+              "DocumentMoniker": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\TableInitialization.cs",
+              "RelativeDocumentMoniker": "TableInitialization.cs",
+              "ToolTip": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\TableInitialization.cs",
+              "RelativeToolTip": "TableInitialization.cs",
+              "ViewState": "AgIAADgAAAAAAAAAAAAawEkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-11T21:04:17.648Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 53,
+              "Title": "EmployeeInfoUpdateForm.cs",
+              "DocumentMoniker": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\EmployeeInfoUpdateForm.cs",
+              "RelativeDocumentMoniker": "EmployeeInfoUpdateForm.cs",
+              "ToolTip": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\EmployeeInfoUpdateForm.cs",
+              "RelativeToolTip": "EmployeeInfoUpdateForm.cs",
+              "ViewState": "AgIAAK4AAAAAAAAAAIBJwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-12T21:44:33.051Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "CheckWorkingEmployees.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\CheckWorkingEmployees.cs",
+              "RelativeDocumentMoniker": "CheckWorkingEmployees.cs",
+              "ToolTip": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\CheckWorkingEmployees.cs [Design]",
+              "RelativeToolTip": "CheckWorkingEmployees.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-17T12:11:48.634Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "AddEmployeeForm.cs",
+              "DocumentMoniker": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\AddEmployeeForm.cs",
+              "RelativeDocumentMoniker": "AddEmployeeForm.cs",
+              "ToolTip": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\AddEmployeeForm.cs",
+              "RelativeToolTip": "AddEmployeeForm.cs",
+              "ViewState": "AgIAAFMAAAAAAAAAAAAawAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-12T21:01:58.514Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "ViewEditPaySlip.cs",
+              "DocumentMoniker": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\ViewEditPaySlip.cs",
+              "RelativeDocumentMoniker": "ViewEditPaySlip.cs",
+              "ToolTip": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\ViewEditPaySlip.cs",
+              "RelativeToolTip": "ViewEditPaySlip.cs",
+              "ViewState": "AgIAADsAAAAAAAAAAAAawAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-12T21:35:50.273Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "DeleteEmployeeForm.cs",
+              "DocumentMoniker": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\DeleteEmployeeForm.cs",
+              "RelativeDocumentMoniker": "DeleteEmployeeForm.cs",
+              "ToolTip": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\DeleteEmployeeForm.cs",
+              "RelativeToolTip": "DeleteEmployeeForm.cs",
+              "ViewState": "AgIAAIYAAAAAAAAAAAAawAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-12T21:02:03.367Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "AutoWeeklyScheduleSave.cs",
+              "DocumentMoniker": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\AutoWeeklyScheduleSave.cs",
+              "RelativeDocumentMoniker": "AutoWeeklyScheduleSave.cs",
+              "ToolTip": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\AutoWeeklyScheduleSave.cs",
+              "RelativeToolTip": "AutoWeeklyScheduleSave.cs",
+              "ViewState": "AgIAAEQAAAAAAAAAAAAhwFYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-12T20:56:20.559Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "EmployeeScheduleForm.cs",
+              "DocumentMoniker": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\EmployeeScheduleForm.cs",
+              "RelativeDocumentMoniker": "EmployeeScheduleForm.cs",
+              "ToolTip": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\EmployeeScheduleForm.cs",
+              "RelativeToolTip": "EmployeeScheduleForm.cs",
+              "ViewState": "AgIAABYAAAAAAAAAAAAawBIAAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-13T13:12:54.183Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 52,
+              "Title": "ViewScheduleForm.cs",
+              "DocumentMoniker": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\ViewScheduleForm.cs",
+              "RelativeDocumentMoniker": "ViewScheduleForm.cs",
+              "ToolTip": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\ViewScheduleForm.cs",
+              "RelativeToolTip": "ViewScheduleForm.cs",
+              "ViewState": "AgIAAC0AAAAAAAAAAIBJwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-12T21:32:31.099Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "ScheduleEmployeeList.cs",
+              "DocumentMoniker": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\ScheduleEmployeeList.cs",
+              "RelativeDocumentMoniker": "ScheduleEmployeeList.cs",
+              "ToolTip": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\ScheduleEmployeeList.cs",
+              "RelativeToolTip": "ScheduleEmployeeList.cs",
+              "ViewState": "AgIAABYAAAAAAAAAAAAawBAAAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-13T13:14:23.303Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "TerminateAdminForm.cs",
+              "DocumentMoniker": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\TerminateAdminForm.cs",
+              "RelativeDocumentMoniker": "TerminateAdminForm.cs",
+              "ToolTip": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\TerminateAdminForm.cs",
+              "RelativeToolTip": "TerminateAdminForm.cs",
+              "ViewState": "AgIAACcAAAAAAAAAAAAawAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-12T21:12:24.895Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "SetAdminForm.cs",
+              "DocumentMoniker": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\SetAdminForm.cs",
+              "RelativeDocumentMoniker": "SetAdminForm.cs",
+              "ToolTip": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\SetAdminForm.cs",
+              "RelativeToolTip": "SetAdminForm.cs",
+              "ViewState": "AgIAAFkAAAAAAAAAAAAawGMAAABTAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-12T21:11:51.715Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "LandingPage.cs",
+              "DocumentMoniker": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\LandingPage.cs",
+              "RelativeDocumentMoniker": "LandingPage.cs",
+              "ToolTip": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\LandingPage.cs",
+              "RelativeToolTip": "LandingPage.cs",
+              "ViewState": "AgIAAB4AAAAAAAAAAAASwDcAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-11T21:11:11.077Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 51,
+              "Title": "AdminVerification.cs",
+              "DocumentMoniker": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\AdminVerification.cs",
+              "RelativeDocumentMoniker": "AdminVerification.cs",
+              "ToolTip": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\AdminVerification.cs",
+              "RelativeToolTip": "AdminVerification.cs",
+              "ViewState": "AgIAADkAAAAAAAAAAIBJwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-12T21:12:31.744Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "PaySlip.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\PaySlip.cs",
+              "RelativeDocumentMoniker": "PaySlip.cs",
+              "ToolTip": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\PaySlip.cs [Design]",
+              "RelativeToolTip": "PaySlip.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-11T21:13:13.189Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAoAAAAAAAAAAAAuwBEAAAArAAAAAAAAAA==",
+              "ViewState": "AgIAAAoAAAAAAAAAAAA+wBEAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-02-11T21:11:29.144Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 18,
+              "Title": "DeleteEmployeeList.cs",
+              "DocumentMoniker": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\DeleteEmployeeList.cs",
+              "RelativeDocumentMoniker": "DeleteEmployeeList.cs",
+              "ToolTip": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\DeleteEmployeeList.cs",
+              "RelativeToolTip": "DeleteEmployeeList.cs",
+              "ViewState": "AgIAABsAAAAAAAAAAAAawBoAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-11T13:30:57.937Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "ShiftEndVerification.cs",
+              "DocumentMoniker": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\ShiftEndVerification.cs",
+              "RelativeDocumentMoniker": "ShiftEndVerification.cs",
+              "ToolTip": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\ShiftEndVerification.cs",
+              "RelativeToolTip": "ShiftEndVerification.cs",
+              "ViewState": "AgIAAGAAAAAAAAAAAAAhwPYAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-13T13:15:33.227Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "PaySlip.cs",
+              "DocumentMoniker": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\PaySlip.cs",
+              "RelativeDocumentMoniker": "PaySlip.cs",
+              "ToolTip": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\PaySlip.cs",
+              "RelativeToolTip": "PaySlip.cs",
+              "ViewState": "AgIAACIAAAAAAAAAAAASwEsAAABMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-11T13:39:10.106Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
               "Title": "LoadingForm.cs",
               "DocumentMoniker": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\LoadingForm.cs",
               "RelativeDocumentMoniker": "LoadingForm.cs",
@@ -203,7 +556,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 21,
+              "Title": "SchedulePaySlip.cs",
+              "DocumentMoniker": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\SchedulePaySlip.cs",
+              "RelativeDocumentMoniker": "SchedulePaySlip.cs",
+              "ToolTip": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\SchedulePaySlip.cs",
+              "RelativeToolTip": "SchedulePaySlip.cs",
+              "ViewState": "AgIAAF0AAAAAAAAAAIA3wGYAAABBAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-12T11:01:23.473Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
               "Title": "LoadingForm.Designer.cs",
               "DocumentMoniker": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\LoadingForm.Designer.cs",
               "RelativeDocumentMoniker": "LoadingForm.Designer.cs",
@@ -211,25 +577,11 @@
               "RelativeToolTip": "LoadingForm.Designer.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-12T11:47:15.743Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-12T11:47:15.743Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "TableInitialization.cs",
-              "DocumentMoniker": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\TableInitialization.cs",
-              "RelativeDocumentMoniker": "TableInitialization.cs",
-              "ToolTip": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\TableInitialization.cs",
-              "RelativeToolTip": "TableInitialization.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEwAAAAeAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-11T21:04:17.648Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 23,
               "Title": "ServerConnection.cs",
               "DocumentMoniker": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\ServerConnection.cs",
               "RelativeDocumentMoniker": "ServerConnection.cs",
@@ -237,12 +589,11 @@
               "RelativeToolTip": "ServerConnection.cs",
               "ViewState": "AgIAAAwAAAAAAAAAAAAAAAoAAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-14T08:28:36.887Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-14T08:28:36.887Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 26,
               "Title": "secrets.json",
               "DocumentMoniker": "C:\\Users\\SreehariA\\AppData\\Roaming\\Microsoft\\UserSecrets\\6a2db00d-7f74-4a4d-9f9a-2e6d6c9c2b9e\\secrets.json",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\AppData\\Roaming\\Microsoft\\UserSecrets\\6a2db00d-7f74-4a4d-9f9a-2e6d6c9c2b9e\\secrets.json",
@@ -250,12 +601,11 @@
               "RelativeToolTip": "..\\..\\..\\..\\..\\AppData\\Roaming\\Microsoft\\UserSecrets\\6a2db00d-7f74-4a4d-9f9a-2e6d6c9c2b9e\\secrets.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-02-12T11:09:44.689Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-12T11:09:44.689Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 25,
               "Title": "Config.cs",
               "DocumentMoniker": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\Config.cs",
               "RelativeDocumentMoniker": "Config.cs",
@@ -263,87 +613,11 @@
               "RelativeToolTip": "Config.cs",
               "ViewState": "AgIAAAQAAAAAAAAAAAAwwBcAAAA3AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-12T11:37:00.602Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-12T11:37:00.602Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "LoadingForm.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\LoadingForm.cs",
-              "RelativeDocumentMoniker": "LoadingForm.cs",
-              "ToolTip": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\LoadingForm.cs [Design]",
-              "RelativeToolTip": "LoadingForm.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-12T11:27:29.121Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "LandingPage.cs",
-              "DocumentMoniker": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\LandingPage.cs",
-              "RelativeDocumentMoniker": "LandingPage.cs",
-              "ToolTip": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\LandingPage.cs",
-              "RelativeToolTip": "LandingPage.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADcAAAAVAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-11T21:11:11.077Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "DeleteEmployeeList.cs",
-              "DocumentMoniker": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\DeleteEmployeeList.cs",
-              "RelativeDocumentMoniker": "DeleteEmployeeList.cs",
-              "ToolTip": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\DeleteEmployeeList.cs",
-              "RelativeToolTip": "DeleteEmployeeList.cs",
-              "ViewState": "AgIAABgAAAAAAAAAAAApwBoAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-11T13:30:57.937Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "SchedulePaySlip.cs",
-              "DocumentMoniker": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\SchedulePaySlip.cs",
-              "RelativeDocumentMoniker": "SchedulePaySlip.cs",
-              "ToolTip": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\SchedulePaySlip.cs",
-              "RelativeToolTip": "SchedulePaySlip.cs",
-              "ViewState": "AgIAAF4AAAAAAAAAAAAhwJQAAAAZAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-12T11:01:23.473Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "PaySlip.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\PaySlip.cs",
-              "RelativeDocumentMoniker": "PaySlip.cs",
-              "ToolTip": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\PaySlip.cs [Design]",
-              "RelativeToolTip": "PaySlip.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-11T21:13:13.189Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "SchedulePaySlip.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\SchedulePaySlip.cs",
-              "RelativeDocumentMoniker": "SchedulePaySlip.cs",
-              "ToolTip": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\SchedulePaySlip.cs [Design]",
-              "RelativeToolTip": "SchedulePaySlip.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T12:11:20.928Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 31,
               "Title": "ShiftEndVerification.Designer.cs",
               "DocumentMoniker": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\ShiftEndVerification.Designer.cs",
               "RelativeDocumentMoniker": "ShiftEndVerification.Designer.cs",
@@ -351,60 +625,11 @@
               "RelativeToolTip": "ShiftEndVerification.Designer.cs",
               "ViewState": "AgIAACoAAAAAAAAAAAAhwDcAAAAzAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-11T21:10:07.266Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-11T21:10:07.266Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "ShiftEndVerification.cs",
-              "DocumentMoniker": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\ShiftEndVerification.cs",
-              "RelativeDocumentMoniker": "ShiftEndVerification.cs",
-              "ToolTip": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\ShiftEndVerification.cs",
-              "RelativeToolTip": "ShiftEndVerification.cs",
-              "ViewState": "AgIAAPwAAAAAAAAAAAAawA4BAAAZAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-13T13:15:33.227Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "LandingPage.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\LandingPage.cs",
-              "RelativeDocumentMoniker": "LandingPage.cs",
-              "ToolTip": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\LandingPage.cs [Design]",
-              "RelativeToolTip": "LandingPage.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-11T21:13:01.554Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 27,
-              "Title": "PaySlip.cs",
-              "DocumentMoniker": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\PaySlip.cs",
-              "RelativeDocumentMoniker": "PaySlip.cs",
-              "ToolTip": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\PaySlip.cs",
-              "RelativeToolTip": "PaySlip.cs",
-              "ViewState": "AgIAAGkAAAAAAAAAAAAcwIsAAAA5AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-11T13:39:10.106Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 28,
-              "Title": "SendRotaEmail.cs",
-              "DocumentMoniker": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\SendRotaEmail.cs",
-              "RelativeDocumentMoniker": "SendRotaEmail.cs",
-              "ToolTip": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\SendRotaEmail.cs",
-              "RelativeToolTip": "SendRotaEmail.cs",
-              "ViewState": "AgIAABoAAAAAAAAAAAAAwFwAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-11T13:36:02.954Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 41,
               "Title": "AdminForm.cs",
               "DocumentMoniker": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\AdminForm.cs",
               "RelativeDocumentMoniker": "AdminForm.cs",
@@ -416,31 +641,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
-              "Title": "EmployeeScheduleForm.cs",
-              "DocumentMoniker": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\EmployeeScheduleForm.cs",
-              "RelativeDocumentMoniker": "EmployeeScheduleForm.cs",
-              "ToolTip": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\EmployeeScheduleForm.cs",
-              "RelativeToolTip": "EmployeeScheduleForm.cs",
-              "ViewState": "AgIAAB4AAAAAAAAAAAA4wBIAAAAPAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-13T13:12:54.183Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 31,
-              "Title": "ScheduleEmployeeList.cs",
-              "DocumentMoniker": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\ScheduleEmployeeList.cs",
-              "RelativeDocumentMoniker": "ScheduleEmployeeList.cs",
-              "ToolTip": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\ScheduleEmployeeList.cs",
-              "RelativeToolTip": "ScheduleEmployeeList.cs",
-              "ViewState": "AgIAAEUAAAAAAAAAAAAmwBAAAAAPAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-13T13:14:23.303Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 42,
               "Title": "ShiftEndNotificationForm.cs",
               "DocumentMoniker": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\ShiftEndNotificationForm.cs",
               "RelativeDocumentMoniker": "ShiftEndNotificationForm.cs",
@@ -448,23 +649,56 @@
               "RelativeToolTip": "ShiftEndNotificationForm.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAuwA8AAAAPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-13T13:15:22.092Z"
+              "WhenOpened": "2025-10-13T13:15:22.092Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 27,
+              "Title": "LoadingForm.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\LoadingForm.cs",
+              "RelativeDocumentMoniker": "LoadingForm.cs",
+              "ToolTip": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\LoadingForm.cs [Design]",
+              "RelativeToolTip": "LoadingForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-12T11:27:29.121Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "SchedulePaySlip.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\SchedulePaySlip.cs",
+              "RelativeDocumentMoniker": "SchedulePaySlip.cs",
+              "ToolTip": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\SchedulePaySlip.cs [Design]",
+              "RelativeToolTip": "SchedulePaySlip.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-17T12:11:20.928Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "LandingPage.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\LandingPage.cs",
+              "RelativeDocumentMoniker": "LandingPage.cs",
+              "ToolTip": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\LandingPage.cs [Design]",
+              "RelativeToolTip": "LandingPage.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-11T21:13:01.554Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
               "Title": "ShiftEndVerification.cs [Design]",
               "DocumentMoniker": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\ShiftEndVerification.cs",
               "RelativeDocumentMoniker": "ShiftEndVerification.cs",
               "ToolTip": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\ShiftEndVerification.cs [Design]",
               "RelativeToolTip": "ShiftEndVerification.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-11T21:11:55.947Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2026-02-11T21:11:55.947Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 33,
               "Title": "ClockingForm.cs [Design]",
               "DocumentMoniker": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\ClockingForm.cs",
               "RelativeDocumentMoniker": "ClockingForm.cs",
@@ -475,64 +709,53 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 32,
               "Title": "EmployeeInformationForm.cs [Design]",
               "DocumentMoniker": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\EmployeeInformationForm.cs",
               "RelativeDocumentMoniker": "EmployeeInformationForm.cs",
               "ToolTip": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\EmployeeInformationForm.cs [Design]",
               "RelativeToolTip": "EmployeeInformationForm.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-14T13:03:53.511Z"
+              "WhenOpened": "2025-10-14T13:03:53.511Z",
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 34,
               "Title": "DeleteEmployeeList.cs [Design]",
               "DocumentMoniker": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\DeleteEmployeeList.cs",
               "RelativeDocumentMoniker": "DeleteEmployeeList.cs",
               "ToolTip": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\DeleteEmployeeList.cs [Design]",
               "RelativeToolTip": "DeleteEmployeeList.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-14T12:22:31.806Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2025-10-14T12:22:31.806Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 35,
               "Title": "DeleteEmployeeForm.cs [Design]",
               "DocumentMoniker": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\DeleteEmployeeForm.cs",
               "RelativeDocumentMoniker": "DeleteEmployeeForm.cs",
               "ToolTip": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\DeleteEmployeeForm.cs [Design]",
               "RelativeToolTip": "DeleteEmployeeForm.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-14T12:23:36.177Z"
+              "WhenOpened": "2025-10-14T12:23:36.177Z",
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 36,
               "Title": "ShiftStartNotificationForm.cs [Design]",
               "DocumentMoniker": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\ShiftStartNotificationForm.cs",
               "RelativeDocumentMoniker": "ShiftStartNotificationForm.cs",
               "ToolTip": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\ShiftStartNotificationForm.cs [Design]",
               "RelativeToolTip": "ShiftStartNotificationForm.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-11T21:03:53.329Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2026-02-11T21:03:53.329Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
-              "Title": "CheckWorkingEmployees.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\CheckWorkingEmployees.cs",
-              "RelativeDocumentMoniker": "CheckWorkingEmployees.cs",
-              "ToolTip": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\CheckWorkingEmployees.cs [Design]",
-              "RelativeToolTip": "CheckWorkingEmployees.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T12:11:48.634Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 37,
               "Title": "SendRotaEmail.cs [Design]",
               "DocumentMoniker": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\SendRotaEmail.cs",
               "RelativeDocumentMoniker": "SendRotaEmail.cs",
@@ -543,18 +766,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 38,
               "Title": "AddEmployeeForm.cs [Design]",
               "DocumentMoniker": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\AddEmployeeForm.cs",
               "RelativeDocumentMoniker": "AddEmployeeForm.cs",
               "ToolTip": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\AddEmployeeForm.cs [Design]",
               "RelativeToolTip": "AddEmployeeForm.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-07T10:24:32.233Z"
+              "WhenOpened": "2025-10-07T10:24:32.233Z",
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 39,
               "Title": "ScheduleEmployeeList.cs [Design]",
               "DocumentMoniker": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\ScheduleEmployeeList.cs",
               "RelativeDocumentMoniker": "ScheduleEmployeeList.cs",
@@ -565,7 +789,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 40,
               "Title": "ShiftEndNotificationForm.cs [Design]",
               "DocumentMoniker": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\ShiftEndNotificationForm.cs",
               "RelativeDocumentMoniker": "ShiftEndNotificationForm.cs",
@@ -576,7 +800,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 43,
               "Title": "WeeklySaveConfirm.cs [Design]",
               "DocumentMoniker": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\WeeklySaveConfirm.cs",
               "RelativeDocumentMoniker": "WeeklySaveConfirm.cs",
@@ -587,7 +811,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
+              "DocumentIndex": 44,
               "Title": "ViewRota.cs [Design]",
               "DocumentMoniker": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\ViewRota.cs",
               "RelativeDocumentMoniker": "ViewRota.cs",
@@ -598,7 +822,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 45,
               "Title": "Verification.cs [Design]",
               "DocumentMoniker": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\Verification.cs",
               "RelativeDocumentMoniker": "Verification.cs",
@@ -609,7 +833,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 36,
+              "DocumentIndex": 46,
               "Title": "UpdateEmp.cs [Design]",
               "DocumentMoniker": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\UpdateEmp.cs",
               "RelativeDocumentMoniker": "UpdateEmp.cs",
@@ -620,7 +844,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 37,
+              "DocumentIndex": 47,
               "Title": "VerifyAdmin.cs [Design]",
               "DocumentMoniker": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\VerifyAdmin.cs",
               "RelativeDocumentMoniker": "VerifyAdmin.cs",
@@ -631,7 +855,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 38,
+              "DocumentIndex": 48,
               "Title": "SetAdmin.cs [Design]",
               "DocumentMoniker": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\SetAdmin.cs",
               "RelativeDocumentMoniker": "SetAdmin.cs",
@@ -642,7 +866,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 39,
+              "DocumentIndex": 49,
               "Title": "SetAdminGrid.cs [Design]",
               "DocumentMoniker": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\SetAdminGrid.cs",
               "RelativeDocumentMoniker": "SetAdminGrid.cs",
@@ -653,7 +877,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 40,
+              "DocumentIndex": 50,
               "Title": "RotaVerification.cs [Design]",
               "DocumentMoniker": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\RotaVerification.cs",
               "RelativeDocumentMoniker": "RotaVerification.cs",
@@ -665,7 +889,7 @@
           ]
         },
         {
-          "DockedWidth": 79,
+          "DockedWidth": 14,
           "SelectedChildIndex": -1,
           "Children": [
             {
@@ -675,6 +899,10 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
             }
           ]
         }

@@ -40,21 +40,26 @@ namespace EmployeeManagementSyst
                 using (SqlConnection serverConnect = ServerConnection.GetOpenConnection())
                 {
                    
-                    string qry = "SELECT id,Admin_name FROM admintable;";
+                    string qry = "SELECT EmployeeId,AdminName FROM AdminInformation;";
                     SqlCommand mySqlCommand = new SqlCommand(qry, serverConnect);
-                    SqlDataReader reader = mySqlCommand.ExecuteReader();
-                    if (reader.HasRows)
+                    using (SqlDataReader reader = mySqlCommand.ExecuteReader())
                     {
-                        while (reader.Read())
+                        if (reader.HasRows)
                         {
-                            DataRow row = dataTable.NewRow();
-                            row["Admin Name"] = reader["Admin_name"].ToString();
-                            row["Id"] = reader["id"].ToString();
+                            while (reader.Read())
+                            {
+                                DataRow row = dataTable.NewRow();
+                                row["Admin Name"] = reader["AdminName"].ToString();
+                                row["Id"] = reader["EmployeeId"].ToString();
 
-                            dataTable.Rows.Add(row);
+                                dataTable.Rows.Add(row);
+                            }
                         }
                     }
-                    else { MessageBox.Show("Admin not found"); }
+                    if (dataTable.Rows.Count == 0)
+                    {
+                        MessageBox.Show("Admin not found");
+                    }
                     serverConnect.Close();
                 }
                 dataGridView1.DataSource = dataTable;
@@ -78,7 +83,7 @@ namespace EmployeeManagementSyst
                 using (SqlConnection serverConnect = ServerConnection.GetOpenConnection())
                 {
                     
-                    string qry = "SELECT id FROM admintable WHERE Admin_name = @fname OR id = @id;";
+                    string qry = "SELECT EmployeeId FROM AdminInformation WHERE AdminName = @fname OR EmployeeId = @id;";
                     SqlCommand mySqlCommand = new SqlCommand(qry, serverConnect);
                     mySqlCommand.Parameters.AddWithValue("@fname", employeeName);
                     mySqlCommand.Parameters.AddWithValue("@id", code);
@@ -121,23 +126,25 @@ namespace EmployeeManagementSyst
                 using (SqlConnection serverConnect = ServerConnection.GetOpenConnection())
                 {
                    
-                    string qry = "SELECT a.id,a.Admin_name FROM admintable a JOIN employeedetails e on a.id = e.id WHERE e.surname = @surname OR a.id = @id;";
+                    string qry = "SELECT a.EmployeeId,a.AdminName FROM AdminInformation a JOIN EmployeeDetails e on a.EmployeeId = e.Id WHERE e.Surname = @surname OR a.EmployeeId = @id;";
                     SqlCommand mySqlCommand = new SqlCommand(qry, serverConnect);
                     mySqlCommand.Parameters.Clear();
                     mySqlCommand.Parameters.AddWithValue("@surname", userInput);
                     mySqlCommand.Parameters.AddWithValue("@id", userInput);
-                    SqlDataReader reader = mySqlCommand.ExecuteReader();
-                    if (reader.HasRows)
+                    using (SqlDataReader reader = mySqlCommand.ExecuteReader())
                     {
-                        while (reader.Read())
+                        if (reader.HasRows)
                         {
-                            DataRow row = dataTable.NewRow();
-                            row["id"] = reader["id"].ToString();
-                            row["Admin Name"] = reader["Admin_name"].ToString();
+                            while (reader.Read())
+                            {
+                                DataRow row = dataTable.NewRow();
+                                row["id"] = reader["EmployeeId"].ToString();
+                                row["Admin Name"] = reader["AdminName"].ToString();
 
-                            dataTable.Rows.Add(row);
+                                dataTable.Rows.Add(row);
+                            }
+                            dataGridView1.DataSource = dataTable;
                         }
-                        dataGridView1.DataSource = dataTable;
                     }
                     serverConnect.Close();
                 }
@@ -162,21 +169,22 @@ namespace EmployeeManagementSyst
                 using (SqlConnection connection = ServerConnection.GetOpenConnection())
                 {
                    
-                    string query = "SELECT id,Admin_name FROM admintable";
+                    string query = "SELECT EmployeeId,AdminName FROM AdminInformation";
                     SqlCommand cmd = new SqlCommand(query, connection);
-                    SqlDataReader reader = cmd.ExecuteReader();
-                    if (reader.HasRows)
+                    using (SqlDataReader reader = cmd.ExecuteReader())
                     {
-                        while (reader.Read())
+                        if (reader.HasRows)
                         {
-                            DataRow row = dataTable.NewRow();
-                            row["id"] = reader["id"].ToString();
-                            row["Admin Name"] = reader["Admin_name"].ToString();
+                            while (reader.Read())
+                            {
+                                DataRow row = dataTable.NewRow();
+                                row["id"] = reader["EmployeeId"].ToString();
+                                row["Admin Name"] = reader["AdminName"].ToString();
 
-                            dataTable.Rows.Add(row);
+                                dataTable.Rows.Add(row);
+                            }
+                            dataGridView1.DataSource = dataTable;
                         }
-                        dataGridView1.DataSource = dataTable;
-
                     }
 
                     connection.Close();

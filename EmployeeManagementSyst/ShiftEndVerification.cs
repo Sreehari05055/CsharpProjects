@@ -62,7 +62,7 @@ namespace EmployeeManagementSyst
                 using (SqlConnection serverConnect = ServerConnection.GetOpenConnection())
                 {
 
-                    String querytoCheck = "SELECT id FROM employeedetails WHERE id = @id;";
+                    String querytoCheck = "SELECT Id FROM EmployeeDetails WHERE Id = @id;";
                     SqlCommand mySqlCommand = new SqlCommand(querytoCheck, serverConnect);
                     mySqlCommand.Parameters.AddWithValue("@id", codeToCheck);
                     object dataTocheck = mySqlCommand.ExecuteScalar();
@@ -99,7 +99,7 @@ namespace EmployeeManagementSyst
                 using (SqlConnection connection = ServerConnection.GetOpenConnection())
                 {
 
-                    string chckQry = "SELECT hours FROM hourstable WHERE id = @Code ";
+                    string chckQry = "SELECT TOP 1 StartTime FROM TimeLogs WHERE EmployeeId = @Code AND EndTime IS NULL ORDER BY StartTime DESC";
                     SqlCommand exec = new SqlCommand(chckQry, connection);
                     exec.Parameters.AddWithValue("@Code", Code);
                     var result = exec.ExecuteScalar();
@@ -110,7 +110,8 @@ namespace EmployeeManagementSyst
                         return;
                     }
 
-                    StopWatch(result.ToString());
+                    var startTime = (DateTime)result;
+                    StopWatch(startTime.ToString("O"));
                     connection.Close();
                 }
             }
@@ -176,10 +177,10 @@ namespace EmployeeManagementSyst
             {
                 using (SqlConnection connection = ServerConnection.GetOpenConnection())
                 {
-
-                    string chckQry = "DELETE FROM hourstable WHERE id = @Code ";
+                    string chckQry = "UPDATE TimeLogs SET EndTime = @end WHERE EmployeeId = @Code AND EndTime IS NULL";
                     SqlCommand exec = new SqlCommand(chckQry, connection);
                     exec.Parameters.AddWithValue("@Code", Code);
+                    exec.Parameters.AddWithValue("@end", DateTime.Now);
                     int rowsAffected = exec.ExecuteNonQuery();
                     connection.Close();
                 }
@@ -207,7 +208,7 @@ namespace EmployeeManagementSyst
                 using (SqlConnection connection = ServerConnection.GetOpenConnection())
                 {
 
-                    string insertquery = """INSERT INTO employeepay(date_of_work,total_pay,hours_done,id)   VALUES (@date_of_work,@totalpay,@hours_done,@id)""";
+                    string insertquery = """INSERT INTO EmployeePayInfo(DateOfWork,TotalPay,HoursDone,EmployeeId)   VALUES (@date_of_work,@totalpay,@hours_done,@id)""";
 
                     SqlCommand execute = new SqlCommand(insertquery, connection);
 
@@ -245,7 +246,7 @@ namespace EmployeeManagementSyst
                 using (SqlConnection server = ServerConnection.GetOpenConnection())
                 {
 
-                    string payQuery = "SELECT hourlyrate FROM employeedetails WHERE id = @id;";
+                    string payQuery = "SELECT HourlyRate FROM EmployeeDetails WHERE Id = @id;";
                     SqlCommand payExec = new SqlCommand(payQuery, server);
                     payExec.Parameters.AddWithValue("@id", Code);
                     object result = payExec.ExecuteScalar();

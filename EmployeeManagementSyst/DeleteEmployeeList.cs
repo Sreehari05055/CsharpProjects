@@ -41,7 +41,7 @@ namespace EmployeeManagementSyst
                 using (SqlConnection serverConnect = ServerConnection.GetOpenConnection())
                 {
                    
-                    string qry = "SELECT id,fullname FROM employeedetails;";
+                    string qry = "SELECT Id,FullName FROM EmployeeDetails;";
                     SqlCommand mySqlCommand = new SqlCommand(qry, serverConnect);
                     SqlDataReader reader = mySqlCommand.ExecuteReader();
                     if (reader.HasRows)
@@ -80,7 +80,7 @@ namespace EmployeeManagementSyst
                 using (SqlConnection serverConnect = ServerConnection.GetOpenConnection())
                 {
          
-                    string qry = "SELECT id FROM employeedetails WHERE fullname = @fname OR id = @id;";
+                    string qry = "SELECT Id FROM EmployeeDetails WHERE FullName = @fname OR Id = @id;";
                     SqlCommand mySqlCommand = new SqlCommand(qry, serverConnect);
                     mySqlCommand.Parameters.AddWithValue("@fname", employeeName);
                     mySqlCommand.Parameters.AddWithValue("@id", code);
@@ -124,7 +124,7 @@ namespace EmployeeManagementSyst
                 using (SqlConnection serverConnect = ServerConnection.GetOpenConnection())
                 {
                     
-                    string qry = "SELECT id,fullname FROM employeedetails WHERE surname = @surname OR id = @id;";
+                    string qry = "SELECT Id,FullName FROM EmployeeDetails WHERE Surname = @surname OR Id = @id;";
                     SqlCommand mySqlCommand = new SqlCommand(qry, serverConnect);
                     mySqlCommand.Parameters.Clear();
                     mySqlCommand.Parameters.AddWithValue("@surname", userInput);
@@ -165,7 +165,7 @@ namespace EmployeeManagementSyst
                 using (SqlConnection connection = ServerConnection.GetOpenConnection())
                 {
                     
-                    string query = "SELECT id,fullname FROM employeedetails";
+                    string query = "SELECT Id,FullName FROM EmployeeDetails";
                     SqlCommand cmd = new SqlCommand(query, connection);
                     SqlDataReader reader = cmd.ExecuteReader();
                     if (reader.HasRows)

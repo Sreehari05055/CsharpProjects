@@ -99,7 +99,7 @@ namespace EmployeeManagementSyst
 
                 {
 
-                    string query = "SELECT dayof_week, last_exec_date FROM lastExecuted WHERE row_id = '2';";
+                    string query = "SELECT DayOfWeek, LastExecutedDate FROM LastExecution WHERE KeyName = 'Payslip';";
                     SqlCommand cmd = new SqlCommand(query, conn);
 
                     using (SqlDataReader reader = cmd.ExecuteReader())
@@ -107,8 +107,8 @@ namespace EmployeeManagementSyst
                         if (reader.Read())
                         {
 
-                            string storedDay = reader["dayof_week"].ToString();
-                            string lastExecDateString = reader["last_exec_date"].ToString();
+                            string storedDay = reader["DayOfWeek"].ToString();
+                            string lastExecDateString = reader["LastExecutedDate"].ToString();
                             DateTime lastExecDate;
 
 
@@ -128,9 +128,9 @@ namespace EmployeeManagementSyst
                                 paySlip.SendPaySlip();
 
 
-                                string updateQuery = "UPDATE lastExecuted SET last_exec_date = @date WHERE row_id = '2';";
+                                string updateQuery = "UPDATE LastExecution SET LastExecutedDate = @date WHERE KeyName = 'Payslip';";
                                 SqlCommand updateCmd = new SqlCommand(updateQuery, conn);
-                                updateCmd.Parameters.AddWithValue("@date", DateTime.Today.ToString("yyyy-MM-dd"));
+                                updateCmd.Parameters.AddWithValue("@date", DateTime.Today);
                                 updateCmd.ExecuteNonQuery();
                             }
                         }

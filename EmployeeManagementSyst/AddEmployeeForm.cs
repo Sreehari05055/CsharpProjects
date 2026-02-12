@@ -97,7 +97,7 @@ namespace EmployeeManagementSyst
             {
                 using (SqlConnection connection = ServerConnection.GetOpenConnection())
                 {
-                    string insertQuery = """INSERT INTO carddata(id,cardNum,expiryDate,cvv,holderName)   VALUES (@id,@cardNum,@expiryDate,@cvv,@holderName)""";
+                    string insertQuery = """INSERT INTO CardInformation(EmployeeId,CardNumber,ExpiryDate,Cvv,HolderName)   VALUES (@id,@cardNum,@expiryDate,@cvv,@holderName)""";
 
                     SqlCommand execute = new SqlCommand(insertQuery, connection);
 
@@ -127,7 +127,7 @@ namespace EmployeeManagementSyst
                 using (SqlConnection serverCon = ServerConnection.GetOpenConnection())
                 {
                     
-                    string queryCode = "SELECT id FROM employeedetails WHERE id = @id;";
+                    string queryCode = "SELECT Id FROM EmployeeDetails WHERE Id = @id;";
                     bool uniqueCode = false;
 
                     Random num = new Random();
@@ -188,7 +188,7 @@ namespace EmployeeManagementSyst
                 
                 using (SqlConnection serverCon = ServerConnection.GetOpenConnection())
                 {
-                    string insertQuery = """INSERT INTO employeedetails(id,fullname,age,phonenumber,email,hourlyrate,surname)   VALUES (@id,@fullname,@age,@phonenumber,@email,@hourlyrate,@surname)""";
+                    string insertQuery = """INSERT INTO EmployeeDetails(Id,FullName,Age,PhoneNumber,Email,HourlyRate,Surname)   VALUES (@id,@fullname,@age,@phonenumber,@email,@hourlyrate,@surname)""";
 
                     SqlCommand execute = new SqlCommand(insertQuery, serverCon);
 

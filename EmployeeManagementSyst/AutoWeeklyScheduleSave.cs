@@ -34,7 +34,7 @@ namespace EmployeeManagementSyst
                 using (SqlConnection conn = ServerConnection.GetOpenConnection())
                 {
 
-                    string query = "UPDATE lastExecuted SET dayof_week = @day WHERE row_id = '1';";
+                    string query = "UPDATE LastExecution SET DayOfWeek = @day WHERE KeyName = 'WeeklySave';";
                     SqlCommand cmd = new SqlCommand(query, conn);
                     cmd.Parameters.AddWithValue("@day", day);
                     cmd.ExecuteNonQuery();
@@ -71,7 +71,7 @@ namespace EmployeeManagementSyst
                 using (SqlConnection con = ServerConnection.GetOpenConnection())
                 {
 
-                    string saveQuery = """SELECT r.id, e.fullname, r.start_work, r.finish_work, r.day_ofweek FROM rotatable r INNER JOIN employeedetails e ON r.id = e.id;""";
+                    string saveQuery = """SELECT r.EmployeeId AS id, e.FullName AS fullname, r.StartWork AS start_work, r.FinishWork AS finish_work, r.DayOfWeek AS day_ofweek FROM ScheduleInformation r INNER JOIN EmployeeDetails e ON r.EmployeeId = e.Id;""";
                     SqlCommand sqlCommand = new SqlCommand(saveQuery, con);
 
                     using (SqlDataReader reader = sqlCommand.ExecuteReader())
@@ -119,7 +119,7 @@ namespace EmployeeManagementSyst
 
                 {
 
-                    string query = "SELECT dayof_week, last_exec_date FROM lastExecuted WHERE row_id = '1';";
+                    string query = "SELECT DayOfWeek, LastExecutedDate FROM LastExecution WHERE KeyName = 'WeeklySave';";
                     SqlCommand cmd = new SqlCommand(query, conn);
 
                     using (SqlDataReader reader = cmd.ExecuteReader())
@@ -147,9 +147,9 @@ namespace EmployeeManagementSyst
                                 SaveWeeklyData();
 
 
-                                string updateQuery = "UPDATE lastExecuted SET last_exec_date = @date WHERE row_id = '1';";
+                                string updateQuery = "UPDATE LastExecution SET LastExecutedDate = @date WHERE KeyName = 'WeeklySave';";
                                 SqlCommand updateCmd = new SqlCommand(updateQuery, conn);
-                                updateCmd.Parameters.AddWithValue("@date", DateTime.Today.ToString("yyyy-MM-dd"));
+                                updateCmd.Parameters.AddWithValue("@date", DateTime.Today);
                                 updateCmd.ExecuteNonQuery();
                             }
                         }
@@ -175,7 +175,7 @@ namespace EmployeeManagementSyst
                     DateTime now = DateTime.Now;
                     DateTime sevenDaysBefore = now.AddDays(-7);
 
-                    string resetQuery = "DELETE FROM rotatable;";
+                    string resetQuery = "DELETE FROM ScheduleInformation;";
                     SqlCommand resetCmd = new SqlCommand(resetQuery, connection);
                     int rowsAffected = resetCmd.ExecuteNonQuery();
 

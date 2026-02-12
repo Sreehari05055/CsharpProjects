@@ -47,7 +47,7 @@ namespace EmployeeManagementSyst
             {
                 using SqlConnection server = ServerConnection.GetOpenConnection();
 
-                string qry = "SELECT id, SUM(total_pay) AS total_pay FROM employeepay WHERE date_of_work BETWEEN @finished_date AND @current_date GROUP BY id;";
+                string qry = "SELECT EmployeeId AS id, SUM(TotalPay) AS total_pay FROM EmployeePayInfo WHERE DateOfWork BETWEEN @finished_date AND @current_date GROUP BY EmployeeId;";
                 SqlCommand sqlCommand = new SqlCommand(qry, server);
                 DateTime payDate = DateTime.Now;
                 DateTime sevenDaysBefore = payDate.AddDays(-7); //Fetches all data from the SQL database corresponding to the last seven days.
@@ -72,7 +72,7 @@ namespace EmployeeManagementSyst
                 }
                 foreach (var (id, pay) in payDetails)
                 {
-                    string emailQuery = "SELECT email, fullname FROM employeedetails WHERE id = @id;";
+                    string emailQuery = "SELECT Email, FullName FROM EmployeeDetails WHERE Id = @id;";
                     SqlCommand command = new SqlCommand(emailQuery, server);
                     command.Parameters.AddWithValue("@id", id);
                     using (SqlDataReader reader2 = command.ExecuteReader())
@@ -80,8 +80,8 @@ namespace EmployeeManagementSyst
 
                         if (reader2.Read())
                         {
-                            string name = reader2.GetString(reader2.GetOrdinal("fullname"));
-                            string email = reader2.GetString(reader2.GetOrdinal("email"));
+                            string name = reader2.GetString(reader2.GetOrdinal("FullName"));
+                            string email = reader2.GetString(reader2.GetOrdinal("Email"));
 
                             string payment = $"Name: {name}\nID: {id}\n" +
                                              $"Total Weekly Payment: £{pay}";

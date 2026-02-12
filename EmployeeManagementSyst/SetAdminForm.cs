@@ -52,7 +52,7 @@ namespace EmployeeManagementSyst
                 using (SqlConnection conn = ServerConnection.GetOpenConnection())
                 {
 
-                    string admindetailQuery = "SELECT fullname,email FROM employeedetails WHERE id = @id";
+                    string admindetailQuery = "SELECT FullName,Email FROM EmployeeDetails WHERE Id = @id";
                     SqlCommand detailQuery = new SqlCommand(admindetailQuery, conn);
 
                     detailQuery.Parameters.Clear();
@@ -64,8 +64,8 @@ namespace EmployeeManagementSyst
                         if (reader.Read())
                         {
                             // Add a method that checks if the person exists
-                            string adminName = reader.GetString(reader.GetOrdinal("fullname"));
-                            string adminEmail = reader.GetString(reader.GetOrdinal("email"));
+                            string adminName = reader.GetString(reader.GetOrdinal("FullName"));
+                            string adminEmail = reader.GetString(reader.GetOrdinal("Email"));
                             InsertAdminInfo(id, adminName, adminEmail);
                             MessageBox.Show("Employee was made admin");
                         }
@@ -96,7 +96,7 @@ namespace EmployeeManagementSyst
                 using (SqlConnection connection = ServerConnection.GetOpenConnection())
                 {
 
-                    string insertAdmin = """INSERT INTO admintable(id,Admin_name,Admin_contact)  VALUES(@id,@adminName,@adminEmail)""";
+                    string insertAdmin = """INSERT INTO AdminInformation(EmployeeId,AdminName,AdminContact)  VALUES(@id,@adminName,@adminEmail)""";
                     SqlCommand adminExec = new SqlCommand(insertAdmin, connection);
 
                     adminExec.Parameters.AddWithValue("@id", id);

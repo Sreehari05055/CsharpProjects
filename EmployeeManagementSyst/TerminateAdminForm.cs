@@ -48,7 +48,8 @@ namespace EmployeeManagementSyst
                 using (SqlConnection conn = ServerConnection.GetOpenConnection())
                 {
 
-                    string deleteAdmin = "DELETE FROM admintable WHERE id = @id; "; ;
+
+                    string deleteAdmin = "DELETE FROM AdminInformation WHERE EmployeeId = @id; "; ;
                     SqlCommand detailQuery = new SqlCommand(deleteAdmin, conn);
 
                     detailQuery.Parameters.Clear();

@@ -169,22 +169,11 @@ namespace EmployeeManagementSyst
                             }
                             if (!string.IsNullOrEmpty(name))
                             {
-                                string updateHoursTableQry = "UPDATE hourstable SET ";
+                                string updateHoursTableQry = "UPDATE TimeLogs SET EmployeeName = @newFullname WHERE EmployeeId = @id";
                                 SqlCommand updatehoursTableCmd = new SqlCommand(updateHoursTableQry, servrCon, transaction);
-                                bool hoursHasUpdates = true;
-                                if (!string.IsNullOrEmpty(name))
-                                {
-                                    updateHoursTableQry += "empname = @newFullname";
-                                    updatehoursTableCmd.Parameters.AddWithValue("@newFullname", name);
-                                    hoursHasUpdates = false;
-                                }
-                                if (!hoursHasUpdates)
-                                {
-                                    updateHoursTableQry += " WHERE id = @id";
-                                    updatehoursTableCmd.Parameters.AddWithValue("@id", code);
-                                    updatehoursTableCmd.CommandText = updateHoursTableQry;
-                                    updatehoursTableCmd.ExecuteNonQuery();
-                                }
+                                updatehoursTableCmd.Parameters.AddWithValue("@newFullname", name);
+                                updatehoursTableCmd.Parameters.AddWithValue("@id", code);
+                                updatehoursTableCmd.ExecuteNonQuery();
                             }
                             transaction.Commit();
                             MessageBox.Show("Information updated successfully.");

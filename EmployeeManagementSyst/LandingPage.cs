@@ -43,7 +43,7 @@ namespace EmployeeManagementSyst
             {
                 using (SqlConnection sqlConnection = ServerConnection.GetOpenConnection())
                 {
-                    string admQuery = "SELECT COUNT(*) FROM admintable";
+                    string admQuery = "SELECT COUNT(*) FROM AdminInformation";
 
                     SqlCommand admExec = new SqlCommand(admQuery, sqlConnection);
 

@@ -32,7 +32,7 @@ namespace EmployeeManagementSyst
                 using (SqlConnection conn = ServerConnection.GetOpenConnection())
                 {
                    
-                    string rotatableQuery = "SELECT id FROM rotatable;";
+                    string rotatableQuery = "SELECT EmployeeId FROM ScheduleInformation;";
                     SqlCommand rotaCmd = new SqlCommand(rotatableQuery, conn);
 
                     HashSet<string> obj = new HashSet<string>();
@@ -40,14 +40,14 @@ namespace EmployeeManagementSyst
                     {
                         while (reader.Read())
                         {
-                            obj.Add(reader.GetString(reader.GetOrdinal("id")));
+                            obj.Add(reader.GetString(reader.GetOrdinal("EmployeeId")));
                         }
                     }
 
-                    string nameQuery = "SELECT fullname,email FROM employeedetails WHERE id = @id;";
+                    string nameQuery = "SELECT FullName,Email FROM EmployeeDetails WHERE Id = @id;";
                     SqlCommand commnd = new SqlCommand(nameQuery, conn);
 
-                    string query = "SELECT start_work,finish_work,day_ofweek FROM rotatable WHERE id = @id2  ORDER BY start_work;";
+                    string query = "SELECT StartWork,FinishWork,DayOfWeek FROM ScheduleInformation WHERE EmployeeId = @id2  ORDER BY StartWork;";
                     SqlCommand commndRota = new SqlCommand(query, conn);
 
                     foreach (string id in obj)
@@ -61,8 +61,8 @@ namespace EmployeeManagementSyst
                         {
                             if (reader1.Read())
                             {
-                                queryName = reader1.GetString(reader1.GetOrdinal("fullname"));
-                                emailAdd = reader1.GetString(reader1.GetOrdinal("email"));
+                                queryName = reader1.GetString(reader1.GetOrdinal("FullName"));
+                                emailAdd = reader1.GetString(reader1.GetOrdinal("Email"));
                             }
                         }
                         if (String.IsNullOrEmpty(queryName))
@@ -83,9 +83,9 @@ namespace EmployeeManagementSyst
 
                             while (rotaFormat.Read())
                             {
-                                DateTime shiftStart = rotaFormat.GetDateTime(rotaFormat.GetOrdinal("start_work"));
-                                DateTime shiftEnd = rotaFormat.GetDateTime(rotaFormat.GetOrdinal("finish_work"));
-                                string day = rotaFormat.GetString(rotaFormat.GetOrdinal("day_ofweek"));
+                                DateTime shiftStart = rotaFormat.GetDateTime(rotaFormat.GetOrdinal("StartWork"));
+                                DateTime shiftEnd = rotaFormat.GetDateTime(rotaFormat.GetOrdinal("FinishWork"));
+                                string day = rotaFormat.GetString(rotaFormat.GetOrdinal("DayOfWeek"));
 
                                 rota += $"{shiftStart:g} - {shiftEnd:t} --- {day}\n\n";
                             }

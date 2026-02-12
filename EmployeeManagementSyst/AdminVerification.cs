@@ -55,7 +55,7 @@ namespace EmployeeManagementSyst
                 using (SqlConnection serverConnect = ServerConnection.GetOpenConnection())
                 {
 
-                    String querytoCheck = "SELECT id FROM admintable WHERE id = @id;";
+                    String querytoCheck = "SELECT EmployeeId FROM AdminInformation WHERE EmployeeId = @id;";
                     SqlCommand mySqlCommand = new SqlCommand(querytoCheck, serverConnect);
                     mySqlCommand.Parameters.Clear();
                     mySqlCommand.Parameters.AddWithValue("@id", adminCode);
