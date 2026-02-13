@@ -124,8 +124,8 @@ namespace EmployeeManagementSyst
                             {
                                 reader.Close();
 
-                                PaySlip paySlip = new PaySlip();
-                                paySlip.SendPaySlip();
+                                EmailConfiguration emailConfig = new EmailConfiguration();
+                                emailConfig.SendPaySlip();
 
 
                                 string updateQuery = "UPDATE LastExecution SET LastExecutedDate = @date WHERE KeyName = 'Payslip';";

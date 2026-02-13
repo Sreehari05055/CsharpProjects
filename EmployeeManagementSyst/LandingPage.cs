@@ -21,18 +21,16 @@ namespace EmployeeManagementSyst
         {
             try
             {
-                ClockingForm form2 = new ClockingForm();
+               new ClockingForm().Show();
 
-                form2.Show();
-                //this.Close();
             }
             catch (Exception ex) { MessageBox.Show("Error: " + ex.Message); }
         }
         private void ManagementInfoClick(object sender, EventArgs e)
         {
-            try
+           try
             {
-                AdminCheck();                  
+                AdminCheck();
             }
             catch (Exception ex) { MessageBox.Show("Error: " + ex.Message); }
         }
@@ -43,7 +41,7 @@ namespace EmployeeManagementSyst
             {
                 using (SqlConnection sqlConnection = ServerConnection.GetOpenConnection())
                 {
-                    string admQuery = "SELECT COUNT(*) FROM AdminInformation";
+                    string admQuery = "SELECT COUNT(*) FROM EmployeeDetails WHERE UserRole = 'admin';";
 
                     SqlCommand admExec = new SqlCommand(admQuery, sqlConnection);
 
@@ -51,7 +49,6 @@ namespace EmployeeManagementSyst
                     if (recordCount > 0)
                     {
                         AdminVerification form3 = new AdminVerification();
-
                         form3.Show();
                     }
                     else

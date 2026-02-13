@@ -38,7 +38,7 @@ namespace EmployeeManagementSyst
         /// <param name="e">The event arguments.</param>
         private void Ok_Click(object sender, EventArgs e)
         {
-            string userInput = textBox1.Text;
+            string userInput = textBox1.Text.Trim();
 
             AdminVerify(userInput);
 
@@ -55,10 +55,10 @@ namespace EmployeeManagementSyst
                 using (SqlConnection serverConnect = ServerConnection.GetOpenConnection())
                 {
 
-                    String querytoCheck = "SELECT EmployeeId FROM AdminInformation WHERE EmployeeId = @id;";
+                    String querytoCheck = "SELECT ClockPin FROM EmployeeDetails WHERE ClockPin = @clockPin;";
                     SqlCommand mySqlCommand = new SqlCommand(querytoCheck, serverConnect);
                     mySqlCommand.Parameters.Clear();
-                    mySqlCommand.Parameters.AddWithValue("@id", adminCode);
+                    mySqlCommand.Parameters.AddWithValue("@clockPin", adminCode);
                     object dataTocheck = mySqlCommand.ExecuteScalar();
                     if (dataTocheck == null)
                     {

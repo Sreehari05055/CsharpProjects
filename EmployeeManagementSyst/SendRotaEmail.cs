@@ -91,8 +91,8 @@ namespace EmployeeManagementSyst
                             }
 
                         }
-                        PaySlip paySlip = new PaySlip();
-                        paySlip.SendEmail(emailAdd, "Your Work Rota", rota);
+                        EmailConfiguration emailConfig = new EmailConfiguration();
+                        emailConfig.SendEmail(emailAdd, "Your Work Rota", rota);
                     }
                     conn.Close();
                 }

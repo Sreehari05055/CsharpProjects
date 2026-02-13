@@ -1,27 +1,19 @@
 ﻿using Microsoft.Data.SqlClient;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Identity.Client.NativeInterop;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
 using System.Net;
 using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace EmployeeManagementSyst
 {
-    public partial class PaySlip : Form
+  public class EmailConfiguration
     {
-       
         private string attachment;
         private string code;
-       
+
 
         public string AttachMent
         {
@@ -33,11 +25,7 @@ namespace EmployeeManagementSyst
             get { return code; }
             set { code = value; }
         }
-        public PaySlip()
-        {
-            InitializeComponent();
-            
-        }
+
         /// <summary>
         /// Generates and sends payslip emails for employees based on the total pay from the last seven days.
         /// </summary>
@@ -110,54 +98,49 @@ namespace EmployeeManagementSyst
         /// <param name="subject">The subject of the email.</param>
         /// <param name="body">The body content of the email.</param>
         public void SendEmail(string emailAdd, string subject, string body)
+        {
+            try
             {
-                try
+                using (MailMessage mailMessage = new MailMessage())
+
                 {
-                    using (MailMessage mailMessage = new MailMessage())
 
-                    {
+                    mailMessage.From = new MailAddress("akc.sreehari@gmail.com");
+                    mailMessage.Subject = subject;
+                    mailMessage.Body = body;
+                    mailMessage.To.Add(emailAdd);
+                    mailMessage.IsBodyHtml = false;
 
-                        mailMessage.From = new MailAddress("");
-                        mailMessage.Subject = subject;
-                        mailMessage.Body = body;
-                        mailMessage.To.Add(emailAdd);
-                        mailMessage.IsBodyHtml = false;
-
-                        if (!string.IsNullOrWhiteSpace(AttachMent))
-                        {
-                            Attachment attach = new Attachment(AttachMent);
-                            mailMessage.Attachments.Add(attach);
-                        }
-
-
-                        using (SmtpClient smtpClient = new SmtpClient("smtp.gmail.com", 587))
-                        {
-                            // Use explicit credentials and STARTTLS on port 587
-                            smtpClient.UseDefaultCredentials = false;
-                            smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
-                            smtpClient.Timeout = 20000; // 20s timeout
-                            smtpClient.Credentials = new NetworkCredential("", "");
-                            smtpClient.EnableSsl = true; 
-                            smtpClient.Send(mailMessage);
-                        }
-
-                    }
-                    MessageBox.Show("Email sent to: " + emailAdd);
                     if (!string.IsNullOrWhiteSpace(AttachMent))
                     {
-                        File.Delete(AttachMent);
+                        Attachment attach = new Attachment(AttachMent);
+                        mailMessage.Attachments.Add(attach);
+                    }
+
+
+                    using (SmtpClient smtpClient = new SmtpClient("smtp.gmail.com", 587))
+                    {
+                        // Use explicit credentials and STARTTLS on port 587
+                        smtpClient.UseDefaultCredentials = false;
+                        smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
+                        smtpClient.Timeout = 20000; // 20s timeout
+                        smtpClient.Credentials = new NetworkCredential("akc.sreehari@gmail.com", "dboh xwez gdco ufwd");
+                        smtpClient.EnableSsl = true;
+                        smtpClient.Send(mailMessage);
                     }
 
                 }
-                catch (SmtpException ex) { MessageBox.Show("SMTP Error: " + ex.Message); }
-                catch (Exception e) { MessageBox.Show("Error Sending Email: " + e.Message); }
+                MessageBox.Show("Email sent to: " + emailAdd);
+                if (!string.IsNullOrWhiteSpace(AttachMent))
+                {
+                    File.Delete(AttachMent);
+                }
+
             }
-
-
-
-
-
-
+            catch (SmtpException ex) { MessageBox.Show("SMTP Error: " + ex.Message); }
+            catch (Exception e) { MessageBox.Show("Error Sending Email: " + e.Message); }
         }
-    }
 
+
+    }
+}

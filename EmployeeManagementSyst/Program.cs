@@ -27,9 +27,6 @@ namespace EmployeeManagementSyst
                 AutoWeeklyScheduleSave confirm = new();
                 confirm.SetSaveDate();
             });
-
-            Application.Run(new LandingPage());
-
         }
          
     }
