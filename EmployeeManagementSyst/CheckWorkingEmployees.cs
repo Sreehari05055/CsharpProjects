@@ -24,7 +24,7 @@ namespace EmployeeManagementSyst
             {
                 using (SqlConnection server = ServerConnection.GetOpenConnection())
                 {
-                    string queryCheck = "SELECT EmployeeName AS empname, EmployeeId AS id FROM TimeLogs WHERE EndTime IS NULL;";
+                    string queryCheck = "SELECT EmployeeName AS 'Employee Names', EmployeeId AS 'Employee Ids' FROM TimeLogs WHERE EndTime IS NULL;";
                     using (SqlCommand payExec = new SqlCommand(queryCheck, server))
                     {
                         DataTable employeeTable = new DataTable();

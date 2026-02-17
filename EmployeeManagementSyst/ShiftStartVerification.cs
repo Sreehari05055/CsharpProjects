@@ -30,28 +30,12 @@ namespace EmployeeManagementSyst
         /// <param name="codeToCheck">The employee code to be verified.</param>
         public void Verify(String codeToCheck)
         {
-            try
+            if (!EmployeeHelper.ExistsByClockPin(codeToCheck))
             {
-                using (SqlConnection serverConnect = ServerConnection.GetOpenConnection())
-                {
-                    String querytoCheck = "SELECT Id FROM EmployeeDetails WHERE Id = @id;";
-                    SqlCommand mySqlCommand = new SqlCommand(querytoCheck, serverConnect);
-                    mySqlCommand.Parameters.AddWithValue("@id", codeToCheck);
-                    object dataTocheck = mySqlCommand.ExecuteScalar();
-                    if (dataTocheck == null)
-                    {
-                        this.Close();
-                        MessageBox.Show("Code incorrect");
-
-                    }
-
-
-                }
-
+                this.Close();
+                MessageBox.Show("Code incorrect");
             }
-            catch (Exception ex) { MessageBox.Show("Verification Error: " + ex.Message); }
         }
-
 
         /// <summary>
         /// Checks the employee's clock-in status from the hourstable.
@@ -61,25 +45,15 @@ namespace EmployeeManagementSyst
         {
             try
             {
-                using (SqlConnection connection = ServerConnection.GetOpenConnection())
+                if (EmployeeHelper.HasOpenShift(id))
                 {
-
-                    string chckQry = "SELECT COUNT(*) FROM TimeLogs WHERE EmployeeId = @Code AND EndTime IS NULL;";
-                    SqlCommand exec = new SqlCommand(chckQry, connection);
-                    exec.Parameters.AddWithValue("@Code", id);
-                    var openCount = (int)exec.ExecuteScalar();
-                    if (openCount > 0)
-                    {
-                        this.Close();
-                        MessageBox.Show("You haven't clocked out from previous work");
-                    }
-                    else
-                    {
-                        DateTime startTime = DateTime.Now;
-                        InsertHoursTable(startTime, id);
-                    }
-                    connection.Close();
+                    this.Close();
+                    MessageBox.Show("You haven't clocked out from previous work");
+                    return;
                 }
+
+                DateTime startTime = DateTime.Now;
+                InsertHoursTable(startTime, id);
             }
             catch (Exception e) { MessageBox.Show("Error Checking Employee Status: " + e.Message); }
         }
@@ -95,11 +69,16 @@ namespace EmployeeManagementSyst
             string userInput = textBox1.Text;
 
             Verify(userInput);
-            CheckStatus(userInput);
+            // Retrieve employee id from helper and then check status
+            var employeeId = EmployeeHelper.GetIdByClockPin(userInput);
+            if (employeeId == null)
+            {
+                this.Close();
+                MessageBox.Show("Employee ID not found for the provided code.");
+                return;
+            }
 
-
-
-
+            CheckStatus(employeeId);
 
         }
 
@@ -117,10 +96,10 @@ namespace EmployeeManagementSyst
                     string nameQry = "SELECT FullName FROM EmployeeDetails WHERE Id = @Code;";
                     SqlCommand fullnameExec = new SqlCommand(nameQry, conn);
                     fullnameExec.Parameters.AddWithValue("@Code", id);
-                    object scalarName = fullnameExec.ExecuteScalar();
-                    string employeeName = scalarName == null || scalarName == DBNull.Value ? null : scalarName.ToString();
+                    
+                    var employeeName = fullnameExec.ExecuteScalar()?.ToString();
 
-                    string insertQuery = """INSERT INTO TimeLogs(EmployeeId,EmployeeName,StartTime) VALUES(@id,@employeeName,@start)""";
+                    string insertQuery = "INSERT INTO TimeLogs(EmployeeId,EmployeeName,StartTime) VALUES(@id,@employeeName,@start)";
                     SqlCommand nameExec = new SqlCommand(insertQuery, conn);
 
                     nameExec.Parameters.AddWithValue("@id", id);

@@ -15,6 +15,7 @@ namespace EmployeeManagementSyst
 {
     public partial class ShiftEndVerification : Form
     {
+        private readonly Config _config = new Config();
         private double hoursDone;
         private string dateofWork;
         private decimal totalPay;
@@ -30,11 +31,6 @@ namespace EmployeeManagementSyst
         {
             get { return hoursDone; }
             set { hoursDone = value; }
-        }
-        public String WorkDate
-        {
-            get { return dateofWork; }
-            set { dateofWork = value; }
         }
         public String StringHours
         {
@@ -57,26 +53,11 @@ namespace EmployeeManagementSyst
         /// <param name="codeToCheck">The employee code to verify.</param>
         public void Verify(String codeToCheck)
         {
-            try
+            if (!EmployeeHelper.ExistsByClockPin(codeToCheck))
             {
-                using (SqlConnection serverConnect = ServerConnection.GetOpenConnection())
-                {
-
-                    String querytoCheck = "SELECT Id FROM EmployeeDetails WHERE Id = @id;";
-                    SqlCommand mySqlCommand = new SqlCommand(querytoCheck, serverConnect);
-                    mySqlCommand.Parameters.AddWithValue("@id", codeToCheck);
-                    object dataTocheck = mySqlCommand.ExecuteScalar();
-                    if (dataTocheck == null)
-                    {
-                        this.Close();
-                        MessageBox.Show("Code incorrect");
-
-                    }
-                    serverConnect.Close();
-                }
-
+                this.Close();
+                MessageBox.Show("Code incorrect");
             }
-            catch (Exception ex) { MessageBox.Show("Verification Error: " + ex.Message); }
         }
         /// <summary>
         /// Event handler for the OK button click event. Verifies the employee code and calculates hours worked.
@@ -86,36 +67,30 @@ namespace EmployeeManagementSyst
             string userInput = textBox1.Text;
             Code = userInput;
             Verify(userInput);
-            CompletedHours();
+            string employeeId = EmployeeHelper.GetIdByClockPin(userInput);
+            GetStatus(employeeId);
 
         }
         /// <summary>
         /// Checks if the employee has completed their shift and calculates the hours worked.
         /// </summary>
-        public void CompletedHours()
+        public void GetStatus(string employeeId)
         {
             try
             {
-                using (SqlConnection connection = ServerConnection.GetOpenConnection())
+                var startTime = EmployeeHelper.GetOpenShiftStartTime(employeeId);
+                if (startTime == null)
                 {
-
-                    string chckQry = "SELECT TOP 1 StartTime FROM TimeLogs WHERE EmployeeId = @Code AND EndTime IS NULL ORDER BY StartTime DESC";
-                    SqlCommand exec = new SqlCommand(chckQry, connection);
-                    exec.Parameters.AddWithValue("@Code", Code);
-                    var result = exec.ExecuteScalar();
-                    if (result == null)
-                    {
-                        MessageBox.Show("You Haven't Started Shift to End");
-                        this.Close();
-                        return;
-                    }
-
-                    var startTime = (DateTime)result;
-                    StopWatch(startTime.ToString("O"));
-                    connection.Close();
+                    MessageBox.Show("You haven't started a shift to end.");
+                    this.Close();
+                    return;
                 }
+
+                StopWatch(startTime.Value, employeeId);
             }
-            catch (Exception e) { MessageBox.Show("Error Getting Completed Hours: " + e.Message); }
+            catch (Exception e) {
+                MessageBox.Show("Error Getting Completed Hours: " + e.Message);
+            }
         }
         /// <summary>
         /// Processes the hours worked and records the pay for the employee.
@@ -126,10 +101,10 @@ namespace EmployeeManagementSyst
             try
             {
                 {
-                    DateWorked();
+                    UpdateShiftEnd();
                     CalculatePay();
 
-                    DeleteTime();
+                    
                     InsertEmployeePay();
                 }
             }
@@ -137,49 +112,70 @@ namespace EmployeeManagementSyst
         }
 
         /// <summary>
-        /// Processes the time worked using a stopwatch method to calculate the time difference from the start time.
+        /// Processes the time worked using the provided start <see cref="DateTime"/> to calculate the time difference.
         /// </summary>
-        /// <param name="hourstring">The string representing the start time of the shift.</param>
-        public void StopWatch(string hourstring)
+        /// <param name="startTime">The start time of the shift.</param>
+        public void StopWatch(DateTime startTime, string employeeId)
         {
-            if (DateTime.TryParse(hourstring, out DateTime dateTime))
-            {
-                TimeSpan timeDifference = DateTime.Now - dateTime;
-                double workedHours = timeDifference.TotalHours;
+            TimeSpan timeDifference = DateTime.Now - startTime;
+            double workedHours = timeDifference.TotalHours;
 
-                // Perform hours check immediately after calculation
-                if (workedHours > 16)
+            // Perform hours check immediately after calculation
+                if (workedHours > _config.LegalWorkHours)
                 {
-                    DeleteTime();
-                    MessageBox.Show("Hours Done More Than Legal Working Hours.");
+                MessageBox.Show("Hours Done More Than Legal Working Hours.");
+                UpdateShiftEnd();
+                string employeeName = EmployeeHelper.GetNameById(employeeId);
+
+                // notify all admins
+                var adminEmails = EmployeeHelper.GetAdminEmails();
+                    if (adminEmails != null && adminEmails.Length > 0)
+                    {
+                        var subject = "Overtime Alert: Employee " + employeeName;
+                        var body = $"Overtime Alert: Employee {employeeName} (ClockCode: {Code}) has worked {workedHours:F2} hours, exceeding the legal limit of {_config.LegalWorkHours} hours.";
+                        var emailer = new EmailConfiguration();
+                        foreach (var admin in adminEmails)
+                        {
+                            try
+                            {
+                                emailer.SendEmail(admin, subject, body);
+                            }
+                            catch
+                            {
+                                // swallow per-admin email errors so all admins are attempted
+                            }
+                        }
+                    }
                     this.Close();
                     return;  // Stops further code execution if over the limit
                 }
-                this.HoursDone = workedHours;
-                this.StringHours = workedHours.ToString("F2");
 
-                HoursCheck(workedHours);
+            this.HoursDone = workedHours;
+            this.StringHours = workedHours.ToString("F2");
 
-            }
-            else
-            {
-                MessageBox.Show("Invalid hours input");
-            }
-
+            HoursCheck(workedHours);
         }
 
         /// <summary>
-        /// Deletes the time record for the employee from the database after shift completion.
+        /// Updates the end time record for the employee in the database after shift completion.
         /// </summary>
-        public void DeleteTime()
+        public void UpdateShiftEnd()
         {
             try
             {
+                // Resolve employee id from clock pin before updating TimeLogs
+                var employeeId = EmployeeHelper.GetIdByClockPin(Code);
+                if (string.IsNullOrWhiteSpace(employeeId))
+                {
+                    MessageBox.Show("Unable to resolve employee id from provided code.");
+                    return;
+                }
+
                 using (SqlConnection connection = ServerConnection.GetOpenConnection())
                 {
-                    string chckQry = "UPDATE TimeLogs SET EndTime = @end WHERE EmployeeId = @Code AND EndTime IS NULL";
+                    string chckQry = "UPDATE TimeLogs SET EndTime = @end WHERE EmployeeId = @empId AND EndTime IS NULL";
                     SqlCommand exec = new SqlCommand(chckQry, connection);
-                    exec.Parameters.AddWithValue("@Code", Code);
+                    exec.Parameters.AddWithValue("@empId", employeeId);
                     exec.Parameters.AddWithValue("@end", DateTime.Now);
                     int rowsAffected = exec.ExecuteNonQuery();
                     connection.Close();
@@ -189,33 +185,30 @@ namespace EmployeeManagementSyst
         }
 
         /// <summary>
-        /// Records the current date when the shift is completed.
-        /// </summary>
-        public void DateWorked()
-        {
-            DateTime today = DateTime.Today;
-            String todayString = today.ToString("yyyy-MM-dd");
-            WorkDate = todayString;
-        }
-
-        /// <summary>
         /// Inserts the employee's pay record into the database after calculating the total pay.
         /// </summary>
         public void InsertEmployeePay()
         {
             try
             {
+                // Resolve employee id from provided clock pin
+                var employeeId = EmployeeHelper.GetIdByClockPin(Code);
+                if (string.IsNullOrWhiteSpace(employeeId))
+                {
+                    MessageBox.Show("Unable to resolve employee id from provided code.");
+                    return;
+                }
+
                 using (SqlConnection connection = ServerConnection.GetOpenConnection())
                 {
-
-                    string insertquery = """INSERT INTO EmployeePayInfo(DateOfWork,TotalPay,HoursDone,EmployeeId)   VALUES (@date_of_work,@totalpay,@hours_done,@id)""";
+                    string insertquery = "INSERT INTO EmployeePayInfo(DateOfWork,TotalPay,HoursDone,EmployeeId)   VALUES (@date_of_work,@totalpay,@hours_done,@id)";
 
                     SqlCommand execute = new SqlCommand(insertquery, connection);
 
-                    execute.Parameters.AddWithValue("@date_of_work", WorkDate);
+                    execute.Parameters.AddWithValue("@date_of_work", DateTime.Today);
                     execute.Parameters.AddWithValue("@totalpay", TotalPay);
                     execute.Parameters.AddWithValue("@hours_done", StringHours);
-                    execute.Parameters.AddWithValue("@id", Code);
+                    execute.Parameters.AddWithValue("@id", employeeId);
 
                     int rowsAffected = execute.ExecuteNonQuery();
 
@@ -246,9 +239,9 @@ namespace EmployeeManagementSyst
                 using (SqlConnection server = ServerConnection.GetOpenConnection())
                 {
 
-                    string payQuery = "SELECT HourlyRate FROM EmployeeDetails WHERE Id = @id;";
+                    string payQuery = "SELECT HourlyRate FROM EmployeeDetails WHERE ClockPin = @clockPin;";
                     SqlCommand payExec = new SqlCommand(payQuery, server);
-                    payExec.Parameters.AddWithValue("@id", Code);
+                    payExec.Parameters.AddWithValue("@clockPin", Code);
                     object result = payExec.ExecuteScalar();
                     if (result != null)
                     {

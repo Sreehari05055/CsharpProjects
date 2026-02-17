@@ -23,5 +23,10 @@ namespace EmployeeManagementSyst
         public string MasterConn => Builder["MasterConn"] ?? throw new Exception("MasterConn missing!");
         public string AppConn => Builder["AppConn"] ?? throw new Exception("AppConn missing!");
 
+        // Email configuration values
+        public string EmailSender => "akc.sreehari@gmail.com";
+        public string EmailPassword => "dboh xwez gdco ufwd";
+        // Maximum legal work hours for a single shift. Modify here as needed.
+        public int LegalWorkHours => 16;
     }
 }

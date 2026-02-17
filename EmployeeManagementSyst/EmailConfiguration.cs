@@ -6,13 +6,21 @@ using System.Net;
 using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
+using System.Windows.Forms;
 
 namespace EmployeeManagementSyst
 {
   public class EmailConfiguration
     {
+        private readonly Config config;
         private string attachment;
         private string code;
+
+        public EmailConfiguration()
+        {
+            config = new Config();
+        }
 
 
         public string AttachMent
@@ -105,7 +113,7 @@ namespace EmployeeManagementSyst
 
                 {
 
-                    mailMessage.From = new MailAddress("akc.sreehari@gmail.com");
+                    mailMessage.From = new MailAddress(config.EmailSender);
                     mailMessage.Subject = subject;
                     mailMessage.Body = body;
                     mailMessage.To.Add(emailAdd);
@@ -124,7 +132,7 @@ namespace EmployeeManagementSyst
                         smtpClient.UseDefaultCredentials = false;
                         smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
                         smtpClient.Timeout = 20000; // 20s timeout
-                        smtpClient.Credentials = new NetworkCredential("akc.sreehari@gmail.com", "dboh xwez gdco ufwd");
+                        smtpClient.Credentials = new NetworkCredential(config.EmailSender, config.EmailPassword);
                         smtpClient.EnableSsl = true;
                         smtpClient.Send(mailMessage);
                     }
