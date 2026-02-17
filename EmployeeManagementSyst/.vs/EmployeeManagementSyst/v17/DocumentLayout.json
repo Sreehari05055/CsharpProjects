@@ -7,16 +7,28 @@
       "RelativeMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|solutionrelative:shiftendverification.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|c:\\users\\sreeharia\\source\\repos\\sreehari05055\\csharpprojects\\employeemanagementsyst\\autoweeklyschedulesave.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|solutionrelative:autoweeklyschedulesave.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|c:\\users\\sreeharia\\source\\repos\\sreehari05055\\csharpprojects\\employeemanagementsyst\\employeehelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|solutionrelative:employeehelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|c:\\users\\sreeharia\\source\\repos\\sreehari05055\\csharpprojects\\employeemanagementsyst\\config.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|solutionrelative:config.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|c:\\users\\sreeharia\\source\\repos\\sreehari05055\\csharpprojects\\employeemanagementsyst\\schedulepayslip.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|solutionrelative:schedulepayslip.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|c:\\users\\sreeharia\\source\\repos\\sreehari05055\\csharpprojects\\employeemanagementsyst\\vieweditpayslip.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|solutionrelative:vieweditpayslip.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|c:\\users\\sreeharia\\source\\repos\\sreehari05055\\csharpprojects\\employeemanagementsyst\\tableinitialization.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|solutionrelative:tableinitialization.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|c:\\users\\sreeharia\\source\\repos\\sreehari05055\\csharpprojects\\employeemanagementsyst\\config.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|solutionrelative:config.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|c:\\users\\sreeharia\\source\\repos\\sreehari05055\\csharpprojects\\employeemanagementsyst\\shiftstartverification.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -83,10 +95,6 @@
       "RelativeMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|solutionrelative:setadminform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|c:\\users\\sreeharia\\source\\repos\\sreehari05055\\csharpprojects\\employeemanagementsyst\\schedulepayslip.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|solutionrelative:schedulepayslip.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|c:\\users\\sreeharia\\source\\repos\\sreehari05055\\csharpprojects\\employeemanagementsyst\\removeadminlist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|solutionrelative:removeadminlist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -97,10 +105,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|c:\\users\\sreeharia\\source\\repos\\sreehari05055\\csharpprojects\\employeemanagementsyst\\vieweditpayslip.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|solutionrelative:vieweditpayslip.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|c:\\users\\sreeharia\\source\\repos\\sreehari05055\\csharpprojects\\employeemanagementsyst\\autoweeklyschedulesave.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|solutionrelative:autoweeklyschedulesave.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{180D68ED-F3F1-4778-94A3-D61844D4751B}|EmployeeManagementSyst.csproj|c:\\users\\sreeharia\\source\\repos\\sreehari05055\\csharpprojects\\employeemanagementsyst\\employeescheduleform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -233,11 +237,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 329,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 7,
               "Title": "ShiftStartVerification.cs",
               "DocumentMoniker": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\ShiftStartVerification.cs",
               "RelativeDocumentMoniker": "ShiftStartVerification.cs",
@@ -250,18 +254,14 @@
               "EditorCaption": ""
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
-            },
-            {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "ShiftEndVerification.cs",
               "DocumentMoniker": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\ShiftEndVerification.cs",
               "RelativeDocumentMoniker": "ShiftEndVerification.cs",
-              "ToolTip": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\ShiftEndVerification.cs*",
-              "RelativeToolTip": "ShiftEndVerification.cs*",
-              "ViewState": "AgIAAD4AAAAAAAAAAAAswIYAAABgAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\ShiftEndVerification.cs",
+              "RelativeToolTip": "ShiftEndVerification.cs",
+              "ViewState": "AgIAAIEAAAAAAAAAAAAhwBQBAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-13T13:15:33.227Z",
               "EditorCaption": ""
@@ -269,32 +269,45 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "AutoWeeklyScheduleSave.cs",
+              "DocumentMoniker": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\AutoWeeklyScheduleSave.cs",
+              "RelativeDocumentMoniker": "AutoWeeklyScheduleSave.cs",
+              "ToolTip": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\AutoWeeklyScheduleSave.cs",
+              "RelativeToolTip": "AutoWeeklyScheduleSave.cs",
+              "ViewState": "AgIAAIkAAAAAAAAAAAAhwK4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-12T20:56:20.559Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "EmployeeHelper.cs",
               "DocumentMoniker": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\EmployeeHelper.cs",
               "RelativeDocumentMoniker": "EmployeeHelper.cs",
-              "ToolTip": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\EmployeeHelper.cs*",
-              "RelativeToolTip": "EmployeeHelper.cs*",
-              "ViewState": "AgIAADcAAAAAAAAAAAAAwEIAAABCAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\EmployeeHelper.cs",
+              "RelativeToolTip": "EmployeeHelper.cs",
+              "ViewState": "AgIAAJsAAAAAAAAAAAAAAJsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-02-13T18:06:49.718Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Config.cs",
-              "DocumentMoniker": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\Config.cs",
-              "RelativeDocumentMoniker": "Config.cs",
-              "ToolTip": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\Config.cs",
-              "RelativeToolTip": "Config.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAABOAAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "SchedulePaySlip.cs",
+              "DocumentMoniker": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\SchedulePaySlip.cs",
+              "RelativeDocumentMoniker": "SchedulePaySlip.cs",
+              "ToolTip": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\SchedulePaySlip.cs",
+              "RelativeToolTip": "SchedulePaySlip.cs",
+              "ViewState": "AgIAACgAAAAAAAAAAAAawHMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-12T11:37:00.602Z",
+              "WhenOpened": "2026-02-12T11:01:23.473Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "TableInitialization.cs",
               "DocumentMoniker": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\TableInitialization.cs",
               "RelativeDocumentMoniker": "TableInitialization.cs",
@@ -307,7 +320,36 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 4,
+              "Title": "ViewEditPaySlip.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\ViewEditPaySlip.cs",
+              "RelativeDocumentMoniker": "ViewEditPaySlip.cs",
+              "ToolTip": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\ViewEditPaySlip.cs [Design]",
+              "RelativeToolTip": "ViewEditPaySlip.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-17T11:53:17.043Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Config.cs",
+              "DocumentMoniker": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\Config.cs",
+              "RelativeDocumentMoniker": "Config.cs",
+              "ToolTip": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\Config.cs",
+              "RelativeToolTip": "Config.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAABOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-12T11:37:00.602Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
               "Title": "CheckWorkingEmployees.cs",
               "DocumentMoniker": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\CheckWorkingEmployees.cs",
               "RelativeDocumentMoniker": "CheckWorkingEmployees.cs",
@@ -320,7 +362,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 9,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
@@ -333,7 +375,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 11,
               "Title": "DeleteEmployeeForm.cs",
               "DocumentMoniker": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\DeleteEmployeeForm.cs",
               "RelativeDocumentMoniker": "DeleteEmployeeForm.cs",
@@ -346,7 +388,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 14,
               "Title": "EmailConfiguration.cs",
               "DocumentMoniker": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\EmailConfiguration.cs",
               "RelativeDocumentMoniker": "EmailConfiguration.cs",
@@ -359,7 +401,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 10,
               "Title": "CheckWorkingEmployees.cs [Design]",
               "DocumentMoniker": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\CheckWorkingEmployees.cs",
               "RelativeDocumentMoniker": "CheckWorkingEmployees.cs",
@@ -371,7 +413,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 13,
               "Title": "AdminVerification.cs",
               "DocumentMoniker": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\AdminVerification.cs",
               "RelativeDocumentMoniker": "AdminVerification.cs",
@@ -384,7 +426,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 12,
               "Title": "AdminVerification.cs [Design]",
               "DocumentMoniker": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\AdminVerification.cs",
               "RelativeDocumentMoniker": "AdminVerification.cs",
@@ -396,7 +438,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 15,
               "Title": "LandingPage.cs",
               "DocumentMoniker": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\LandingPage.cs",
               "RelativeDocumentMoniker": "LandingPage.cs",
@@ -409,7 +451,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 16,
               "Title": "EmployeeManager.cs",
               "DocumentMoniker": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\EmployeeManager.cs",
               "RelativeDocumentMoniker": "EmployeeManager.cs",
@@ -422,7 +464,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 17,
               "Title": "SetRootAdmin.cs",
               "DocumentMoniker": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\SetRootAdmin.cs",
               "RelativeDocumentMoniker": "SetRootAdmin.cs",
@@ -434,7 +476,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 18,
               "Title": "AddEmployeeForm.cs",
               "DocumentMoniker": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\AddEmployeeForm.cs",
               "RelativeDocumentMoniker": "AddEmployeeForm.cs",
@@ -446,7 +488,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 19,
               "Title": "LoadingForm.cs",
               "DocumentMoniker": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\LoadingForm.cs",
               "RelativeDocumentMoniker": "LoadingForm.cs",
@@ -458,7 +500,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 23,
               "Title": "RemoveAdminList.cs",
               "DocumentMoniker": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\RemoveAdminList.cs",
               "RelativeDocumentMoniker": "RemoveAdminList.cs",
@@ -470,7 +512,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 24,
               "Title": "EmployeeInformationForm.cs",
               "DocumentMoniker": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\EmployeeInformationForm.cs",
               "RelativeDocumentMoniker": "EmployeeInformationForm.cs",
@@ -483,20 +525,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "SchedulePaySlip.cs",
-              "DocumentMoniker": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\SchedulePaySlip.cs",
-              "RelativeDocumentMoniker": "SchedulePaySlip.cs",
-              "ToolTip": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\SchedulePaySlip.cs",
-              "RelativeToolTip": "SchedulePaySlip.cs",
-              "ViewState": "AgIAAHUAAAAAAAAAAIAwwIAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-12T11:01:23.473Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 55,
+              "DocumentIndex": 56,
               "Title": "EmployeeInfoUpdateForm.cs",
               "DocumentMoniker": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\EmployeeInfoUpdateForm.cs",
               "RelativeDocumentMoniker": "EmployeeInfoUpdateForm.cs",
@@ -508,7 +537,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 25,
               "Title": "ViewEditPaySlip.cs",
               "DocumentMoniker": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\ViewEditPaySlip.cs",
               "RelativeDocumentMoniker": "ViewEditPaySlip.cs",
@@ -516,23 +545,12 @@
               "RelativeToolTip": "ViewEditPaySlip.cs",
               "ViewState": "AgIAADsAAAAAAAAAAAAawAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-12T21:35:50.273Z"
+              "WhenOpened": "2026-02-12T21:35:50.273Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
-              "Title": "AutoWeeklyScheduleSave.cs",
-              "DocumentMoniker": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\AutoWeeklyScheduleSave.cs",
-              "RelativeDocumentMoniker": "AutoWeeklyScheduleSave.cs",
-              "ToolTip": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\AutoWeeklyScheduleSave.cs",
-              "RelativeToolTip": "AutoWeeklyScheduleSave.cs",
-              "ViewState": "AgIAAEQAAAAAAAAAAAAhwFYAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-12T20:56:20.559Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 26,
               "Title": "EmployeeScheduleForm.cs",
               "DocumentMoniker": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\EmployeeScheduleForm.cs",
               "RelativeDocumentMoniker": "EmployeeScheduleForm.cs",
@@ -544,7 +562,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 54,
+              "DocumentIndex": 55,
               "Title": "ViewScheduleForm.cs",
               "DocumentMoniker": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\ViewScheduleForm.cs",
               "RelativeDocumentMoniker": "ViewScheduleForm.cs",
@@ -556,7 +574,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 27,
               "Title": "ScheduleEmployeeList.cs",
               "DocumentMoniker": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\ScheduleEmployeeList.cs",
               "RelativeDocumentMoniker": "ScheduleEmployeeList.cs",
@@ -569,7 +587,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 28,
               "Title": "TerminateAdminForm.cs",
               "DocumentMoniker": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\TerminateAdminForm.cs",
               "RelativeDocumentMoniker": "TerminateAdminForm.cs",
@@ -581,7 +599,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 29,
               "Title": "SetAdminForm.cs",
               "DocumentMoniker": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\SetAdminForm.cs",
               "RelativeDocumentMoniker": "SetAdminForm.cs",
@@ -593,7 +611,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 30,
               "Title": "DeleteEmployeeList.cs",
               "DocumentMoniker": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\DeleteEmployeeList.cs",
               "RelativeDocumentMoniker": "DeleteEmployeeList.cs",
@@ -606,7 +624,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 32,
               "Title": "LoadingForm.Designer.cs",
               "DocumentMoniker": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\LoadingForm.Designer.cs",
               "RelativeDocumentMoniker": "LoadingForm.Designer.cs",
@@ -618,7 +636,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 31,
               "Title": "ServerConnection.cs",
               "DocumentMoniker": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\ServerConnection.cs",
               "RelativeDocumentMoniker": "ServerConnection.cs",
@@ -630,7 +648,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 33,
               "Title": "secrets.json",
               "DocumentMoniker": "C:\\Users\\SreehariA\\AppData\\Roaming\\Microsoft\\UserSecrets\\6a2db00d-7f74-4a4d-9f9a-2e6d6c9c2b9e\\secrets.json",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\AppData\\Roaming\\Microsoft\\UserSecrets\\6a2db00d-7f74-4a4d-9f9a-2e6d6c9c2b9e\\secrets.json",
@@ -642,7 +660,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 36,
               "Title": "ShiftEndVerification.Designer.cs",
               "DocumentMoniker": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\ShiftEndVerification.Designer.cs",
               "RelativeDocumentMoniker": "ShiftEndVerification.Designer.cs",
@@ -654,7 +672,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 44,
+              "DocumentIndex": 45,
               "Title": "AdminForm.cs",
               "DocumentMoniker": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\AdminForm.cs",
               "RelativeDocumentMoniker": "AdminForm.cs",
@@ -666,7 +684,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 45,
+              "DocumentIndex": 46,
               "Title": "ShiftEndNotificationForm.cs",
               "DocumentMoniker": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\ShiftEndNotificationForm.cs",
               "RelativeDocumentMoniker": "ShiftEndNotificationForm.cs",
@@ -679,7 +697,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 20,
               "Title": "LandingPage.cs [Design]",
               "DocumentMoniker": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\LandingPage.cs",
               "RelativeDocumentMoniker": "LandingPage.cs",
@@ -690,7 +708,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 21,
               "Title": "SetAdminList.cs [Design]",
               "DocumentMoniker": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\SetAdminList.cs",
               "RelativeDocumentMoniker": "SetAdminList.cs",
@@ -701,7 +719,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 22,
               "Title": "SetAdminForm.cs [Design]",
               "DocumentMoniker": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\SetAdminForm.cs",
               "RelativeDocumentMoniker": "SetAdminForm.cs",
@@ -712,7 +730,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 34,
               "Title": "SchedulePaySlip.cs [Design]",
               "DocumentMoniker": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\SchedulePaySlip.cs",
               "RelativeDocumentMoniker": "SchedulePaySlip.cs",
@@ -723,7 +741,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
+              "DocumentIndex": 35,
               "Title": "ShiftEndVerification.cs [Design]",
               "DocumentMoniker": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\ShiftEndVerification.cs",
               "RelativeDocumentMoniker": "ShiftEndVerification.cs",
@@ -734,7 +752,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 37,
+              "DocumentIndex": 38,
               "Title": "ClockingForm.cs [Design]",
               "DocumentMoniker": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\ClockingForm.cs",
               "RelativeDocumentMoniker": "ClockingForm.cs",
@@ -745,7 +763,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 36,
+              "DocumentIndex": 37,
               "Title": "EmployeeInformationForm.cs [Design]",
               "DocumentMoniker": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\EmployeeInformationForm.cs",
               "RelativeDocumentMoniker": "EmployeeInformationForm.cs",
@@ -756,7 +774,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 38,
+              "DocumentIndex": 39,
               "Title": "DeleteEmployeeList.cs [Design]",
               "DocumentMoniker": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\DeleteEmployeeList.cs",
               "RelativeDocumentMoniker": "DeleteEmployeeList.cs",
@@ -767,7 +785,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 39,
+              "DocumentIndex": 40,
               "Title": "DeleteEmployeeForm.cs [Design]",
               "DocumentMoniker": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\DeleteEmployeeForm.cs",
               "RelativeDocumentMoniker": "DeleteEmployeeForm.cs",
@@ -778,7 +796,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 40,
+              "DocumentIndex": 41,
               "Title": "ShiftStartNotificationForm.cs [Design]",
               "DocumentMoniker": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\ShiftStartNotificationForm.cs",
               "RelativeDocumentMoniker": "ShiftStartNotificationForm.cs",
@@ -789,7 +807,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 41,
+              "DocumentIndex": 42,
               "Title": "SendRotaEmail.cs [Design]",
               "DocumentMoniker": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\SendRotaEmail.cs",
               "RelativeDocumentMoniker": "SendRotaEmail.cs",
@@ -800,7 +818,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 42,
+              "DocumentIndex": 43,
               "Title": "ScheduleEmployeeList.cs [Design]",
               "DocumentMoniker": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\ScheduleEmployeeList.cs",
               "RelativeDocumentMoniker": "ScheduleEmployeeList.cs",
@@ -811,7 +829,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 43,
+              "DocumentIndex": 44,
               "Title": "ShiftEndNotificationForm.cs [Design]",
               "DocumentMoniker": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\ShiftEndNotificationForm.cs",
               "RelativeDocumentMoniker": "ShiftEndNotificationForm.cs",
@@ -822,7 +840,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 46,
+              "DocumentIndex": 47,
               "Title": "WeeklySaveConfirm.cs [Design]",
               "DocumentMoniker": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\WeeklySaveConfirm.cs",
               "RelativeDocumentMoniker": "WeeklySaveConfirm.cs",
@@ -833,7 +851,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 47,
+              "DocumentIndex": 48,
               "Title": "ViewRota.cs [Design]",
               "DocumentMoniker": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\ViewRota.cs",
               "RelativeDocumentMoniker": "ViewRota.cs",
@@ -844,7 +862,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 48,
+              "DocumentIndex": 49,
               "Title": "Verification.cs [Design]",
               "DocumentMoniker": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\Verification.cs",
               "RelativeDocumentMoniker": "Verification.cs",
@@ -855,7 +873,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 49,
+              "DocumentIndex": 50,
               "Title": "UpdateEmp.cs [Design]",
               "DocumentMoniker": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\UpdateEmp.cs",
               "RelativeDocumentMoniker": "UpdateEmp.cs",
@@ -866,7 +884,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 50,
+              "DocumentIndex": 51,
               "Title": "VerifyAdmin.cs [Design]",
               "DocumentMoniker": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\VerifyAdmin.cs",
               "RelativeDocumentMoniker": "VerifyAdmin.cs",
@@ -877,7 +895,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 51,
+              "DocumentIndex": 52,
               "Title": "SetAdmin.cs [Design]",
               "DocumentMoniker": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\SetAdmin.cs",
               "RelativeDocumentMoniker": "SetAdmin.cs",
@@ -888,7 +906,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 52,
+              "DocumentIndex": 53,
               "Title": "SetAdminGrid.cs [Design]",
               "DocumentMoniker": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\SetAdminGrid.cs",
               "RelativeDocumentMoniker": "SetAdminGrid.cs",
@@ -899,7 +917,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 53,
+              "DocumentIndex": 54,
               "Title": "RotaVerification.cs [Design]",
               "DocumentMoniker": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\RotaVerification.cs",
               "RelativeDocumentMoniker": "RotaVerification.cs",
