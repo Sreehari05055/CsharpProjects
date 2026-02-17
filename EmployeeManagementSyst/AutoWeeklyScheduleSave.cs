@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -66,7 +67,9 @@ namespace EmployeeManagementSyst
                 DateTime dateTime = DateTime.Now;
 
                 string format = dateTime.ToString("yyyy-MM-dd");
-                string path = $@"C:\Users\sreek\OneDrive\المستندات\WeeklyRota_{format}.txt"; ;
+                // Save to the current user's Downloads folder
+                string downloads = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), "Downloads");
+                string path = Path.Combine(downloads, $"WeeklyRota_{format}.txt");
                 StringBuilder sb = new StringBuilder();
                 using (SqlConnection con = ServerConnection.GetOpenConnection())
                 {
@@ -126,31 +129,29 @@ namespace EmployeeManagementSyst
                     {
                         if (reader.Read())
                         {
+                            // DayOfWeek is stored as varchar, LastExecutedDate is stored as DATE (may be null)
+                            var storedDayObj = reader["DayOfWeek"];
+                            var lastExecObj = reader["LastExecutedDate"];
 
-                            string storedDay = reader["dayof_week"].ToString();
-                            string lastExecDateString = reader["last_exec_date"].ToString();
-                            DateTime lastExecDate;
+                            string storedDay = storedDayObj == DBNull.Value ? string.Empty : storedDayObj.ToString();
+                            DateTime? lastExecDate = lastExecObj == DBNull.Value ? null : (DateTime?)Convert.ToDateTime(lastExecObj);
 
-
-                            Enum.TryParse(storedDay, true, out DayOfWeek targetDayOfWeek);
-
-
-                            DateTime.TryParse(lastExecDateString, out lastExecDate);
-
-
-                            bool shouldRunToday = DateTime.Today.DayOfWeek == targetDayOfWeek && lastExecDate.Date != DateTime.Today;
-
-                            if (shouldRunToday)
+                            if (Enum.TryParse(storedDay, true, out DayOfWeek targetDayOfWeek))
                             {
-                                reader.Close();
+                                bool notRunToday = !lastExecDate.HasValue || lastExecDate.Value.Date != DateTime.Today;
+                                bool shouldRunToday = DateTime.Today.DayOfWeek == targetDayOfWeek && notRunToday;
 
-                                SaveWeeklyData();
+                                if (shouldRunToday)
+                                {
+                                    reader.Close();
 
+                                    SaveWeeklyData();
 
-                                string updateQuery = "UPDATE LastExecution SET LastExecutedDate = @date WHERE KeyName = 'WeeklySave';";
-                                SqlCommand updateCmd = new SqlCommand(updateQuery, conn);
-                                updateCmd.Parameters.AddWithValue("@date", DateTime.Today);
-                                updateCmd.ExecuteNonQuery();
+                                    string updateQuery = "UPDATE LastExecution SET LastExecutedDate = @date WHERE KeyName = 'WeeklySave';";
+                                    SqlCommand updateCmd = new SqlCommand(updateQuery, conn);
+                                    updateCmd.Parameters.AddWithValue("@date", DateTime.Today);
+                                    updateCmd.ExecuteNonQuery();
+                                }
                             }
                         }
                         reader.Close();
