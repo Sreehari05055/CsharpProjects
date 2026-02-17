@@ -102,9 +102,9 @@ namespace EmployeeManagementSyst
             {
                 {
                     UpdateShiftEnd();
-                    CalculatePay();
+ 
+                    this.TotalPay = CalculatePay(hours);
 
-                    
                     InsertEmployeePay();
                 }
             }
@@ -121,34 +121,41 @@ namespace EmployeeManagementSyst
             double workedHours = timeDifference.TotalHours;
 
             // Perform hours check immediately after calculation
-                if (workedHours > _config.LegalWorkHours)
-                {
-                MessageBox.Show("Hours Done More Than Legal Working Hours.");
+            if (workedHours > _config.LegalWorkHours)
+            {
+                // Close the shift in the DB
                 UpdateShiftEnd();
-                string employeeName = EmployeeHelper.GetNameById(employeeId);
 
-                // notify all admins
+                // Notify admins about overtime
+                string employeeName = EmployeeHelper.GetNameById(employeeId);
                 var adminEmails = EmployeeHelper.GetAdminEmails();
-                    if (adminEmails != null && adminEmails.Length > 0)
+                if (adminEmails != null && adminEmails.Length > 0)
+                {
+                    var subject = "Overtime Alert: Employee " + employeeName;
+                    var body = $"Overtime Alert: Employee {employeeName} (ClockCode: {Code}) has worked {workedHours:F2} hours, exceeding the legal limit of {_config.LegalWorkHours} hours.";
+                    var emailer = new EmailConfiguration();
+                    foreach (var admin in adminEmails)
                     {
-                        var subject = "Overtime Alert: Employee " + employeeName;
-                        var body = $"Overtime Alert: Employee {employeeName} (ClockCode: {Code}) has worked {workedHours:F2} hours, exceeding the legal limit of {_config.LegalWorkHours} hours.";
-                        var emailer = new EmailConfiguration();
-                        foreach (var admin in adminEmails)
+                        try
                         {
-                            try
-                            {
-                                emailer.SendEmail(admin, subject, body);
-                            }
-                            catch
-                            {
-                                // swallow per-admin email errors so all admins are attempted
-                            }
+                            emailer.SendEmail(admin, subject, body);
+                        }
+                        catch (Exception ex)
+                        {
+                            // Show error to the user for visibility
+                            MessageBox.Show("Error sending admin notification to: " + admin + "\n" + ex.Message, "Email Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
-                    this.Close();
-                    return;  // Stops further code execution if over the limit
                 }
+
+                // Treat hours done as the legal maximum for pay calculation and recording
+                this.HoursDone = _config.LegalWorkHours;
+                this.StringHours = _config.LegalWorkHours.ToString("F2");
+
+                // Continue with normal post-shift processing using capped hours
+                HoursCheck(_config.LegalWorkHours);
+                return;
+            }
 
             this.HoursDone = workedHours;
             this.StringHours = workedHours.ToString("F2");
@@ -230,34 +237,42 @@ namespace EmployeeManagementSyst
         }
 
         /// <summary>
-        /// Calculates the total pay for the employee based on the hourly rate and hours worked.
+        /// Calculates the total pay for the employee based on the hourly rate and hours worked and returns it.
         /// </summary>
-        public void CalculatePay()
+        public decimal CalculatePay(double hours)
         {
             try
             {
                 using (SqlConnection server = ServerConnection.GetOpenConnection())
                 {
-
                     string payQuery = "SELECT HourlyRate FROM EmployeeDetails WHERE ClockPin = @clockPin;";
                     SqlCommand payExec = new SqlCommand(payQuery, server);
                     payExec.Parameters.AddWithValue("@clockPin", Code);
                     object result = payExec.ExecuteScalar();
                     if (result != null)
                     {
-                        double hourlyRate = Convert.ToDouble(result);
+                        if (!double.TryParse(result.ToString(), out double hourlyRate))
+                        {
+                            MessageBox.Show("Invalid hourly rate format for employee.");
+                            return 0m;
+                        }
 
-                        double cmpltePay = HoursDone * hourlyRate;
-
+                        double cmpltePay = hours * hourlyRate;
                         decimal completePay = (decimal)cmpltePay;
-                        this.TotalPay = Math.Round(completePay, 2);
-
+                        return Math.Round(completePay, 2);
                     }
-                    else { MessageBox.Show("Hourly rate not found for employee id"); }
-                    server.Close();
+                    else
+                    {
+                        MessageBox.Show("Hourly rate not found for employee id");
+                        return 0m;
+                    }
                 }
             }
-            catch (Exception ex) { MessageBox.Show("Error Calculating Pay: " + ex.Message); }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error Calculating Pay: " + ex.Message);
+                return 0m;
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
