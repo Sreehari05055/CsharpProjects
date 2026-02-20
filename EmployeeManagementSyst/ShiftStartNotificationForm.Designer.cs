@@ -35,19 +35,22 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(54, 87);
+            label1.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            label1.Location = new Point(119, 131);
             label1.Name = "label1";
-            label1.Size = new Size(127, 15);
+            label1.Size = new Size(226, 28);
             label1.TabIndex = 0;
             label1.Text = "You have Clocked in at";
             // 
-            // StartShift
+            // ShiftStartNotificationForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(288, 189);
+            BackColor = Color.Teal;
+            ClientSize = new Size(507, 298);
             Controls.Add(label1);
-            Name = "StartShift";
+            Margin = new Padding(3, 4, 3, 4);
+            Name = "ShiftStartNotificationForm";
             Text = "StartShift";
             ResumeLayout(false);
             PerformLayout();

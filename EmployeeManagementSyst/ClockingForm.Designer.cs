@@ -35,11 +35,12 @@
             // 
             // button1
             // 
-            button1.BackColor = SystemColors.ControlLightLight;
-            button1.Location = new Point(192, 247);
-            button1.Margin = new Padding(4, 5, 4, 5);
+            button1.BackColor = Color.LightGray;
+            button1.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            button1.Location = new Point(334, 253);
+            button1.Margin = new Padding(3, 4, 3, 4);
             button1.Name = "button1";
-            button1.Size = new Size(784, 117);
+            button1.Size = new Size(232, 65);
             button1.TabIndex = 0;
             button1.Text = "Start";
             button1.UseVisualStyleBackColor = false;
@@ -47,27 +48,30 @@
             // 
             // button2
             // 
-            button2.BackColor = SystemColors.Control;
+            button2.BackColor = Color.LightGray;
             button2.Cursor = Cursors.SizeWE;
-            button2.Location = new Point(192, 395);
-            button2.Margin = new Padding(4, 5, 4, 5);
+            button2.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            button2.Location = new Point(334, 326);
+            button2.Margin = new Padding(3, 4, 3, 4);
             button2.Name = "button2";
-            button2.Size = new Size(784, 122);
+            button2.Size = new Size(232, 65);
             button2.TabIndex = 1;
             button2.Text = "End";
             button2.UseVisualStyleBackColor = false;
             button2.Click += End_Click;
             // 
-            // ClockingPage
+            // ClockingForm
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.ActiveCaptionText;
-            ClientSize = new Size(1143, 750);
+            BackColor = Color.Teal;
+            ClientSize = new Size(1032, 642);
             Controls.Add(button2);
             Controls.Add(button1);
-            Margin = new Padding(4, 5, 4, 5);
-            Name = "ClockingPage";
+            ForeColor = SystemColors.ActiveCaptionText;
+            Location = new Point(511, 286);
+            Margin = new Padding(3, 4, 3, 4);
+            Name = "ClockingForm";
             Text = "Clock";
             Load += Form2_Load;
             ResumeLayout(false);

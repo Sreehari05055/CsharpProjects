@@ -34,22 +34,25 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(76, 145);
+            label1.Location = new Point(119, 131);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(203, 25);
+            label1.Size = new Size(240, 28);
             label1.TabIndex = 0;
             label1.Text = "You have Clocked out at";
             // 
-            // EndShift
+            // ShiftEndNotificationForm
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(12F, 28F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(411, 315);
+            BackColor = Color.Teal;
+            ClientSize = new Size(507, 298);
             Controls.Add(label1);
-            Margin = new Padding(4, 5, 4, 5);
-            Name = "EndShift";
+            Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            Margin = new Padding(4, 6, 4, 6);
+            Name = "ShiftEndNotificationForm";
             Text = "EndShift";
+            Load += ShiftEndNotificationForm_Load;
             ResumeLayout(false);
             PerformLayout();
         }

@@ -36,54 +36,59 @@
             // 
             // button1
             // 
-            button1.Location = new Point(101, 145);
-            button1.Margin = new Padding(4, 5, 4, 5);
+            button1.BackColor = Color.LightGray;
+            button1.Location = new Point(124, 178);
+            button1.Margin = new Padding(4, 6, 4, 6);
             button1.Name = "button1";
-            button1.Size = new Size(107, 58);
+            button1.Size = new Size(129, 64);
             button1.TabIndex = 0;
             button1.Text = "Ok";
-            button1.UseVisualStyleBackColor = true;
+            button1.UseVisualStyleBackColor = false;
             button1.Click += Ok_Click;
             // 
             // button2
             // 
-            button2.Location = new Point(269, 145);
-            button2.Margin = new Padding(4, 5, 4, 5);
+            button2.BackColor = Color.LightGray;
+            button2.Location = new Point(272, 178);
+            button2.Margin = new Padding(4, 6, 4, 6);
             button2.Name = "button2";
-            button2.Size = new Size(107, 53);
+            button2.Size = new Size(129, 64);
             button2.TabIndex = 4;
             button2.Text = "Cancel";
+            button2.UseVisualStyleBackColor = false;
             button2.Click += button2_Click;
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(246, 67);
-            textBox1.Margin = new Padding(4, 5, 4, 5);
+            textBox1.Location = new Point(272, 91);
+            textBox1.Margin = new Padding(4, 6, 4, 6);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(141, 31);
+            textBox1.Size = new Size(169, 34);
             textBox1.TabIndex = 2;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(57, 72);
+            label1.Location = new Point(46, 91);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(186, 25);
+            label1.Size = new Size(218, 28);
             label1.TabIndex = 3;
             label1.Text = "Enter Employee Code:";
             // 
-            // Verification
+            // ShiftStartVerification
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(12F, 28F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(456, 243);
+            BackColor = Color.Teal;
+            ClientSize = new Size(507, 298);
             Controls.Add(label1);
             Controls.Add(textBox1);
             Controls.Add(button2);
             Controls.Add(button1);
-            Margin = new Padding(4, 5, 4, 5);
-            Name = "Verification";
+            Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            Margin = new Padding(4, 6, 4, 6);
+            Name = "ShiftStartVerification";
             Text = "Verification";
             Load += Verification_Load;
             ResumeLayout(false);

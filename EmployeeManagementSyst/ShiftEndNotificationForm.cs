@@ -21,5 +21,10 @@ namespace EmployeeManagementSyst
             string end = endTime.ToString("HH:mm");
             label1.Text = $"You have Clocked out at {end}";
         }
+
+        private void ShiftEndNotificationForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
