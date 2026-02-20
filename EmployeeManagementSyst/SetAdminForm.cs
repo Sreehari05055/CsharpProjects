@@ -14,16 +14,16 @@ namespace EmployeeManagementSyst
 {
     public partial class SetAdminForm : Form
     {
-        private string AdmnCode;
+        private string AdmnId;
 
 
         /// <summary>
-        /// Initializes the form with the provided administrator code and sets visual properties like form border style and background color.
+        /// Initializes the form with the provided employee ID and sets visual properties like form border style and background color.
         /// </summary>
-        /// <param name="Code">The administrator code used to identify the employee.</param>
-        public SetAdminForm(String Code)
+        /// <param name="empid">The employee ID used to identify the employee.</param>
+        public SetAdminForm(String empid)
         {
-            this.AdmnCode = Code;
+            this.AdmnId = empid;
             InitializeComponent();
 
         }
@@ -35,79 +35,58 @@ namespace EmployeeManagementSyst
         private void Ok_Click(object sender, EventArgs e)
         {
 
-            GetAdmininfo(AdmnCode);
+            SetAdmin(AdmnId);
             this.Close();
 
         }
 
-        /// <summary>
-        /// Retrieves the administrator's information based on the provided employee ID.
-        /// If the information exists, it inserts it into the admin table and notifies the user.
-        /// </summary>
-        /// <param name="id">The ID of the employee to be made an administrator.</param>
-        public void GetAdmininfo(string id)
+        public void SetAdmin(string empid) 
         {
             try
             {
-                using (SqlConnection conn = ServerConnection.GetOpenConnection())
+                using (SqlConnection serverConnect = ServerConnection.GetOpenConnection())
                 {
-
-                    string admindetailQuery = "SELECT FullName,Email FROM EmployeeDetails WHERE Id = @id";
-                    SqlCommand detailQuery = new SqlCommand(admindetailQuery, conn);
-
-                    detailQuery.Parameters.Clear();
-                    detailQuery.Parameters.AddWithValue("@id", id);
-
-                    SqlDataReader reader = detailQuery.ExecuteReader();
-                    if (reader.HasRows)
+                    // Check current role first
+                    string checkQuery = "SELECT UserRole FROM EmployeeDetails WHERE Id = @Id";
+                    using (SqlCommand checkCmd = new SqlCommand(checkQuery, serverConnect))
                     {
-                        if (reader.Read())
+                        checkCmd.Parameters.AddWithValue("@Id", empid);
+                        object roleObj = checkCmd.ExecuteScalar();
+                        if (roleObj == null || roleObj == DBNull.Value)
                         {
-                            // Add a method that checks if the person exists
-                            string adminName = reader.GetString(reader.GetOrdinal("FullName"));
-                            string adminEmail = reader.GetString(reader.GetOrdinal("Email"));
-                            InsertAdminInfo(id, adminName, adminEmail);
-                            MessageBox.Show("Employee was made admin");
+                            MessageBox.Show("No employee found with the provided ID.");
+                            return;
+                        }
+
+                        string currentRole = roleObj.ToString();
+                        if (string.Equals(currentRole, "admin", StringComparison.OrdinalIgnoreCase))
+                        {
+                            MessageBox.Show("Employee is already an admin.");
+                            return;
                         }
                     }
-                    else
+
+                    // Update role to admin
+                    string qry = "UPDATE EmployeeDetails SET UserRole = 'admin' WHERE EmployeeId = @Id;";
+                    using (SqlCommand mySqlCommand = new SqlCommand(qry, serverConnect))
                     {
-                        this.Close();
-                        MessageBox.Show("No data found");
-
+                        mySqlCommand.Parameters.AddWithValue("@Id", AdmnId);
+                        int affected = mySqlCommand.ExecuteNonQuery();
+                        if (affected > 0)
+                        {
+                            MessageBox.Show("Employee was made admin.");
+                        }
+                        else
+                        {
+                            MessageBox.Show("No matching employee found to update.");
+                        }
                     }
-                    conn.Close();
                 }
-
             }
-            catch (Exception e) { MessageBox.Show("Error Getting Admin Information: " + e.Message); }
-        }
-
-        /// <summary>
-        /// Inserts the administrator's information into the admin table in the database.
-        /// </summary>
-        /// <param name="id">The employee's ID who is being made an administrator.</param>
-        /// <param name="name">The full name of the employee.</param>
-        /// <param name="email">The email address of the employee.</param>
-        public void InsertAdminInfo(string id, string name, string email)
-        {
-            try
+            catch (Exception ex)
             {
-                using (SqlConnection connection = ServerConnection.GetOpenConnection())
-                {
-
-                    string insertAdmin = """INSERT INTO AdminInformation(EmployeeId,AdminName,AdminContact)  VALUES(@id,@adminName,@adminEmail)""";
-                    SqlCommand adminExec = new SqlCommand(insertAdmin, connection);
-
-                    adminExec.Parameters.AddWithValue("@id", id);
-                    adminExec.Parameters.AddWithValue("@adminName", name);
-                    adminExec.Parameters.AddWithValue("@adminEmail", email);
-
-                    int affectedRow = adminExec.ExecuteNonQuery();
-                    connection.Close();
-                }
+                MessageBox.Show("Set Admin Error: " + ex.Message);
             }
-            catch (Exception e) { MessageBox.Show("Error Inserting Values (Admin Table): " + e.Message); }
 
         }
 

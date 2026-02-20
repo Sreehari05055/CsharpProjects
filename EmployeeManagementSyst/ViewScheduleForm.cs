@@ -52,7 +52,7 @@ namespace EmployeeManagementSyst
                     {
                         while (reader.Read())
                         {
-                            obj.Add(reader.GetString(reader.GetOrdinal("id")));
+                            obj.Add(reader.GetString(reader.GetOrdinal("EmployeeId")));
                         } 
                         reader.Close();
                     }
@@ -61,7 +61,7 @@ namespace EmployeeManagementSyst
                     string nameQuery = "SELECT FullName FROM EmployeeDetails WHERE Id = @id;";
                     SqlCommand nameCmd = new SqlCommand(nameQuery, connection);
 
-                    string rotaQuery = "SELECT StartWork, FinishWork, DayOfWeek FROM ScheduleInformation WHERE EmployeeId = @id2 ORDER BY StartWork;";
+                    string rotaQuery = "SELECT StartWork, FinishWork, DayOfWeek FROM ScheduleInformation WHERE EmployeeId = @id ORDER BY StartWork;";
                     SqlCommand rotaCmdDetails = new SqlCommand(rotaQuery, connection);
 
                     Dictionary<string, Dictionary<string, string>> employeeRota = new Dictionary<string, Dictionary<string, string>>();
@@ -93,7 +93,7 @@ namespace EmployeeManagementSyst
 
                         // Get the rota details
                         rotaCmdDetails.Parameters.Clear();
-                        rotaCmdDetails.Parameters.AddWithValue("@id2", id);
+                        rotaCmdDetails.Parameters.AddWithValue("@id", id);
                         using (SqlDataReader rotaReader = rotaCmdDetails.ExecuteReader())
                         {
                             while (rotaReader.Read())
