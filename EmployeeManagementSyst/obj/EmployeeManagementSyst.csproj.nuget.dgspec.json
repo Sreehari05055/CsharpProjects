@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Ismaaeel Hussain\\source\\repos\\CsharpProjects\\EmployeeManagementSyst\\EmployeeManagementSyst.csproj": {}
+    "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\EmployeeManagementSyst.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Ismaaeel Hussain\\source\\repos\\CsharpProjects\\EmployeeManagementSyst\\EmployeeManagementSyst.csproj": {
+    "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\EmployeeManagementSyst.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Ismaaeel Hussain\\source\\repos\\CsharpProjects\\EmployeeManagementSyst\\EmployeeManagementSyst.csproj",
+        "projectUniqueName": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\EmployeeManagementSyst.csproj",
         "projectName": "EmployeeManagementSyst",
-        "projectPath": "C:\\Users\\Ismaaeel Hussain\\source\\repos\\CsharpProjects\\EmployeeManagementSyst\\EmployeeManagementSyst.csproj",
-        "packagesPath": "C:\\Users\\Ismaaeel Hussain\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Ismaaeel Hussain\\source\\repos\\CsharpProjects\\EmployeeManagementSyst\\obj\\",
+        "projectPath": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\EmployeeManagementSyst.csproj",
+        "packagesPath": "C:\\Users\\SreehariA\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\SreehariA\\source\\repos\\Sreehari05055\\CsharpProjects\\EmployeeManagementSyst\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Ismaaeel Hussain\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\SreehariA\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,7 +26,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -45,7 +44,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "10.0.100"
+        "SdkAnalysisLevel": "9.0.300"
       },
       "frameworks": {
         "net8.0-windows7.0": {
@@ -87,7 +86,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.103/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.307/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
