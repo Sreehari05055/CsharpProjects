@@ -54,7 +54,8 @@ namespace EmployeeManagementSyst
             {
                 using (SqlConnection conn = ServerConnection.GetOpenConnection())
                 {
-                    string query = "UPDATE lastExecuted SET dayof_week = @day WHERE row_id = '2';";
+                    // Update the LastExecution row for Payslip to store the selected day
+                    string query = "UPDATE LastExecution SET DayOfWeek = @day WHERE KeyName = 'Payslip';";
                     SqlCommand cmd = new SqlCommand(query, conn);
                     cmd.Parameters.AddWithValue("@day", day);
                     cmd.ExecuteNonQuery();
@@ -106,32 +107,30 @@ namespace EmployeeManagementSyst
                     {
                         if (reader.Read())
                         {
+                            // DayOfWeek is stored as varchar, LastExecutedDate is stored as DATE (may be null)
+                            var storedDayObj = reader["DayOfWeek"];
+                            var lastExecObj = reader["LastExecutedDate"];
 
-                            string storedDay = reader["DayOfWeek"].ToString();
-                            string lastExecDateString = reader["LastExecutedDate"].ToString();
-                            DateTime lastExecDate;
+                            string storedDay = storedDayObj == DBNull.Value ? string.Empty : storedDayObj.ToString();
+                            DateTime? lastExecDate = lastExecObj == DBNull.Value ? null : (DateTime?)Convert.ToDateTime(lastExecObj);
 
-
-                            Enum.TryParse(storedDay, true, out DayOfWeek targetDayOfWeek);
-
-
-                            DateTime.TryParse(lastExecDateString, out lastExecDate);
-
-
-                            bool shouldRunToday = DateTime.Today.DayOfWeek == targetDayOfWeek && lastExecDate.Date != DateTime.Today;
-
-                            if (shouldRunToday)
+                            if (Enum.TryParse(storedDay, true, out DayOfWeek targetDayOfWeek))
                             {
-                                reader.Close();
+                                bool notRunToday = !lastExecDate.HasValue || lastExecDate.Value.Date != DateTime.Today;
+                                bool shouldRunToday = DateTime.Today.DayOfWeek == targetDayOfWeek && notRunToday;
 
-                                PaySlip paySlip = new PaySlip();
-                                paySlip.SendPaySlip();
+                                if (shouldRunToday)
+                                {
+                                    reader.Close();
 
+                                    EmailConfiguration emailConfig = new EmailConfiguration();
+                                    emailConfig.SendPaySlip();
 
-                                string updateQuery = "UPDATE LastExecution SET LastExecutedDate = @date WHERE KeyName = 'Payslip';";
-                                SqlCommand updateCmd = new SqlCommand(updateQuery, conn);
-                                updateCmd.Parameters.AddWithValue("@date", DateTime.Today);
-                                updateCmd.ExecuteNonQuery();
+                                    string updateQuery = "UPDATE LastExecution SET LastExecutedDate = @date WHERE KeyName = 'Payslip';";
+                                    SqlCommand updateCmd = new SqlCommand(updateQuery, conn);
+                                    updateCmd.Parameters.AddWithValue("@date", DateTime.Today);
+                                    updateCmd.ExecuteNonQuery();
+                                }
                             }
                         }
                     }

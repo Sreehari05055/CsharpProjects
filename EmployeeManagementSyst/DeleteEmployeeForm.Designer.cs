@@ -35,41 +35,45 @@
             // 
             // button1
             // 
-            button1.Location = new Point(90, 108);
+            button1.BackColor = Color.LightGray;
+            button1.Location = new Point(176, 235);
             button1.Name = "button1";
-            button1.Size = new Size(75, 31);
+            button1.Size = new Size(118, 59);
             button1.TabIndex = 0;
             button1.Text = "Yes";
-            button1.UseVisualStyleBackColor = true;
+            button1.UseVisualStyleBackColor = false;
             button1.Click += Yes_Click;
             // 
             // button2
             // 
-            button2.Location = new Point(182, 108);
+            button2.BackColor = Color.LightGray;
+            button2.Location = new Point(373, 235);
             button2.Name = "button2";
-            button2.Size = new Size(75, 31);
+            button2.Size = new Size(107, 59);
             button2.TabIndex = 1;
             button2.Text = "No";
-            button2.UseVisualStyleBackColor = true;
+            button2.UseVisualStyleBackColor = false;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(90, 60);
+            label1.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(176, 95);
             label1.Name = "label1";
-            label1.Size = new Size(178, 15);
+            label1.Size = new Size(304, 25);
             label1.TabIndex = 2;
             label1.Text = "Are You Sure You Want to Delete";
             // 
-            // DeleteEmp
+            // DeleteEmployeeForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(378, 189);
+            BackColor = Color.Teal;
+            ClientSize = new Size(703, 350);
             Controls.Add(label1);
             Controls.Add(button2);
             Controls.Add(button1);
-            Name = "DeleteEmp";
+            Name = "DeleteEmployeeForm";
             Text = "DeleteEmp";
             ResumeLayout(false);
             PerformLayout();

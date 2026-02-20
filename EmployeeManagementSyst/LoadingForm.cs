@@ -60,8 +60,17 @@ namespace EmployeeManagementSyst
             }
             
             this.Hide();
-       
-            new LandingPage().Show();
+            if (_isNewDatabase)
+            {
+                new SetRootAdmin().Show();
+
+
+            }
+            else
+            {
+                new LandingPage().Show();
+            }
+            
             
 
             // ensure modal dialog ends so Program.Main can continue

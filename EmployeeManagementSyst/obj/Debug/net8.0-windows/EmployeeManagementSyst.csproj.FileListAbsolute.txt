@@ -154,7 +154,6 @@ C:\Users\SreehariA\source\repos\Sreehari05055\CsharpProjects\EmployeeManagementS
 C:\Users\SreehariA\source\repos\Sreehari05055\CsharpProjects\EmployeeManagementSyst\bin\Debug\net8.0-windows\runtimes\win\lib\net8.0\System.Runtime.Caching.dll
 C:\Users\SreehariA\source\repos\Sreehari05055\CsharpProjects\EmployeeManagementSyst\obj\Debug\net8.0-windows\EmployeeManagementSyst.csproj.AssemblyReference.cache
 C:\Users\SreehariA\source\repos\Sreehari05055\CsharpProjects\EmployeeManagementSyst\obj\Debug\net8.0-windows\EmployeeManagementSyst.AllEmployees.resources
-C:\Users\SreehariA\source\repos\Sreehari05055\CsharpProjects\EmployeeManagementSyst\obj\Debug\net8.0-windows\EmployeeManagementSyst.PaySlip.resources
 C:\Users\SreehariA\source\repos\Sreehari05055\CsharpProjects\EmployeeManagementSyst\obj\Debug\net8.0-windows\EmployeeManagementSyst.SchedulePaySlip.resources
 C:\Users\SreehariA\source\repos\Sreehari05055\CsharpProjects\EmployeeManagementSyst\obj\Debug\net8.0-windows\EmployeeManagementSyst.SendRotaEmail.resources
 C:\Users\SreehariA\source\repos\Sreehari05055\CsharpProjects\EmployeeManagementSyst\obj\Debug\net8.0-windows\EmployeeManagementSyst.ViewEditPaySlip.resources
@@ -194,3 +193,4 @@ C:\Users\SreehariA\source\repos\Sreehari05055\CsharpProjects\EmployeeManagementS
 C:\Users\SreehariA\source\repos\Sreehari05055\CsharpProjects\EmployeeManagementSyst\obj\Debug\net8.0-windows\EmployeeManagementSyst.ShiftStartVerification.resources
 C:\Users\SreehariA\source\repos\Sreehari05055\CsharpProjects\EmployeeManagementSyst\obj\Debug\net8.0-windows\EmployeeManagementSyst.ViewScheduleForm.resources
 C:\Users\SreehariA\source\repos\Sreehari05055\CsharpProjects\EmployeeManagementSyst\obj\Debug\net8.0-windows\EmployeeManagementSyst.LoadingForm.resources
+C:\Users\SreehariA\source\repos\Sreehari05055\CsharpProjects\EmployeeManagementSyst\obj\Debug\net8.0-windows\EmployeeManagementSyst.SetRootAdmin.resources

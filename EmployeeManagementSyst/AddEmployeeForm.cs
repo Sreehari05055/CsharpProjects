@@ -65,7 +65,6 @@ namespace EmployeeManagementSyst
         /// </summary>
         private void AddEmployee_Click(object sender, EventArgs e)
         {
-            EmployeeCode(); // Generates a unique employee code
             FullName = textBox1.Text.Trim().ToLower(); // Gets and formats the full name from input
             string ageInp = textBox2.Text; // Gets the age input
             string phoneInp = textBox8.Text; // Gets the phone number input
@@ -78,84 +77,30 @@ namespace EmployeeManagementSyst
             GetSurname(); 
 
        
-            InsertEmployeeDetails(FullName,ageInp,phoneInp,emailInp,rateInp,SurName);
-           
-            InsertCardDetails(cardNumInp, cardExpInp, cvvInp, cardNameInp);
+            var manager = new EmployeeManager();
+            var (newId, newPin) = manager.CreateEmployee(
+                fullName: FullName,
+                age: ageInp,
+                phoneNumber: phoneInp,
+                email: emailInp,
+                hourlyRate: rateInp,
+                surname: SurName,
+                userRole: "employee",
+                hireDate: DateTime.Today,
+                cardNumber: string.IsNullOrWhiteSpace(cardNumInp) ? null : cardNumInp,
+                expiryDate: string.IsNullOrWhiteSpace(cardExpInp) ? null : cardExpInp,
+                cvv: string.IsNullOrWhiteSpace(cvvInp) ? null : cvvInp,
+                holderName: string.IsNullOrWhiteSpace(cardNameInp) ? null : cardNameInp
+            );
+
+            if (!string.IsNullOrEmpty(newId))
+            {
+                if (!string.IsNullOrEmpty(newPin))
+                {
+                    new EmailConfiguration().SendEmail(emailInp, "Welcome to the Team", $"We are excited to have you on board, {FullName}!\n Your Clock PIN is: {newPin}");
+                }
+            }
             this.Close(); 
-        }
-
-        /// <summary>
-        /// Inserts card details into the carddata database table.
-        /// </summary>
-        /// <param name="cardNum">Card number.</param>
-        /// <param name="expiryDate">Card expiration date.</param>
-        /// <param name="cvv">Card CVV.</param>
-        /// <param name="holderName">Cardholder's name.</param>
-        private void InsertCardDetails(string cardNum, string expiryDate, string cvv, string holderName)
-        {
-            try
-            {
-                using (SqlConnection connection = ServerConnection.GetOpenConnection())
-                {
-                    string insertQuery = """INSERT INTO CardInformation(EmployeeId,CardNumber,ExpiryDate,Cvv,HolderName)   VALUES (@id,@cardNum,@expiryDate,@cvv,@holderName)""";
-
-                    SqlCommand execute = new SqlCommand(insertQuery, connection);
-
-                    execute.Parameters.AddWithValue("@id", Code);
-                    execute.Parameters.AddWithValue("@cardNum", cardNum);
-                    execute.Parameters.AddWithValue("@expiryDate", expiryDate);
-                    execute.Parameters.AddWithValue("@cvv", cvv);
-                    execute.Parameters.AddWithValue("@holderName", holderName);
-                    int rowsAffected = execute.ExecuteNonQuery();
-                    MessageBox.Show("Employee Card Detail Added");
-                    connection.Close();
-                }
-            }
-
-            catch (Exception ex) { MessageBox.Show("Error Inserting Values (Card Data): " + ex.Message); }
-        }
-
-        /// <summary>
-        /// Generates a unique employee code by checking against existing records in the database.
-        /// </summary>
-        /// <returns>A unique employee code as a string.</returns>
-        public String EmployeeCode()
-        {
-            try
-            {
-                
-                using (SqlConnection serverCon = ServerConnection.GetOpenConnection())
-                {
-                    
-                    string queryCode = "SELECT Id FROM EmployeeDetails WHERE Id = @id;";
-                    bool uniqueCode = false;
-
-                    Random num = new Random();
-                    while (!uniqueCode)
-                    {
-                        Code = "";
-                        for (int i = 0; i <= 3; i++)
-                        {
-
-                            int randNum = num.Next(0, 10);
-                            string randomNum = randNum.ToString();
-                            Code += randomNum;
-
-                        }
-                        SqlCommand mySqlCommand = new SqlCommand(queryCode, serverCon);
-                        mySqlCommand.Parameters.Clear();
-                        mySqlCommand.Parameters.AddWithValue("@id", Code);
-                        object dataTocheck = mySqlCommand.ExecuteScalar();
-                        if (dataTocheck == null)
-                        {
-                            uniqueCode = true; // Exits the loop if code is unique
-                        }
-                    }
-                    serverCon.Close();
-                }
-            }
-            catch (Exception e) { MessageBox.Show("Error Generating Unique Code: " + e.Message); }
-            return Code;
         }
 
         /// <summary>
@@ -172,42 +117,6 @@ namespace EmployeeManagementSyst
             catch (Exception ex) { MessageBox.Show("Error (Surname Comprehension): " + ex.Message); }
         }
 
-        /// <summary>
-        /// Inserts employee details into the employeedetails database table.
-        /// </summary>
-        /// <param name="name">Full name of the employee.</param>
-        /// <param name="age">Age of the employee.</param>
-        /// <param name="phoneNumber">Phone number of the employee.</param>
-        /// <param name="email">Email address of the employee.</param>
-        /// <param name="hourlyRate">Hourly rate of the employee.</param>
-        /// <param name="surName">Surname of the employee.</param>e
-        public void InsertEmployeeDetails(string name,string age,string phoneNumber, string email,string hourlyRate,string surName)
-        {
-            try
-            {
-                
-                using (SqlConnection serverCon = ServerConnection.GetOpenConnection())
-                {
-                    string insertQuery = """INSERT INTO EmployeeDetails(Id,FullName,Age,PhoneNumber,Email,HourlyRate,Surname)   VALUES (@id,@fullname,@age,@phonenumber,@email,@hourlyrate,@surname)""";
-
-                    SqlCommand execute = new SqlCommand(insertQuery, serverCon);
-
-                    execute.Parameters.AddWithValue("@id", Code);
-                    execute.Parameters.AddWithValue("@fullname", name);
-                    execute.Parameters.AddWithValue("@age", age);
-                    execute.Parameters.AddWithValue("@phonenumber", phoneNumber);
-                    execute.Parameters.AddWithValue("@email", email);
-                    execute.Parameters.AddWithValue("@hourlyrate", hourlyRate);
-                    execute.Parameters.AddWithValue("@surname", surName);
-
-                    int rowsAffected = execute.ExecuteNonQuery();
-                    MessageBox.Show("Employee added");
-                    serverCon.Close();
-                }
-            }
-            catch (Exception ex) { MessageBox.Show("Error Inserting Values (Employee Details): " + ex.Message); }
-
-
-        }
+        // Employee creation is handled by EmployeeManager.CreateEmployee; helper methods removed.
     }
 }
