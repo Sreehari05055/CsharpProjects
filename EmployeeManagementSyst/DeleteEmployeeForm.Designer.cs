@@ -28,61 +28,87 @@
         /// </summary>
         private void InitializeComponent()
         {
-            button1 = new Button();
-            button2 = new Button();
             label1 = new Label();
+            textBox1 = new TextBox();
+            button2 = new Button();
+            button1 = new Button();
             SuspendLayout();
-            // 
-            // button1
-            // 
-            button1.BackColor = Color.LightGray;
-            button1.Location = new Point(176, 235);
-            button1.Name = "button1";
-            button1.Size = new Size(118, 59);
-            button1.TabIndex = 0;
-            button1.Text = "Yes";
-            button1.UseVisualStyleBackColor = false;
-            button1.Click += Yes_Click;
-            // 
-            // button2
-            // 
-            button2.BackColor = Color.LightGray;
-            button2.Location = new Point(373, 235);
-            button2.Name = "button2";
-            button2.Size = new Size(107, 59);
-            button2.TabIndex = 1;
-            button2.Text = "No";
-            button2.UseVisualStyleBackColor = false;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(176, 95);
+            label1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(95, 114);
+            label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(304, 25);
-            label1.TabIndex = 2;
-            label1.Text = "Are You Sure You Want to Delete";
+            label1.Size = new Size(199, 32);
+            label1.TabIndex = 7;
+            label1.Text = "Enter Clock PIN:";
+            label1.Click += label1_Click;
+            // 
+            // textBox1
+            // 
+            textBox1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            textBox1.Location = new Point(303, 114);
+            textBox1.Margin = new Padding(5, 8, 5, 8);
+            textBox1.MaxLength = 4;
+            textBox1.Name = "textBox1";
+            textBox1.PlaceholderText = "Enter 4-Digit PIN";
+            textBox1.Size = new Size(210, 39);
+            textBox1.TabIndex = 6;
+            textBox1.UseSystemPasswordChar = true;
+            textBox1.TextChanged += textBox1_TextChanged;
+            textBox1.KeyPress += textBox1_KeyPress;
+            // 
+            // button2
+            // 
+            button2.BackColor = Color.LightGray;
+            button2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button2.Location = new Point(318, 217);
+            button2.Margin = new Padding(4, 5, 4, 5);
+            button2.Name = "button2";
+            button2.Size = new Size(161, 80);
+            button2.TabIndex = 5;
+            button2.Text = "Cancel";
+            button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
+            // 
+            // button1
+            // 
+            button1.BackColor = Color.LightGray;
+            button1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button1.Location = new Point(133, 217);
+            button1.Margin = new Padding(4, 5, 4, 5);
+            button1.Name = "button1";
+            button1.Size = new Size(161, 80);
+            button1.TabIndex = 4;
+            button1.Text = "Ok";
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
             // DeleteEmployeeForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Teal;
-            ClientSize = new Size(703, 350);
+            ClientSize = new Size(634, 372);
             Controls.Add(label1);
+            Controls.Add(textBox1);
             Controls.Add(button2);
             Controls.Add(button1);
+            Margin = new Padding(4, 5, 4, 5);
             Name = "DeleteEmployeeForm";
             Text = "DeleteEmp";
+            Load += DeleteEmployeeForm_Load;
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private Button button1;
-        private Button button2;
         private Label label1;
+        private TextBox textBox1;
+        private Button button2;
+        private Button button1;
     }
 }
