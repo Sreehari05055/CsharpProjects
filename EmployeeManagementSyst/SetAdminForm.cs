@@ -14,7 +14,7 @@ namespace EmployeeManagementSyst
 {
     public partial class SetAdminForm : Form
     {
-        private string AdmnId;
+        private string AdminId;
 
 
         /// <summary>
@@ -23,7 +23,7 @@ namespace EmployeeManagementSyst
         /// <param name="empid">The employee ID used to identify the employee.</param>
         public SetAdminForm(String empid)
         {
-            this.AdmnId = empid;
+            this.AdminId = empid;
             InitializeComponent();
 
         }
@@ -35,7 +35,7 @@ namespace EmployeeManagementSyst
         private void Ok_Click(object sender, EventArgs e)
         {
 
-            SetAdmin(AdmnId);
+            SetAdmin(AdminId);
             this.Close();
 
         }
@@ -67,10 +67,10 @@ namespace EmployeeManagementSyst
                     }
 
                     // Update role to admin
-                    string qry = "UPDATE EmployeeDetails SET UserRole = 'admin' WHERE EmployeeId = @Id;";
+                    string qry = "UPDATE EmployeeDetails SET UserRole = 'admin' WHERE Id = @Id;";
                     using (SqlCommand mySqlCommand = new SqlCommand(qry, serverConnect))
                     {
-                        mySqlCommand.Parameters.AddWithValue("@Id", AdmnId);
+                        mySqlCommand.Parameters.AddWithValue("@Id", AdminId);
                         int affected = mySqlCommand.ExecuteNonQuery();
                         if (affected > 0)
                         {
