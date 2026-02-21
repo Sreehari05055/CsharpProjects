@@ -28,18 +28,6 @@ namespace EmployeeManagementSyst
 
         }
 
-        /// <summary>
-        /// Handles the click event for the OK button. It retrieves the administrator information
-        /// based on the provided ID and closes the form.
-        /// </summary>
-        private void Ok_Click(object sender, EventArgs e)
-        {
-
-            SetAdmin(AdminId);
-            this.Close();
-
-        }
-
         public static bool SetAdmin(string empid)
         {
             try
