@@ -18,48 +18,9 @@ namespace EmployeeManagementSyst
         public SetAdminList()
         {
             InitializeComponent();
-           
-            AdminEmpDetails();
- 
+
         }
 
-        /// <summary>
-        /// Retrieves employee details from the database and binds them to the DataGridView.
-        /// </summary>
-        public void AdminEmpDetails()
-        {
-            try
-            {
-                DataTable dataTable = new DataTable();
-
-                dataTable.Columns.Add("Employee Name", typeof(string));
-                dataTable.Columns.Add("Id", typeof(string));
-
-
-                using (SqlConnection serverConnect = ServerConnection.GetOpenConnection())
-                {
-                   
-                    string qry = "SELECT Id,FullName FROM EmployeeDetails;";
-                    SqlCommand mySqlCommand = new SqlCommand(qry, serverConnect);
-                    SqlDataReader reader = mySqlCommand.ExecuteReader();
-                    if (reader.HasRows)
-                    {
-                        while (reader.Read())
-                        {
-                            DataRow row = dataTable.NewRow();
-                            row["Employee Name"] = reader["FullName"].ToString();
-                            row["Id"] = reader["Id"].ToString();
-
-                            dataTable.Rows.Add(row);
-                        }
-                    }
-                    else { MessageBox.Show("Admin not found"); }
-                serverConnect.Close();
-                }
-                dataGridView1.DataSource = dataTable;
-            }
-            catch (Exception ex) { MessageBox.Show("Employee Details Error: " + ex.Message); }
-        }
 
         /// <summary>
         /// Event handler for cell click in DataGridView. Retrieves the selected employee's ID
@@ -162,7 +123,7 @@ namespace EmployeeManagementSyst
                 using (SqlConnection connection = ServerConnection.GetOpenConnection())
                 {
 
-                    string query = "SELECT Id,FullName FROM EmployeeDetails";
+                    string query = "SELECT Id,FullName FROM EmployeeDetails WHERE UserRole = 'employee';";
                     SqlCommand cmd = new SqlCommand(query, connection);
                     SqlDataReader reader = cmd.ExecuteReader();
                     if (reader.HasRows)
