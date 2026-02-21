@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace EmployeeManagementSyst
@@ -96,7 +97,7 @@ namespace EmployeeManagementSyst
                     string nameQry = "SELECT FullName FROM EmployeeDetails WHERE Id = @Code;";
                     SqlCommand fullnameExec = new SqlCommand(nameQry, conn);
                     fullnameExec.Parameters.AddWithValue("@Code", id);
-                    
+
                     var employeeName = fullnameExec.ExecuteScalar()?.ToString();
 
                     string insertQuery = "INSERT INTO TimeLogs(EmployeeId,EmployeeName,StartTime) VALUES(@id,@employeeName,@start)";
@@ -129,6 +130,34 @@ namespace EmployeeManagementSyst
         private void button2_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            // sanitize input in case of paste: keep only digits and limit to MaxLength
+            var tb = sender as System.Windows.Forms.TextBox;
+            if (tb == null) return;
+            string digits = string.Empty;
+            foreach (char c in tb.Text)
+            {
+                if (char.IsDigit(c)) digits += c;
+            }
+            if (digits.Length > tb.MaxLength) digits = digits.Substring(0, tb.MaxLength);
+            if (tb.Text != digits)
+            {
+                int selStart = tb.SelectionStart - (tb.Text.Length - digits.Length);
+                if (selStart < 0) selStart = 0;
+                tb.Text = digits;
+                tb.SelectionStart = selStart;
+            }
+        }
+
+        private void TextBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
     }
 }
