@@ -102,22 +102,15 @@ namespace EmployeeManagementSyst
             string terminatingAdminId = EmployeeHelper.GetIdByClockPin(userInput);
             string terminatingAdminName = EmployeeHelper.GetNameById(terminatingAdminId);
 
-            // Resolve employee id from the provided PIN and ensure it matches the employee being deleted
-            string employeeIdFromPin = EmployeeHelper.GetIdByClockPin(_employeeId);
-            if (string.IsNullOrWhiteSpace(employeeIdFromPin))
-            {
-                MessageBox.Show("Unable to resolve employee for the provided PIN.", "Verification Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
 
             // Check if employee is currently clocked in
-            if (IsEmployeeWorking(employeeIdFromPin))
+            if (IsEmployeeWorking(_employeeId))
             {
                 MessageBox.Show("Cannot delete employee: employee is currently clocked in.", "Operation Aborted", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            var success = DeleteEmployeeCascade(employeeIdFromPin);
+            var success = DeleteEmployeeCascade(_employeeId);
             if (!success)
             {
                 // DeleteEmployeeCascade shows its own error message
@@ -125,12 +118,12 @@ namespace EmployeeManagementSyst
             }
 
             // Send notifications to admins
-            string employeeName = EmployeeHelper.GetNameById(employeeIdFromPin) ?? employeeIdFromPin;
+            string employeeName = EmployeeHelper.GetNameById(_employeeId) ?? _employeeId;
             var adminEmails = EmployeeHelper.GetAdminEmails();
             if (adminEmails != null && adminEmails.Length > 0)
             {
                 var subject = "Employee Termination Confirmation";
-                var body = $"Employee {employeeName} (ID: {employeeIdFromPin}) has been terminated from the system by Admin {terminatingAdminName} (ID: {terminatingAdminId})";
+                var body = $"Employee {employeeName} (ID: {_employeeId}) has been terminated from the system by Admin {terminatingAdminName} (ID: {terminatingAdminId})";
                 var emailer = new EmailConfiguration();
                 foreach (var admin in adminEmails)
                 {
@@ -145,6 +138,8 @@ namespace EmployeeManagementSyst
                     }
                 }
             }
+
+            this.Close();
         }
 
         private void button2_Click(object sender, EventArgs e)
