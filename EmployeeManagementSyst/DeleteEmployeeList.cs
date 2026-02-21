@@ -22,46 +22,8 @@ namespace EmployeeManagementSyst
         public DeleteEmployeeList()
         {
             InitializeComponent();
-          
-            EmployeeDetails();
         }
-        /// <summary>
-        /// Loads the employee details from the database into a DataGridView.
-        /// </summary>
-        public void EmployeeDetails()
-        {
-            try
-            {
-                DataTable dataTable = new DataTable();
 
-                dataTable.Columns.Add("fullname", typeof(string));
-                dataTable.Columns.Add("Id",typeof(string));
-
-
-                using (SqlConnection serverConnect = ServerConnection.GetOpenConnection())
-                {
-                   
-                    string qry = "SELECT Id,FullName FROM EmployeeDetails;";
-                    SqlCommand mySqlCommand = new SqlCommand(qry, serverConnect);
-                    SqlDataReader reader = mySqlCommand.ExecuteReader();
-                    if (reader.HasRows)
-                    {
-                        while (reader.Read())
-                        {
-                            DataRow row = dataTable.NewRow();
-                            row["fullname"] = reader["fullname"].ToString();
-                            row["Id"] = reader["id"].ToString();
-
-                            dataTable.Rows.Add(row);
-                        }
-                    }
-                    else { MessageBox.Show("Employee not found"); }
-                serverConnect.Close();
-                }
-                dataGridView1.DataSource = dataTable;
-            }
-            catch (Exception ex) { MessageBox.Show("Employee Details Error: " + ex.Message); }
-        }
         /// <summary>
         /// Handles the cell click event of the DataGridView. When a row is clicked, the employee's ID and fullname
         /// are retrieved and passed to the DeleteEmp form for deletion.
@@ -164,8 +126,8 @@ namespace EmployeeManagementSyst
 
                 using (SqlConnection connection = ServerConnection.GetOpenConnection())
                 {
-                    
-                    string query = "SELECT Id,FullName FROM EmployeeDetails";
+
+                    string query = "SELECT Id,FullName FROM EmployeeDetails WHERE UserRole = 'employee';";
                     SqlCommand cmd = new SqlCommand(query, connection);
                     SqlDataReader reader = cmd.ExecuteReader();
                     if (reader.HasRows)
