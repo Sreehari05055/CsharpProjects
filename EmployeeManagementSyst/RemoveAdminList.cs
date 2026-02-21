@@ -18,54 +18,9 @@ namespace EmployeeManagementSyst
         
         public RemoveAdminList()
         {
-            InitializeComponent();
-           
-            AdminDetails();
-
+            InitializeComponent();         
         }
 
-        /// <summary>
-        /// Loads the details of the admins from the database and displays them in a DataGridView.
-        /// </summary>
-        public void AdminDetails()
-        {
-            try
-            {
-                DataTable dataTable = new DataTable();
-
-                dataTable.Columns.Add("Admin Name", typeof(string));
-                dataTable.Columns.Add("Id", typeof(string));
-
-
-                using (SqlConnection serverConnect = ServerConnection.GetOpenConnection())
-                {
-                   
-                    string qry = "SELECT EmployeeId,AdminName FROM AdminInformation;";
-                    SqlCommand mySqlCommand = new SqlCommand(qry, serverConnect);
-                    using (SqlDataReader reader = mySqlCommand.ExecuteReader())
-                    {
-                        if (reader.HasRows)
-                        {
-                            while (reader.Read())
-                            {
-                                DataRow row = dataTable.NewRow();
-                                row["Admin Name"] = reader["AdminName"].ToString();
-                                row["Id"] = reader["EmployeeId"].ToString();
-
-                                dataTable.Rows.Add(row);
-                            }
-                        }
-                    }
-                    if (dataTable.Rows.Count == 0)
-                    {
-                        MessageBox.Show("Admin not found");
-                    }
-                    serverConnect.Close();
-                }
-                dataGridView1.DataSource = dataTable;
-            }
-            catch (Exception ex) { MessageBox.Show("Admin Details Error: " + ex.Message); }
-        }
 
         /// <summary>
         /// Handles the DataGridView cell click event.
@@ -80,25 +35,16 @@ namespace EmployeeManagementSyst
                 string employeeName = row.Cells["Admin Name"].Value.ToString();
                 string code = row.Cells["Id"].Value.ToString();
 
-                using (SqlConnection serverConnect = ServerConnection.GetOpenConnection())
+
+                if (!string.IsNullOrWhiteSpace(code))
                 {
-                    
-                    string qry = "SELECT EmployeeId FROM AdminInformation WHERE AdminName = @fname OR EmployeeId = @id;";
-                    SqlCommand mySqlCommand = new SqlCommand(qry, serverConnect);
-                    mySqlCommand.Parameters.AddWithValue("@fname", employeeName);
-                    mySqlCommand.Parameters.AddWithValue("@id", code);
-
-                    object result = mySqlCommand.ExecuteScalar();
-
-                    if (result != null)
-                    {
-                        string empId = result.ToString();
-                       TerminateAdminForm removeAdmin = new TerminateAdminForm(empId);
-                        removeAdmin.Show();
-                        this.Close();
-                    }
-                    else { MessageBox.Show("Error Finding Admin ID"); }
-                    serverConnect.Close();
+                    TerminateAdminForm removeAdmin = new TerminateAdminForm(code);
+                    removeAdmin.Show();
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Error: selected row does not contain an Id.");
                 }
             }
         }
@@ -126,9 +72,10 @@ namespace EmployeeManagementSyst
                 using (SqlConnection serverConnect = ServerConnection.GetOpenConnection())
                 {
                    
-                    string qry = "SELECT a.EmployeeId,a.AdminName FROM AdminInformation a JOIN EmployeeDetails e on a.EmployeeId = e.Id WHERE e.Surname = @surname OR a.EmployeeId = @id;";
+                    // Search admins directly in EmployeeDetails. Use case-insensitive surname match.
+                    string qry = "SELECT Id AS EmployeeId, FullName AS AdminName FROM EmployeeDetails " +
+                                 "WHERE UserRole = 'admin' AND (LOWER(Surname) LIKE '%' + @surname + '%' OR Id = @id);";
                     SqlCommand mySqlCommand = new SqlCommand(qry, serverConnect);
-                    mySqlCommand.Parameters.Clear();
                     mySqlCommand.Parameters.AddWithValue("@surname", userInput);
                     mySqlCommand.Parameters.AddWithValue("@id", userInput);
                     using (SqlDataReader reader = mySqlCommand.ExecuteReader())
@@ -138,7 +85,7 @@ namespace EmployeeManagementSyst
                             while (reader.Read())
                             {
                                 DataRow row = dataTable.NewRow();
-                                row["id"] = reader["EmployeeId"].ToString();
+                                row["Id"] = reader["EmployeeId"].ToString();
                                 row["Admin Name"] = reader["AdminName"].ToString();
 
                                 dataTable.Rows.Add(row);
@@ -161,15 +108,15 @@ namespace EmployeeManagementSyst
             try
             {
                 DataTable dataTable = new DataTable();
-                dataTable.Columns.Add("id", typeof(string));
+                dataTable.Columns.Add("Id", typeof(string));
                 dataTable.Columns.Add("Admin Name", typeof(string));
 
 
 
                 using (SqlConnection connection = ServerConnection.GetOpenConnection())
                 {
-                   
-                    string query = "SELECT EmployeeId,AdminName FROM AdminInformation";
+
+                    string query = "SELECT Id, FullName FROM EmployeeDetails WHERE UserRole = 'admin';";
                     SqlCommand cmd = new SqlCommand(query, connection);
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
@@ -178,8 +125,8 @@ namespace EmployeeManagementSyst
                             while (reader.Read())
                             {
                                 DataRow row = dataTable.NewRow();
-                                row["id"] = reader["EmployeeId"].ToString();
-                                row["Admin Name"] = reader["AdminName"].ToString();
+                                row["Id"] = reader["Id"].ToString();
+                                row["Admin Name"] = reader["FullName"].ToString();
 
                                 dataTable.Rows.Add(row);
                             }
