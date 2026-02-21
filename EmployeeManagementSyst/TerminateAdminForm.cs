@@ -32,7 +32,7 @@ namespace EmployeeManagementSyst
         private void Ok_Click(object sender, EventArgs e)
         {
 
-            RemveAdmin(adminCode);
+            RevokeAdminPrivileges(adminCode);
             this.Close();
         }
 
@@ -41,27 +41,54 @@ namespace EmployeeManagementSyst
         /// Removes an admin from the database based on the provided admin ID.
         /// </summary>
         /// <param name="id">The admin ID to be deleted from the database.</param>
-        public void RemveAdmin(string id)
+        public void RevokeAdminPrivileges(string id)
         {
             try
             {
                 using (SqlConnection conn = ServerConnection.GetOpenConnection())
                 {
-
-
-                    string deleteAdmin = "DELETE FROM AdminInformation WHERE EmployeeId = @id; "; ;
-                    SqlCommand detailQuery = new SqlCommand(deleteAdmin, conn);
-
-                    detailQuery.Parameters.Clear();
-                    detailQuery.Parameters.AddWithValue("@id", id);
-
-                    int rowsAffected = detailQuery.ExecuteNonQuery();
-                    if (rowsAffected > 0)
+                    // Verify the user exists and is currently an admin
+                    string checkQuery = "SELECT UserRole, FullName FROM EmployeeDetails WHERE Id = @id";
+                    using (SqlCommand checkCmd = new SqlCommand(checkQuery, conn))
                     {
-                        MessageBox.Show("Admin Deleted");
+                        checkCmd.Parameters.AddWithValue("@id", id);
+                        using (var reader = checkCmd.ExecuteReader())
+                        {
+                            if (!reader.HasRows)
+                            {
+                                MessageBox.Show("Admin not found.", "Not found", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                return;
+                            }
+                            reader.Read();
+                            var role = reader["UserRole"]?.ToString();
+                            var fullName = reader["FullName"]?.ToString();
+                            if (!string.Equals(role, "admin", StringComparison.OrdinalIgnoreCase))
+                            {
+                                MessageBox.Show("The selected user is not an admin.", "Invalid Operation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                return;
+                            }
+
+                            // Confirm action with the user
+                            var confirm = MessageBox.Show($"Revoke admin privileges for '{fullName ?? id}'?", "Confirm Revocation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                            if (confirm != DialogResult.Yes) return;
+                        }
                     }
-                    else { MessageBox.Show("Failed to delete admin  or admin not found "); }
-                    conn.Close();
+
+                    // Revoke admin privileges
+                    string revokeSql = "UPDATE EmployeeDetails SET UserRole = 'employee' WHERE Id = @id";
+                    using (SqlCommand revokeCmd = new SqlCommand(revokeSql, conn))
+                    {
+                        revokeCmd.Parameters.AddWithValue("@id", id);
+                        int rowsAffected = revokeCmd.ExecuteNonQuery();
+                        if (rowsAffected > 0)
+                        {
+                            MessageBox.Show("Admin privileges revoked.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Failed to revoke admin privileges.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
                 }
 
             }
