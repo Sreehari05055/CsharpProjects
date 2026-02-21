@@ -22,7 +22,21 @@ namespace EmployeeManagementSyst
                 return false;
             }
         }
-
+        public static bool isAdmin(string employeeId)
+        {
+            try
+            {
+                using var conn = ServerConnection.GetOpenConnection();
+                using var cmd = new SqlCommand("SELECT UserRole FROM EmployeeDetails WHERE ClockPin = @val;", conn);
+                cmd.Parameters.AddWithValue("@val", employeeId);
+                var res = cmd.ExecuteScalar();
+                return res != null && res.ToString() == "admin";
+            }
+            catch
+            {
+                return false;
+            }
+        }
         public static bool ExistsById(string id)
         {
             try
