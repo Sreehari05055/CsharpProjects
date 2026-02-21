@@ -55,21 +55,32 @@ namespace EmployeeManagementSyst
                 using (SqlConnection serverConnect = ServerConnection.GetOpenConnection())
                 {
 
-                    String querytoCheck = "SELECT ClockPin FROM EmployeeDetails WHERE ClockPin = @clockPin;";
-                    SqlCommand mySqlCommand = new SqlCommand(querytoCheck, serverConnect);
-                    mySqlCommand.Parameters.Clear();
-                    mySqlCommand.Parameters.AddWithValue("@clockPin", adminCode);
-                    object dataTocheck = mySqlCommand.ExecuteScalar();
-                    if (dataTocheck == null)
+                    // Check that the provided clock pin belongs to a user with role 'admin'
+                    string querytoCheck = "SELECT UserRole FROM EmployeeDetails WHERE ClockPin = @clockPin;";
+                    using (SqlCommand mySqlCommand = new SqlCommand(querytoCheck, serverConnect))
                     {
-                        this.Close();
-                        MessageBox.Show("Code incorrect");
-                    }
-                    else
-                    {
-                        AdminForm page = new AdminForm();
-                        page.Show();
-                        this.Close();
+                        mySqlCommand.Parameters.AddWithValue("@clockPin", adminCode);
+                        object roleObj = mySqlCommand.ExecuteScalar();
+                        if (roleObj == null || roleObj == DBNull.Value)
+                        {
+                            this.Close();
+                            MessageBox.Show("Code incorrect");
+                        }
+                        else
+                        {
+                            string role = roleObj.ToString();
+                            if (string.Equals(role, "admin", StringComparison.OrdinalIgnoreCase))
+                            {
+                                AdminForm page = new AdminForm();
+                                page.Show();
+                                this.Close();
+                            }
+                            else
+                            {
+                                this.Close();
+                                MessageBox.Show("Access denied: user is not an admin");
+                            }
+                        }
                     }
                     serverConnect.Close();
                 }
