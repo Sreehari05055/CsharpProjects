@@ -74,9 +74,9 @@ namespace EmployeeManagementSyst
             string cardExpInp = textBox5.Text; // Gets the card expiration date input
             string cvvInp = textBox6.Text; // Gets the CVV input
             string cardNameInp = textBox7.Text; // Gets the cardholder's name input
-            GetSurname(); 
+            GetSurname();
 
-       
+
             var manager = new EmployeeManager();
             var (newId, newPin) = manager.CreateEmployee(
                 fullName: FullName,
@@ -100,7 +100,7 @@ namespace EmployeeManagementSyst
                     new EmailConfiguration().SendEmail(emailInp, "Welcome to the Team", $"We are excited to have you on board, {FullName}!\n Your Clock PIN is: {newPin}");
                 }
             }
-            this.Close(); 
+            this.Close();
         }
 
         /// <summary>
@@ -115,6 +115,11 @@ namespace EmployeeManagementSyst
                 SurName = surname;
             }
             catch (Exception ex) { MessageBox.Show("Error (Surname Comprehension): " + ex.Message); }
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
         }
 
         // Employee creation is handled by EmployeeManager.CreateEmployee; helper methods removed.

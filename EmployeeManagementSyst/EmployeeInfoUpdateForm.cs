@@ -200,5 +200,10 @@ namespace EmployeeManagementSyst
         {
             this.Close();
         }
+
+        private void EmployeeInfoUpdateForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

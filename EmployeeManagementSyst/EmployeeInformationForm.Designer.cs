@@ -39,43 +39,41 @@
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.EditMode = DataGridViewEditMode.EditProgrammatically;
-            dataGridView1.Location = new Point(68, 115);
-            dataGridView1.Margin = new Padding(4, 5, 4, 5);
+            dataGridView1.Location = new Point(57, 178);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersWidth = 62;
-            dataGridView1.Size = new Size(917, 563);
+            dataGridView1.Size = new Size(759, 422);
             dataGridView1.TabIndex = 0;
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(857, 58);
-            textBox1.Margin = new Padding(4, 5, 4, 5);
+            textBox1.Location = new Point(498, 143);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(141, 31);
+            textBox1.Size = new Size(245, 23);
             textBox1.TabIndex = 1;
             textBox1.TextChanged += Changing_Text;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(516, 63);
-            label1.Margin = new Padding(4, 0, 4, 0);
+            label1.Font = new Font("Microsoft YaHei UI", 15F, FontStyle.Bold, GraphicsUnit.Point, 134);
+            label1.Location = new Point(57, 138);
             label1.Name = "label1";
-            label1.Size = new Size(353, 25);
+            label1.Size = new Size(444, 27);
             label1.TabIndex = 2;
             label1.Text = "Enter Employee Code or Surname to Filter: ";
             // 
-            // EmployeeDetailGrid
+            // EmployeeInformationForm
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1110, 750);
+            BackColor = Color.Teal;
+            ClientSize = new Size(859, 684);
             Controls.Add(label1);
             Controls.Add(textBox1);
             Controls.Add(dataGridView1);
-            Margin = new Padding(4, 5, 4, 5);
-            Name = "EmployeeDetailGrid";
+            Name = "EmployeeInformationForm";
             Text = "EmployeeDetailGrid";
             Load += EmployeeDetailGrid_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
