@@ -1,0 +1,16 @@
+# Build and user-specific files
+bin/
+obj/
+
+# Visual Studio caches and settings
+.vs/
+
+# User secrets (if any)
+**/secrets.json
+
+# Rider IDE
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
