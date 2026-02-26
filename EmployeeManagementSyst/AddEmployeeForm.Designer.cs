@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
@@ -52,6 +53,8 @@
             label12 = new Label();
             label11 = new Label();
             button1 = new Button();
+            bindingSource1 = new BindingSource(components);
+            ((System.ComponentModel.ISupportInitialize)bindingSource1).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -60,9 +63,9 @@
             label1.Font = new Font("Microsoft YaHei UI", 10.5F, FontStyle.Bold);
             label1.Location = new Point(429, 197);
             label1.Name = "label1";
-            label1.Size = new Size(88, 19);
+            label1.Size = new Size(109, 19);
             label1.TabIndex = 0;
-            label1.Text = "Last Name:";
+            label1.Text = "Empolyee Age";
             label1.TextAlign = ContentAlignment.TopCenter;
             // 
             // label2
@@ -71,9 +74,9 @@
             label2.Font = new Font("Microsoft YaHei UI", 10.5F, FontStyle.Bold);
             label2.Location = new Point(429, 233);
             label2.Name = "label2";
-            label2.Size = new Size(102, 19);
+            label2.Size = new Size(189, 19);
             label2.TabIndex = 1;
-            label2.Text = "Date Of Birth";
+            label2.Text = "Empolyee Phone-Number";
             // 
             // label3
             // 
@@ -89,20 +92,20 @@
             label4.Font = new Font("Microsoft YaHei UI", 10.5F, FontStyle.Bold);
             label4.Location = new Point(429, 307);
             label4.Name = "label4";
-            label4.Size = new Size(115, 19);
+            label4.Size = new Size(165, 19);
             label4.TabIndex = 3;
-            label4.Text = "Phone Nubmer";
+            label4.Text = "Empolyee Hourly Rate";
             label4.Click += label4_Click;
             // 
             // label5
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Microsoft YaHei UI", 10.5F, FontStyle.Bold);
-            label5.Location = new Point(429, 347);
+            label5.Location = new Point(429, 351);
             label5.Name = "label5";
-            label5.Size = new Size(108, 19);
+            label5.Size = new Size(103, 19);
             label5.TabIndex = 4;
-            label5.Text = "Email Address";
+            label5.Text = "Card Number";
             // 
             // label6
             // 
@@ -110,9 +113,9 @@
             label6.Font = new Font("Microsoft YaHei UI", 10.5F, FontStyle.Bold);
             label6.Location = new Point(429, 162);
             label6.Name = "label6";
-            label6.Size = new Size(90, 19);
+            label6.Size = new Size(123, 19);
             label6.TabIndex = 5;
-            label6.Text = "First Name:";
+            label6.Text = "Empolyee Name";
             // 
             // label7
             // 
@@ -120,9 +123,9 @@
             label7.Font = new Font("Microsoft YaHei UI", 10.5F, FontStyle.Bold);
             label7.Location = new Point(429, 392);
             label7.Name = "label7";
-            label7.Size = new Size(125, 19);
+            label7.Size = new Size(153, 19);
             label7.TabIndex = 6;
-            label7.Text = "Create Password";
+            label7.Text = "Card Expiration Date";
             // 
             // label8
             // 
@@ -130,9 +133,9 @@
             label8.Font = new Font("Microsoft YaHei UI", 10.5F, FontStyle.Bold);
             label8.Location = new Point(429, 428);
             label8.Name = "label8";
-            label8.Size = new Size(137, 19);
+            label8.Size = new Size(38, 19);
             label8.TabIndex = 7;
-            label8.Text = "Confirm Password";
+            label8.Text = "CVV";
             // 
             // label9
             // 
@@ -140,9 +143,9 @@
             label9.Font = new Font("Microsoft YaHei UI", 10.5F, FontStyle.Bold, GraphicsUnit.Point, 134);
             label9.Location = new Point(429, 467);
             label9.Name = "label9";
-            label9.Size = new Size(86, 19);
+            label9.Size = new Size(103, 19);
             label9.TabIndex = 8;
-            label9.Text = "Short Code";
+            label9.Text = "Holder Name";
             label9.Click += label9_Click;
             // 
             // textBox1
@@ -223,9 +226,9 @@
             label10.Font = new Font("Microsoft YaHei UI", 10.5F, FontStyle.Bold);
             label10.Location = new Point(429, 269);
             label10.Name = "label10";
-            label10.Size = new Size(203, 19);
+            label10.Size = new Size(180, 19);
             label10.TabIndex = 18;
-            label10.Text = "National Insurance Number";
+            label10.Text = "Empolyee Email Address";
             // 
             // button2
             // 
@@ -251,11 +254,11 @@
             label12.AutoSize = true;
             label12.BackColor = Color.LightSeaGreen;
             label12.Font = new Font("Microsoft YaHei UI", 21.75F, FontStyle.Bold);
-            label12.Location = new Point(115, 253);
+            label12.Location = new Point(101, 287);
             label12.Name = "label12";
-            label12.Size = new Size(83, 39);
+            label12.Size = new Size(118, 39);
             label12.TabIndex = 26;
-            label12.Text = "User";
+            label12.Text = "Details";
             // 
             // label11
             // 
@@ -263,11 +266,11 @@
             label11.AutoSize = true;
             label11.BackColor = Color.LightSeaGreen;
             label11.Font = new Font("Microsoft YaHei UI", 21.75F, FontStyle.Bold, GraphicsUnit.Point, 134);
-            label11.Location = new Point(86, 193);
+            label11.Location = new Point(56, 229);
             label11.Name = "label11";
-            label11.Size = new Size(151, 39);
+            label11.Size = new Size(229, 39);
             label11.TabIndex = 25;
-            label11.Text = "Set  Root";
+            label11.Text = "Add Empolyee";
             label11.TextAlign = ContentAlignment.TopCenter;
             // 
             // button1
@@ -313,6 +316,7 @@
             Name = "AddEmployeeForm";
             Text = "AddEmp";
             Load += AddEmp_Load;
+            ((System.ComponentModel.ISupportInitialize)bindingSource1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -343,5 +347,6 @@
         private Label label12;
         private Label label11;
         private Button button1;
+        private BindingSource bindingSource1;
     }
 }

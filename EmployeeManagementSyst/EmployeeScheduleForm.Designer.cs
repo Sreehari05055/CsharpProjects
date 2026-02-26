@@ -52,7 +52,7 @@
             // button1
             // 
             button1.BackColor = Color.LightGray;
-            button1.Location = new Point(365, 555);
+            button1.Location = new Point(351, 555);
             button1.Name = "button1";
             button1.Size = new Size(168, 67);
             button1.TabIndex = 1;
@@ -63,7 +63,7 @@
             // button2
             // 
             button2.BackColor = Color.LightGray;
-            button2.Location = new Point(633, 555);
+            button2.Location = new Point(665, 555);
             button2.Name = "button2";
             button2.Size = new Size(168, 67);
             button2.TabIndex = 2;
