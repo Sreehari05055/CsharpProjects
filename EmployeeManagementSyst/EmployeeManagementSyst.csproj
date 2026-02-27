@@ -10,10 +10,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.Data.SqlClient" Version="5.2.1" />
-    <PackageReference Include="Microsoft.Extensions.Configuration" Version="8.0.0" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="8.0.0" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="8.0.0" />
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="6.1.4" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="10.0.3" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="10.0.3" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="10.0.3" />
+    <!-- Ensure System.Text.Json is restored for .NET 8 runtime support -->
+    <PackageReference Include="System.Text.Json" Version="10.0.3" />
   </ItemGroup>
 
   <ItemGroup>

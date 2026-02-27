@@ -1,6 +1,5 @@
 ﻿using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
-using Microsoft.Identity.Client.NativeInterop;
 
 namespace EmployeeManagementSyst
 {

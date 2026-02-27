@@ -1,6 +1,5 @@
 ﻿using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
-using Microsoft.Identity.Client.NativeInterop;
 using Microsoft.VisualBasic.ApplicationServices;
 using System;
 using System.Collections.Generic;

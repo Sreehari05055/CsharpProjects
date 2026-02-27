@@ -1,5 +1,4 @@
 ﻿using Microsoft.Data.SqlClient;
-using Microsoft.Identity.Client.NativeInterop;
 using System;
 using System.Windows.Forms;
 

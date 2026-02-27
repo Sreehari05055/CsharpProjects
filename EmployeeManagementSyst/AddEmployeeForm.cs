@@ -1,12 +1,12 @@
 ﻿using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
-using Microsoft.Identity.Client.NativeInterop;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -49,7 +49,10 @@ namespace EmployeeManagementSyst
         {
 
         }
-
+        private void button2_Click(object sender, EventArgs e)
+        {
+           this.Close(); // Closes the form when the cancel button is clicked
+        }
         private void AddEmp_Load(object sender, EventArgs e)
         {
             // Event handler for form load (can be implemented if needed)
@@ -67,13 +70,13 @@ namespace EmployeeManagementSyst
         {
             FullName = textBox1.Text.Trim().ToLower(); // Gets and formats the full name from input
             string ageInp = textBox2.Text; // Gets the age input
-            string phoneInp = textBox8.Text; // Gets the phone number input
-            string emailInp = textBox3.Text; // Gets the email input          
-            string rateInp = textBox9.Text; // Gets the hourly rate input
-            string cardNumInp = textBox4.Text; // Gets the card number input
-            string cardExpInp = textBox5.Text; // Gets the card expiration date input
-            string cvvInp = textBox6.Text; // Gets the CVV input
-            string cardNameInp = textBox7.Text; // Gets the cardholder's name input
+            string phoneInp = textBox3.Text; // Gets the phone number input
+            string emailInp = textBox4.Text; // Gets the email input          
+            string rateInp = textBox5.Text; // Gets the hourly rate input
+            string cardNumInp = textBox6.Text; // Gets the card number input
+            string cardExpInp = textBox7.Text; // Gets the card expiration date input
+            string cvvInp = textBox8.Text; // Gets the CVV input
+            string cardNameInp = textBox9.Text; // Gets the cardholder's name input
             GetSurname();
 
 
@@ -123,5 +126,6 @@ namespace EmployeeManagementSyst
         }
 
         // Employee creation is handled by EmployeeManager.CreateEmployee; helper methods removed.
+        
     }
 }
