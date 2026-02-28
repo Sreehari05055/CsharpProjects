@@ -36,15 +36,38 @@ namespace EmployeeManagementSyst
                 string code = row.Cells["Id"].Value.ToString();
 
 
-                if (!string.IsNullOrWhiteSpace(code))
-                {
-                    TerminateAdminForm removeAdmin = new TerminateAdminForm(code);
-                    removeAdmin.Show();
-                    this.Close();
-                }
-                else
+                if (string.IsNullOrWhiteSpace(code))
                 {
                     MessageBox.Show("Error: selected row does not contain an Id.");
+                    return;
+                }
+
+                // Verify acting user is an admin using existing AdminVerification dialog
+                var verify = new AdminVerification();
+                verify.ReturnDialogResultOnSuccess = true;
+                var dr = verify.ShowDialog();
+                if (dr != DialogResult.OK)
+                {
+                    // Verification failed or cancelled
+                    return;
+                }
+
+                // Ask for final confirmation since this is a high-risk action
+                string targetName = EmployeeHelper.GetNameById(code) ?? code;
+                var confirmMsg = $"THIS IS A HIGH RISK ACTION:\n\nYou are about to revoke admin privileges for {targetName} (ID: {code}).\nAll existing admins will be notified of this action.\n\nDo you want to proceed?";
+                var confirm = MessageBox.Show(confirmMsg, "Confirm Revocation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (confirm != DialogResult.Yes)
+                {
+                    return;
+                }
+
+                // Perform revocation from this list
+                string actingAdminId = verify.VerifiedAdminId;
+                string actingAdminName = verify.VerifiedAdminName;
+                var success = RevokeAdmin(code, actingAdminId, actingAdminName);
+                if (success)
+                {
+                    this.Close();
                 }
             }
         }
@@ -149,6 +172,84 @@ namespace EmployeeManagementSyst
         private void EmployeeDetailGrid_Load(object sender, EventArgs e)
         {
             LoadAllData();
+        }
+
+        /// <summary>
+        /// Revoke admin privileges for the specified admin id and notify all admins.
+        /// </summary>
+        private bool RevokeAdmin(string adminId, string actingAdminId, string actingAdminName)
+        {
+            try
+            {
+                using (SqlConnection conn = ServerConnection.GetOpenConnection())
+                {
+                    // Verify the user exists and is currently an admin
+                    string checkQuery = "SELECT UserRole, FullName FROM EmployeeDetails WHERE Id = @id";
+                    using (SqlCommand checkCmd = new SqlCommand(checkQuery, conn))
+                    {
+                        checkCmd.Parameters.AddWithValue("@id", adminId);
+                        using (var reader = checkCmd.ExecuteReader())
+                        {
+                            if (!reader.HasRows)
+                            {
+                                MessageBox.Show("Admin not found.", "Not found", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                return false;
+                            }
+                            reader.Read();
+                            var role = reader["UserRole"]?.ToString();
+                            var fullName = reader["FullName"]?.ToString();
+                            if (!string.Equals(role, "admin", StringComparison.OrdinalIgnoreCase))
+                            {
+                                MessageBox.Show("The selected user is not an admin.", "Invalid Operation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                return false;
+                            }
+                        }
+                    }
+
+                    // Revoke admin privileges
+                    string revokeSql = "UPDATE EmployeeDetails SET UserRole = 'employee' WHERE Id = @id";
+                    using (SqlCommand revokeCmd = new SqlCommand(revokeSql, conn))
+                    {
+                        revokeCmd.Parameters.AddWithValue("@id", adminId);
+                        int rowsAffected = revokeCmd.ExecuteNonQuery();
+                        if (rowsAffected <= 0)
+                        {
+                            MessageBox.Show("Failed to revoke admin privileges.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return false;
+                        }
+                    }
+
+                    // Notify admins
+                    string employeeName = EmployeeHelper.GetNameById(adminId) ?? adminId;
+                    var adminEmails = EmployeeHelper.GetAdminEmails();
+                    if (adminEmails != null && adminEmails.Length > 0)
+                    {
+                        string subject = $"Admin Privileges Revoked for {employeeName}";
+                        string body = $"Admin privileges for {employeeName} (ID: {adminId}) have been revoked by {actingAdminName} (ID: {actingAdminId}).";
+
+                        var emailer = new EmailConfiguration();
+                        foreach (var admin in adminEmails)
+                        {
+                            try
+                            {
+                                emailer.SendEmail(admin, subject, body);
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show("Error sending admin notification to: " + admin + "\n" + ex.Message, "Email Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                        }
+                    }
+
+                    MessageBox.Show("Admin privileges revoked.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return true;
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Error Removing Admin: " + e.Message);
+                return false;
+            }
         }
     }
 }
