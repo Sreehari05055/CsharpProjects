@@ -36,28 +36,93 @@ namespace EmployeeManagementSyst
             {
                 // Get the current row
                 DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
-                string employeeName = row.Cells["fullname"].Value.ToString();
-                string code = row.Cells["Id"].Value.ToString();
+                string employeeName = (dataGridView1.Columns["fullname"] != null && row.Cells["fullname"].Value != null)
+                    ? row.Cells["fullname"].Value.ToString()
+                    : string.Empty;
 
-                using (SqlConnection serverConnect = ServerConnection.GetOpenConnection())
+                string code = null;
+                if (dataGridView1.Columns["Id"] != null && row.Cells["Id"].Value != null)
+                    code = row.Cells["Id"].Value.ToString();
+                else if (dataGridView1.Columns["id"] != null && row.Cells["id"].Value != null)
+                    code = row.Cells["id"].Value.ToString();
+
+                if (string.IsNullOrWhiteSpace(code))
                 {
-         
-                    string qry = "SELECT Id FROM EmployeeDetails WHERE FullName = @fname OR Id = @id;";
-                    SqlCommand mySqlCommand = new SqlCommand(qry, serverConnect);
-                    mySqlCommand.Parameters.AddWithValue("@fname", employeeName);
-                    mySqlCommand.Parameters.AddWithValue("@id", code);
+                    MessageBox.Show("Error: employee ID is missing");
+                    return;
+                }
 
-                    object result = mySqlCommand.ExecuteScalar();
+                // Ask for admin verification as a modal dialog
+                AdminVerification verify = new AdminVerification
+                {
+                    PendingDeleteEmployeeId = code
+                };
 
-                    if (result != null)
+                var result = verify.ShowDialog();
+                if (result != DialogResult.OK)
+                {
+                    // Verification cancelled or failed; do nothing
+                    return;
+                }
+
+                // Verified admin info
+                string terminatingAdminId = verify.VerifiedAdminId;
+                string terminatingAdminName = verify.VerifiedAdminName;
+
+                // Ask for final confirmation before deleting (inform that notification will be sent to all admins)
+                string displayNameForConfirm = !string.IsNullOrWhiteSpace(employeeName) ? employeeName : code;
+                string confirmMessage = $"Are you sure you want to permanently delete employee '{displayNameForConfirm}' (ID: {code})?\n\nThis action cannot be undone and a notification will be sent to all admins.";
+                var confirmResult = MessageBox.Show(confirmMessage, "Confirm Deletion", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
+                if (confirmResult != DialogResult.Yes)
+                {
+                    // User cancelled the deletion
+                    return;
+                }
+
+                // Perform deletion flow here
+                try
+                {
+                    if (IsEmployeeWorking(code))
                     {
-                        string empId = result.ToString();
-                        DeleteEmployeeForm deleteEmp = new DeleteEmployeeForm(empId);
-                        deleteEmp.Show();
-                        this.Close();
+                        MessageBox.Show("Cannot delete employee: employee is currently clocked in.", "Operation Aborted", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
                     }
-                    else { MessageBox.Show("Error Finding employee ID"); }
-                serverConnect.Close();
+
+                    var success = DeleteEmployeeCascade(code);
+                    if (!success)
+                    {
+                        return;
+                    }
+
+                    // Send notifications to admins
+                    string empDisplayName = EmployeeHelper.GetNameById(code) ?? code;
+                    var adminEmails = EmployeeHelper.GetAdminEmails();
+                    if (adminEmails != null && adminEmails.Length > 0)
+                    {
+                        var subject = "Employee Termination Confirmation";
+                        var bodyAdminName = string.IsNullOrEmpty(terminatingAdminName) ? "(unknown)" : terminatingAdminName;
+                        var bodyAdminId = string.IsNullOrEmpty(terminatingAdminId) ? "(unknown)" : terminatingAdminId;
+                        var body = $"Employee {empDisplayName} (ID: {code}) has been terminated from the system by Admin {bodyAdminName} (ID: {bodyAdminId})";
+                        var emailer = new EmailConfiguration();
+                        foreach (var admin in adminEmails)
+                        {
+                            try
+                            {
+                                emailer.SendEmail(admin, subject, body);
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show("Error sending admin notification to: " + admin + "\n" + ex.Message, "Email Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                        }
+                    }
+
+                    // Refresh the list
+                    LoadAllData();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error performing delete: " + ex.Message);
                 }
             }
         }
@@ -81,11 +146,11 @@ namespace EmployeeManagementSyst
                 DataTable dataTable = new DataTable();
                 dataTable.Columns.Add("fullname", typeof(string));
                 dataTable.Columns.Add("Id", typeof(string));
-               
+
 
                 using (SqlConnection serverConnect = ServerConnection.GetOpenConnection())
                 {
-                    
+
                     string qry = "SELECT Id,FullName FROM EmployeeDetails WHERE Surname = @surname OR Id = @id;";
                     SqlCommand mySqlCommand = new SqlCommand(qry, serverConnect);
                     mySqlCommand.Parameters.Clear();
@@ -99,7 +164,7 @@ namespace EmployeeManagementSyst
                             DataRow row = dataTable.NewRow();
                             row["id"] = reader["id"].ToString();
                             row["fullname"] = reader["fullname"].ToString();
-                       
+
                             dataTable.Rows.Add(row);
                         }
                         dataGridView1.DataSource = dataTable;
@@ -121,8 +186,8 @@ namespace EmployeeManagementSyst
                 DataTable dataTable = new DataTable();
                 dataTable.Columns.Add("id", typeof(string));
                 dataTable.Columns.Add("fullname", typeof(string));
-     
-       
+
+
 
                 using (SqlConnection connection = ServerConnection.GetOpenConnection())
                 {
@@ -137,7 +202,7 @@ namespace EmployeeManagementSyst
                             DataRow row = dataTable.NewRow();
                             row["id"] = reader["id"].ToString();
                             row["fullname"] = reader["fullname"].ToString();
-                  
+
                             dataTable.Rows.Add(row);
                         }
                         dataGridView1.DataSource = dataTable;
@@ -161,6 +226,64 @@ namespace EmployeeManagementSyst
         private void EmployeeDetailGrid_Load(object sender, EventArgs e)
         {
             LoadAllData();
+        }
+
+        private void DeletEmployeeList_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        // Returns true if the employee currently has an open TimeLogs entry
+        private static bool IsEmployeeWorking(string id)
+        {
+            try
+            {
+                using var conn = ServerConnection.GetOpenConnection();
+                using var cmd = new SqlCommand("SELECT COUNT(1) FROM TimeLogs WHERE EmployeeId = @id AND EndTime IS NULL;", conn);
+                cmd.Parameters.AddWithValue("@id", id);
+                var result = cmd.ExecuteScalar();
+                return Convert.ToInt32(result) > 0;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error checking work status: " + ex.Message);
+                return true;
+            }
+        }
+
+        // Performs a transactional cascade delete across related tables.
+        private static bool DeleteEmployeeCascade(string id)
+        {
+            try
+            {
+                using var conn = ServerConnection.GetOpenConnection();
+                using var tx = conn.BeginTransaction();
+
+                var deletes = new (string Sql, string ParamName)[]
+                {
+                    ("DELETE FROM TimeLogs WHERE EmployeeId = @id;", "@id"),
+                    ("DELETE FROM EmployeePayInfo WHERE EmployeeId = @id;", "@id"),
+                    ("DELETE FROM CardInformation WHERE EmployeeId = @id;", "@id"),
+                    ("DELETE FROM ScheduleInformation WHERE EmployeeId = @id;", "@id"),
+                    ("DELETE FROM EmployeeDetails WHERE Id = @id;", "@id")
+                };
+
+                foreach (var (sql, param) in deletes)
+                {
+                    using var cmd = new SqlCommand(sql, conn, tx);
+                    cmd.Parameters.AddWithValue(param, id);
+                    cmd.ExecuteNonQuery();
+                }
+
+                tx.Commit();
+                MessageBox.Show("Employee and related records deleted successfully.");
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error deleting employee: " + ex.Message);
+                return false;
+            }
         }
     }
 }

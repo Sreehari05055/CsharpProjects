@@ -15,6 +15,13 @@ namespace EmployeeManagementSyst
 {
     public partial class AdminVerification : Form
     {
+        // If set, after successful verification the form will open DeleteEmployeeForm for this employee id
+        public string PendingDeleteEmployeeId { get; set; }
+        // When used as a dialog, these are set when verification succeeds
+        public string VerifiedAdminId { get; private set; }
+        public string VerifiedAdminName { get; private set; }
+        // If true, the dialog will return DialogResult.OK when verification succeeds
+        public bool ReturnDialogResultOnSuccess { get; set; } = false;
 
         public AdminVerification()
         {
@@ -55,31 +62,48 @@ namespace EmployeeManagementSyst
                 using (SqlConnection serverConnect = ServerConnection.GetOpenConnection())
                 {
 
-                    // Check that the provided clock pin belongs to a user with role 'admin'
-                    string querytoCheck = "SELECT UserRole FROM EmployeeDetails WHERE ClockPin = @clockPin;";
+                    // Check that the provided clock pin belongs to a user and retrieve id/name/role
+                    string querytoCheck = "SELECT Id, FullName, UserRole FROM EmployeeDetails WHERE ClockPin = @clockPin;";
                     using (SqlCommand mySqlCommand = new SqlCommand(querytoCheck, serverConnect))
                     {
                         mySqlCommand.Parameters.AddWithValue("@clockPin", adminCode);
-                        object roleObj = mySqlCommand.ExecuteScalar();
-                        if (roleObj == null || roleObj == DBNull.Value)
+                        using (var reader = mySqlCommand.ExecuteReader())
                         {
-                            this.Close();
-                            MessageBox.Show("Code incorrect");
-                        }
-                        else
-                        {
-                            string role = roleObj.ToString();
-                            if (string.Equals(role, "admin", StringComparison.OrdinalIgnoreCase))
+                            if (!reader.Read())
                             {
-                                AdminForm page = new AdminForm();
-                                page.Show();
-                                this.Close();
+                                // invalid code, allow user to retry
+                                MessageBox.Show("Code incorrect");
+                                return;
                             }
-                            else
+
+                            string role = reader["UserRole"]?.ToString() ?? string.Empty;
+                            string adminId = reader["Id"]?.ToString();
+                            string adminName = reader["FullName"]?.ToString();
+
+                            if (!string.Equals(role, "admin", StringComparison.OrdinalIgnoreCase))
                             {
-                                this.Close();
                                 MessageBox.Show("Access denied: user is not an admin");
+                                return;
                             }
+
+                            // Verified admin
+                            VerifiedAdminId = adminId;
+                            VerifiedAdminName = adminName;
+
+                            // If caller wants the dialog to return OK, or a pending delete id is set,
+                            // return DialogResult.OK so the caller can proceed.
+                            if (ReturnDialogResultOnSuccess || !string.IsNullOrEmpty(PendingDeleteEmployeeId))
+                            {
+                                this.DialogResult = DialogResult.OK;
+                                this.Close();
+                                return;
+                            }
+
+                            // No special return behavior requested: open admin page (preserve previous behavior)
+                            AdminForm page = new AdminForm();
+                            page.Show();
+                            this.Close();
+                            return;
                         }
                     }
                     serverConnect.Close();
