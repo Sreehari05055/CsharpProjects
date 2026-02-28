@@ -48,9 +48,55 @@ namespace EmployeeManagementSyst
                     if (result != null)
                     {
                         string empId = result.ToString();
-                        SetAdminForm setAdmin = new SetAdminForm(empId);
-                        setAdmin.Show();
-                        this.Close();
+
+                        // Reuse the existing AdminVerification dialog to verify the acting admin.
+                        AdminVerification verify = new AdminVerification();
+                        verify.ReturnDialogResultOnSuccess = true;
+                        var dr = verify.ShowDialog();
+                        if (dr == DialogResult.OK)
+                        {
+                            // After successful verification, confirm the action with the acting admin.
+                            string employeeNameResolved = EmployeeHelper.GetNameById(empId) ?? empId;
+                            var confirmMsg = $"This action will grant admin privileges to {employeeNameResolved} (ID: {empId}) and will notify all existing admins. Do you want to continue?";
+                            var confirm = MessageBox.Show(confirmMsg, "Confirm Promotion", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                            if (confirm != DialogResult.Yes)
+                            {
+                                // User cancelled the promotion
+                                serverConnect.Close();
+                                return;
+                            }
+
+                            // Verified and confirmed - perform the role update directly from the list
+                            var promotingAdminId = verify.VerifiedAdminId;
+                            var promotingAdminName = verify.VerifiedAdminName;
+                            var success = PromoteToAdmin(empId, promotingAdminId, promotingAdminName);
+                            if (success)
+                            {
+                                // Send notification emails to existing admins about the promotion
+                                // promotingAdminId/name were captured above
+                                var adminEmails = EmployeeHelper.GetAdminEmails();
+
+                                if (adminEmails != null && adminEmails.Length > 0)
+                                {
+                                    var subject = "Employee Role Update Notification";
+                                    var body = $"Employee {employeeNameResolved} (ID: {empId}) has been promoted to admin by {promotingAdminName} (ID: {promotingAdminId}).";
+                                    var emailer = new EmailConfiguration();
+                                    foreach (var admin in adminEmails)
+                                    {
+                                        try
+                                        {
+                                            emailer.SendEmail(admin, subject, body);
+                                        }
+                                        catch (Exception ex)
+                                        {
+                                            MessageBox.Show("Error sending admin notification to: " + admin + "\n" + ex.Message, "Email Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                        }
+                                    }
+                                }
+
+                                this.Close();
+                            }
+                        }
                     }
                     else { MessageBox.Show("Error Finding Employee ID"); }
                     serverConnect.Close();
@@ -154,6 +200,61 @@ namespace EmployeeManagementSyst
         private void EmployeeDetailGrid_Load(object sender, EventArgs e)
         {
             LoadAllData();
+        }
+
+        /// <summary>
+        /// Promote the specified employee id to admin role and return whether it succeeded.
+        /// </summary>
+        private bool PromoteToAdmin(string empId, string promotingAdminId, string promotingAdminName)
+        {
+            try
+            {
+                using (SqlConnection serverConnect = ServerConnection.GetOpenConnection())
+                {
+                    // Check current role first
+                    string checkQuery = "SELECT UserRole FROM EmployeeDetails WHERE Id = @Id";
+                    using (SqlCommand checkCmd = new SqlCommand(checkQuery, serverConnect))
+                    {
+                        checkCmd.Parameters.AddWithValue("@Id", empId);
+                        object roleObj = checkCmd.ExecuteScalar();
+                        if (roleObj == null || roleObj == DBNull.Value)
+                        {
+                            MessageBox.Show("No employee found with the provided ID.");
+                            return false;
+                        }
+
+                        string currentRole = roleObj.ToString();
+                        if (string.Equals(currentRole, "admin", StringComparison.OrdinalIgnoreCase))
+                        {
+                            MessageBox.Show("Employee is already an admin.");
+                            return false;
+                        }
+                    }
+
+                    // Update role to admin
+                    string qry = "UPDATE EmployeeDetails SET UserRole = 'admin' WHERE Id = @Id;";
+                    using (SqlCommand mySqlCommand = new SqlCommand(qry, serverConnect))
+                    {
+                        mySqlCommand.Parameters.AddWithValue("@Id", empId);
+                        int affected = mySqlCommand.ExecuteNonQuery();
+                        if (affected > 0)
+                        {
+                            MessageBox.Show("Employee was made admin.");
+                            return true;
+                        }
+                        else
+                        {
+                            MessageBox.Show("No matching employee found to update.");
+                            return false;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Set Admin Error: " + ex.Message);
+                return false;
+            }
         }
     }
 }
