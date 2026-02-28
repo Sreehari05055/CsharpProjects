@@ -116,14 +116,14 @@ namespace EmployeeManagementSyst
                             }
                         }
                     }
-
-                    // Refresh the list
-                    LoadAllData();
+                    this.Close();
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show("Error performing delete: " + ex.Message);
                 }
+
+                this.Close();
             }
         }
         /// <summary>

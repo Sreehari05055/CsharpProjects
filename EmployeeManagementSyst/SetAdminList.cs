@@ -97,9 +97,11 @@ namespace EmployeeManagementSyst
                                 this.Close();
                             }
                         }
+
                     }
                     else { MessageBox.Show("Error Finding Employee ID"); }
                     serverConnect.Close();
+                    this.Close();
                 }
             }
         }

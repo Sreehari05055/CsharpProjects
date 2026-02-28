@@ -91,6 +91,7 @@ namespace EmployeeManagementSyst
                     }
                
                 }
-            }
+            this.Close();
+        }
     }
 }
