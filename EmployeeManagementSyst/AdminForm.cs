@@ -34,8 +34,7 @@ namespace EmployeeManagementSyst
         // Event handler to open the Update Employee form when clicked
         private void UpdtEmp_Click(object sender, EventArgs e)
         {
-            OpenForm(new EmployeeInfoUpdateForm(), "Update Employee Page");         
-
+            OpenForm(new AllEmployeesInfoList(), "Select Employee to Update Page");
         }
         // Event handler to open the Add Rota form when clicked
         private void AddRota_Click(object sender, EventArgs e)
