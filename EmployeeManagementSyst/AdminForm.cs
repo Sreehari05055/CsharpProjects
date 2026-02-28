@@ -54,8 +54,37 @@ namespace EmployeeManagementSyst
         // Event handler to open the form for rota email verification when the 'Send Work Schedule' button is clicked
         private void RotaEmail_Click(object sender, EventArgs e)
         {
-            OpenForm(new SendScheduleFinalConfirmation(), "Send Work Schedule");
-           
+            try
+            {
+                // Require admin verification first
+                var verify = new AdminVerification
+                {
+                    ReturnDialogResultOnSuccess = true
+                };
+
+                var result = verify.ShowDialog();
+                if (result != DialogResult.OK)
+                {
+                    // Verification cancelled/failed
+                    return;
+                }
+
+                // Final confirmation before releasing schedules
+                var confirmMsg = "Releasing the schedules will send the rota to all employees.\n\nDo you want to proceed?";
+                var confirm = MessageBox.Show(confirmMsg, "Confirm Release", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
+                if (confirm != DialogResult.Yes)
+                {
+                    return;
+                }
+
+                // Proceed to send schedules
+                var sendRotaEmail = new SendRotaEmail();
+                sendRotaEmail.CreateRota();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error sending schedules: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         // Event handler to open the form for setting admin permissions when the 'Set Admin' button is clicked
