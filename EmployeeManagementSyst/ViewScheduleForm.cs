@@ -18,13 +18,11 @@ namespace EmployeeManagementSyst
 {
     public partial class ViewScheduleForm : Form
     {
-        
-      
+
+
         public ViewScheduleForm()
         {
             InitializeComponent();
-           
-            PopulateDataGridView();
 
         }
 
@@ -52,7 +50,7 @@ namespace EmployeeManagementSyst
                         while (reader.Read())
                         {
                             obj.Add(reader.GetString(reader.GetOrdinal("EmployeeId")));
-                        } 
+                        }
                         reader.Close();
                     }
 
@@ -64,6 +62,8 @@ namespace EmployeeManagementSyst
                     SqlCommand rotaCmdDetails = new SqlCommand(rotaQuery, connection);
 
                     Dictionary<string, Dictionary<string, string>> employeeRota = new Dictionary<string, Dictionary<string, string>>();
+                    // Track mapping from display key to actual date for correct chronological ordering
+                    Dictionary<string, DateTime> allDaysDates = new Dictionary<string, DateTime>();
 
                     foreach (string id in obj)
                     {
@@ -100,13 +100,18 @@ namespace EmployeeManagementSyst
                                 DateTime shiftStart = rotaReader.GetDateTime(rotaReader.GetOrdinal("StartWork"));
                                 DateTime shiftEnd = rotaReader.GetDateTime(rotaReader.GetOrdinal("FinishWork"));
                                 string dayOfWeek = rotaReader.GetString(rotaReader.GetOrdinal("DayOfWeek"));
-                              
-                                 string date = $"{shiftStart:d}";
-                                
+
+                                string date = $"{shiftStart:d}";
+
                                 string shift = $"{shiftStart:t} - {shiftEnd:t}";
                                 string key = $"{dayOfWeek} {date}";
 
                                 employeeRota[employeeName][key] = shift;
+                                // store the actual date (date portion only) so we can sort columns by date later
+                                if (!allDaysDates.ContainsKey(key))
+                                {
+                                    allDaysDates[key] = shiftStart.Date;
+                                }
 
                             }
                             rotaReader.Close();
@@ -117,18 +122,11 @@ namespace EmployeeManagementSyst
                     // Add the Employee Name column
                     rotaTable.Columns.Add("Employee Name", typeof(string));
 
-                    // Determine all unique day/date combinations
-                    HashSet<string> allDaysDates = new HashSet<string>();
-                    foreach (var shifts in employeeRota.Values)
-                    {
-                        foreach (var dayDate in shifts.Keys)
-                        {
-                            allDaysDates.Add(dayDate);
-                        }
-                    }
+                    // Order day/date columns by actual date (ascending)
+                    var orderedDayDates = allDaysDates.OrderBy(kv => kv.Value).Select(kv => kv.Key).ToList();
 
-                    // Add columns for each day/date combination
-                    foreach (var dayDate in allDaysDates.OrderBy(d => d))
+                    // Add columns for each day/date combination in chronological order
+                    foreach (var dayDate in orderedDayDates)
                     {
                         rotaTable.Columns.Add(dayDate, typeof(string));
                     }
@@ -139,7 +137,7 @@ namespace EmployeeManagementSyst
                         DataRow row = rotaTable.NewRow();
                         row["Employee Name"] = employee.Key;
 
-                        foreach (var dayDate in allDaysDates.OrderBy(d => d))
+                        foreach (var dayDate in orderedDayDates)
                         {
                             row[dayDate] = employee.Value.ContainsKey(dayDate) ? employee.Value[dayDate] : string.Empty;
                         }
@@ -155,6 +153,11 @@ namespace EmployeeManagementSyst
             {
                 MessageBox.Show("Error Viewing Rota: " + ex.Message);
             }
+        }
+
+        private void ViewScheduleForm_Load(object sender, EventArgs e)
+        {
+            PopulateDataGridView();
         }
     }
 }

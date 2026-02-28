@@ -41,32 +41,37 @@
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.EditMode = DataGridViewEditMode.EditProgrammatically;
-            dataGridView1.Location = new Point(143, 231);
+            dataGridView1.Location = new Point(41, 197);
+            dataGridView1.Margin = new Padding(4);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
-            dataGridView1.Size = new Size(556, 227);
+            dataGridView1.RowHeadersWidth = 62;
+            dataGridView1.Size = new Size(1144, 778);
             dataGridView1.TabIndex = 0;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Microsoft YaHei UI", 26.25F, FontStyle.Bold, GraphicsUnit.Point, 134);
-            label1.Location = new Point(193, 108);
+            label1.Location = new Point(284, 74);
+            label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(453, 46);
+            label1.Size = new Size(692, 70);
             label1.TabIndex = 1;
             label1.Text = "View Empolyee Schedule";
             // 
             // ViewScheduleForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 17F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Teal;
-            ClientSize = new Size(859, 684);
+            ClientSize = new Size(1227, 1006);
             Controls.Add(label1);
             Controls.Add(dataGridView1);
+            Margin = new Padding(4);
             Name = "ViewScheduleForm";
             Text = "ViewRota";
+            Load += ViewScheduleForm_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ((System.ComponentModel.ISupportInitialize)bindingSource1).EndInit();
             ResumeLayout(false);
