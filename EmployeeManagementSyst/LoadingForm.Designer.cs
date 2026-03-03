@@ -36,7 +36,7 @@
             // progressBar1
             // 
             progressBar1.Location = new Point(80, 175);
-            progressBar1.Margin = new Padding(2, 2, 2, 2);
+            progressBar1.Margin = new Padding(2);
             progressBar1.Name = "progressBar1";
             progressBar1.Size = new Size(446, 22);
             progressBar1.TabIndex = 0;
@@ -45,12 +45,12 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Microsoft YaHei UI", 21.75F, FontStyle.Bold, GraphicsUnit.Point, 134);
-            label1.Location = new Point(211, 81);
+            label1.Location = new Point(151, 86);
             label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
-            label1.Size = new Size(135, 39);
+            label1.Size = new Size(315, 39);
             label1.TabIndex = 1;
-            label1.Text = "Loading";
+            label1.Text = "Loading Please Wait";
             // 
             // backgroundWorker1
             // 
@@ -67,7 +67,7 @@
             ClientSize = new Size(619, 358);
             Controls.Add(label1);
             Controls.Add(progressBar1);
-            Margin = new Padding(2, 2, 2, 2);
+            Margin = new Padding(2);
             Name = "LoadingForm";
             Text = "LoadingForm";
             Load += LoadingForm_Load;

@@ -45,7 +45,7 @@
             // 
             button1.BackColor = Color.LightGray;
             button1.Font = new Font("Microsoft YaHei UI", 9F, FontStyle.Bold);
-            button1.Location = new Point(56, 194);
+            button1.Location = new Point(40, 194);
             button1.Name = "button1";
             button1.Size = new Size(94, 39);
             button1.TabIndex = 2;

@@ -37,10 +37,9 @@
             // 
             button1.BackColor = Color.LightGray;
             button1.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            button1.Location = new Point(334, 253);
-            button1.Margin = new Padding(3, 4, 3, 4);
+            button1.Location = new Point(81, 242);
             button1.Name = "button1";
-            button1.Size = new Size(232, 65);
+            button1.Size = new Size(203, 55);
             button1.TabIndex = 0;
             button1.Text = "Start";
             button1.UseVisualStyleBackColor = false;
@@ -51,10 +50,9 @@
             button2.BackColor = Color.LightGray;
             button2.Cursor = Cursors.SizeWE;
             button2.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            button2.Location = new Point(334, 326);
-            button2.Margin = new Padding(3, 4, 3, 4);
+            button2.Location = new Point(627, 242);
             button2.Name = "button2";
-            button2.Size = new Size(232, 65);
+            button2.Size = new Size(203, 55);
             button2.TabIndex = 1;
             button2.Text = "End";
             button2.UseVisualStyleBackColor = false;
@@ -62,15 +60,14 @@
             // 
             // ClockingForm
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Teal;
-            ClientSize = new Size(1032, 642);
+            ClientSize = new Size(903, 546);
             Controls.Add(button2);
             Controls.Add(button1);
             ForeColor = SystemColors.ActiveCaptionText;
             Location = new Point(511, 286);
-            Margin = new Padding(3, 4, 3, 4);
             Name = "ClockingForm";
             Text = "Clock";
             Load += Form2_Load;

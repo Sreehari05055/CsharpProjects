@@ -38,7 +38,7 @@
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Location = new Point(19, 80);
-            dataGridView1.Margin = new Padding(2, 2, 2, 2);
+            dataGridView1.Margin = new Padding(2);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 62;
             dataGridView1.Size = new Size(564, 277);
@@ -46,19 +46,20 @@
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(409, 41);
-            textBox1.Margin = new Padding(2, 2, 2, 2);
+            textBox1.Location = new Point(361, 41);
+            textBox1.Margin = new Padding(2);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(175, 23);
+            textBox1.Size = new Size(222, 23);
             textBox1.TabIndex = 1;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(257, 46);
+            label1.Font = new Font("Microsoft YaHei UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 134);
+            label1.Location = new Point(19, 42);
             label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
-            label1.Size = new Size(140, 17);
+            label1.Size = new Size(195, 22);
             label1.TabIndex = 2;
             label1.Text = "Filter by surname or id";
             // 
@@ -66,11 +67,12 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(638, 377);
+            BackColor = Color.Teal;
+            ClientSize = new Size(642, 407);
             Controls.Add(label1);
             Controls.Add(textBox1);
             Controls.Add(dataGridView1);
-            Margin = new Padding(2, 2, 2, 2);
+            Margin = new Padding(2);
             Name = "AllEmployeesInfoList";
             Text = "AllEmployeesInfoList";
             Load += AllEmployeesInfoList_Load;

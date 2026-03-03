@@ -50,13 +50,14 @@
             label2 = new Label();
             label1 = new Label();
             label11 = new Label();
+            splitter1 = new Splitter();
             SuspendLayout();
             // 
             // button2
             // 
             button2.BackColor = Color.LightGray;
             button2.Font = new Font("Microsoft YaHei UI", 12F, FontStyle.Bold);
-            button2.Location = new Point(482, 437);
+            button2.Location = new Point(522, 437);
             button2.Name = "button2";
             button2.Size = new Size(168, 67);
             button2.TabIndex = 41;
@@ -68,7 +69,7 @@
             // 
             button1.BackColor = Color.LightGray;
             button1.Font = new Font("Microsoft YaHei UI", 12F, FontStyle.Bold);
-            button1.Location = new Point(114, 437);
+            button1.Location = new Point(333, 437);
             button1.Name = "button1";
             button1.Size = new Size(168, 67);
             button1.TabIndex = 40;
@@ -80,7 +81,7 @@
             // 
             label10.AutoSize = true;
             label10.Font = new Font("Microsoft YaHei UI", 10.5F, FontStyle.Bold);
-            label10.Location = new Point(482, 191);
+            label10.Location = new Point(344, 188);
             label10.Name = "label10";
             label10.Size = new Size(121, 19);
             label10.TabIndex = 39;
@@ -88,72 +89,72 @@
             // 
             // textBox9
             // 
-            textBox9.Location = new Point(629, 322);
+            textBox9.Location = new Point(522, 350);
             textBox9.Name = "textBox9";
-            textBox9.Size = new Size(100, 23);
+            textBox9.Size = new Size(165, 23);
             textBox9.TabIndex = 38;
             // 
             // textBox8
             // 
-            textBox8.Location = new Point(629, 188);
+            textBox8.Location = new Point(522, 184);
             textBox8.Name = "textBox8";
-            textBox8.Size = new Size(100, 23);
+            textBox8.Size = new Size(165, 23);
             textBox8.TabIndex = 37;
             // 
             // textBox7
             // 
-            textBox7.Location = new Point(238, 376);
+            textBox7.Location = new Point(522, 390);
             textBox7.Name = "textBox7";
-            textBox7.Size = new Size(100, 23);
+            textBox7.Size = new Size(165, 23);
             textBox7.TabIndex = 36;
             // 
             // textBox6
             // 
-            textBox6.Location = new Point(238, 318);
+            textBox6.Location = new Point(522, 307);
             textBox6.Name = "textBox6";
-            textBox6.Size = new Size(100, 23);
+            textBox6.Size = new Size(165, 23);
             textBox6.TabIndex = 35;
             // 
             // textBox5
             // 
-            textBox5.Location = new Point(238, 254);
+            textBox5.Location = new Point(522, 225);
             textBox5.Name = "textBox5";
-            textBox5.Size = new Size(100, 23);
+            textBox5.Size = new Size(165, 23);
             textBox5.TabIndex = 34;
             // 
             // textBox4
             // 
-            textBox4.Location = new Point(238, 185);
+            textBox4.Location = new Point(522, 141);
             textBox4.Name = "textBox4";
-            textBox4.Size = new Size(100, 23);
+            textBox4.Size = new Size(165, 23);
             textBox4.TabIndex = 33;
             // 
             // textBox3
             // 
-            textBox3.Location = new Point(629, 254);
+            textBox3.Location = new Point(522, 265);
             textBox3.Name = "textBox3";
-            textBox3.Size = new Size(100, 23);
+            textBox3.Size = new Size(165, 23);
             textBox3.TabIndex = 32;
             // 
             // textBox2
             // 
-            textBox2.Location = new Point(629, 127);
+            textBox2.Location = new Point(522, 101);
             textBox2.Name = "textBox2";
-            textBox2.Size = new Size(100, 23);
+            textBox2.Size = new Size(165, 23);
             textBox2.TabIndex = 31;
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(238, 127);
+            textBox1.Location = new Point(522, 62);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(100, 23);
+            textBox1.Size = new Size(165, 23);
             textBox1.TabIndex = 30;
             // 
             // label9
             // 
             label9.AutoSize = true;
             label9.Font = new Font("Microsoft YaHei UI", 10.5F, FontStyle.Bold);
-            label9.Location = new Point(60, 380);
+            label9.Location = new Point(344, 394);
             label9.Name = "label9";
             label9.Size = new Size(107, 19);
             label9.TabIndex = 29;
@@ -163,7 +164,7 @@
             // 
             label8.AutoSize = true;
             label8.Font = new Font("Microsoft YaHei UI", 10.5F, FontStyle.Bold);
-            label8.Location = new Point(60, 321);
+            label8.Location = new Point(344, 310);
             label8.Name = "label8";
             label8.Size = new Size(42, 19);
             label8.TabIndex = 28;
@@ -173,7 +174,7 @@
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Microsoft YaHei UI", 10.5F, FontStyle.Bold);
-            label7.Location = new Point(60, 257);
+            label7.Location = new Point(344, 228);
             label7.Name = "label7";
             label7.Size = new Size(157, 19);
             label7.TabIndex = 27;
@@ -183,7 +184,7 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Microsoft YaHei UI", 10.5F, FontStyle.Bold);
-            label6.Location = new Point(60, 191);
+            label6.Location = new Point(344, 147);
             label6.Name = "label6";
             label6.Size = new Size(107, 19);
             label6.TabIndex = 26;
@@ -193,7 +194,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Microsoft YaHei UI", 10.5F, FontStyle.Bold);
-            label5.Location = new Point(482, 325);
+            label5.Location = new Point(344, 351);
             label5.Name = "label5";
             label5.Size = new Size(97, 19);
             label5.TabIndex = 25;
@@ -203,7 +204,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Microsoft YaHei UI", 10.5F, FontStyle.Bold);
-            label4.Location = new Point(482, 257);
+            label4.Location = new Point(344, 266);
             label4.Name = "label4";
             label4.Size = new Size(112, 19);
             label4.TabIndex = 24;
@@ -212,7 +213,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(534, 269);
+            label3.Location = new Point(427, 280);
             label3.Name = "label3";
             label3.Size = new Size(0, 17);
             label3.TabIndex = 23;
@@ -221,7 +222,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Microsoft YaHei UI", 10.5F, FontStyle.Bold);
-            label2.Location = new Point(482, 131);
+            label2.Location = new Point(345, 105);
             label2.Name = "label2";
             label2.Size = new Size(41, 19);
             label2.TabIndex = 22;
@@ -231,7 +232,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Microsoft YaHei UI", 10.5F, FontStyle.Bold);
-            label1.Location = new Point(60, 130);
+            label1.Location = new Point(344, 62);
             label1.Name = "label1";
             label1.Size = new Size(55, 19);
             label1.TabIndex = 21;
@@ -242,11 +243,19 @@
             // 
             label11.AutoSize = true;
             label11.Font = new Font("Microsoft YaHei UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 134);
-            label11.Location = new Point(292, 53);
+            label11.Location = new Point(22, 156);
             label11.Name = "label11";
             label11.Size = new Size(192, 31);
             label11.TabIndex = 42;
             label11.Text = "SetRootAdmin";
+            // 
+            // splitter1
+            // 
+            splitter1.Location = new Point(0, 0);
+            splitter1.Name = "splitter1";
+            splitter1.Size = new Size(228, 516);
+            splitter1.TabIndex = 43;
+            splitter1.TabStop = false;
             // 
             // SetRootAdmin
             // 
@@ -276,7 +285,8 @@
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
-            Margin = new Padding(2, 2, 2, 2);
+            Controls.Add(splitter1);
+            Margin = new Padding(2);
             Name = "SetRootAdmin";
             Text = "SetRootAdmin";
             Load += SetRootAdmin_Load;
@@ -308,5 +318,6 @@
         private Label label2;
         private Label label1;
         private Label label11;
+        private Splitter splitter1;
     }
 }
