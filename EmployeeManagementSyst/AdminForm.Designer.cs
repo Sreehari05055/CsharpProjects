@@ -50,9 +50,9 @@
             button1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             button1.BackColor = Color.LightGray;
             button1.Font = new Font("Microsoft YaHei UI", 9F, FontStyle.Bold);
-            button1.Location = new Point(412, 100);
+            button1.Location = new Point(400, 78);
             button1.Name = "button1";
-            button1.Size = new Size(178, 48);
+            button1.Size = new Size(194, 61);
             button1.TabIndex = 0;
             button1.Text = "Add Employee";
             button1.UseVisualStyleBackColor = false;
@@ -63,9 +63,9 @@
             button2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             button2.BackColor = Color.LightGray;
             button2.Font = new Font("Microsoft YaHei UI", 9F, FontStyle.Bold);
-            button2.Location = new Point(412, 165);
+            button2.Location = new Point(400, 161);
             button2.Name = "button2";
-            button2.Size = new Size(178, 48);
+            button2.Size = new Size(194, 61);
             button2.TabIndex = 1;
             button2.Text = "Delete Employee";
             button2.UseVisualStyleBackColor = false;
@@ -76,9 +76,9 @@
             button3.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             button3.BackColor = Color.LightGray;
             button3.Font = new Font("Microsoft YaHei UI", 9F, FontStyle.Bold);
-            button3.Location = new Point(412, 230);
+            button3.Location = new Point(400, 247);
             button3.Name = "button3";
-            button3.Size = new Size(178, 48);
+            button3.Size = new Size(194, 61);
             button3.TabIndex = 2;
             button3.Text = " Update Employee Details";
             button3.UseVisualStyleBackColor = false;
@@ -89,9 +89,9 @@
             button4.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             button4.BackColor = Color.LightGray;
             button4.Font = new Font("Microsoft YaHei UI", 9F, FontStyle.Bold);
-            button4.Location = new Point(412, 295);
+            button4.Location = new Point(400, 329);
             button4.Name = "button4";
-            button4.Size = new Size(178, 48);
+            button4.Size = new Size(194, 61);
             button4.TabIndex = 3;
             button4.Text = "Add Work Schedule";
             button4.UseVisualStyleBackColor = false;
@@ -102,9 +102,9 @@
             button5.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             button5.BackColor = Color.LightGray;
             button5.Font = new Font("Microsoft YaHei UI", 9F, FontStyle.Bold);
-            button5.Location = new Point(412, 362);
+            button5.Location = new Point(400, 410);
             button5.Name = "button5";
-            button5.Size = new Size(178, 48);
+            button5.Size = new Size(194, 61);
             button5.TabIndex = 4;
             button5.Text = "View Work Schedule";
             button5.UseVisualStyleBackColor = false;
@@ -115,9 +115,9 @@
             button6.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             button6.BackColor = Color.LightGray;
             button6.Font = new Font("Microsoft YaHei UI", 9F, FontStyle.Bold);
-            button6.Location = new Point(412, 433);
+            button6.Location = new Point(400, 494);
             button6.Name = "button6";
-            button6.Size = new Size(178, 48);
+            button6.Size = new Size(194, 61);
             button6.TabIndex = 5;
             button6.Text = "Send Work Schedule";
             button6.UseVisualStyleBackColor = false;
@@ -128,9 +128,9 @@
             button7.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             button7.BackColor = Color.LightGray;
             button7.Font = new Font("Microsoft YaHei UI", 9F, FontStyle.Bold);
-            button7.Location = new Point(607, 100);
+            button7.Location = new Point(615, 78);
             button7.Name = "button7";
-            button7.Size = new Size(178, 48);
+            button7.Size = new Size(194, 61);
             button7.TabIndex = 6;
             button7.Text = "Set Admin";
             button7.UseVisualStyleBackColor = false;
@@ -141,9 +141,9 @@
             button8.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             button8.BackColor = Color.LightGray;
             button8.Font = new Font("Microsoft YaHei UI", 9F, FontStyle.Bold);
-            button8.Location = new Point(607, 165);
+            button8.Location = new Point(615, 161);
             button8.Name = "button8";
-            button8.Size = new Size(178, 48);
+            button8.Size = new Size(194, 61);
             button8.TabIndex = 7;
             button8.Text = "Remove Admin";
             button8.UseVisualStyleBackColor = false;
@@ -154,9 +154,9 @@
             button9.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             button9.BackColor = Color.LightGray;
             button9.Font = new Font("Microsoft YaHei UI", 9F, FontStyle.Bold);
-            button9.Location = new Point(607, 230);
+            button9.Location = new Point(615, 247);
             button9.Name = "button9";
-            button9.Size = new Size(178, 48);
+            button9.Size = new Size(194, 61);
             button9.TabIndex = 8;
             button9.Text = "Check Working Employees";
             button9.UseVisualStyleBackColor = false;
@@ -167,9 +167,9 @@
             button10.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             button10.BackColor = Color.LightGray;
             button10.Font = new Font("Microsoft YaHei UI", 9F, FontStyle.Bold);
-            button10.Location = new Point(607, 295);
+            button10.Location = new Point(615, 329);
             button10.Name = "button10";
-            button10.Size = new Size(178, 48);
+            button10.Size = new Size(194, 61);
             button10.TabIndex = 9;
             button10.Text = "Get Employee Details";
             button10.UseVisualStyleBackColor = false;
@@ -179,9 +179,9 @@
             // 
             button11.BackColor = Color.LightGray;
             button11.Font = new Font("Microsoft YaHei UI", 9F, FontStyle.Bold);
-            button11.Location = new Point(607, 362);
+            button11.Location = new Point(615, 410);
             button11.Name = "button11";
-            button11.Size = new Size(178, 48);
+            button11.Size = new Size(194, 61);
             button11.TabIndex = 10;
             button11.Text = "View/Edit PaySlip";
             button11.UseVisualStyleBackColor = false;
@@ -191,9 +191,9 @@
             // 
             button12.BackColor = Color.LightGray;
             button12.Font = new Font("Microsoft YaHei UI", 9F, FontStyle.Bold);
-            button12.Location = new Point(607, 433);
+            button12.Location = new Point(615, 494);
             button12.Name = "button12";
-            button12.Size = new Size(178, 48);
+            button12.Size = new Size(194, 61);
             button12.TabIndex = 11;
             button12.Text = "Schedule PaySlip";
             button12.UseVisualStyleBackColor = false;
@@ -203,9 +203,9 @@
             // 
             button13.BackColor = Color.LightGray;
             button13.Font = new Font("Microsoft YaHei UI", 9F, FontStyle.Bold);
-            button13.Location = new Point(412, 519);
+            button13.Location = new Point(400, 580);
             button13.Name = "button13";
-            button13.Size = new Size(373, 49);
+            button13.Size = new Size(409, 62);
             button13.TabIndex = 12;
             button13.Text = "Save Weekly Schedule(Rota) Date";
             button13.UseVisualStyleBackColor = false;
@@ -216,11 +216,11 @@
             label1.AutoSize = true;
             label1.BackColor = Color.LightSeaGreen;
             label1.Font = new Font("Microsoft YaHei UI", 24F, FontStyle.Bold, GraphicsUnit.Point, 134);
-            label1.Location = new Point(29, 275);
+            label1.Location = new Point(34, 266);
             label1.Name = "label1";
-            label1.Size = new Size(213, 42);
+            label1.Size = new Size(229, 42);
             label1.TabIndex = 13;
-            label1.Text = "Admin Page";
+            label1.Text = "Admin Pages";
             // 
             // splitter1
             // 
@@ -254,6 +254,7 @@
             Controls.Add(splitter1);
             Name = "AdminForm";
             Text = "AdminPage";
+            Load += AdminForm_Load;
             ResumeLayout(false);
             PerformLayout();
         }

@@ -27,8 +27,8 @@ namespace EmployeeManagementSyst
         }
         // Event handler to open the Delete Employee form when clicked
         private void DeleteEmp_Click(object sender, EventArgs e)
-        {     
-            OpenForm(new DeleteEmployeeList(), "Delete Employee Page");     
+        {
+            OpenForm(new DeleteEmployeeList(), "Delete Employee Page");
 
         }
         // Event handler to open the Update Employee form when clicked
@@ -41,7 +41,7 @@ namespace EmployeeManagementSyst
         {
 
             OpenForm(new AllEmployees(), "Add Rota Page");
-           
+
         }
 
         // Event handler to open the View Rota form when the 'View Rota' button is clicked
@@ -89,7 +89,7 @@ namespace EmployeeManagementSyst
         // Event handler to open the form for setting admin permissions when the 'Set Admin' button is clicked
         private void SetAdmin_Click(object sender, EventArgs e)
         {
-            OpenForm(new SetAdminList(), "Set Admin Page");        
+            OpenForm(new SetAdminList(), "Set Admin Page");
         }
 
         // Event handler to open the form for removing admin permissions when the 'Remove Admin' button is clicked
@@ -103,24 +103,24 @@ namespace EmployeeManagementSyst
         private void CheckStatus_Click(object sender, EventArgs e)
         {
             OpenForm(new CheckWorkingEmployees(), "Status Check Page");
-          
+
         }
         // Event handler to open the form for viewing employee details when the 'Get Employee Details' button is clicked
         private void GetEmpDetails_Click(object sender, EventArgs e)
-        {   
+        {
             OpenForm(new EmployeeInformationForm(), "Employee Detail Page");
 
         }
         // Event handler to open the form for viewing or editing payslips when the 'View/Edit PaySlip' button is clicked
         private void ViewEditPaySlip(object sender, EventArgs e)
-        {   
-            OpenForm(new ViewEditPaySlip(), "View/Edit PaySlip Page");         
+        {
+            OpenForm(new ViewEditPaySlip(), "View/Edit PaySlip Page");
 
         }
         // Event handler to open the form for scheduling payslips when the 'Schedule PaySlip' button is clicked
         private void SchedulePaySlip(object sender, EventArgs e)
         {
-            OpenForm(new SchedulePaySlip(), "Schedule PaySlip Page");          
+            OpenForm(new SchedulePaySlip(), "Schedule PaySlip Page");
 
         }
         // Event handler to open the form for weekly rota save confirmation when the 'Save Weekly Schedule(Rota) Date' button is clicked
@@ -141,5 +141,9 @@ namespace EmployeeManagementSyst
             }
         }
 
+        private void AdminForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
