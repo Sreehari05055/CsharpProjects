@@ -40,40 +40,44 @@
             dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.EditMode = DataGridViewEditMode.EditProgrammatically;
-            dataGridView1.Location = new Point(46, 62);
+            dataGridView1.Location = new Point(79, 134);
             dataGridView1.MultiSelect = false;
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
-            dataGridView1.Size = new Size(506, 221);
+            dataGridView1.Size = new Size(615, 312);
             dataGridView1.TabIndex = 0;
             dataGridView1.CellContentClick += dataGridView1_CellClick;
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(452, 33);
+            textBox1.Location = new Point(547, 85);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(100, 23);
+            textBox1.Size = new Size(147, 23);
             textBox1.TabIndex = 1;
             textBox1.TextChanged += Changing_Text;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(216, 36);
+            label1.Font = new Font("Microsoft YaHei UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 134);
+            label1.Location = new Point(79, 79);
             label1.Name = "label1";
-            label1.Size = new Size(230, 15);
+            label1.Size = new Size(462, 28);
             label1.TabIndex = 2;
             label1.Text = "Enter Employee Code or Surname to Filter:";
             // 
-            // SetAdminGrid
+            // SetAdminList
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(597, 305);
+            BackColor = Color.Teal;
+            ClientSize = new Size(771, 516);
             Controls.Add(label1);
             Controls.Add(textBox1);
             Controls.Add(dataGridView1);
-            Name = "SetAdminGrid";
+            Name = "SetAdminList";
+            ShowInTaskbar = false;
+            SizeGripStyle = SizeGripStyle.Show;
             Text = "SetAdminGrid";
             Load += EmployeeDetailGrid_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();

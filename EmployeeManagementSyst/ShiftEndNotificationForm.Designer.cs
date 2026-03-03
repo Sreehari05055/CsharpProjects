@@ -34,16 +34,16 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(119, 131);
+            label1.Location = new Point(132, 131);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(240, 28);
+            label1.Size = new Size(194, 21);
             label1.TabIndex = 0;
             label1.Text = "You have Clocked out at";
             // 
             // ShiftEndNotificationForm
             // 
-            AutoScaleDimensions = new SizeF(12F, 28F);
+            AutoScaleDimensions = new SizeF(10F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Teal;
             ClientSize = new Size(507, 298);

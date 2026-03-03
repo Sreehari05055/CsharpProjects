@@ -36,23 +36,24 @@
             // 
             // button1
             // 
-            button1.Location = new Point(131, 167);
-            button1.Margin = new Padding(4, 5, 4, 5);
+            button1.BackColor = Color.LightGray;
+            button1.Location = new Point(69, 203);
             button1.Name = "button1";
-            button1.Size = new Size(107, 63);
+            button1.Size = new Size(137, 43);
             button1.TabIndex = 0;
             button1.Text = "Ok";
-            button1.UseVisualStyleBackColor = true;
+            button1.UseVisualStyleBackColor = false;
             button1.Click += Ok_Click;
             // 
             // button2
             // 
-            button2.Location = new Point(343, 167);
-            button2.Margin = new Padding(4, 5, 4, 5);
+            button2.BackColor = Color.LightGray;
+            button2.Location = new Point(321, 203);
             button2.Name = "button2";
-            button2.Size = new Size(107, 63);
+            button2.Size = new Size(117, 43);
             button2.TabIndex = 4;
             button2.Text = "Cancel";
+            button2.UseVisualStyleBackColor = false;
             button2.Click += button2_Click;
             // 
             // comboBox1
@@ -60,33 +61,32 @@
             comboBox1.AllowDrop = true;
             comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(334, 88);
-            comboBox1.Margin = new Padding(4, 5, 4, 5);
+            comboBox1.Location = new Point(69, 97);
             comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(171, 33);
+            comboBox1.Size = new Size(369, 25);
             comboBox1.TabIndex = 2;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(54, 93);
-            label1.Margin = new Padding(4, 0, 4, 0);
+            label1.Font = new Font("Microsoft YaHei UI", 15F, FontStyle.Bold, GraphicsUnit.Point, 134);
+            label1.Location = new Point(69, 40);
             label1.Name = "label1";
-            label1.Size = new Size(289, 25);
+            label1.Size = new Size(369, 27);
             label1.TabIndex = 3;
             label1.Text = "Schedule Day to Save Weekly Rota:";
             // 
-            // WeeklySaveConfirm
+            // AutoWeeklyScheduleSave
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(584, 283);
+            BackColor = Color.Teal;
+            ClientSize = new Size(518, 304);
             Controls.Add(label1);
             Controls.Add(comboBox1);
             Controls.Add(button2);
             Controls.Add(button1);
-            Margin = new Padding(4, 5, 4, 5);
-            Name = "WeeklySaveConfirm";
+            Name = "AutoWeeklyScheduleSave";
             Text = "WeeklySaveConfirm";
             ResumeLayout(false);
             PerformLayout();

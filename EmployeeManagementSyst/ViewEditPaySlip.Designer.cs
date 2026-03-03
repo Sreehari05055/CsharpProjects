@@ -39,33 +39,35 @@
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.EditMode = DataGridViewEditMode.EditOnKeystroke;
-            dataGridView1.Location = new Point(60, 75);
+            dataGridView1.Location = new Point(51, 84);
             dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(587, 321);
+            dataGridView1.Size = new Size(665, 406);
             dataGridView1.TabIndex = 0;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(311, 36);
+            label1.Font = new Font("Microsoft YaHei UI", 15F, FontStyle.Bold, GraphicsUnit.Point, 134);
+            label1.Location = new Point(51, 38);
             label1.Name = "label1";
-            label1.Size = new Size(230, 15);
+            label1.Size = new Size(438, 27);
             label1.TabIndex = 1;
             label1.Text = "Enter Employee Code or Surname to Filter:";
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(547, 33);
+            textBox1.Location = new Point(495, 43);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(100, 23);
+            textBox1.Size = new Size(221, 23);
             textBox1.TabIndex = 2;
             textBox1.TextChanged += Changing_Text;
             // 
             // ViewEditPaySlip
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(721, 423);
+            BackColor = Color.Teal;
+            ClientSize = new Size(771, 516);
             Controls.Add(textBox1);
             Controls.Add(label1);
             Controls.Add(dataGridView1);

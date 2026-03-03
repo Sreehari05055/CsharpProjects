@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             dataGridView1 = new DataGridView();
+            label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -37,25 +38,39 @@
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.EditMode = DataGridViewEditMode.EditProgrammatically;
-            dataGridView1.Location = new Point(42, 61);
+            dataGridView1.Location = new Point(42, 91);
             dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(339, 87);
+            dataGridView1.Size = new Size(494, 176);
             dataGridView1.TabIndex = 0;
             // 
-            // CheckStatus
+            // label1
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            label1.AutoSize = true;
+            label1.Font = new Font("Microsoft YaHei UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 134);
+            label1.Location = new Point(210, 37);
+            label1.Name = "label1";
+            label1.Size = new Size(134, 26);
+            label1.TabIndex = 1;
+            label1.Text = "Check Status";
+            // 
+            // CheckWorkingEmployees
+            // 
+            AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(428, 215);
+            BackColor = Color.Teal;
+            ClientSize = new Size(588, 334);
+            Controls.Add(label1);
             Controls.Add(dataGridView1);
-            Name = "CheckStatus";
+            Name = "CheckWorkingEmployees";
             Text = "CheckStatus";
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
         private DataGridView dataGridView1;
+        private Label label1;
     }
 }

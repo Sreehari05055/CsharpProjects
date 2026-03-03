@@ -35,35 +35,39 @@
             // 
             // progressBar1
             // 
-            progressBar1.Location = new Point(219, 193);
+            progressBar1.Location = new Point(80, 175);
+            progressBar1.Margin = new Padding(2, 2, 2, 2);
             progressBar1.Name = "progressBar1";
-            progressBar1.Size = new Size(333, 34);
+            progressBar1.Size = new Size(446, 22);
             progressBar1.TabIndex = 0;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(16, 88);
+            label1.Font = new Font("Microsoft YaHei UI", 21.75F, FontStyle.Bold, GraphicsUnit.Point, 134);
+            label1.Location = new Point(211, 81);
+            label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
-            label1.Size = new Size(59, 25);
+            label1.Size = new Size(135, 39);
             label1.TabIndex = 1;
-            label1.Text = "label1";
+            label1.Text = "Loading";
             // 
             // backgroundWorker1
             // 
             backgroundWorker1.WorkerReportsProgress = true;
-            backgroundWorker1.WorkerSupportsCancellation = false;
             backgroundWorker1.DoWork += backgroundWorker1_DoWork;
             backgroundWorker1.ProgressChanged += backgroundWorker1_ProgressChanged;
             backgroundWorker1.RunWorkerCompleted += backgroundWorker1_RunWorkerCompleted;
             // 
             // LoadingForm
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            BackColor = Color.Teal;
+            ClientSize = new Size(619, 358);
             Controls.Add(label1);
             Controls.Add(progressBar1);
+            Margin = new Padding(2, 2, 2, 2);
             Name = "LoadingForm";
             Text = "LoadingForm";
             Load += LoadingForm_Load;

@@ -303,8 +303,7 @@
       "Microsoft.Identity.Client/4.80.0": {
         "dependencies": {
           "Microsoft.IdentityModel.Abstractions": "8.14.0",
-          "System.Diagnostics.DiagnosticSource": "8.0.1",
-          "System.ValueTuple": "4.5.0"
+          "System.Diagnostics.DiagnosticSource": "8.0.1"
         },
         "runtime": {
           "lib/net8.0/Microsoft.Identity.Client.dll": {
@@ -530,8 +529,7 @@
             "fileVersion": "10.0.326.7603"
           }
         }
-      },
-      "System.ValueTuple/4.5.0": {}
+      }
     }
   },
   "libraries": {
@@ -807,13 +805,6 @@
       "sha512": "sha512-NTUt9DL+maqbgrIYCAmeZUbX0NoXaueySyjW/bdOlFdSUDC1l51XnsbVEuj5tuad12vdq5Sviskp9uMVGgCNLw==",
       "path": "system.text.json/10.0.3",
       "hashPath": "system.text.json.10.0.3.nupkg.sha512"
-    },
-    "System.ValueTuple/4.5.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-okurQJO6NRE/apDIP23ajJ0hpiNmJ+f0BwOlB/cSqTLQlw5upkf+5+96+iG2Jw40G1fCVCyPz/FhIABUjMR+RQ==",
-      "path": "system.valuetuple/4.5.0",
-      "hashPath": "system.valuetuple.4.5.0.nupkg.sha512"
     }
   }
 }

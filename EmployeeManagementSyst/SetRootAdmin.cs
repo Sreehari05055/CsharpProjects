@@ -75,5 +75,10 @@ namespace EmployeeManagementSyst
                 MessageBox.Show("Error creating root admin: " + ex.Message);
             }
         }
+
+        private void SetRootAdmin_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
