@@ -117,5 +117,33 @@ namespace EmployeeManagementSyst
         {
             this.Close();
         }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            var tb = sender as System.Windows.Forms.TextBox;
+            if (tb == null) return;
+            string digits = string.Empty;
+            foreach (char c in tb.Text)
+            {
+                if (char.IsDigit(c)) digits += c;
+            }
+            if (digits.Length > tb.MaxLength) digits = digits.Substring(0, tb.MaxLength);
+            if (tb.Text != digits)
+            {
+                int selStart = tb.SelectionStart - (tb.Text.Length - digits.Length);
+                if (selStart < 0) selStart = 0;
+                tb.Text = digits;
+                tb.SelectionStart = selStart;
+            }
+        }
+
+        private void textBox1_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+
+        }
     }
 }

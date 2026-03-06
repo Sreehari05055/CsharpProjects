@@ -51,7 +51,7 @@ namespace EmployeeManagementSyst
         }
         private void button2_Click(object sender, EventArgs e)
         {
-           this.Close(); // Closes the form when the cancel button is clicked
+            this.Close(); // Closes the form when the cancel button is clicked
         }
         private void AddEmp_Load(object sender, EventArgs e)
         {
@@ -125,7 +125,12 @@ namespace EmployeeManagementSyst
 
         }
 
+        private void label12_Click(object sender, EventArgs e)
+        {
+
+        }
+
         // Employee creation is handled by EmployeeManager.CreateEmployee; helper methods removed.
-        
+
     }
 }

@@ -38,29 +38,33 @@
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.EditMode = DataGridViewEditMode.EditProgrammatically;
-            dataGridView1.Location = new Point(35, 121);
+            dataGridView1.Location = new Point(13, 117);
+            dataGridView1.Margin = new Padding(4, 4, 4, 4);
             dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(494, 176);
+            dataGridView1.RowHeadersWidth = 62;
+            dataGridView1.Size = new Size(1130, 612);
             dataGridView1.TabIndex = 0;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Microsoft YaHei UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 134);
-            label1.Location = new Point(121, 50);
+            label1.Location = new Point(322, 74);
+            label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(332, 26);
+            label1.Size = new Size(455, 39);
             label1.TabIndex = 1;
-            label1.Text = "Working Empoyee Checking Area";
+            label1.Text = "Currently Working Employees";
             // 
             // CheckWorkingEmployees
             // 
-            AutoScaleDimensions = new SizeF(7F, 17F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Teal;
-            ClientSize = new Size(588, 354);
+            ClientSize = new Size(1156, 742);
             Controls.Add(label1);
             Controls.Add(dataGridView1);
+            Margin = new Padding(4, 4, 4, 4);
             Name = "CheckWorkingEmployees";
             Text = "CheckStatus";
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();

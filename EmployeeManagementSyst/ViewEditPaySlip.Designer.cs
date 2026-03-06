@@ -39,38 +39,43 @@
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.EditMode = DataGridViewEditMode.EditOnKeystroke;
-            dataGridView1.Location = new Point(51, 84);
+            dataGridView1.Location = new Point(13, 124);
+            dataGridView1.Margin = new Padding(4, 4, 4, 4);
             dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(665, 406);
+            dataGridView1.RowHeadersWidth = 62;
+            dataGridView1.Size = new Size(1130, 605);
             dataGridView1.TabIndex = 0;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Microsoft YaHei UI", 15F, FontStyle.Bold, GraphicsUnit.Point, 134);
-            label1.Location = new Point(51, 38);
+            label1.Location = new Point(166, 76);
+            label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(438, 27);
+            label1.Size = new Size(655, 40);
             label1.TabIndex = 1;
             label1.Text = "Enter Employee Code or Surname to Filter:";
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(495, 43);
+            textBox1.Location = new Point(829, 85);
+            textBox1.Margin = new Padding(4, 4, 4, 4);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(221, 23);
+            textBox1.Size = new Size(314, 31);
             textBox1.TabIndex = 2;
             textBox1.TextChanged += Changing_Text;
             // 
             // ViewEditPaySlip
             // 
-            AutoScaleDimensions = new SizeF(7F, 17F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Teal;
-            ClientSize = new Size(771, 516);
+            ClientSize = new Size(1156, 742);
             Controls.Add(textBox1);
             Controls.Add(label1);
             Controls.Add(dataGridView1);
+            Margin = new Padding(4, 4, 4, 4);
             Name = "ViewEditPaySlip";
             Text = "ViewEditPaySlip";
             Load += PaySlipGrid_Load;

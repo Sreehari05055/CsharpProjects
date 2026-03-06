@@ -31,7 +31,6 @@
             dataGridView1 = new DataGridView();
             textBox1 = new TextBox();
             label1 = new Label();
-            DeletEmployeeList = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -41,20 +40,22 @@
             dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.EditMode = DataGridViewEditMode.EditProgrammatically;
-            dataGridView1.Location = new Point(122, 227);
+            dataGridView1.Location = new Point(13, 133);
+            dataGridView1.Margin = new Padding(4, 4, 4, 4);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersWidth = 62;
-            dataGridView1.Size = new Size(641, 336);
+            dataGridView1.Size = new Size(1130, 596);
             dataGridView1.TabIndex = 0;
             dataGridView1.CellClick += dataGridView1_CellClick;
             // 
             // textBox1
             // 
             textBox1.Font = new Font("Microsoft YaHei UI", 15F, FontStyle.Bold);
-            textBox1.Location = new Point(566, 171);
+            textBox1.Location = new Point(863, 83);
+            textBox1.Margin = new Padding(4, 4, 4, 4);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(197, 33);
+            textBox1.Size = new Size(280, 46);
             textBox1.TabIndex = 2;
             textBox1.TextChanged += Changing_Text;
             // 
@@ -62,33 +63,23 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Microsoft YaHei UI", 15F, FontStyle.Bold);
-            label1.Location = new Point(122, 171);
+            label1.Location = new Point(200, 89);
+            label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(438, 27);
+            label1.Size = new Size(655, 40);
             label1.TabIndex = 3;
             label1.Text = "Enter Employee Code or Surname to Filter:";
             // 
-            // DeletEmployeeList
-            // 
-            DeletEmployeeList.AutoSize = true;
-            DeletEmployeeList.Font = new Font("Microsoft YaHei UI", 24F, FontStyle.Bold, GraphicsUnit.Point, 134);
-            DeletEmployeeList.Location = new Point(245, 74);
-            DeletEmployeeList.Name = "DeletEmployeeList";
-            DeletEmployeeList.Size = new Size(315, 42);
-            DeletEmployeeList.TabIndex = 4;
-            DeletEmployeeList.Text = "DeletEmployeeList";
-            DeletEmployeeList.Click += DeletEmployeeList_Click;
-            // 
             // DeleteEmployeeList
             // 
-            AutoScaleDimensions = new SizeF(7F, 17F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Teal;
-            ClientSize = new Size(860, 597);
-            Controls.Add(DeletEmployeeList);
+            ClientSize = new Size(1156, 742);
             Controls.Add(label1);
             Controls.Add(textBox1);
             Controls.Add(dataGridView1);
+            Margin = new Padding(4, 4, 4, 4);
             Name = "DeleteEmployeeList";
             Text = "DeleteEmpGrid";
             Load += EmployeeDetailGrid_Load;
@@ -102,6 +93,5 @@
         private DataGridView dataGridView1;
         private TextBox textBox1;
         private Label label1;
-        private Label DeletEmployeeList;
     }
 }

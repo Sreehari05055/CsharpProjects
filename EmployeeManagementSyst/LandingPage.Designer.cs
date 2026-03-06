@@ -36,10 +36,10 @@
             // 
             button1.BackColor = SystemColors.ControlDark;
             button1.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            button1.Location = new Point(290, 286);
-            button1.Margin = new Padding(3, 4, 3, 4);
+            button1.Location = new Point(341, 363);
+            button1.Margin = new Padding(4, 5, 4, 5);
             button1.Name = "button1";
-            button1.Size = new Size(215, 65);
+            button1.Size = new Size(269, 81);
             button1.TabIndex = 0;
             button1.Text = "Start/End \r\n";
             button1.UseVisualStyleBackColor = false;
@@ -49,10 +49,10 @@
             // 
             button2.BackColor = SystemColors.ControlDark;
             button2.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            button2.Location = new Point(511, 286);
-            button2.Margin = new Padding(3, 4, 3, 4);
+            button2.Location = new Point(618, 363);
+            button2.Margin = new Padding(4, 5, 4, 5);
             button2.Name = "button2";
-            button2.Size = new Size(232, 65);
+            button2.Size = new Size(290, 81);
             button2.TabIndex = 1;
             button2.Text = "Management Info";
             button2.UseVisualStyleBackColor = false;
@@ -60,13 +60,13 @@
             // 
             // LandingPage
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Teal;
-            ClientSize = new Size(1032, 642);
+            ClientSize = new Size(1290, 802);
             Controls.Add(button2);
             Controls.Add(button1);
-            Margin = new Padding(3, 4, 3, 4);
+            Margin = new Padding(4, 5, 4, 5);
             Name = "LandingPage";
             Text = "Home";
             Load += Form1_Load;

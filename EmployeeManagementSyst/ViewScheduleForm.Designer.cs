@@ -41,31 +41,34 @@
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.EditMode = DataGridViewEditMode.EditProgrammatically;
-            dataGridView1.Location = new Point(29, 134);
+            dataGridView1.Location = new Point(13, 145);
+            dataGridView1.Margin = new Padding(4, 4, 4, 4);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersWidth = 62;
-            dataGridView1.Size = new Size(801, 364);
+            dataGridView1.Size = new Size(1130, 584);
             dataGridView1.TabIndex = 0;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Microsoft YaHei UI", 26.25F, FontStyle.Bold, GraphicsUnit.Point, 134);
-            label1.Location = new Point(199, 50);
+            label1.Location = new Point(125, 71);
+            label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(453, 46);
+            label1.Size = new Size(880, 70);
             label1.TabIndex = 1;
-            label1.Text = "View Empolyee Schedule";
+            label1.Text = "View Empolyee Work Schedules";
             // 
             // ViewScheduleForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 17F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Teal;
-            ClientSize = new Size(859, 533);
+            ClientSize = new Size(1156, 742);
             Controls.Add(label1);
             Controls.Add(dataGridView1);
+            Margin = new Padding(4, 4, 4, 4);
             Name = "ViewScheduleForm";
             Text = "ViewRota";
             Load += ViewScheduleForm_Load;

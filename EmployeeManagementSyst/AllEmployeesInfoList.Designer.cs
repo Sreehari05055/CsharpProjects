@@ -37,42 +37,38 @@
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(19, 80);
-            dataGridView1.Margin = new Padding(2);
+            dataGridView1.Location = new Point(12, 118);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 62;
-            dataGridView1.Size = new Size(564, 277);
+            dataGridView1.Size = new Size(1132, 612);
             dataGridView1.TabIndex = 0;
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(361, 41);
-            textBox1.Margin = new Padding(2);
+            textBox1.Location = new Point(829, 81);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(222, 23);
+            textBox1.Size = new Size(315, 31);
             textBox1.TabIndex = 1;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Microsoft YaHei UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 134);
-            label1.Location = new Point(19, 42);
-            label1.Margin = new Padding(2, 0, 2, 0);
+            label1.Location = new Point(524, 79);
             label1.Name = "label1";
-            label1.Size = new Size(195, 22);
+            label1.Size = new Size(294, 31);
             label1.TabIndex = 2;
-            label1.Text = "Filter by surname or id";
+            label1.Text = "Filter by Surname or ID\r\n";
             // 
             // AllEmployeesInfoList
             // 
-            AutoScaleDimensions = new SizeF(7F, 17F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Teal;
-            ClientSize = new Size(642, 407);
+            ClientSize = new Size(1156, 742);
             Controls.Add(label1);
             Controls.Add(textBox1);
             Controls.Add(dataGridView1);
-            Margin = new Padding(2);
             Name = "AllEmployeesInfoList";
             Text = "AllEmployeesInfoList";
             Load += AllEmployeesInfoList_Load;

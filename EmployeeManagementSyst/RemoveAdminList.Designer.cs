@@ -40,18 +40,21 @@
             dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.EditMode = DataGridViewEditMode.EditProgrammatically;
-            dataGridView1.Location = new Point(56, 95);
+            dataGridView1.Location = new Point(13, 120);
+            dataGridView1.Margin = new Padding(4, 4, 4, 4);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
-            dataGridView1.Size = new Size(608, 326);
+            dataGridView1.RowHeadersWidth = 62;
+            dataGridView1.Size = new Size(1130, 609);
             dataGridView1.TabIndex = 0;
             dataGridView1.CellContentClick += dataGridView1_CellClick;
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(502, 47);
+            textBox1.Location = new Point(913, 73);
+            textBox1.Margin = new Padding(4, 4, 4, 4);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(162, 23);
+            textBox1.Size = new Size(230, 31);
             textBox1.TabIndex = 1;
             textBox1.TextChanged += Changing_Text;
             // 
@@ -59,21 +62,23 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Microsoft YaHei UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 134);
-            label1.Location = new Point(56, 47);
+            label1.Location = new Point(265, 65);
+            label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(420, 26);
+            label1.Size = new Size(640, 39);
             label1.TabIndex = 2;
             label1.Text = "Enter Employee Code or Surname to Filter:";
             // 
             // RemoveAdminList
             // 
-            AutoScaleDimensions = new SizeF(7F, 17F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Teal;
-            ClientSize = new Size(738, 470);
+            ClientSize = new Size(1156, 742);
             Controls.Add(label1);
             Controls.Add(textBox1);
             Controls.Add(dataGridView1);
+            Margin = new Padding(4, 4, 4, 4);
             Name = "RemoveAdminList";
             Text = "RmoveAdminGrid";
             Load += EmployeeDetailGrid_Load;

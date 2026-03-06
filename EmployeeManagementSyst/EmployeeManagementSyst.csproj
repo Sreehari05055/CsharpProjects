@@ -14,6 +14,8 @@
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="10.0.3" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="10.0.3" />
     <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="10.0.3" />
+    <!-- Explicit logging abstractions package to satisfy transitive dependencies on some SDKs/build environments -->
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="8.0.3" />
     <!-- Ensure System.Text.Json is restored for .NET 8 runtime support -->
     <PackageReference Include="System.Text.Json" Version="10.0.3" />
   </ItemGroup>
