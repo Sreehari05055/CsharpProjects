@@ -27,58 +27,56 @@ namespace EmployeeManagementSyst
         /// </summary>
         /// <param name="sender">The object that triggered the event.</param>
         /// <param name="e">Event data for the text change event.</param>
-        private void Changing_Text(object sender,EventArgs s)
+        private void Changing_Text(object sender, EventArgs e)
         {
             string userInput = textBox1.Text.Trim().ToLower();
-
             if (string.IsNullOrWhiteSpace(userInput))
             {
-
                 LoadAllData();
                 return;
             }
+
             try
             {
                 DataTable dataTable = new DataTable();
-                dataTable.Columns.Add("id", typeof(string));
-                dataTable.Columns.Add("fullname", typeof(string));
-                dataTable.Columns.Add("age", typeof(string));
-                dataTable.Columns.Add("phonenumber", typeof(string));
-                dataTable.Columns.Add("email", typeof(string));
-                dataTable.Columns.Add("hourlyrate", typeof(string));
+                dataTable.Columns.Add("Id", typeof(string));
+                dataTable.Columns.Add("FullName", typeof(string));
+                dataTable.Columns.Add("Age", typeof(string));
+                dataTable.Columns.Add("PhoneNumber", typeof(string));
+                dataTable.Columns.Add("Email", typeof(string));
+                dataTable.Columns.Add("HourlyRate", typeof(string));
 
-                using (SqlConnection serverConnect = ServerConnection.GetOpenConnection())
+                using (SqlConnection conn = ServerConnection.GetOpenConnection())
                 {
-                   
-                    string qry = "SELECT Id,FullName,Age,PhoneNumber,Email,HourlyRate FROM EmployeeDetails WHERE Surname = @surname OR Id = @id;";
-                    SqlCommand mySqlCommand = new SqlCommand(qry, serverConnect);
-                    mySqlCommand.Parameters.Clear();
+                    string qry = "SELECT Id, FullName, Age, PhoneNumber, Email, HourlyRate FROM EmployeeDetails WHERE Surname = @surname OR Id = @id;";
+                    SqlCommand mySqlCommand = new SqlCommand(qry, conn);
+
+
                     mySqlCommand.Parameters.AddWithValue("@surname", userInput);
                     mySqlCommand.Parameters.AddWithValue("@id", userInput);
-                    using (SqlDataReader reader = mySqlCommand.ExecuteReader())
+                    SqlDataReader reader = mySqlCommand.ExecuteReader();
+                    if (reader.HasRows)
                     {
-                        if (reader.HasRows)
+                        while (reader.Read())
                         {
-                            while (reader.Read())
-                            {
-                                DataRow row = dataTable.NewRow();
-                                row["id"] = reader["id"].ToString();
-                                row["fullname"] = reader["fullname"].ToString();
-                                row["age"] = reader["age"].ToString();
-                                row["phonenumber"] = reader["phonenumber"].ToString();
-                                row["email"] = reader["email"].ToString();
-                                row["hourlyrate"] = reader["hourlyrate"].ToString();
-                                dataTable.Rows.Add(row);
-                            }
-                            dataGridView1.DataSource = dataTable;
+                            var row = dataTable.NewRow();
+                            row["Id"] = reader["Id"].ToString();
+                            row["FullName"] = reader["FullName"].ToString();
+                            row["Age"] = reader["Age"]?.ToString();
+                            row["PhoneNumber"] = reader["PhoneNumber"]?.ToString();
+                            row["Email"] = reader["Email"]?.ToString();
+                            row["HourlyRate"] = reader["HourlyRate"]?.ToString();
+                            dataTable.Rows.Add(row);
                         }
+                        dataGridView1.DataSource = dataTable;
                     }
-                    serverConnect.Close();
+                    conn.Close();
                 }
-
             }
-
-            catch (Exception ex) { MessageBox.Show("Employee Details Error: " + ex.Message); }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error searching employees: " + ex.Message);
+            }
         }
         /// <summary>
         /// Loads all employee data into the DataGridView when there are no filters applied.
@@ -88,12 +86,12 @@ namespace EmployeeManagementSyst
             try
             {
                 DataTable dataTable = new DataTable();
-                dataTable.Columns.Add("id", typeof(string));
-                dataTable.Columns.Add("fullname", typeof(string));
-                dataTable.Columns.Add("age", typeof(string));
-                dataTable.Columns.Add("phonenumber", typeof(string));
-                dataTable.Columns.Add("email", typeof(string));
-                dataTable.Columns.Add("hourlyrate", typeof(string));
+                dataTable.Columns.Add("Id", typeof(string));
+                dataTable.Columns.Add("FullName", typeof(string));
+                dataTable.Columns.Add("Age", typeof(string));
+                dataTable.Columns.Add("PhoneNumber", typeof(string));
+                dataTable.Columns.Add("Email", typeof(string));
+                dataTable.Columns.Add("HourlyRate", typeof(string));
 
                 using (SqlConnection connection = ServerConnection.GetOpenConnection())
                 {
@@ -107,20 +105,20 @@ namespace EmployeeManagementSyst
                             while (reader.Read())
                             {
                                 DataRow row = dataTable.NewRow();
-                                row["id"] = reader["id"].ToString();
-                                row["fullname"] = reader["fullname"].ToString();
-                                row["age"] = reader["age"].ToString();
-                                row["phonenumber"] = reader["phonenumber"].ToString();
-                                row["email"] = reader["email"].ToString();
-                                row["hourlyrate"] = reader["hourlyrate"].ToString();
+                                row["Id"] = reader["Id"].ToString();
+                                row["FullName"] = reader["FullName"].ToString();
+                                row["Age"] = reader["Age"].ToString();
+                                row["PhoneNumber"] = reader["PhoneNumber"].ToString();
+                                row["Email"] = reader["Email"].ToString();
+                                row["HourlyRate"] = reader["HourlyRate"].ToString();
                                 dataTable.Rows.Add(row);
                             }
                             dataGridView1.DataSource = dataTable;
                         }
                     }
-                    
-                   connection.Close();
                 }
+                dataGridView1.DataSource = dataTable;
+                if (dataGridView1.Columns["Id"] != null) dataGridView1.Columns["Id"].ReadOnly = true;
             }
             catch (Exception ex)
             {
