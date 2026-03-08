@@ -44,7 +44,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Microsoft YaHei UI", 21.75F, FontStyle.Bold, GraphicsUnit.Point, 134);
-            label1.Location = new Point(113, 421);
+            label1.Location = new Point(113, 218);
             label1.Name = "label1";
             label1.Size = new Size(473, 58);
             label1.TabIndex = 1;
