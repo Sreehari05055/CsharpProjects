@@ -94,10 +94,8 @@ namespace EmployeeManagementSyst
 
                 using (SqlConnection serverConnect = ServerConnection.GetOpenConnection())
                 {
-                   
-                    // Search admins directly in EmployeeDetails. Use case-insensitive surname match.
-                    string qry = "SELECT Id AS EmployeeId, FullName AS AdminName FROM EmployeeDetails " +
-                                 "WHERE UserRole = 'admin' AND (LOWER(Surname) LIKE '%' + @surname + '%' OR Id = @id);";
+
+                    string qry = "SELECT Id,FullName FROM EmployeeDetails WHERE UserRole = 'admin' AND (Surname = @surname OR Id = @id);";
                     SqlCommand mySqlCommand = new SqlCommand(qry, serverConnect);
                     mySqlCommand.Parameters.AddWithValue("@surname", userInput);
                     mySqlCommand.Parameters.AddWithValue("@id", userInput);
@@ -108,8 +106,8 @@ namespace EmployeeManagementSyst
                             while (reader.Read())
                             {
                                 DataRow row = dataTable.NewRow();
-                                row["Id"] = reader["EmployeeId"].ToString();
-                                row["Admin Name"] = reader["AdminName"].ToString();
+                                row["Id"] = reader["Id"].ToString();
+                                row["Admin Name"] = reader["FullName"].ToString();
 
                                 dataTable.Rows.Add(row);
                             }

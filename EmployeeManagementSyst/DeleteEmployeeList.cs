@@ -151,7 +151,7 @@ namespace EmployeeManagementSyst
                 using (SqlConnection serverConnect = ServerConnection.GetOpenConnection())
                 {
 
-                    string qry = "SELECT Id,FullName FROM EmployeeDetails WHERE Surname = @surname OR Id = @id;";
+                    string qry = "SELECT Id,FullName FROM EmployeeDetails WHERE UserRole = 'employee' AND (Surname = @surname OR Id = @id) ;";
                     SqlCommand mySqlCommand = new SqlCommand(qry, serverConnect);
                     mySqlCommand.Parameters.Clear();
                     mySqlCommand.Parameters.AddWithValue("@surname", userInput);

@@ -36,15 +36,18 @@ namespace EmployeeManagementSyst
                 dataTable.Columns.Add("PhoneNumber", typeof(string));
                 dataTable.Columns.Add("Email", typeof(string));
                 dataTable.Columns.Add("HourlyRate", typeof(string));
-
+                dataTable.Columns.Add("ClockPin", typeof(string));
+                
                 using (SqlConnection conn = ServerConnection.GetOpenConnection())
                 {
-                    string qry = "SELECT Id, FullName, Age, PhoneNumber, Email, HourlyRate, ClockPin FROM EmployeeDetails WHERE LOWER(Surname) LIKE '%' + @surname + '%' OR Id = @id;";
-                    using (SqlCommand cmd = new SqlCommand(qry, conn))
-                    {
-                        cmd.Parameters.AddWithValue("@surname", userInput);
-                        cmd.Parameters.AddWithValue("@id", userInput);
-                        using (var reader = cmd.ExecuteReader())
+                    string qry = "SELECT Id, FullName, Age, PhoneNumber, Email, HourlyRate, ClockPin FROM EmployeeDetails WHERE Surname = @surname OR Id = @id;";
+                    SqlCommand mySqlCommand = new SqlCommand(qry, conn);
+
+
+                    mySqlCommand.Parameters.AddWithValue("@surname", userInput);
+                    mySqlCommand.Parameters.AddWithValue("@id", userInput);
+                    SqlDataReader reader = mySqlCommand.ExecuteReader();
+                    if (reader.HasRows)
                         {
                             while (reader.Read())
                             {
@@ -58,14 +61,12 @@ namespace EmployeeManagementSyst
                                 row["ClockPin"] = reader["ClockPin"]?.ToString();
                                 dataTable.Rows.Add(row);
                             }
+                            dataGridView1.DataSource = dataTable;
                         }
-                    }
+                    conn.Close();
+
                 }
 
-                dataGridView1.DataSource = dataTable;
-                // Make Id and ClockPin columns readonly
-                if (dataGridView1.Columns["Id"] != null) dataGridView1.Columns["Id"].ReadOnly = true;
-                if (dataGridView1.Columns["ClockPin"] != null) dataGridView1.Columns["ClockPin"].ReadOnly = true;
             }
             catch (Exception ex)
             {
@@ -239,6 +240,9 @@ namespace EmployeeManagementSyst
             }
         }
 
-        
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

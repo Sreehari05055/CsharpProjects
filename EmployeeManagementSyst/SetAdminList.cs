@@ -129,9 +129,9 @@ namespace EmployeeManagementSyst
                 using (SqlConnection serverConnect = ServerConnection.GetOpenConnection())
                 {
 
-                    string qry = "SELECT Id,FullName FROM EmployeeDetails WHERE Surname = @surname OR Id = @id;";
+                    string qry = "SELECT Id,FullName FROM EmployeeDetails WHERE UserRole = 'employee' AND (Surname = @surname OR Id = @id);";
                     SqlCommand mySqlCommand = new SqlCommand(qry, serverConnect);
-                    mySqlCommand.Parameters.Clear();
+
                     mySqlCommand.Parameters.AddWithValue("@surname", userInput);
                     mySqlCommand.Parameters.AddWithValue("@id", userInput);
                     SqlDataReader reader = mySqlCommand.ExecuteReader();
@@ -140,9 +140,8 @@ namespace EmployeeManagementSyst
                         while (reader.Read())
                         {
                             DataRow row = dataTable.NewRow();
-                            row["id"] = reader["id"].ToString();
-                            row["Employee Name"] = reader["fullname"].ToString();
-
+                            row["Id"] = reader["Id"].ToString();
+                            row["Employee Name"] = reader["FullName"].ToString();
                             dataTable.Rows.Add(row);
                         }
                         dataGridView1.DataSource = dataTable;
