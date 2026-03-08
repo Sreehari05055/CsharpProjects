@@ -36,13 +36,14 @@
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(382, 131);
+            textBox1.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            textBox1.Location = new Point(298, 97);
             textBox1.Margin = new Padding(4);
             textBox1.MaxLength = 4;
             textBox1.Name = "textBox1";
             textBox1.PlaceholderText = "Enter 4-Digit Pin";
-            textBox1.Size = new Size(178, 31);
-            textBox1.TabIndex = 0;
+            textBox1.Size = new Size(204, 39);
+            textBox1.TabIndex = 2;
             textBox1.UseSystemPasswordChar = true;
             textBox1.TextChanged += textBox1_TextChanged;
             textBox1.KeyPress += textBox1_KeyPress_1;
@@ -50,11 +51,11 @@
             // button1
             // 
             button1.BackColor = Color.LightGray;
-            button1.Font = new Font("Microsoft YaHei UI", 9F, FontStyle.Bold);
-            button1.Location = new Point(149, 210);
+            button1.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            button1.Location = new Point(142, 177);
             button1.Margin = new Padding(4);
             button1.Name = "button1";
-            button1.Size = new Size(167, 82);
+            button1.Size = new Size(148, 76);
             button1.TabIndex = 2;
             button1.Text = "Ok";
             button1.UseVisualStyleBackColor = false;
@@ -63,11 +64,11 @@
             // button2
             // 
             button2.BackColor = Color.LightGray;
-            button2.Font = new Font("Microsoft YaHei UI", 9F, FontStyle.Bold);
-            button2.Location = new Point(346, 210);
+            button2.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            button2.Location = new Point(307, 177);
             button2.Margin = new Padding(4);
             button2.Name = "button2";
-            button2.Size = new Size(178, 82);
+            button2.Size = new Size(148, 76);
             button2.TabIndex = 5;
             button2.Text = "Cancel";
             button2.UseVisualStyleBackColor = false;
@@ -76,11 +77,11 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Microsoft YaHei UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 134);
-            label1.Location = new Point(88, 120);
+            label1.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            label1.Location = new Point(93, 100);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(274, 42);
+            label1.Size = new Size(197, 32);
             label1.TabIndex = 4;
             label1.Text = "Enter Admin ID:";
             label1.Click += Label1_Click;
@@ -90,7 +91,7 @@
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Teal;
-            ClientSize = new Size(690, 379);
+            ClientSize = new Size(627, 330);
             Controls.Add(label1);
             Controls.Add(button2);
             Controls.Add(button1);
