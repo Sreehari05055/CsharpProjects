@@ -36,11 +36,10 @@ namespace EmployeeManagementSyst
                 dataTable.Columns.Add("PhoneNumber", typeof(string));
                 dataTable.Columns.Add("Email", typeof(string));
                 dataTable.Columns.Add("HourlyRate", typeof(string));
-                dataTable.Columns.Add("ClockPin", typeof(string));
                 
                 using (SqlConnection conn = ServerConnection.GetOpenConnection())
                 {
-                    string qry = "SELECT Id, FullName, Age, PhoneNumber, Email, HourlyRate, ClockPin FROM EmployeeDetails WHERE Surname = @surname OR Id = @id;";
+                    string qry = "SELECT Id, FullName, Age, PhoneNumber, Email, HourlyRate FROM EmployeeDetails WHERE Surname = @surname OR Id = @id;";
                     SqlCommand mySqlCommand = new SqlCommand(qry, conn);
 
 
@@ -58,15 +57,12 @@ namespace EmployeeManagementSyst
                                 row["PhoneNumber"] = reader["PhoneNumber"]?.ToString();
                                 row["Email"] = reader["Email"]?.ToString();
                                 row["HourlyRate"] = reader["HourlyRate"]?.ToString();
-                                row["ClockPin"] = reader["ClockPin"]?.ToString();
                                 dataTable.Rows.Add(row);
                             }
                             dataGridView1.DataSource = dataTable;
                         }
                     conn.Close();
-
                 }
-
             }
             catch (Exception ex)
             {
@@ -85,37 +81,37 @@ namespace EmployeeManagementSyst
                 dataTable.Columns.Add("PhoneNumber", typeof(string));
                 dataTable.Columns.Add("Email", typeof(string));
                 dataTable.Columns.Add("HourlyRate", typeof(string));
-                dataTable.Columns.Add("ClockPin", typeof(string));
 
-                using (SqlConnection conn = ServerConnection.GetOpenConnection())
+                using (SqlConnection connection = ServerConnection.GetOpenConnection())
                 {
-                    string query = "SELECT Id, FullName, Age, PhoneNumber, Email, HourlyRate, ClockPin FROM EmployeeDetails ORDER BY FullName;";
-                    using (SqlCommand cmd = new SqlCommand(query, conn))
-                    using (var reader = cmd.ExecuteReader())
+
+                    string query = "SELECT Id,FullName,Age,PhoneNumber,Email,HourlyRate FROM EmployeeDetails";
+                    SqlCommand cmd = new SqlCommand(query, connection);
+                    using (SqlDataReader reader = cmd.ExecuteReader())
                     {
-                        while (reader.Read())
+                        if (reader.HasRows)
                         {
-                            var row = dataTable.NewRow();
-                            row["Id"] = reader["Id"].ToString();
-                            row["FullName"] = reader["FullName"].ToString();
-                            row["Age"] = reader["Age"]?.ToString();
-                            row["PhoneNumber"] = reader["PhoneNumber"]?.ToString();
-                            row["Email"] = reader["Email"]?.ToString();
-                            row["HourlyRate"] = reader["HourlyRate"]?.ToString();
-                            row["ClockPin"] = reader["ClockPin"]?.ToString();
-                            dataTable.Rows.Add(row);
+                            while (reader.Read())
+                            {
+                                DataRow row = dataTable.NewRow();
+                                row["Id"] = reader["Id"].ToString();
+                                row["FullName"] = reader["FullName"].ToString();
+                                row["Age"] = reader["Age"].ToString();
+                                row["PhoneNumber"] = reader["PhoneNumber"].ToString();
+                                row["Email"] = reader["Email"].ToString();
+                                row["HourlyRate"] = reader["HourlyRate"].ToString();
+                                dataTable.Rows.Add(row);
+                            }
+                            dataGridView1.DataSource = dataTable;
                         }
                     }
                 }
-
                 dataGridView1.DataSource = dataTable;
-                // mark id and clockpin as readonly
                 if (dataGridView1.Columns["Id"] != null) dataGridView1.Columns["Id"].ReadOnly = true;
-                if (dataGridView1.Columns["ClockPin"] != null) dataGridView1.Columns["ClockPin"].ReadOnly = true;
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error loading employees: " + ex.Message);
+                MessageBox.Show("Error loading data: " + ex.Message);
             }
         }
 
@@ -126,6 +122,9 @@ namespace EmployeeManagementSyst
             dataGridView1.AllowUserToAddRows = false;
             dataGridView1.CellEndEdit -= dataGridView1_CellEndEdit;
             dataGridView1.CellEndEdit += dataGridView1_CellEndEdit;
+
+            // Make the grid fill the form and distribute columns to use full width
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
             LoadAllData();
         }
