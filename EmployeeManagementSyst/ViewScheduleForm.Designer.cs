@@ -32,6 +32,7 @@
             dataGridView1 = new DataGridView();
             bindingSource1 = new BindingSource(components);
             label1 = new Label();
+            textBox1 = new TextBox();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)bindingSource1).BeginInit();
             SuspendLayout();
@@ -41,24 +42,33 @@
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.EditMode = DataGridViewEditMode.EditProgrammatically;
-            dataGridView1.Location = new Point(13, 145);
-            dataGridView1.Margin = new Padding(4, 4, 4, 4);
+            dataGridView1.Location = new Point(13, 123);
+            dataGridView1.Margin = new Padding(4);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersWidth = 62;
-            dataGridView1.Size = new Size(1130, 584);
+            dataGridView1.Size = new Size(1130, 606);
             dataGridView1.TabIndex = 0;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Microsoft YaHei UI", 26.25F, FontStyle.Bold, GraphicsUnit.Point, 134);
-            label1.Location = new Point(125, 71);
+            label1.Font = new Font("Microsoft YaHei UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 134);
+            label1.Location = new Point(265, 76);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(880, 70);
-            label1.TabIndex = 1;
-            label1.Text = "View Empolyee Work Schedules";
+            label1.Size = new Size(640, 39);
+            label1.TabIndex = 4;
+            label1.Text = "Enter Employee Code or Surname to Filter:";
+            // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(913, 84);
+            textBox1.Margin = new Padding(4);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(230, 31);
+            textBox1.TabIndex = 3;
+            textBox1.TextChanged += textBox1_TextChanged;
             // 
             // ViewScheduleForm
             // 
@@ -67,8 +77,9 @@
             BackColor = Color.Teal;
             ClientSize = new Size(1156, 742);
             Controls.Add(label1);
+            Controls.Add(textBox1);
             Controls.Add(dataGridView1);
-            Margin = new Padding(4, 4, 4, 4);
+            Margin = new Padding(4);
             Name = "ViewScheduleForm";
             Text = "ViewRota";
             Load += ViewScheduleForm_Load;
@@ -83,5 +94,6 @@
         private DataGridView dataGridView1;
         private BindingSource bindingSource1;
         private Label label1;
+        private TextBox textBox1;
     }
 }

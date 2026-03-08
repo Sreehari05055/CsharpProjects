@@ -34,119 +34,82 @@ namespace EmployeeManagementSyst
         /// The data is organized by employee name and displayed in a grid format, where each unique day/date combination 
         /// is a separate column, and the shifts are displayed under the respective day/date columns.
         /// </summary>
-        private void PopulateDataGridView()
+        private void PopulateDataGridView(string filter = null)
         {
             try
             {
                 using (SqlConnection connection = ServerConnection.GetOpenConnection())
                 {
-                    // Query to get all IDs from ScheduleInformation table
-                    string rotatableQuery = "SELECT EmployeeId FROM ScheduleInformation;";
-                    SqlCommand rotaCmd = new SqlCommand(rotatableQuery, connection);
+                    // Single query joining schedule and employee details to avoid per-employee roundtrips
+                    string query = @"
+                        SELECT si.EmployeeId, e.FullName, si.StartWork, si.FinishWork, si.DayOfWeek
+                        FROM ScheduleInformation si
+                        LEFT JOIN EmployeeDetails e ON si.EmployeeId = e.Id";
 
-                    HashSet<string> obj = new HashSet<string>();
-                    using (SqlDataReader reader = rotaCmd.ExecuteReader())
+                    // Append filter clause if a filter was provided (filter by surname only)
+                    if (!string.IsNullOrWhiteSpace(filter))
+                    {
+                        query += " WHERE e.Surname = @filter";
+                    }
+
+                    query += " ORDER BY si.StartWork, e.FullName;";
+
+                    SqlCommand cmd = new SqlCommand(query, connection);
+                    if (!string.IsNullOrWhiteSpace(filter))
+                    {
+                        cmd.Parameters.AddWithValue("@filter", filter);
+                    }
+                    Dictionary<string, Dictionary<string, string>> employeeRota = new Dictionary<string, Dictionary<string, string>>();
+                    // Map display key ("DayName date") -> date for ordering columns chronologically
+                    Dictionary<string, DateTime> allDaysDates = new Dictionary<string, DateTime>();
+
+                    using (SqlDataReader reader = cmd.ExecuteReader())
                     {
                         while (reader.Read())
                         {
-                            obj.Add(reader.GetString(reader.GetOrdinal("EmployeeId")));
+                            string employeeName = reader["FullName"] as string;
+                            if (string.IsNullOrWhiteSpace(employeeName)) continue; // skip rows without a matched employee
+
+                            DateTime shiftStart = reader.GetDateTime(reader.GetOrdinal("StartWork"));
+                            DateTime shiftEnd = reader.GetDateTime(reader.GetOrdinal("FinishWork"));
+                            string dayOfWeek = reader["DayOfWeek"]?.ToString() ?? shiftStart.DayOfWeek.ToString();
+
+                            string date = $"{shiftStart:d}";
+                            string key = $"{dayOfWeek} {date}";
+
+                            string shift = $"{shiftStart:t} - {shiftEnd:t}";
+
+                            if (!employeeRota.ContainsKey(employeeName))
+                                employeeRota[employeeName] = new Dictionary<string, string>();
+
+                            // latest value wins if multiple entries for same employee/day
+                            employeeRota[employeeName][key] = shift;
+
+                            if (!allDaysDates.ContainsKey(key))
+                                allDaysDates[key] = shiftStart.Date;
                         }
                         reader.Close();
                     }
 
-                    // Prepare queries
-                    string nameQuery = "SELECT FullName FROM EmployeeDetails WHERE Id = @id;";
-                    SqlCommand nameCmd = new SqlCommand(nameQuery, connection);
-
-                    string rotaQuery = "SELECT StartWork, FinishWork, DayOfWeek FROM ScheduleInformation WHERE EmployeeId = @id ORDER BY StartWork;";
-                    SqlCommand rotaCmdDetails = new SqlCommand(rotaQuery, connection);
-
-                    Dictionary<string, Dictionary<string, string>> employeeRota = new Dictionary<string, Dictionary<string, string>>();
-                    // Track mapping from display key to actual date for correct chronological ordering
-                    Dictionary<string, DateTime> allDaysDates = new Dictionary<string, DateTime>();
-
-                    foreach (string id in obj)
-                    {
-                        // Get the employee name
-                        nameCmd.Parameters.Clear();
-                        nameCmd.Parameters.AddWithValue("@id", id);
-                        string employeeName = "";
-
-                        using (SqlDataReader nameReader = nameCmd.ExecuteReader())
-                        {
-                            if (nameReader.Read())
-                            {
-                                employeeName = nameReader.GetString(nameReader.GetOrdinal("FullName"));
-                            }
-                            nameReader.Close();
-                        }
-
-                        if (string.IsNullOrEmpty(employeeName))
-                        {
-                            continue;
-                        }
-                        if (!employeeRota.ContainsKey(employeeName))
-                        {
-                            employeeRota[employeeName] = new Dictionary<string, string>();
-                        }
-
-                        // Get the rota details
-                        rotaCmdDetails.Parameters.Clear();
-                        rotaCmdDetails.Parameters.AddWithValue("@id", id);
-                        using (SqlDataReader rotaReader = rotaCmdDetails.ExecuteReader())
-                        {
-                            while (rotaReader.Read())
-                            {
-                                DateTime shiftStart = rotaReader.GetDateTime(rotaReader.GetOrdinal("StartWork"));
-                                DateTime shiftEnd = rotaReader.GetDateTime(rotaReader.GetOrdinal("FinishWork"));
-                                string dayOfWeek = rotaReader.GetString(rotaReader.GetOrdinal("DayOfWeek"));
-
-                                string date = $"{shiftStart:d}";
-
-                                string shift = $"{shiftStart:t} - {shiftEnd:t}";
-                                string key = $"{dayOfWeek} {date}";
-
-                                employeeRota[employeeName][key] = shift;
-                                // store the actual date (date portion only) so we can sort columns by date later
-                                if (!allDaysDates.ContainsKey(key))
-                                {
-                                    allDaysDates[key] = shiftStart.Date;
-                                }
-
-                            }
-                            rotaReader.Close();
-                        }
-                    }
                     DataTable rotaTable = new DataTable();
-
-                    // Add the Employee Name column
                     rotaTable.Columns.Add("Employee Name", typeof(string));
 
-                    // Order day/date columns by actual date (ascending)
                     var orderedDayDates = allDaysDates.OrderBy(kv => kv.Value).Select(kv => kv.Key).ToList();
-
-                    // Add columns for each day/date combination in chronological order
                     foreach (var dayDate in orderedDayDates)
-                    {
                         rotaTable.Columns.Add(dayDate, typeof(string));
-                    }
 
-                    // Add rows for each employee
-                    foreach (var employee in employeeRota)
+                    foreach (var kv in employeeRota)
                     {
                         DataRow row = rotaTable.NewRow();
-                        row["Employee Name"] = employee.Key;
-
+                        row["Employee Name"] = kv.Key;
                         foreach (var dayDate in orderedDayDates)
                         {
-                            row[dayDate] = employee.Value.ContainsKey(dayDate) ? employee.Value[dayDate] : string.Empty;
+                            row[dayDate] = kv.Value.ContainsKey(dayDate) ? kv.Value[dayDate] : string.Empty;
                         }
-
                         rotaTable.Rows.Add(row);
                     }
-                    // Bind the DataTable to the DataGridView
+
                     dataGridView1.DataSource = rotaTable;
-                    connection.Close();
                 }
             }
             catch (Exception ex)
@@ -158,6 +121,64 @@ namespace EmployeeManagementSyst
         private void ViewScheduleForm_Load(object sender, EventArgs e)
         {
             PopulateDataGridView();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            // Highlight rows that match the surname instead of reloading/clearing the grid
+            try
+            {
+                string userInput = textBox1.Text.Trim();
+                if (string.IsNullOrWhiteSpace(userInput))
+                {
+                    // clear any highlighting
+                    foreach (DataGridViewRow r in dataGridView1.Rows)
+                    {
+                        r.DefaultCellStyle.BackColor = Color.White;
+                    }
+                    return;
+                }
+
+                int firstMatchRow = -1;
+                string filter = userInput;
+                foreach (DataGridViewRow r in dataGridView1.Rows)
+                {
+                    var cell = r.Cells["Employee Name"];
+                    if (cell == null || cell.Value == null)
+                    {
+                        r.DefaultCellStyle.BackColor = Color.White;
+                        continue;
+                    }
+                    string fullName = cell.Value.ToString();
+                    string surname = fullName.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries).LastOrDefault() ?? string.Empty;
+                    if (string.Equals(surname, filter, StringComparison.OrdinalIgnoreCase))
+                    {
+                        r.DefaultCellStyle.BackColor = Color.LightYellow;
+                        if (firstMatchRow == -1) firstMatchRow = r.Index;
+                    }
+                    else
+                    {
+                        r.DefaultCellStyle.BackColor = Color.White;
+                    }
+                }
+
+                // if we found a match, move selection to first match so user sees it
+                if (firstMatchRow != -1 && dataGridView1.Rows.Count > firstMatchRow)
+                {
+                    dataGridView1.ClearSelection();
+                    dataGridView1.Rows[firstMatchRow].Selected = true;
+                    dataGridView1.CurrentCell = dataGridView1.Rows[firstMatchRow].Cells[0];
+                }
+                else
+                {
+                    // no match found: do not clear the grid, just leave highlighting cleared
+                    dataGridView1.ClearSelection();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Filter error: " + ex.Message);
+            }
         }
     }
 }
