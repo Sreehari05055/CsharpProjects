@@ -37,29 +37,30 @@
             // 
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-            dataGridView1.BackgroundColor = SystemColors.Control;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.EditMode = DataGridViewEditMode.EditProgrammatically;
-            dataGridView1.Location = new Point(105, 89);
+            dataGridView1.Location = new Point(53, 200);
             dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(551, 271);
+            dataGridView1.Size = new Size(696, 339);
             dataGridView1.TabIndex = 0;
             dataGridView1.CellClick += dataGridView1_CellClick;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(105, 50);
+            label1.Font = new Font("Microsoft YaHei UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 134);
+            label1.Location = new Point(211, 132);
             label1.Name = "label1";
-            label1.Size = new Size(168, 15);
+            label1.Size = new Size(333, 28);
             label1.TabIndex = 1;
             label1.Text = "Click On Name to Create Rota ";
             // 
             // AllEmployees
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            BackColor = Color.Teal;
+            ClientSize = new Size(859, 684);
             Controls.Add(label1);
             Controls.Add(dataGridView1);
             Name = "AllEmployees";
