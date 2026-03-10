@@ -67,7 +67,9 @@ namespace EmployeeManagementSyst
                     {
                         new EmailConfiguration().SendEmail(email, "Admin account created", $"Your admin account has been created. Clock PIN: {newPin}");
                     }
+                    new LandingPage().Show();
                     this.Close();
+
                 }
             }
             catch (Exception ex)
