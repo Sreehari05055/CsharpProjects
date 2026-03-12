@@ -39,7 +39,7 @@
             dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.EditMode = DataGridViewEditMode.EditProgrammatically;
-            dataGridView1.Location = new Point(53, 200);
+            dataGridView1.Location = new Point(40, 209);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.Size = new Size(696, 339);
             dataGridView1.TabIndex = 0;
@@ -49,7 +49,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Microsoft YaHei UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 134);
-            label1.Location = new Point(211, 132);
+            label1.Location = new Point(198, 130);
             label1.Name = "label1";
             label1.Size = new Size(333, 28);
             label1.TabIndex = 1;
