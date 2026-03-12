@@ -17,8 +17,7 @@ namespace EmployeeManagementSyst
         public AllEmployees()
         {
             InitializeComponent();
-           
-            EmployeeDetails();
+
         }
 
         /// <summary>
@@ -29,13 +28,14 @@ namespace EmployeeManagementSyst
             try
             {
                 DataTable dataTable = new DataTable();
-               
-                dataTable.Columns.Add("fullname", typeof(string));
+
+                dataTable.Columns.Add("Id", typeof(string));
+                dataTable.Columns.Add("Fullname", typeof(string));
 
 
                 using (SqlConnection serverConnect = ServerConnection.GetOpenConnection())
                 {
-       
+
                     string qry = "SELECT Id,FullName FROM EmployeeDetails;";
                     SqlCommand mySqlCommand = new SqlCommand(qry, serverConnect);
                     SqlDataReader reader = mySqlCommand.ExecuteReader();
@@ -44,13 +44,14 @@ namespace EmployeeManagementSyst
                         while (reader.Read())
                         {
                             DataRow row = dataTable.NewRow();
-                            row["fullname"] = reader["fullname"].ToString();
-                           
+                            row["Id"] = reader["Id"].ToString();
+                            row["Fullname"] = reader["Fullname"].ToString();
+
                             dataTable.Rows.Add(row);
                         }
                     }
                     else { MessageBox.Show("Employee not found"); }
-                   serverConnect.Close();
+                    serverConnect.Close();
                 }
                 dataGridView1.DataSource = dataTable;
             }
@@ -62,36 +63,75 @@ namespace EmployeeManagementSyst
         /// </summary>
         /// <param name="sender">The sender object.</param>
         /// <param name="e">Event arguments containing cell click details.</param>
-        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e) 
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {
                 // Get the current row
                 DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
-                string employeeName = row.Cells["fullname"].Value.ToString();
-              
-                using (SqlConnection serverConnect = ServerConnection.GetOpenConnection())
+                string employeeId = row.Cells["Id"].Value.ToString();
+                string employeeName = row.Cells["Fullname"].Value.ToString();
+
+                if (employeeId != null)
                 {
-         
-                    string qry = "SELECT Id FROM EmployeeDetails WHERE FullName = @fname;";
-                    SqlCommand mySqlCommand = new SqlCommand(qry, serverConnect);
-                    mySqlCommand.Parameters.AddWithValue("@fname",employeeName);
-
-                    object result = mySqlCommand.ExecuteScalar();
-
-                    if (result != null)
-                    { 
-                         string empId = result.ToString();
-                         EmployeeScheduleForm addRota = new EmployeeScheduleForm(empId);
-                        addRota.Show();
-                        this.Close();
-                    }
-                    else { MessageBox.Show("Error Finding employee ID"); }
-                    serverConnect.Close();
-                    }
-               
+                    EmployeeScheduleForm addRota = new EmployeeScheduleForm(employeeId);
+                    addRota.Show();
+                    this.Close();
                 }
+
+            }
             this.Close();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            string userInput = textBox1.Text.Trim().ToLower();
+            if (string.IsNullOrWhiteSpace(userInput))
+            {
+                EmployeeDetails();
+                return;
+            }
+
+            try
+            {
+                DataTable dataTable = new DataTable();
+                dataTable.Columns.Add("Id", typeof(string));
+                dataTable.Columns.Add("FullName", typeof(string));
+
+
+                using (SqlConnection conn = ServerConnection.GetOpenConnection())
+                {
+                    string qry = "SELECT Id, FullName FROM EmployeeDetails WHERE Surname = @surname OR Id = @id;";
+                    SqlCommand mySqlCommand = new SqlCommand(qry, conn);
+
+
+                    mySqlCommand.Parameters.AddWithValue("@surname", userInput);
+                    mySqlCommand.Parameters.AddWithValue("@id", userInput);
+                    SqlDataReader reader = mySqlCommand.ExecuteReader();
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            var row = dataTable.NewRow();
+                            row["Id"] = reader["Id"].ToString();
+                            row["FullName"] = reader["FullName"].ToString();
+                            dataTable.Rows.Add(row);
+                        }
+                        dataGridView1.DataSource = dataTable;
+                    }
+                    conn.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error searching employees: " + ex.Message);
+            }
+
+        }
+
+        private void AllEmployees_Load(object sender, EventArgs e)
+        {
+            EmployeeDetails();
         }
     }
 }

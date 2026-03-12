@@ -30,6 +30,7 @@
         {
             dataGridView1 = new DataGridView();
             label1 = new Label();
+            textBox1 = new TextBox();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -39,32 +40,47 @@
             dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.EditMode = DataGridViewEditMode.EditProgrammatically;
-            dataGridView1.Location = new Point(40, 209);
+            dataGridView1.Location = new Point(13, 132);
+            dataGridView1.Margin = new Padding(4);
             dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(696, 339);
+            dataGridView1.RowHeadersWidth = 62;
+            dataGridView1.Size = new Size(1130, 597);
             dataGridView1.TabIndex = 0;
             dataGridView1.CellClick += dataGridView1_CellClick;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Microsoft YaHei UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 134);
-            label1.Location = new Point(198, 130);
+            label1.Font = new Font("Microsoft YaHei UI", 15F, FontStyle.Bold, GraphicsUnit.Point, 134);
+            label1.Location = new Point(122, 75);
+            label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(333, 28);
-            label1.TabIndex = 1;
-            label1.Text = "Click On Name to Create Rota ";
+            label1.Size = new Size(664, 40);
+            label1.TabIndex = 4;
+            label1.Text = "Enter Employee Code or Surname to Filter: ";
+            // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(794, 84);
+            textBox1.Margin = new Padding(4);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(348, 31);
+            textBox1.TabIndex = 3;
+            textBox1.TextChanged += textBox1_TextChanged;
             // 
             // AllEmployees
             // 
-            AutoScaleDimensions = new SizeF(7F, 17F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Teal;
-            ClientSize = new Size(859, 684);
+            ClientSize = new Size(1156, 742);
             Controls.Add(label1);
+            Controls.Add(textBox1);
             Controls.Add(dataGridView1);
+            Margin = new Padding(4);
             Name = "AllEmployees";
             Text = "AllEmployees";
+            Load += AllEmployees_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -74,5 +90,6 @@
 
         private DataGridView dataGridView1;
         private Label label1;
+        private TextBox textBox1;
     }
 }
