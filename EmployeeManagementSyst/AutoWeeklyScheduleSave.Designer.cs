@@ -38,7 +38,7 @@
             // 
             button1.BackColor = Color.LightGray;
             button1.Location = new Point(186, 380);
-            button1.Margin = new Padding(4, 4, 4, 4);
+            button1.Margin = new Padding(4);
             button1.Name = "button1";
             button1.Size = new Size(196, 63);
             button1.TabIndex = 0;
@@ -50,7 +50,7 @@
             // 
             button2.BackColor = Color.LightGray;
             button2.Location = new Point(390, 380);
-            button2.Margin = new Padding(4, 4, 4, 4);
+            button2.Margin = new Padding(4);
             button2.Name = "button2";
             button2.Size = new Size(198, 63);
             button2.TabIndex = 4;
@@ -64,7 +64,7 @@
             comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBox1.FormattingEnabled = true;
             comboBox1.Location = new Point(134, 175);
-            comboBox1.Margin = new Padding(4, 4, 4, 4);
+            comboBox1.Margin = new Padding(4);
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(525, 33);
             comboBox1.TabIndex = 2;
@@ -73,12 +73,12 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Microsoft YaHei UI", 15F, FontStyle.Bold, GraphicsUnit.Point, 134);
-            label1.Location = new Point(134, 118);
+            label1.Location = new Point(51, 108);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(536, 40);
+            label1.Size = new Size(693, 40);
             label1.TabIndex = 3;
-            label1.Text = "Schedule Day to Save Weekly Rota";
+            label1.Text = "Schedule Day to Save Weekly Work Schedule";
             // 
             // AutoWeeklyScheduleSave
             // 
@@ -90,7 +90,7 @@
             Controls.Add(comboBox1);
             Controls.Add(button2);
             Controls.Add(button1);
-            Margin = new Padding(4, 4, 4, 4);
+            Margin = new Padding(4);
             Name = "AutoWeeklyScheduleSave";
             Text = "WeeklySaveConfirm";
             ResumeLayout(false);

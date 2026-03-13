@@ -66,7 +66,7 @@
             label1.Name = "label1";
             label1.Size = new Size(163, 28);
             label1.TabIndex = 0;
-            label1.Text = "Empolyee Age";
+            label1.Text = "Employee Age";
             label1.TextAlign = ContentAlignment.TopCenter;
             // 
             // label2
@@ -78,7 +78,7 @@
             label2.Name = "label2";
             label2.Size = new Size(286, 28);
             label2.TabIndex = 1;
-            label2.Text = "Empolyee Phone-Number";
+            label2.Text = "Employee Phone-Number";
             // 
             // label3
             // 
@@ -98,7 +98,7 @@
             label4.Name = "label4";
             label4.Size = new Size(247, 28);
             label4.TabIndex = 3;
-            label4.Text = "Empolyee Hourly Rate";
+            label4.Text = "Employee Hourly Rate";
             label4.Click += label4_Click;
             // 
             // label5
@@ -121,7 +121,7 @@
             label6.Name = "label6";
             label6.Size = new Size(184, 28);
             label6.TabIndex = 5;
-            label6.Text = "Empolyee Name";
+            label6.Text = "Employee Name";
             // 
             // label7
             // 
@@ -161,7 +161,7 @@
             // 
             textBox1.BackColor = Color.LightGray;
             textBox1.Location = new Point(911, 237);
-            textBox1.Margin = new Padding(4, 4, 4, 4);
+            textBox1.Margin = new Padding(4);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(255, 31);
             textBox1.TabIndex = 9;
@@ -170,7 +170,7 @@
             // 
             textBox2.BackColor = Color.LightGray;
             textBox2.Location = new Point(911, 290);
-            textBox2.Margin = new Padding(4, 4, 4, 4);
+            textBox2.Margin = new Padding(4);
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(255, 31);
             textBox2.TabIndex = 10;
@@ -179,7 +179,7 @@
             // 
             textBox3.BackColor = Color.LightGray;
             textBox3.Location = new Point(911, 343);
-            textBox3.Margin = new Padding(4, 4, 4, 4);
+            textBox3.Margin = new Padding(4);
             textBox3.Name = "textBox3";
             textBox3.Size = new Size(255, 31);
             textBox3.TabIndex = 11;
@@ -188,7 +188,7 @@
             // 
             textBox4.BackColor = Color.LightGray;
             textBox4.Location = new Point(911, 396);
-            textBox4.Margin = new Padding(4, 4, 4, 4);
+            textBox4.Margin = new Padding(4);
             textBox4.Name = "textBox4";
             textBox4.Size = new Size(255, 31);
             textBox4.TabIndex = 12;
@@ -197,7 +197,7 @@
             // 
             textBox5.BackColor = Color.LightGray;
             textBox5.Location = new Point(911, 450);
-            textBox5.Margin = new Padding(4, 4, 4, 4);
+            textBox5.Margin = new Padding(4);
             textBox5.Name = "textBox5";
             textBox5.Size = new Size(255, 31);
             textBox5.TabIndex = 13;
@@ -206,7 +206,7 @@
             // 
             textBox6.BackColor = Color.LightGray;
             textBox6.Location = new Point(911, 501);
-            textBox6.Margin = new Padding(4, 4, 4, 4);
+            textBox6.Margin = new Padding(4);
             textBox6.Name = "textBox6";
             textBox6.Size = new Size(255, 31);
             textBox6.TabIndex = 14;
@@ -215,7 +215,7 @@
             // 
             textBox7.BackColor = Color.LightGray;
             textBox7.Location = new Point(911, 553);
-            textBox7.Margin = new Padding(4, 4, 4, 4);
+            textBox7.Margin = new Padding(4);
             textBox7.Name = "textBox7";
             textBox7.Size = new Size(255, 31);
             textBox7.TabIndex = 15;
@@ -224,7 +224,7 @@
             // 
             textBox8.BackColor = Color.LightGray;
             textBox8.Location = new Point(911, 604);
-            textBox8.Margin = new Padding(4, 4, 4, 4);
+            textBox8.Margin = new Padding(4);
             textBox8.Name = "textBox8";
             textBox8.Size = new Size(255, 31);
             textBox8.TabIndex = 16;
@@ -233,7 +233,7 @@
             // 
             textBox9.BackColor = Color.LightGray;
             textBox9.Location = new Point(911, 659);
-            textBox9.Margin = new Padding(4, 4, 4, 4);
+            textBox9.Margin = new Padding(4);
             textBox9.Name = "textBox9";
             textBox9.Size = new Size(255, 31);
             textBox9.TabIndex = 17;
@@ -247,13 +247,13 @@
             label10.Name = "label10";
             label10.Size = new Size(269, 28);
             label10.TabIndex = 18;
-            label10.Text = "Empolyee Email Address";
+            label10.Text = "Employee Email Address";
             // 
             // button2
             // 
             button2.BackColor = SystemColors.ControlDark;
             button2.Location = new Point(929, 859);
-            button2.Margin = new Padding(4, 4, 4, 4);
+            button2.Margin = new Padding(4);
             button2.Name = "button2";
             button2.Size = new Size(240, 99);
             button2.TabIndex = 20;
@@ -265,7 +265,7 @@
             // 
             splitter1.BackColor = Color.LightSeaGreen;
             splitter1.Location = new Point(0, 0);
-            splitter1.Margin = new Padding(4, 4, 4, 4);
+            splitter1.Margin = new Padding(4);
             splitter1.Name = "splitter1";
             splitter1.Size = new Size(469, 1006);
             splitter1.TabIndex = 23;
@@ -295,14 +295,14 @@
             label11.Name = "label11";
             label11.Size = new Size(345, 58);
             label11.TabIndex = 25;
-            label11.Text = "Add Empolyee";
+            label11.Text = "Add Employee";
             label11.TextAlign = ContentAlignment.TopCenter;
             // 
             // button1
             // 
             button1.BackColor = SystemColors.ControlDark;
             button1.Location = new Point(613, 859);
-            button1.Margin = new Padding(4, 4, 4, 4);
+            button1.Margin = new Padding(4);
             button1.Name = "button1";
             button1.Size = new Size(240, 99);
             button1.TabIndex = 24;
@@ -340,7 +340,7 @@
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
-            Margin = new Padding(4, 4, 4, 4);
+            Margin = new Padding(4);
             Name = "AddEmployeeForm";
             Text = "AddEmp";
             Load += AddEmp_Load;

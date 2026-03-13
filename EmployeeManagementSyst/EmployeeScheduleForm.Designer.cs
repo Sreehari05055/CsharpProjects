@@ -45,7 +45,7 @@
             // 
             dateTimePicker1.Font = new Font("Microsoft YaHei UI", 14.25F, FontStyle.Bold);
             dateTimePicker1.Location = new Point(904, 334);
-            dateTimePicker1.Margin = new Padding(4, 4, 4, 4);
+            dateTimePicker1.Margin = new Padding(4);
             dateTimePicker1.Name = "dateTimePicker1";
             dateTimePicker1.Size = new Size(284, 44);
             dateTimePicker1.TabIndex = 0;
@@ -54,7 +54,7 @@
             // 
             button1.BackColor = Color.LightGray;
             button1.Location = new Point(501, 816);
-            button1.Margin = new Padding(4, 4, 4, 4);
+            button1.Margin = new Padding(4);
             button1.Name = "button1";
             button1.Size = new Size(240, 99);
             button1.TabIndex = 1;
@@ -66,7 +66,7 @@
             // 
             button2.BackColor = Color.LightGray;
             button2.Location = new Point(950, 816);
-            button2.Margin = new Padding(4, 4, 4, 4);
+            button2.Margin = new Padding(4);
             button2.Name = "button2";
             button2.Size = new Size(240, 99);
             button2.TabIndex = 2;
@@ -79,7 +79,7 @@
             dateTimePicker2.Font = new Font("Microsoft YaHei UI", 14.25F, FontStyle.Bold);
             dateTimePicker2.Format = DateTimePickerFormat.Custom;
             dateTimePicker2.Location = new Point(904, 491);
-            dateTimePicker2.Margin = new Padding(4, 4, 4, 4);
+            dateTimePicker2.Margin = new Padding(4);
             dateTimePicker2.Name = "dateTimePicker2";
             dateTimePicker2.ShowUpDown = true;
             dateTimePicker2.Size = new Size(284, 44);
@@ -124,7 +124,7 @@
             dateTimePicker3.Font = new Font("Microsoft YaHei UI", 14.25F, FontStyle.Bold);
             dateTimePicker3.Format = DateTimePickerFormat.Custom;
             dateTimePicker3.Location = new Point(904, 410);
-            dateTimePicker3.Margin = new Padding(4, 4, 4, 4);
+            dateTimePicker3.Margin = new Padding(4);
             dateTimePicker3.Name = "dateTimePicker3";
             dateTimePicker3.ShowUpDown = true;
             dateTimePicker3.Size = new Size(284, 44);
@@ -150,15 +150,15 @@
             label5.Location = new Point(71, 393);
             label5.Margin = new Padding(4, 0, 4, 0);
             label5.Name = "label5";
-            label5.Size = new Size(306, 70);
+            label5.Size = new Size(290, 70);
             label5.TabIndex = 9;
-            label5.Text = "Empolyee ";
+            label5.Text = "Employee";
             // 
             // splitter1
             // 
             splitter1.BackColor = Color.LightSeaGreen;
             splitter1.Location = new Point(0, 0);
-            splitter1.Margin = new Padding(4, 4, 4, 4);
+            splitter1.Margin = new Padding(4);
             splitter1.Name = "splitter1";
             splitter1.Size = new Size(433, 1006);
             splitter1.TabIndex = 10;
@@ -181,7 +181,7 @@
             Controls.Add(button1);
             Controls.Add(dateTimePicker1);
             Controls.Add(splitter1);
-            Margin = new Padding(4, 4, 4, 4);
+            Margin = new Padding(4);
             Name = "EmployeeScheduleForm";
             Text = "AddRota";
             ResumeLayout(false);
