@@ -42,7 +42,7 @@ namespace EmployeeManagementSyst
                 {
                     // Single query joining schedule and employee details to avoid per-employee roundtrips
                     string query = @"
-                        SELECT si.EmployeeId, e.FullName, si.StartWork, si.FinishWork, si.DayOfWeek
+                        SELECT si.Id, si.EmployeeId, e.FullName, si.StartWork, si.FinishWork, si.DayOfWeek
                         FROM ScheduleInformation si
                         LEFT JOIN EmployeeDetails e ON si.EmployeeId = e.Id";
 
@@ -60,6 +60,8 @@ namespace EmployeeManagementSyst
                         cmd.Parameters.AddWithValue("@filter", filter);
                     }
                     Dictionary<string, Dictionary<string, string>> employeeRota = new Dictionary<string, Dictionary<string, string>>();
+                    // parallel map to keep schedule Id for each employee/day cell so we can delete later
+                    Dictionary<string, Dictionary<string, int>> employeeRotaIds = new Dictionary<string, Dictionary<string, int>>();
                     // Map display key ("DayName date") -> date for ordering columns chronologically
                     Dictionary<string, DateTime> allDaysDates = new Dictionary<string, DateTime>();
 
@@ -70,6 +72,7 @@ namespace EmployeeManagementSyst
                             string employeeName = reader["FullName"] as string;
                             if (string.IsNullOrWhiteSpace(employeeName)) continue; // skip rows without a matched employee
 
+                            int scheduleId = reader.GetInt32(reader.GetOrdinal("Id"));
                             DateTime shiftStart = reader.GetDateTime(reader.GetOrdinal("StartWork"));
                             DateTime shiftEnd = reader.GetDateTime(reader.GetOrdinal("FinishWork"));
                             string dayOfWeek = reader["DayOfWeek"]?.ToString() ?? shiftStart.DayOfWeek.ToString();
@@ -81,9 +84,13 @@ namespace EmployeeManagementSyst
 
                             if (!employeeRota.ContainsKey(employeeName))
                                 employeeRota[employeeName] = new Dictionary<string, string>();
+                            if (!employeeRotaIds.ContainsKey(employeeName))
+                                employeeRotaIds[employeeName] = new Dictionary<string, int>();
 
                             // latest value wins if multiple entries for same employee/day
                             employeeRota[employeeName][key] = shift;
+                            // store schedule id for this employee/day cell
+                            employeeRotaIds[employeeName][key] = scheduleId;
 
                             if (!allDaysDates.ContainsKey(key))
                                 allDaysDates[key] = shiftStart.Date;
@@ -110,6 +117,28 @@ namespace EmployeeManagementSyst
                     }
 
                     dataGridView1.DataSource = rotaTable;
+
+                    // After binding, attach schedule Id to each cell's Tag (but do not show id column)
+                    // First ensure DataGridView has been created with expected columns
+                    for (int r = 0; r < dataGridView1.Rows.Count; r++)
+                    {
+                        var gridRow = dataGridView1.Rows[r];
+                        var empNameObj = gridRow.Cells[0].Value;
+                        if (empNameObj == null) continue;
+                        string empName = empNameObj.ToString();
+                        for (int c = 1; c < dataGridView1.Columns.Count; c++)
+                        {
+                            var colName = dataGridView1.Columns[c].Name;
+                            if (employeeRotaIds.TryGetValue(empName, out var map) && map.TryGetValue(colName, out var id))
+                            {
+                                gridRow.Cells[c].Tag = id;
+                            }
+                            else
+                            {
+                                gridRow.Cells[c].Tag = null;
+                            }
+                        }
+                    }
                 }
             }
             catch (Exception ex)
@@ -178,6 +207,55 @@ namespace EmployeeManagementSyst
             catch (Exception ex)
             {
                 MessageBox.Show("Filter error: " + ex.Message);
+            }
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                // ignore header or out-of-range clicks
+                if (e.RowIndex < 0 || e.ColumnIndex <= 0) return; // column 0 is employee name
+
+                var cell = dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex];
+                if (cell == null) return;
+
+                // expect Tag to contain schedule Id
+                if (cell.Tag == null) return;
+                if (!(cell.Tag is int scheduleId)) return;
+
+                var confirm = MessageBox.Show($"Delete this schedule entry?", "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (confirm != DialogResult.Yes) return;
+
+                // perform delete
+                DeleteScheduleById(scheduleId);
+
+                // refresh view
+                PopulateDataGridView();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error deleting schedule: " + ex.Message);
+            }
+        }
+
+        private void DeleteScheduleById(int id)
+        {
+            try
+            {
+                using (var conn = ServerConnection.GetOpenConnection())
+                {
+                    string del = "DELETE FROM ScheduleInformation WHERE Id = @id";
+                    using (var cmd = new SqlCommand(del, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@id", id);
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new InvalidOperationException("Failed to delete schedule", ex);
             }
         }
     }

@@ -51,7 +51,7 @@
             button1.BackColor = Color.LightGray;
             button1.Font = new Font("Microsoft YaHei UI", 9F, FontStyle.Bold);
             button1.Location = new Point(571, 115);
-            button1.Margin = new Padding(4, 4, 4, 4);
+            button1.Margin = new Padding(4);
             button1.Name = "button1";
             button1.Size = new Size(277, 90);
             button1.TabIndex = 0;
@@ -65,7 +65,7 @@
             button2.BackColor = Color.LightGray;
             button2.Font = new Font("Microsoft YaHei UI", 9F, FontStyle.Bold);
             button2.Location = new Point(571, 237);
-            button2.Margin = new Padding(4, 4, 4, 4);
+            button2.Margin = new Padding(4);
             button2.Name = "button2";
             button2.Size = new Size(277, 90);
             button2.TabIndex = 1;
@@ -79,7 +79,7 @@
             button3.BackColor = Color.LightGray;
             button3.Font = new Font("Microsoft YaHei UI", 9F, FontStyle.Bold);
             button3.Location = new Point(571, 363);
-            button3.Margin = new Padding(4, 4, 4, 4);
+            button3.Margin = new Padding(4);
             button3.Name = "button3";
             button3.Size = new Size(277, 90);
             button3.TabIndex = 2;
@@ -93,7 +93,7 @@
             button4.BackColor = Color.LightGray;
             button4.Font = new Font("Microsoft YaHei UI", 9F, FontStyle.Bold);
             button4.Location = new Point(571, 484);
-            button4.Margin = new Padding(4, 4, 4, 4);
+            button4.Margin = new Padding(4);
             button4.Name = "button4";
             button4.Size = new Size(277, 90);
             button4.TabIndex = 3;
@@ -107,11 +107,11 @@
             button5.BackColor = Color.LightGray;
             button5.Font = new Font("Microsoft YaHei UI", 9F, FontStyle.Bold);
             button5.Location = new Point(571, 603);
-            button5.Margin = new Padding(4, 4, 4, 4);
+            button5.Margin = new Padding(4);
             button5.Name = "button5";
             button5.Size = new Size(277, 90);
             button5.TabIndex = 4;
-            button5.Text = "View Work Schedule";
+            button5.Text = "View/Delete Work Schedule";
             button5.UseVisualStyleBackColor = false;
             button5.Click += ViewRota_Click;
             // 
@@ -121,7 +121,7 @@
             button6.BackColor = Color.LightGray;
             button6.Font = new Font("Microsoft YaHei UI", 9F, FontStyle.Bold);
             button6.Location = new Point(571, 726);
-            button6.Margin = new Padding(4, 4, 4, 4);
+            button6.Margin = new Padding(4);
             button6.Name = "button6";
             button6.Size = new Size(277, 90);
             button6.TabIndex = 5;
@@ -135,7 +135,7 @@
             button7.BackColor = Color.LightGray;
             button7.Font = new Font("Microsoft YaHei UI", 9F, FontStyle.Bold);
             button7.Location = new Point(879, 115);
-            button7.Margin = new Padding(4, 4, 4, 4);
+            button7.Margin = new Padding(4);
             button7.Name = "button7";
             button7.Size = new Size(277, 90);
             button7.TabIndex = 6;
@@ -149,7 +149,7 @@
             button8.BackColor = Color.LightGray;
             button8.Font = new Font("Microsoft YaHei UI", 9F, FontStyle.Bold);
             button8.Location = new Point(879, 237);
-            button8.Margin = new Padding(4, 4, 4, 4);
+            button8.Margin = new Padding(4);
             button8.Name = "button8";
             button8.Size = new Size(277, 90);
             button8.TabIndex = 7;
@@ -163,7 +163,7 @@
             button9.BackColor = Color.LightGray;
             button9.Font = new Font("Microsoft YaHei UI", 9F, FontStyle.Bold);
             button9.Location = new Point(879, 363);
-            button9.Margin = new Padding(4, 4, 4, 4);
+            button9.Margin = new Padding(4);
             button9.Name = "button9";
             button9.Size = new Size(277, 90);
             button9.TabIndex = 8;
@@ -177,7 +177,7 @@
             button10.BackColor = Color.LightGray;
             button10.Font = new Font("Microsoft YaHei UI", 9F, FontStyle.Bold);
             button10.Location = new Point(879, 484);
-            button10.Margin = new Padding(4, 4, 4, 4);
+            button10.Margin = new Padding(4);
             button10.Name = "button10";
             button10.Size = new Size(277, 90);
             button10.TabIndex = 9;
@@ -190,7 +190,7 @@
             button11.BackColor = Color.LightGray;
             button11.Font = new Font("Microsoft YaHei UI", 9F, FontStyle.Bold);
             button11.Location = new Point(879, 603);
-            button11.Margin = new Padding(4, 4, 4, 4);
+            button11.Margin = new Padding(4);
             button11.Name = "button11";
             button11.Size = new Size(277, 90);
             button11.TabIndex = 10;
@@ -203,7 +203,7 @@
             button12.BackColor = Color.LightGray;
             button12.Font = new Font("Microsoft YaHei UI", 9F, FontStyle.Bold);
             button12.Location = new Point(879, 726);
-            button12.Margin = new Padding(4, 4, 4, 4);
+            button12.Margin = new Padding(4);
             button12.Name = "button12";
             button12.Size = new Size(277, 90);
             button12.TabIndex = 11;
@@ -216,7 +216,7 @@
             button13.BackColor = Color.LightGray;
             button13.Font = new Font("Microsoft YaHei UI", 9F, FontStyle.Bold);
             button13.Location = new Point(571, 853);
-            button13.Margin = new Padding(4, 4, 4, 4);
+            button13.Margin = new Padding(4);
             button13.Name = "button13";
             button13.Size = new Size(584, 91);
             button13.TabIndex = 12;
@@ -240,7 +240,7 @@
             // 
             splitter1.BackColor = Color.LightSeaGreen;
             splitter1.Location = new Point(0, 0);
-            splitter1.Margin = new Padding(4, 4, 4, 4);
+            splitter1.Margin = new Padding(4);
             splitter1.Name = "splitter1";
             splitter1.Size = new Size(417, 1006);
             splitter1.TabIndex = 14;
@@ -267,7 +267,7 @@
             Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(splitter1);
-            Margin = new Padding(4, 4, 4, 4);
+            Margin = new Padding(4);
             Name = "AdminForm";
             Text = "AdminPage";
             Load += AdminForm_Load;
