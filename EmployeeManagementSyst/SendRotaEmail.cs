@@ -14,11 +14,9 @@ namespace EmployeeManagementSyst
 {
     public partial class SendRotaEmail : Form
     {
-      
+
         public SendRotaEmail()
         {
-            InitializeComponent();
-
 
         }
         /// <summary>
@@ -31,7 +29,7 @@ namespace EmployeeManagementSyst
             {
                 using (SqlConnection conn = ServerConnection.GetOpenConnection())
                 {
-                   
+
                     string rotatableQuery = "SELECT EmployeeId FROM ScheduleInformation;";
                     SqlCommand rotaCmd = new SqlCommand(rotatableQuery, conn);
 
